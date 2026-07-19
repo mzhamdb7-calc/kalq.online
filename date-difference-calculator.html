@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate the exact difference between two dates in years, months, weeks, days and business days. Include times, time zones, weekends and live public holidays, including Malaysian subdivisions where available.">
+  <meta name="keywords" content="date difference calculator, days between dates, working days calculator, business days between dates, weeks between dates, Malaysia public holiday calculator, inclusive date calculator">
+  <meta name="theme-color" content="#087ea4">
+  <meta property="og:title" content="Date Difference Calculator – Days, Weeks & Working Days">
+  <meta property="og:description" content="Find the exact duration between two dates, count business days, exclude weekends and live public holidays, and print a detailed report.">
+  <meta property="og:type" content="website">
+  <title>Date Difference Calculator – Days, Weeks, Time & Working Days | KalQ</title>
+  <style>
+    :root {
+      --bg:#f2fbff; --surface:#fff; --surface-soft:#f7fdff; --text:#101828; --muted:#667085;
+      --line:#dfe5ef; --line-strong:#cdd6e5; --primary:#087ea4; --primary-dark:#0284c7;
+      --primary-soft:#d9edf4; --green:#17a85b; --green-soft:#eefbf3; --orange:#c77b00;
+      --red:#c9363b; --purple:#6423c7; --cyan:#087ea4; --shadow:0 10px 30px rgba(15,23,42,.06);
+      --radius:14px; --sidebar:220px; --rightbar:350px; --topbar:64px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;min-width:320px;color:var(--text);background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+    button,input,select{font:inherit} button{cursor:pointer} a{color:inherit;text-decoration:none} .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.icon-sprite{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}.ui-icon{width:1em;height:1em;display:inline-block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.14em;flex:0 0 auto}.nav-icon{display:inline-grid;place-items:center}.nav-icon .ui-icon{width:18px;height:18px}.icon-btn .ui-icon,.lang-btn .ui-icon,.small-btn .ui-icon,.wide-btn .ui-icon{width:18px;height:18px}.metric-icon .ui-icon{width:21px;height:21px}.section-icon{display:inline-grid;place-items:center;color:var(--primary)}.section-icon .ui-icon{width:18px;height:18px}.status-dot .ui-icon{width:11px;height:11px}.external-icon{width:14px;height:14px;margin-left:5px}.brand .ui-icon{width:18px;height:18px}.lang-btn .chevron-icon{width:14px;height:14px}.search .ui-icon{width:17px;height:17px}.report-brand .ui-icon{width:15px;height:15px}
+
+    /* Colorful icon system */
+    .search > .ui-icon{color:#087ea4;filter:drop-shadow(0 2px 4px rgba(14,165,233,.18))}
+    .lang-btn > .ui-icon:first-child{color:#087ea4}
+    .lang-btn .chevron-icon{color:#6423c7}
+    .top-actions .icon-btn{border-color:transparent;box-shadow:0 3px 10px rgba(15,23,42,.05)}
+    .top-actions .icon-btn:nth-of-type(2){color:#6423c7;background:#e7ddf6;border-color:#e4d8ff}
+    .top-actions .icon-btn:nth-of-type(3){color:#ef7d1a;background:#fff4e8;border-color:#ffe0bf}
+    .top-actions .icon-btn:nth-of-type(4){color:#087ea4;background:#d9edf4;border-color:#acd9e6}
+    .top-actions .icon-btn:hover{transform:translateY(-1px);filter:saturate(1.12)}
+
+    .nav-item{gap:10px}
+    .nav-icon{width:30px;height:30px;border-radius:9px;border:1px solid transparent;box-shadow:0 3px 9px rgba(15,23,42,.05)}
+    .nav-icon .ui-icon{width:16px;height:16px}
+    .nav-item:nth-child(1) .nav-icon{color:#087ea4;background:#d9edf4;border-color:#bae6fd}
+    .nav-item:nth-child(2) .nav-icon{color:#17a85b;background:#eefbf3;border-color:#d3f1df}
+    .nav-item:nth-child(3) .nav-icon{color:#6423c7;background:#e7ddf6;border-color:#cdb9ed}
+    .nav-item:nth-child(4) .nav-icon{color:#c9363b;background:#f6dcde;border-color:#edb7ba}
+    .nav-item:nth-child(5) .nav-icon{color:#c77b00;background:#f4e6c8;border-color:#e4ce9b}
+    .nav-item:nth-child(6) .nav-icon{color:#087ea4;background:#d9edf4;border-color:#acd9e6}
+    .nav-item:nth-child(7) .nav-icon{color:#a85b04;background:#f1dfca;border-color:#e1c19e}
+    .nav-item:nth-child(8) .nav-icon{color:#0e7490;background:#d7edf2;border-color:#a7d8e0}
+    .nav-item:nth-child(9) .nav-icon{color:#4f46c8;background:#dfe2f7;border-color:#c1c4e6}
+    .nav-item:nth-child(10) .nav-icon{color:#c72e78;background:#f3dce8;border-color:#e7b5ce}
+    .nav-item:nth-child(11) .nav-icon{color:#1d4ed8;background:#dce5f5;border-color:#b8c8e5}
+    .nav-item:nth-child(12) .nav-icon{color:#0b8f66;background:#d8eee7;border-color:#abdcca}
+    .nav-item:nth-child(13) .nav-icon{color:#cf2947;background:#f4dce2;border-color:#e6aeb9}
+    .nav-item:nth-child(14) .nav-icon{color:#8b5cf6;background:#f5f1ff;border-color:#e3d9ff}
+    .nav-item.active .nav-icon{background:linear-gradient(135deg,#17a85b,#087ea4);color:#fff;border-color:transparent;box-shadow:0 6px 14px rgba(14,165,233,.20)}
+
+    .title-icon{background:linear-gradient(135deg,#eef5ff,#ecfff5,#fff6e8);border-color:#cfe0fa;color:#087ea4}
+    .title-icon .ui-icon{filter:drop-shadow(0 3px 5px rgba(14,165,233,.18))}
+    #bookmarkBtn{color:#6423c7;background:#f6f1ff;border-color:#e6dcff}
+    #shareTopBtn{color:#087ea4;background:#edfaff;border-color:#d5f1fb}
+
+    .metric-card:nth-child(1) .metric-icon{color:#087ea4!important;background:linear-gradient(135deg,#d9edf4,#e9f8ff)!important;border:1px solid #d7e7ff}
+    .metric-card:nth-child(2) .metric-icon{color:#6423c7!important;background:linear-gradient(135deg,#e7ddf6,#fbf0ff)!important;border:1px solid #cdb9ed}
+    .metric-card:nth-child(3) .metric-icon{color:#c77b00!important;background:linear-gradient(135deg,#f4e6c8,#fff0dc)!important;border:1px solid #ffe4ae}
+    .metric-card:nth-child(4) .metric-icon{color:#17a85b!important;background:linear-gradient(135deg,#effbf4,#e9fff5)!important;border:1px solid #d2f0df}
+    .metric-icon{box-shadow:0 5px 13px rgba(15,23,42,.07)}
+
+    .section-icon{width:30px;height:30px;border-radius:9px;background:#d9edf4;border:1px solid #d7e7ff;color:#087ea4;box-shadow:0 3px 9px rgba(15,23,42,.05)}
+    .chart-card .section-icon{color:#087ea4;background:#d9edf4;border-color:#d7e7ff}
+    .analysis-card .section-icon{color:#17a85b;background:#eafaf1;border-color:#ccebd8}
+    .composition-card .section-icon{color:#6423c7!important;background:#e7ddf6;border-color:#cdb9ed}
+    .comparison-card .section-icon{color:#087ea4!important;background:#d9edf4;border-color:#acd9e6}
+
+    .small-btn .ui-icon,.wide-btn .ui-icon,.icon-btn .ui-icon,.lang-btn .ui-icon{filter:drop-shadow(0 2px 3px rgba(15,23,42,.08))}
+    #downloadCsvBtn{color:#087ea4;background:#d9edf4;border-color:#d5e5ff}
+    #downloadCsvBtn .ui-icon{color:#087ea4}
+    #resetBtn .ui-icon{color:#087ea4;background:#d9edf4;border-radius:6px;padding:3px;box-sizing:content-box}
+    #viewReportBtn .ui-icon{color:#6423c7;background:#e7ddf6;border-radius:6px;padding:3px;box-sizing:content-box}
+    #savePdfBtn .ui-icon{color:#fff;background:rgba(255,255,255,.17);border-radius:6px;padding:3px;box-sizing:content-box}
+    #printReportBtn .ui-icon{color:#17a85b;background:#eefbf3;border-radius:6px;padding:3px;box-sizing:content-box}
+    #shareResultBtn .ui-icon{color:#087ea4;background:#d9edf4;border-radius:6px;padding:3px;box-sizing:content-box}
+    #modalSavePdfBtn .ui-icon{color:#fff}
+    #modalPrintBtn .ui-icon{color:#17a85b}
+    #modalCloseBtn .ui-icon{color:#c9363b}
+
+    .reference-link:nth-child(1) .external-icon{color:#087ea4}
+    .reference-link:nth-child(2) .external-icon{color:#17a85b}
+    .reference-link:nth-child(3) .external-icon{color:#6423c7}
+    .reference-link:hover .external-icon{transform:translate(2px,-2px)}
+    .external-icon{transition:transform .18s ease}
+
+    body.dark .nav-icon,body.dark .section-icon,body.dark #bookmarkBtn,body.dark #shareTopBtn,body.dark #downloadCsvBtn{filter:saturate(1.15);box-shadow:none}
+
+    .topbar{position:sticky;top:0;z-index:50;height:var(--topbar);display:grid;grid-template-columns:var(--sidebar) minmax(260px,520px) 1fr auto;align-items:center;gap:18px;padding:0 20px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);backdrop-filter:blur(14px)}
+    .brand{display:flex;align-items:center;gap:10px;color:#1256d8;font-weight:800;font-size:21px;letter-spacing:-.02em}.brand-mark{width:29px;height:29px;display:grid;place-items:center;color:white;border-radius:50%;background:conic-gradient(from 180deg,#087ea4,#18a9ff,#087ea4);box-shadow:0 5px 14px rgba(14,165,233,.25);font-size:16px}
+    .search{height:42px;display:flex;align-items:center;gap:9px;padding:0 13px;color:var(--muted);border:1px solid var(--line);border-radius:11px;background:#f8faff}.search input{width:100%;border:0;outline:0;background:transparent;color:var(--text)}.kbd{min-width:24px;padding:2px 7px;border:1px solid var(--line);border-radius:6px;background:white;color:#98a2b3;font-size:12px;text-align:center}.top-spacer{min-width:10px}.top-actions{display:flex;align-items:center;gap:9px}.icon-btn,.lang-btn{height:38px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid transparent;border-radius:10px;background:transparent;color:#344054}.icon-btn{width:38px}.icon-btn:hover,.lang-btn:hover{background:var(--surface-soft);border-color:var(--line)}
+    .app-shell{display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr) var(--rightbar);min-height:calc(100vh - var(--topbar))}.sidebar{position:sticky;top:var(--topbar);align-self:start;height:calc(100vh - var(--topbar));overflow:auto;padding:16px 14px;border-right:1px solid var(--line);background:var(--surface)}.nav-list{display:grid;gap:4px}.nav-item{min-height:42px;display:flex;align-items:center;gap:11px;padding:0 12px;border-radius:10px;color:#475467;font-size:14px;font-weight:500}.nav-item:hover{background:#f7f9fc}.nav-item.active{color:var(--primary);background:var(--primary-soft);font-weight:700}.nav-icon{width:20px;text-align:center;font-size:17px}.sidebar-card{margin-top:22px;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fbfcff}.sidebar-card h3{margin:0 0 9px;font-size:13px;color:var(--primary)}.sidebar-card p{margin:0;color:var(--muted);font-size:12px}.shortcut-list{display:grid;gap:10px;margin-top:12px}.shortcut{display:grid;grid-template-columns:32px 1fr;gap:9px;align-items:center}.shortcut-icon{width:32px;height:32px;display:grid;place-items:center;border-radius:8px;background:white;border:1px solid var(--line)}.shortcut strong{display:block;font-size:12px}.shortcut span{color:var(--muted);font-size:11px}
+    main{min-width:0;padding:20px 18px 38px}.page-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:16px}.title-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.title-icon{width:40px;height:40px;display:inline-grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,#d9edf4,#e8fff2);border:1px solid #cfe0fa;box-shadow:0 6px 16px rgba(14,165,233,.10);color:#087ea4}.title-icon svg{width:24px;height:24px;display:block}h1{margin:0;font-size:clamp(24px,2vw,32px);line-height:1.2;letter-spacing:-.03em}.tag{display:inline-flex;align-items:center;min-height:25px;padding:3px 10px;border-radius:999px;color:#138044;background:#ecfdf3;font-size:12px;font-weight:700}.subtitle{margin:7px 0 0;color:var(--muted);font-size:14px}.head-actions{display:flex;gap:8px}.small-btn{height:38px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:0 13px;border:1px solid var(--line);border-radius:9px;color:#344054;background:var(--surface);font-weight:600}.small-btn:hover{border-color:#b9c6d8;background:#f9fbff}
+    .head-actions #bookmarkBtn{width:38px;padding:0;color:#6423c7;background:#f6f1ff;border-color:#e6dcff;box-shadow:0 3px 10px rgba(124,58,237,.07)}
+    .head-actions #shareTopBtn{color:#087ea4;background:#edfaff;border-color:#d5f1fb;box-shadow:0 3px 10px rgba(14,165,233,.07)}
+    .head-actions #bookmarkBtn:hover{background:#f1eaff;border-color:#d8c9ff}
+    .head-actions #shareTopBtn:hover{background:#e5f8ff;border-color:#bfeafb}
+    .ad-slot{min-height:82px;margin-bottom:16px;display:grid;place-items:center;border:1px dashed #cbd5e1;border-radius:12px;background:#fbfcff;color:#98a2b3;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.card{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:0 1px 2px rgba(16,24,40,.02)}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}.metric-card{min-height:96px;padding:14px 16px;display:flex;align-items:center;gap:13px}.metric-icon{flex:0 0 auto;width:42px;height:42px;display:grid;place-items:center;border-radius:11px;background:var(--primary-soft);color:var(--primary);font-size:18px}.metric-copy{min-width:0;display:grid;gap:3px}.metric-label{color:var(--muted);font-size:12px}.metric-value{font-size:21px;font-weight:800;line-height:1.08;overflow-wrap:anywhere}.metric-note{color:#98a2b3;font-size:11px}
+    .workspace{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(290px,.65fr);gap:16px;align-items:start}.visual-stack{display:grid;gap:14px;align-content:start;min-width:0}.section-title{display:flex;align-items:center;gap:8px;margin:0;font-size:15px;font-weight:800}.chart-card{min-height:0;padding:14px 16px 12px;display:grid;grid-template-rows:auto auto auto;align-self:start}.chart-head{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.chart-legend{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:10.5px}.legend-item{display:inline-flex;align-items:center;gap:6px}.legend-line{width:22px;height:3px;border-radius:99px;background:var(--primary)}.legend-line.green{background:var(--green)}.chart-wrap{height:230px;min-height:0;margin-top:6px}.balance-chart{width:100%;height:100%;display:block;overflow:visible}.chart-grid{stroke:#e8edf4;stroke-width:1}.chart-label{fill:#7a8699;font-size:10px}.chart-path{fill:none;stroke:var(--primary);stroke-width:3}.chart-area{fill:url(#areaGradient)}.chart-baseline{fill:none;stroke:var(--orange);stroke-width:2;stroke-dasharray:6 5}.chart-dot{fill:white;stroke:var(--primary);stroke-width:2}.chart-note{padding-top:10px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
+    .analysis-stack{display:grid;grid-template-rows:auto auto;gap:14px;align-content:start}.analysis-card{padding:16px;border-color:#bfe6cc;background:linear-gradient(120deg,#f4fff7,#fbfffc)}.analysis-card .section-title{color:#168c4c;margin-bottom:7px}.analysis-card p{margin:0 0 11px;color:#44546a;font-size:12px}.analysis-list{display:grid;gap:8px}.analysis-line{display:flex;align-items:flex-start;gap:8px;color:#475467;font-size:12px}.status-dot{flex:0 0 auto;width:18px;height:18px;display:grid;place-items:center;border-radius:50%;border:1px solid currentColor;color:var(--green);font-size:10px;margin-top:1px}.status-dot.warn{color:var(--orange)}.status-dot.info{color:var(--primary)}.composition-card{padding:14px 16px;display:grid;align-content:start}.donut-wrap{position:relative;width:160px;height:160px;margin:10px auto 8px}.donut{width:100%;height:100%;transform:rotate(-90deg)}.donut circle{fill:none;stroke-width:18}.donut-bg{stroke:#edf1f6}.donut-principal{stroke:var(--primary)}.donut-interest{stroke:var(--orange)}.donut-fees{stroke:var(--purple)}.donut-center{position:absolute;inset:0;display:grid;place-items:center;align-content:center;text-align:center}.donut-center strong{font-size:22px}.donut-center span{font-size:11px;color:var(--muted)}.composition-list{display:grid;gap:6px}.composition-row{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;color:var(--muted);font-size:11.5px}.insights-card{padding:15px 16px}.insight-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}.insight-tile{min-height:86px;padding:11px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(180deg,#fff,#f9fbff)}.insight-tile:nth-child(1){border-top:3px solid #17a85b}.insight-tile:nth-child(2){border-top:3px solid #c77b00}.insight-tile:nth-child(3){border-top:3px solid #087ea4}.insight-tile:nth-child(4){border-top:3px solid #6423c7}.insight-tile span{display:block;color:var(--muted);font-size:10px}.insight-tile strong{display:block;margin-top:5px;color:#172033;font-size:17px;line-height:1.15}.insight-tile small{display:block;margin-top:4px;color:#98a2b3;font-size:9.5px}.milestone-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:10px}.milestone-item{padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:#fbfcff}.milestone-top{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#475467;font-size:10px}.milestone-top strong{color:#172033}.milestone-track{height:6px;margin-top:7px;border-radius:999px;background:#edf1f6;overflow:hidden}.milestone-fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,#087ea4,#17a85b)}.insight-summary{margin:10px 0 0;padding:9px 11px;border-radius:9px;background:#f3f7ff;color:#475467;font-size:10.5px}.swatch{width:9px;height:9px;border-radius:50%}.swatch.primary{background:var(--primary)}.swatch.orange{background:var(--orange)}.swatch.purple{background:var(--purple)}.composition-row strong{color:#344054}
+    .comparison-card{margin-top:16px;padding:16px}.comparison-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}.scenario{padding:14px;border:1px solid var(--line);border-radius:11px;background:#fbfcff}.scenario.recommended{border-color:#a8d8b9;background:#f5fff8}.scenario h3{margin:0 0 10px;font-size:13px}.scenario-row{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px;margin-top:6px}.scenario-row strong{color:#344054;text-align:right}
+    .tabs-card{margin-top:16px;overflow:hidden}.tab-list{display:flex;gap:12px;padding:0 12px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:thin}.tab-btn{min-width:max-content;height:48px;padding:0 13px;border:0;border-bottom:2px solid transparent;background:transparent;color:#667085;font-size:13px;font-weight:650}.tab-btn.active{color:var(--primary);border-bottom-color:var(--primary)}.tab-content{display:none;padding:16px}.tab-content.active{display:block}.schedule-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}.schedule-tools p{margin:0;color:var(--muted);font-size:12px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px}.data-table{width:100%;border-collapse:collapse;font-size:12px;white-space:nowrap}.data-table th,.data-table td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right}.data-table th{position:sticky;top:0;background:#f4f7fb;color:#344054;font-size:11px}.data-table th:first-child,.data-table td:first-child{text-align:left}.data-table tr:last-child td{border-bottom:0}.content-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.text-card{padding:16px;border:1px solid var(--line);border-radius:11px}.text-card h3{margin:0 0 8px;font-size:15px}.text-card p,.text-card li{color:var(--muted);font-size:13px}.text-card p{margin:0}.text-card ul{margin:8px 0 0;padding-left:18px}.faq-list{display:grid;gap:10px}.faq{padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff}.faq summary{cursor:pointer;font-weight:750;font-size:13px}.faq p{margin:8px 0 0;color:var(--muted);font-size:12px}.reference-list{display:grid;gap:10px}.reference-link{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff}.reference-link strong{font-size:13px}.reference-link span{color:var(--muted);font-size:11px}
+    .right-panel{position:sticky;top:var(--topbar);align-self:start;height:calc(100vh - var(--topbar));overflow:auto;padding:20px 18px 38px 0}.control-card,.actions-card{padding:18px}.control-card h2,.actions-card h2{margin:0 0 16px;font-size:20px;letter-spacing:-.02em}.control-section+.control-section{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}.control-heading{margin-bottom:13px;color:var(--primary);font-size:13px;font-weight:800}.field{display:grid;gap:6px;margin-bottom:12px}.field label{color:#475467;font-size:12px;font-weight:650}.field-note{color:#98a2b3;font-size:10px}.select,.text-input{width:100%;height:42px;padding:0 11px;border:1px solid var(--line);border-radius:9px;outline:0;color:#344054;background:white}.select:focus,.text-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(14,165,233,.1)}.money-input{display:grid;grid-template-columns:48px 1fr;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:white}.money-input:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px rgba(14,165,233,.1)}.money-prefix{display:grid;place-items:center;border-right:1px solid var(--line);background:#f7f9fc;color:#667085;font-weight:700}.money-input input{width:100%;height:40px;padding:0 11px;border:0;outline:0;color:#344054;background:white}.inline-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.live-status{display:flex;align-items:flex-start;gap:8px;padding:10px;border:1px solid #cfe1ff;border-radius:9px;background:#f5f9ff;color:#475467;font-size:10px}.live-dot{width:8px;height:8px;margin-top:3px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(23,168,91,.12)}.live-dot.loading{background:var(--orange)}.live-dot.error{background:var(--red)}.input-toggle{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:0 0 16px;padding:5px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(180deg,#f4f7fc,#eef2f8)}.input-toggle-btn{min-height:46px;display:flex;align-items:center;justify-content:center;gap:9px;padding:0 12px;border:0;border-radius:9px;background:transparent;color:#475467;font-size:13px;font-weight:800;transition:background .2s,color .2s,box-shadow .2s,transform .2s}.input-toggle-btn .ui-icon{width:18px;height:18px}.input-toggle-btn:first-child .ui-icon{color:#087ea4}.input-toggle-btn:last-child .ui-icon{color:#6423c7}.input-toggle-btn:hover{background:rgba(255,255,255,.78);transform:translateY(-1px)}.input-toggle-btn.active{color:#fff;background:linear-gradient(135deg,#087ea4,#0284c7);box-shadow:0 8px 18px rgba(14,165,233,.23)}.input-toggle-btn.active .ui-icon{color:#fff}.input-panel{display:none}.input-panel.active{display:block;animation:inputPanelIn .2s ease}.input-panel .control-section{margin:0;padding:0;border:0}.optional-intro{display:flex;align-items:flex-start;gap:8px;margin-bottom:13px;padding:10px 11px;border:1px solid #e2d6ff;border-radius:10px;background:#faf7ff;color:#5b4b75;font-size:10px}.optional-intro .ui-icon{flex:0 0 auto;width:16px;height:16px;color:#6423c7;margin-top:1px}@keyframes inputPanelIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}.advanced{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:hidden}.advanced summary{padding:12px 13px;cursor:pointer;font-size:12px;font-weight:750;background:#fbfcff}.advanced-body{padding:13px;border-top:1px solid var(--line)}.method-fields>[data-method]{display:none}.method-fields>[data-method].active{display:block}.stack-actions{display:grid;gap:9px;margin-top:13px}.wide-btn{min-height:43px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 14px;border:1px solid var(--primary);border-radius:9px;color:var(--primary);background:white;font-weight:750}.wide-btn.primary{border-color:transparent;color:white;background:linear-gradient(180deg,#38bdf8,#087ea4)}.wide-btn.danger{border-color:#f3b7b9;color:var(--red);background:#fffafa}.wide-btn.neutral{border-color:var(--line);color:#475467;background:#fbfcfe}.wide-btn.pdf{border-color:transparent;color:white;background:linear-gradient(180deg,#ef7d1a,#d46208);box-shadow:0 8px 18px rgba(239,125,26,.18)}.wide-btn:hover{filter:brightness(.985);transform:translateY(-1px)}.actions-card{margin-top:14px}.helper-note{margin:10px 0 0;color:var(--muted);font-size:11px}.report-sheet.report-theme-dark .report-section h3,.report-sheet.report-theme-dark .report-box h4,.report-sheet.report-theme-dark .report-kpi strong,.report-sheet.report-theme-dark .report-composition strong,.report-sheet.report-theme-dark .report-legend-row strong,.report-sheet.report-theme-dark .report-scenario-name,.report-sheet.report-theme-dark .report-scenario-meta strong,.report-sheet.report-theme-dark .report-pie-center strong,.report-sheet.report-theme-dark .report-meta strong{color:#f8fbff}.report-sheet.report-theme-dark .report-table{color:#e5edf8}.report-sheet.report-theme-dark .report-table th{background:#182235;color:#f8fbff;border-color:#334155}.report-sheet.report-theme-dark .report-table td{border-color:#334155}.report-sheet.report-theme-dark .report-axis,.report-sheet.report-theme-dark .report-yearly-axis,.report-sheet.report-theme-dark .report-monthly-axis{stroke:#334155}.report-sheet.report-theme-dark .report-chart-label,.report-sheet.report-theme-dark .report-yearly-label,.report-sheet.report-theme-dark .report-monthly-label{fill:#b8c4d6}.report-sheet.report-theme-dark .report-pie-bg{stroke:#273548}.report-sheet.report-theme-dark .report-bar-track,.report-sheet.report-theme-dark .report-stacked{background:#1b2737;border-color:#334155}.report-sheet.report-theme-dark .report-footer{border-top-color:#334155}.report-sheet.report-theme-dark .report-print-page-footer{background:#0f172a;border-top-color:#334155}
+    .toast{position:fixed;z-index:120;left:50%;bottom:24px;transform:translate(-50%,20px);padding:11px 15px;border-radius:10px;color:white;background:#172033;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;font-size:13px}.toast.show{opacity:1;transform:translate(-50%,0)}
+    .modal{position:fixed;z-index:100;inset:0;display:none;padding:28px;overflow:auto;background:rgba(15,23,42,.62)}.modal.open{display:block}.modal-shell{width:min(940px,100%);margin:0 auto;border-radius:16px;background:white;box-shadow:0 24px 80px rgba(0,0,0,.24);overflow:hidden}.modal-actions{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);backdrop-filter:blur(10px)}.report-sheet{--report-primary:#087ea4;--report-accent:#17a85b;padding:30px 34px 34px;color:#101828;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);position:relative;isolation:isolate}.report-header{display:flex;justify-content:space-between;gap:24px;padding:18px 18px 20px;border:1px solid #dbe5f3;border-radius:16px;background:linear-gradient(135deg,#eef5ff 0%,#ffffff 60%,#f5fffa 100%);box-shadow:0 8px 24px rgba(14,165,233,.06)}.report-brand{display:flex;align-items:center;gap:9px;color:var(--report-primary);font-weight:850;font-size:19px}.report-brand img{display:none;width:28px;height:28px;object-fit:cover;border-radius:8px;border:1px solid #d8e4f4;background:#fff}.report-brand.has-logo img{display:block}.report-brand.has-logo .brand-mark{display:none}.report-header h2{margin:10px 0 5px;font-size:26px;letter-spacing:-.03em}.report-header p{margin:0;color:#667085;font-size:12px}.report-meta{min-width:270px;display:grid;gap:5px;align-content:start;font-size:11px}.report-meta div{display:flex;justify-content:space-between;gap:16px}.report-meta span{color:#667085}.report-meta strong{text-align:right}.report-badge-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}.report-badge{padding:11px 12px;border:1px solid #d8e4f4;border-radius:12px;background:rgba(255,255,255,.82)}.report-badge span{display:block;color:#667085;font-size:10px}.report-badge strong{display:block;margin-top:4px;font-size:15px;color:#101828}.report-section{margin-top:22px}.report-section h3{margin:0 0 11px;font-size:15px}.report-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.report-kpi{padding:13px;border:1px solid #dfe5ef;border-radius:12px;background:linear-gradient(180deg,#ffffff,#f9fbff);box-shadow:0 4px 14px rgba(15,23,42,.04)}.report-kpi span{display:block;color:#667085;font-size:10px}.report-kpi strong{display:block;margin-top:4px;font-size:18px}.report-kpis .report-kpi:nth-child(4n+1){border-top:4px solid #087ea4}.report-kpis .report-kpi:nth-child(4n+2){border-top:4px solid #17a85b}.report-kpis .report-kpi:nth-child(4n+3){border-top:4px solid #c77b00}.report-kpis .report-kpi:nth-child(4n+4){border-top:4px solid #6423c7}.report-two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}.report-box{padding:15px;border:1px solid #dfe5ef;border-radius:12px;background:linear-gradient(180deg,#ffffff,#fbfdff)}.report-box h4{margin:0 0 8px;font-size:13px}.report-box p,.report-box li{color:#475467;font-size:11px}.report-box p{margin:0}.report-box ul{margin:0;padding-left:17px}.report-table{width:100%;border-collapse:collapse;font-size:10px}.report-table th,.report-table td{padding:8px 7px;border:1px solid #dfe5ef;text-align:left}.report-table th{background:#f4f7fb;color:#344054}.report-table .num{text-align:right}.report-composition{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.report-composition div{padding:11px;border-radius:9px;background:#f7f9fc}.report-composition span{display:block;color:#667085;font-size:10px}.report-composition strong{font-size:15px}.report-box-note{margin:0 0 8px;color:#667085;font-size:10px}.report-visual-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.report-viz-box{padding:15px;border:1px solid #dfe5ef;border-radius:12px;background:linear-gradient(180deg,#ffffff,#fbfdff);box-shadow:0 4px 14px rgba(15,23,42,.04)}.report-svg-wrap{height:190px;margin-top:6px}.report-chart{width:100%;height:100%;overflow:visible}.report-axis{stroke:#e8edf4;stroke-width:1}.report-chart-label{fill:#667085;font-size:9px}.report-chart-line{fill:none;stroke:var(--report-primary);stroke-width:2.6}.report-chart-area{fill:url(#reportAreaGradient)}.report-chart-dot{fill:#fff;stroke:var(--report-primary);stroke-width:1.8}.report-chart-note{margin-top:8px;color:#667085;font-size:10px}.report-stacked{margin-top:10px;border:1px solid #e5e9f1;border-radius:999px;overflow:hidden;height:16px;display:flex;background:#f3f6fb}.report-stacked span{display:block;height:100%}.report-stacked .principal{background:var(--report-primary)}.report-stacked .interest{background:#c77b00}.report-stacked .fees{background:#6423c7}.report-legend-grid{display:grid;gap:8px;margin-top:12px}.report-legend-row{display:grid;grid-template-columns:auto 1fr auto auto;gap:8px;align-items:center;color:#475467;font-size:10px}.report-legend-row strong{color:#101828}.report-scenario-viz{display:grid;gap:10px}.report-scenario-row{padding:10px 12px;border:1px solid #dfe5ef;border-radius:12px;background:linear-gradient(180deg,#ffffff,#f8fbff)}.report-scenario-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:7px;font-size:11px}.report-scenario-name{font-weight:750;color:#101828}.report-bar-track{height:12px;border-radius:999px;background:#edf2f7;overflow:hidden}.report-bar-fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--report-primary),var(--report-accent))}.report-scenario-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}.report-scenario-meta span{display:block;color:#667085;font-size:9px}.report-scenario-meta strong{display:block;color:#101828;font-size:11px}.report-pie-layout{display:grid;grid-template-columns:160px 1fr;gap:12px;align-items:center}.report-pie-wrap{position:relative;width:150px;height:150px;margin:0 auto}.report-pie{width:100%;height:100%;transform:rotate(-90deg)}.report-pie circle{fill:none;stroke-width:18}.report-pie-bg{stroke:#edf1f6}.report-pie-principal{stroke:var(--report-primary)}.report-pie-interest{stroke:#c77b00}.report-pie-fees{stroke:#6423c7}.report-pie-center{position:absolute;inset:0;display:grid;place-items:center;align-content:center;text-align:center}.report-pie-center strong{font-size:18px}.report-pie-center span{font-size:10px;color:#667085}.report-pie-note{color:#475467;font-size:10px}.report-yearly-legend{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:8px;color:#667085;font-size:10px}.report-yearly-swatch{width:10px;height:10px;border-radius:3px;display:inline-block}.report-yearly-wrap{height:190px;margin-top:6px}.report-yearly-chart{width:100%;height:100%;overflow:visible}.report-yearly-axis{stroke:#e8edf4;stroke-width:1}.report-yearly-label{fill:#667085;font-size:9px}.report-yearly-principal{fill:var(--report-primary)}.report-yearly-interest{fill:#c77b00}.report-yearly-grid-note{margin-top:8px;color:#667085;font-size:10px}.report-monthly-legend{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:8px;color:#667085;font-size:10px}.report-monthly-wrap{height:200px;margin-top:6px}.report-monthly-chart{width:100%;height:100%;overflow:visible}.report-monthly-axis{stroke:#e8edf4;stroke-width:1}.report-monthly-label{fill:#667085;font-size:9px}.report-monthly-principal{fill:var(--report-accent)}.report-monthly-interest{fill:#ef7d1a}.report-monthly-grid-note{margin-top:8px;color:#667085;font-size:10px}.report-header::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;border-radius:16px 0 0 16px;background:linear-gradient(180deg,var(--report-primary),var(--report-accent))}.report-header{position:relative;padding-left:24px!important}.report-sheet > *{position:relative;z-index:1}.report-print-page-footer{display:none}.report-footer{margin-top:22px;padding-top:13px;border-top:1px solid #dfe5ef;color:#667085;font-size:9px}
+    /* Compact calculator inputs */
+    .control-card{padding:15px}
+    .control-card h2{margin-bottom:12px;font-size:18px}
+    .control-card .input-toggle{gap:4px;margin-bottom:12px;padding:4px;border-radius:11px}
+    .control-card .input-toggle-btn{min-height:39px;gap:7px;padding:0 9px;font-size:12px;border-radius:8px}
+    .control-card .input-toggle-btn .ui-icon{width:16px;height:16px}
+    .control-card .field{gap:4px;margin-bottom:9px}
+    .control-card .field label{font-size:11px;line-height:1.3}
+    .control-card .field-note{font-size:9px;line-height:1.35}
+    .control-card .select,.control-card .text-input{height:37px;padding:0 10px;border-radius:8px;font-size:12px}
+    .control-card .money-input{grid-template-columns:42px 1fr;border-radius:8px}
+    .control-card .money-input input{height:35px;padding:0 10px;font-size:12px}
+    .control-card .money-prefix{font-size:12px}
+    .control-card .inline-fields{gap:8px}
+    .control-card .live-status{gap:7px;padding:8px 9px;border-radius:8px;font-size:9px;line-height:1.35}
+    .control-card .optional-intro{gap:7px;margin-bottom:10px;padding:8px 9px;border-radius:8px;font-size:9px;line-height:1.35}
+    .control-card .optional-intro .ui-icon{width:14px;height:14px}
+    .control-card .stack-actions{gap:7px;margin-top:10px}
+    .control-card .wide-btn{min-height:39px;font-size:12px}
+    .actions-card{padding:14px}
+    .actions-card h2{margin:0 0 12px;font-size:18px}
+    .actions-card .stack-actions{gap:7px;margin-top:0}
+    .actions-card .wide-btn{min-height:39px;padding:0 12px;border-radius:8px;font-size:12px;gap:7px}
+    .actions-card .wide-btn .ui-icon{width:16px;height:16px}
+    .actions-card .helper-note{margin-top:9px;font-size:10px;line-height:1.45}
+    @media(max-width:520px){.control-card,.actions-card{padding:14px}.control-card .select,.control-card .text-input{height:38px}.control-card .money-input input{height:36px}.actions-card .wide-btn{min-height:38px}}
+    body.dark{--bg:#0f1726;--surface:#151f31;--surface-soft:#1a263a;--text:#eef3fb;--muted:#9eabc0;--line:#2a3850;--line-strong:#3a4a65;--primary-soft:#182d55;--green-soft:#142d21}body.dark .topbar,body.dark .sidebar,body.dark .right-panel{background-color:var(--surface)}body.dark .topbar{background:rgba(21,31,49,.95)}body.dark .search,body.dark .select,body.dark .text-input,body.dark .money-input,body.dark .money-input input,body.dark .small-btn,body.dark .wide-btn,body.dark .text-card,body.dark .faq,body.dark .reference-link{background:#111b2b;color:var(--text)}body.dark .money-prefix{background:#182438}body.dark .analysis-card{background:linear-gradient(120deg,#14291d,#14231b)}body.dark .input-toggle{background:#111b2b;border-color:var(--line)}body.dark .input-toggle-btn{color:#aebbd0}body.dark .input-toggle-btn:hover{background:#182438}body.dark .input-toggle-btn.active{color:#fff;background:linear-gradient(135deg,#38bdf8,#0284c7)}body.dark .optional-intro{background:#1c1830;border-color:#493b70;color:#c9baf0}body.dark .metric-value{color:var(--text)}body.dark .report-sheet,body.dark .modal-shell{color:#101828;background:#fff}body.dark .modal-actions{background:#fff}
+    @media(max-width:1380px){:root{--sidebar:190px;--rightbar:320px}.workspace{grid-template-columns:1fr}.chart-wrap{height:220px}.analysis-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto}.composition-card{min-height:0}.insight-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    @media(max-width:1120px){.topbar{grid-template-columns:190px minmax(220px,1fr) auto}.top-spacer{display:none}.app-shell{grid-template-columns:190px minmax(0,1fr)}.right-panel{position:static;height:auto;grid-column:2;padding:0 18px 34px;display:grid;grid-template-columns:1fr 1fr;gap:14px}.actions-card{margin-top:0}.sidebar{height:calc(100vh - var(--topbar))}}
+    @media(max-width:820px){:root{--topbar:58px}.topbar{grid-template-columns:1fr auto;padding:0 13px}.search,.lang-btn{display:none}.app-shell{display:block}.sidebar{display:none}main{padding:16px 12px 24px}.metric-grid{grid-template-columns:repeat(2,1fr)}.workspace{grid-template-columns:1fr}.analysis-stack{grid-template-columns:1fr}.comparison-grid,.content-columns{grid-template-columns:1fr}.insight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.milestone-strip{grid-template-columns:1fr}.right-panel{display:grid;grid-template-columns:1fr;padding:0 12px 30px}.page-head{align-items:center}.head-actions .small-btn span:last-child{display:none}.report-kpis{grid-template-columns:repeat(2,1fr)}.report-two-col,.report-visual-grid,.report-pie-layout,.report-badge-row{grid-template-columns:1fr}.report-header{display:grid}.report-meta{min-width:0}.report-scenario-meta{grid-template-columns:1fr 1fr 1fr}}
+    @media(max-width:520px){.top-actions .icon-btn:not(#themeToggle){display:none}.brand{font-size:19px}h1{font-size:24px}.subtitle{font-size:13px}.metric-grid{grid-template-columns:1fr}.metric-card{min-height:78px}.chart-wrap{height:190px;min-height:0}.inline-fields{grid-template-columns:1fr}.modal{padding:0}.modal-shell{min-height:100vh;border-radius:0}.report-sheet{padding:22px 16px 28px}.report-kpis{grid-template-columns:1fr 1fr}.report-composition{grid-template-columns:1fr}.report-legend-row{grid-template-columns:auto 1fr auto}.report-legend-row span:last-child{grid-column:2/4;justify-self:end}.report-scenario-meta{grid-template-columns:1fr}.report-pie-wrap{width:135px;height:135px}.report-yearly-wrap,.report-monthly-wrap{height:170px}.report-badge-row{grid-template-columns:1fr}}
+    @media print{@page{size:A4 portrait;margin:11mm}body{background:white!important}body>*:not(#reportModal){display:none!important}#reportModal{display:block!important;position:static!important;inset:auto!important;padding:0!important;overflow:visible!important;background:white!important}#reportModal .modal-shell{width:100%!important;max-width:none!important;margin:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important}.modal-actions{display:none!important}.report-sheet{padding:0 0 18mm 0!important;background:#fff!important}.report-header,.report-kpi,.report-box,.report-viz-box,.report-scenario-row,.report-badge{background:#fff!important;box-shadow:none!important}.report-header{border:1px solid #dfe5ef!important;padding:14px 14px 16px 20px!important}.report-header h2{font-size:22px}.report-brand{font-size:17px!important}.report-meta{font-size:10px!important;gap:3px!important}.report-badge{padding:8px 9px!important}.report-badge strong{font-size:13px!important}.report-section{break-inside:avoid;margin-top:11px}.report-section h3{padding-bottom:3px;border-bottom:1px solid #dfe5ef;margin-bottom:8px;font-size:13px}.report-kpis{gap:6px!important}.report-table{font-size:8px}.report-table thead{display:table-header-group}.report-table tfoot{display:table-footer-group}.report-table tr, .report-table td, .report-table th{break-inside:avoid-page}.report-table th,.report-table td{padding:4px}.report-kpi{padding:7px}.report-kpi strong{font-size:14px}.report-box,.report-viz-box{padding:8px}.report-svg-wrap,.report-yearly-wrap,.report-monthly-wrap{height:142px}.report-pie-wrap{width:112px;height:112px}.report-footer{font-size:8px;margin-top:14px;padding-top:8px}.report-print-page-footer{display:block!important;position:fixed;left:0;right:0;bottom:0;padding:5px 0 0;border-top:1px solid #dfe5ef;color:#667085;font-size:8px;background:#fff}.report-print-page-footer .page-number::after{content:counter(page)}.report-section.page-break{break-before:page}.report-full-schedule-section{break-before:page}}@media print{.report-sheet.report-theme-dark{background:#0f172a!important;color:#e5edf8!important}.report-sheet.report-theme-dark .report-header,.report-sheet.report-theme-dark .report-badge,.report-sheet.report-theme-dark .report-kpi,.report-sheet.report-theme-dark .report-box,.report-sheet.report-theme-dark .report-viz-box,.report-sheet.report-theme-dark .report-scenario-row,.report-sheet.report-theme-dark .report-composition div{background:#111b2b!important;border-color:#334155!important;color:#e5edf8!important}.report-sheet.report-theme-dark .report-header p,.report-sheet.report-theme-dark .report-meta span,.report-sheet.report-theme-dark .report-box p,.report-sheet.report-theme-dark .report-box li,.report-sheet.report-theme-dark .report-box-note,.report-sheet.report-theme-dark .report-chart-note,.report-sheet.report-theme-dark .report-yearly-grid-note,.report-sheet.report-theme-dark .report-monthly-grid-note,.report-sheet.report-theme-dark .report-pie-center span,.report-sheet.report-theme-dark .report-legend-row,.report-sheet.report-theme-dark .report-scenario-meta span,.report-sheet.report-theme-dark .report-kpi span,.report-sheet.report-theme-dark .report-composition span,.report-sheet.report-theme-dark .report-footer,.report-sheet.report-theme-dark .report-print-page-footer{color:#b8c4d6!important}.report-sheet.report-theme-dark .report-table,.report-sheet.report-theme-dark .report-section h3,.report-sheet.report-theme-dark .report-box h4,.report-sheet.report-theme-dark .report-kpi strong,.report-sheet.report-theme-dark .report-composition strong,.report-sheet.report-theme-dark .report-legend-row strong,.report-sheet.report-theme-dark .report-scenario-name,.report-sheet.report-theme-dark .report-scenario-meta strong,.report-sheet.report-theme-dark .report-pie-center strong,.report-sheet.report-theme-dark .report-meta strong{color:#f8fbff!important}.report-sheet.report-theme-dark .report-table th{background:#182235!important;color:#f8fbff!important;border-color:#334155!important}.report-sheet.report-theme-dark .report-table td{border-color:#334155!important}.report-sheet.report-theme-dark .report-axis,.report-sheet.report-theme-dark .report-yearly-axis,.report-sheet.report-theme-dark .report-monthly-axis{stroke:#334155!important}.report-sheet.report-theme-dark .report-chart-label,.report-sheet.report-theme-dark .report-yearly-label,.report-sheet.report-theme-dark .report-monthly-label{fill:#b8c4d6!important}.report-sheet.report-theme-dark .report-pie-bg{stroke:#273548!important}.report-sheet.report-theme-dark .report-bar-track,.report-sheet.report-theme-dark .report-stacked{background:#1b2737!important;border-color:#334155!important}.report-sheet.report-theme-dark .report-footer{border-top-color:#334155!important}.report-sheet.report-theme-dark .report-print-page-footer{background:#0f172a!important;border-top-color:#334155!important}}
+  
+    /* Date Difference Calculator additions */
+    textarea.text-input{height:auto;min-height:76px;padding:10px;resize:vertical;line-height:1.45}
+    .check-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:#fbfcff;margin-bottom:9px}
+    .check-copy{min-width:0}.check-copy strong{display:block;font-size:11px;color:#344054}.check-copy span{display:block;margin-top:2px;font-size:9px;color:#98a2b3;line-height:1.35}
+    .switch{position:relative;display:inline-flex;flex:0 0 auto;width:38px;height:22px}.switch input{position:absolute;opacity:0;pointer-events:none}.switch-track{position:absolute;inset:0;border-radius:999px;background:#d5dce8;transition:.2s}.switch-track:after{content:"";position:absolute;width:16px;height:16px;left:3px;top:3px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(15,23,42,.22);transition:.2s}.switch input:checked+.switch-track{background:linear-gradient(135deg,#087ea4,#087ea4)}.switch input:checked+.switch-track:after{transform:translateX(16px)}
+    .hidden{display:none!important}.input-row-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.compact-note{margin:8px 0 0;color:var(--muted);font-size:10px;line-height:1.45}
+    .date-main-result{display:grid;grid-template-columns:minmax(150px,auto) minmax(260px,1fr) auto;grid-template-areas:"label note badge" "value note badge";align-items:center;column-gap:18px;row-gap:2px;padding:11px 14px;border:1px solid #cfe0fa;border-radius:11px;background:linear-gradient(135deg,#edf5ff,#fff 55%,#effcf4);margin-bottom:10px;min-height:76px}.date-main-result>span:first-child{grid-area:label;display:block;color:#667085;font-size:10px;line-height:1.25}.date-main-result>strong{grid-area:value;display:block;margin:1px 0 0;font-size:clamp(21px,1.7vw,27px);line-height:1.08;letter-spacing:-.03em}.date-main-result>small{grid-area:note;display:block;margin:0;color:#667085;font-size:10px;line-height:1.45}.date-main-result .direction-badge{grid-area:badge;display:inline-flex;width:auto;max-width:220px;justify-self:end;align-self:center;margin:0;white-space:nowrap}
+    .timeline-card{padding:15px 16px}.timeline-chart-wrap{height:240px;margin-top:9px}.timeline-chart{width:100%;height:100%;overflow:visible}.timeline-axis{stroke:#e4eaf2;stroke-width:1}.timeline-label{fill:#718096;font-size:9px}.timeline-work{fill:#087ea4}.timeline-weekend{fill:#c77b00}.timeline-holiday{fill:#6423c7}.timeline-custom{fill:#c9363b}.timeline-empty{fill:#dfe5ef}.timeline-legend{display:flex;gap:12px;flex-wrap:wrap;color:#667085;font-size:10px}.timeline-legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+    .composition-card .donut-work{stroke:#087ea4}.composition-card .donut-weekend{stroke:#c77b00}.composition-card .donut-holiday{stroke:#6423c7}.composition-card .donut-custom{stroke:#c9363b}
+    .breakdown-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}.breakdown-tile{padding:11px;border:1px solid var(--line);border-radius:10px;background:#fbfcff}.breakdown-tile span{display:block;color:#667085;font-size:10px}.breakdown-tile strong{display:block;margin-top:4px;font-size:15px;color:#172033}.breakdown-tile small{display:block;margin-top:3px;color:#98a2b3;font-size:9px}
+    .direction-badge{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 9px;border-radius:999px;background:#eef4ff;color:#087ea4;font-size:10px;font-weight:750}.direction-badge.reverse{background:#fff3e8;color:#d36b0c}
+    .source-status{display:flex;align-items:flex-start;gap:8px;margin-top:10px;padding:9px 10px;border:1px solid #cfe1ff;border-radius:9px;background:#f5f9ff;color:#475467;font-size:9px;line-height:1.4}.source-status.error{border-color:#ffd2d4;background:#fff5f5}.source-status.warn{border-color:#ffe3ad;background:#fff9ec}
+    .holiday-chip{display:inline-flex;padding:3px 7px;border-radius:999px;background:#e7ddf6;color:#6423c7;font-size:9px;font-weight:700}.overlap-chip{background:#fff5e6;color:#b66500}
+    .tip-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.tip-card{padding:14px;border:1px solid var(--line);border-radius:11px;background:#fff}.tip-card h3{margin:0 0 6px;font-size:13px}.tip-card p{margin:0;color:#667085;font-size:11px}
+    .report-date-stacked{margin-top:10px;height:17px;border:1px solid #e5e9f1;border-radius:999px;display:flex;overflow:hidden;background:#f3f6fb}.report-date-stacked span{height:100%}.report-date-stacked .work{background:#087ea4}.report-date-stacked .weekend{background:#c77b00}.report-date-stacked .holiday{background:#6423c7}.report-date-stacked .custom{background:#c9363b}
+    .report-date-chart{width:100%;height:100%;overflow:visible}.report-date-axis{stroke:#e8edf4;stroke-width:1}.report-date-label{fill:#667085;font-size:8px}.report-date-work{fill:#087ea4}.report-date-weekend{fill:#c77b00}.report-date-holiday{fill:#6423c7}.report-date-custom{fill:#c9363b}
+    body.dark .check-row,body.dark .breakdown-tile,body.dark .tip-card{background:#111b2b}body.dark .check-copy strong,body.dark .breakdown-tile strong{color:var(--text)}
+    @media(max-width:820px){.breakdown-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tip-grid{grid-template-columns:1fr}.timeline-chart-wrap{height:210px}}
+    @media(max-width:820px){.date-main-result{grid-template-columns:1fr auto;grid-template-areas:"label badge" "value badge" "note note";column-gap:12px}.date-main-result>small{margin-top:4px}}@media(max-width:520px){.input-row-3{grid-template-columns:1fr}.breakdown-grid{grid-template-columns:1fr 1fr}.date-main-result{grid-template-columns:1fr;grid-template-areas:"label" "value" "note" "badge";padding:10px 12px}.date-main-result>strong{font-size:22px}.date-main-result .direction-badge{justify-self:start;margin-top:5px;white-space:normal}.timeline-chart-wrap{height:190px}}
+
+    /* Compact, information-dense desktop layout */
+    .right-panel{display:grid;grid-template-columns:1fr;gap:12px;align-content:start}
+    .right-panel>.card{margin-top:0}
+    .timeline-chart-wrap{height:190px}
+    .timeline-card{padding-bottom:12px}
+    .donut-wrap{width:138px;height:138px;margin:8px auto 6px}
+    .composition-card{padding-bottom:12px}
+    .workspace{gap:12px}
+    .visual-stack,.analysis-stack{gap:12px}
+    .insight-composition-row{display:grid;margin-top:12px;grid-template-columns:minmax(0,1.35fr) minmax(290px,.65fr);gap:12px;align-items:stretch}
+    .insight-composition-row>.card{height:100%}
+    .insight-composition-row .insights-card,.insight-composition-row .composition-card{display:flex;flex-direction:column}
+    .insight-composition-row .composition-card{align-content:start}
+    .insight-composition-row .composition-card .composition-list{margin-top:4px}
+    .analysis-stack{align-content:start}
+    .side-summary-card,.side-guide-card{padding:14px}
+    .side-summary-card h2,.side-guide-card h2{margin:0 0 10px;font-size:16px;letter-spacing:-.02em}
+    .side-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+    .side-summary-item{min-width:0;padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:linear-gradient(180deg,#fff,#f8fbff)}
+    .side-summary-item:nth-child(1){border-top:3px solid #087ea4}.side-summary-item:nth-child(2){border-top:3px solid #6423c7}.side-summary-item:nth-child(3){border-top:3px solid #17a85b}.side-summary-item:nth-child(4){border-top:3px solid #c77b00}
+    .side-summary-item span{display:block;color:var(--muted);font-size:9px;line-height:1.25}
+    .side-summary-item strong{display:block;margin-top:4px;color:var(--text);font-size:14px;line-height:1.15;overflow-wrap:anywhere}
+    .side-summary-note{margin:9px 0 0;padding:8px 9px;border-radius:8px;background:#f3f7ff;color:#475467;font-size:9.5px;line-height:1.4}
+    .guide-list{display:grid;gap:7px}
+    .guide-row{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start;padding:8px 9px;border:1px solid var(--line);border-radius:9px;background:#fbfcff}
+    .guide-icon{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;font-size:14px}
+    .guide-row:nth-child(1) .guide-icon{background:#d9edf4;color:#087ea4}.guide-row:nth-child(2) .guide-icon{background:#eefbf3;color:#17a85b}.guide-row:nth-child(3) .guide-icon{background:#f4e6c8;color:#c77b00}
+    .guide-row strong{display:block;font-size:10.5px}.guide-row span{display:block;margin-top:2px;color:var(--muted);font-size:9px;line-height:1.35}
+    body.dark .side-summary-item,body.dark .guide-row{background:#111b2b}
+    body.dark .side-summary-note{background:#182438;color:#aebbd0}
+    @media(max-width:1380px){.timeline-chart-wrap{height:180px}}
+    @media(max-width:1120px){.right-panel{grid-template-columns:1fr 1fr}.side-summary-card,.side-guide-card{align-self:start}}
+    @media(max-width:820px){.right-panel{grid-template-columns:1fr}.timeline-chart-wrap{height:175px}.side-summary-card,.side-guide-card{display:block}.insight-composition-row{grid-template-columns:1fr}}
+    @media(max-width:520px){.timeline-chart-wrap{height:155px}.side-summary-grid{grid-template-columns:1fr 1fr}}
+
+    /* v3 usability and accuracy refinements */
+    .composition-row{grid-template-columns:auto minmax(0,1fr) auto auto}.composition-row .composition-pct{min-width:38px;text-align:right;color:#98a2b3;font-variant-numeric:tabular-nums}
+    .insight-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.insight-tile{min-height:80px}
+    .actions-card .stack-actions{grid-template-columns:1fr 1fr}.actions-card #viewReportBtn{grid-column:1/-1}.actions-card .wide-btn{min-width:0}
+    .data-accuracy-status{display:flex;align-items:flex-start;gap:8px;padding:8px 9px;border:1px solid var(--line);border-radius:9px;background:#fbfcff}.data-accuracy-status+.data-accuracy-status{margin-top:7px}.data-accuracy-status .guide-icon{flex:0 0 auto}.data-accuracy-status strong{display:block;font-size:10.5px}.data-accuracy-status span{display:block;margin-top:2px;color:var(--muted);font-size:9px;line-height:1.35}
+    .field-help-inline{display:flex;justify-content:space-between;gap:8px;align-items:center}.field-help-inline .field-note{margin:0}.compact-badge{display:inline-flex;align-items:center;padding:3px 7px;border-radius:999px;background:#d9edf4;color:#087ea4;font-size:9px;font-weight:750;white-space:nowrap}
+    .provider-link{color:var(--primary);text-decoration:underline;text-decoration-color:rgba(14,165,233,.28);text-underline-offset:2px}
+    body.dark .data-accuracy-status{background:#111b2b}
+    @media(max-width:1380px){.insight-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:1120px){.actions-card .stack-actions{grid-template-columns:1fr 1fr}}
+    @media(max-width:820px){.insight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:520px){.actions-card .stack-actions{grid-template-columns:1fr 1fr}.actions-card #viewReportBtn{grid-column:1/-1}.composition-row{grid-template-columns:auto minmax(0,1fr) auto auto}}
+
+
+    /* Compact Report & Export layout — sized to match the input card */
+    .actions-card{padding:14px}
+    .actions-card h2{margin:0 0 12px;font-size:18px}
+    .actions-card .stack-actions{display:grid;grid-template-columns:1fr!important;gap:7px;margin-top:0}
+    .actions-card #viewReportBtn{grid-column:auto!important}
+    .actions-card .wide-btn{min-height:39px;padding:0 11px;border-radius:8px;font-size:12px;font-weight:760;gap:7px}
+    .actions-card .wide-btn .ui-icon{width:16px;height:16px}
+    .actions-card #viewReportBtn .ui-icon{color:#6423c7;background:#e7ddf6;border-radius:6px;padding:3px;box-sizing:content-box}
+    .actions-card #savePdfBtn .ui-icon{color:#fff;background:rgba(255,255,255,.18);border-radius:6px;padding:3px;box-sizing:content-box}
+    .actions-card #printReportBtn .ui-icon{color:#17a85b;background:#eefbf3;border-radius:6px;padding:3px;box-sizing:content-box}
+    .actions-card #downloadCsvBtn{color:#475467;background:#fbfcfe;border-color:var(--line)}
+    .actions-card #downloadCsvBtn .ui-icon{color:#475467;background:#f2f4f7;border-radius:6px;padding:3px;box-sizing:content-box}
+    .actions-card #shareResultBtn .ui-icon{color:#087ea4;background:#d9edf4;border-radius:6px;padding:3px;box-sizing:content-box}
+    .actions-card .helper-note{margin-top:9px;font-size:10px;line-height:1.42}
+    body.dark .actions-card #downloadCsvBtn{background:#111b2b;color:#c8d3e3}
+    body.dark .actions-card #downloadCsvBtn .ui-icon{background:#1a263a;color:#c8d3e3}
+
+    /* Result and accuracy panels moved into the shared tab section */
+    .tab-panel-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:13px}
+    .tab-panel-heading h3{margin:0;color:var(--text);font-size:15px;letter-spacing:-.01em}
+    .tab-panel-heading p{margin:4px 0 0;color:var(--muted);font-size:11px}
+    .data-accuracy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .data-accuracy-grid .data-accuracy-status{height:100%;margin-top:0;padding:14px 15px;border-radius:11px}
+    .data-accuracy-grid .data-accuracy-status+.data-accuracy-status{margin-top:0}
+    .data-accuracy-grid .guide-icon{width:34px;height:34px;border-radius:9px;font-size:16px}
+    .data-accuracy-grid .data-accuracy-status:nth-child(1) .guide-icon{background:#d9edf4;color:#087ea4}
+    .data-accuracy-grid .data-accuracy-status:nth-child(2) .guide-icon{background:#eefbf3;color:#17a85b}
+    .data-accuracy-grid .data-accuracy-status:nth-child(3) .guide-icon{background:#f4e6c8;color:#c77b00}
+    .data-accuracy-grid .data-accuracy-status strong{font-size:12px}
+    .data-accuracy-grid .data-accuracy-status span{font-size:10.5px;line-height:1.45}
+
+
+    /* Production refinements: hierarchy, accessibility and subtle feedback */
+    .metric-grid .metric-card:first-child{border-color:#bfd5ff;background:linear-gradient(135deg,#d9edf4,#fff)}
+    .metric-grid .metric-card:first-child .metric-value{font-size:25px}
+    .tab-btn:focus-visible,.input-toggle-btn:focus-visible,.wide-btn:focus-visible,.small-btn:focus-visible,.icon-btn:focus-visible,.select:focus-visible,.text-input:focus-visible,.faq summary:focus-visible{outline:3px solid rgba(14,165,233,.28);outline-offset:2px}
+    .tab-content[hidden],.input-panel[hidden]{display:none!important}
+    .donut circle{transition:stroke-dasharray .55s ease,stroke-dashoffset .55s ease}
+    .metric-card,.breakdown-tile,.insight-tile{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+    .result-updated{animation:resultUpdated .48s ease}
+    @keyframes resultUpdated{0%{transform:translateY(0);box-shadow:0 1px 2px rgba(16,24,40,.02)}45%{transform:translateY(-2px);box-shadow:0 10px 24px rgba(14,165,233,.12)}100%{transform:translateY(0);box-shadow:0 1px 2px rgba(16,24,40,.02)}}
+    .data-state-text{font-style:italic;color:#98a2b3}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+
+    /* Compact report overview cards */
+    .report-kpis{
+      gap:8px;
+      align-items:start;
+    }
+    .report-kpi{
+      min-height:72px;
+      padding:9px 12px;
+      border-radius:10px;
+      display:grid;
+      align-content:center;
+      box-shadow:0 2px 8px rgba(15,23,42,.035);
+    }
+    .report-kpi span{
+      font-size:9px;
+      line-height:1.2;
+    }
+    .report-kpi strong{
+      margin-top:5px;
+      font-size:14px;
+      line-height:1.25;
+      letter-spacing:-.01em;
+      overflow-wrap:normal;
+      word-break:normal;
+    }
+    .report-kpis .report-kpi:nth-child(4n+1),
+    .report-kpis .report-kpi:nth-child(4n+2),
+    .report-kpis .report-kpi:nth-child(4n+3),
+    .report-kpis .report-kpi:nth-child(4n+4){border-top-width:3px}
+    @media(max-width:820px){
+      .report-kpi{min-height:68px;padding:8px 10px}
+      .report-kpi strong{font-size:13px}
+    }
+    @media(max-width:520px){
+      .report-kpis{gap:7px}
+      .report-kpi{min-height:64px;padding:8px 9px}
+      .report-kpi span{font-size:8.5px}
+      .report-kpi strong{font-size:12px;line-height:1.22}
+    }
+
+
+    /* Pixel-matched portrait report layout based on the approved reference */
+    .modal-shell{width:min(1088px,100%);border-radius:0;background:#fff}
+    .report-sheet{width:1024px;max-width:100%;min-height:1536px;margin:0 auto;padding:24px 30px 18px;color:#0b1531;background:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .report-header{display:grid;grid-template-columns:1.08fr .92fr;gap:38px;align-items:start;padding:0 0 17px;border:0;border-bottom:1px solid #cad5e5;border-radius:0;background:none;box-shadow:none}
+    .report-brand{display:flex;align-items:center;gap:9px;color:#087ea4;font-size:22px;font-weight:850;letter-spacing:-.025em}
+    .report-brand .brand-mark{width:38px!important;height:38px!important;display:grid;place-items:center;border-radius:50%;color:#fff;background:conic-gradient(from 180deg,#087ea4,#19a6ff,#087ea4);box-shadow:0 5px 12px rgba(14,165,233,.22);font-size:17px!important}
+    .report-header h2{margin:13px 0 3px;color:#081127;font-size:42px;white-space:nowrap;line-height:.98;letter-spacing:-.045em;font-weight:900;text-transform:uppercase}
+    .report-header::before{display:none!important}.report-header p{margin:0;color:#183c91;font-size:19px;line-height:1.25;font-weight:600}
+    .report-meta{min-width:0;display:grid;gap:6px;padding-top:1px;color:#111827;font-size:12px;line-height:1.3}
+    .report-meta div{display:grid;grid-template-columns:18px 137px minmax(0,1fr);gap:8px;align-items:start}
+    .report-meta .meta-icon{width:16px;height:16px;color:#087ea4;margin-top:1px}.report-meta .meta-icon .ui-icon{width:15px;height:15px}
+    .report-meta span{color:#0f1b35;font-weight:600}.report-meta strong{color:#0b1224;text-align:left;font-weight:600;overflow-wrap:anywhere}
+
+    .report-section{margin-top:18px;padding:18px 0 0;border:0;border-top:1px solid #d5deea;break-inside:avoid}
+    .report-header+.report-section{margin-top:0;border-top:0}
+    .report-section h3{display:inline-flex;align-items:center;margin:0 0 18px;padding:0 12px 0 0;background:#fff;color:#0b327f;font-size:16px;line-height:1.15;font-weight:850;letter-spacing:-.015em;text-transform:uppercase;position:relative;z-index:2}
+    .report-section h3 .report-num{margin-right:7px;color:#0b327f}
+
+    /* 1. Summary: mirrors the large left score and right threshold band. */
+    .report-summary-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:22px;align-items:start}
+    .report-summary-value{color:#128237;font-size:76px;line-height:.92;font-weight:900;letter-spacing:-.055em}
+    .report-summary-label{margin-top:5px;color:#128237;font-size:20px;line-height:1.1;font-weight:800}
+    .report-summary-caption{margin-top:10px;color:#17213a;font-size:12px;line-height:1.5}.report-summary-caption strong{font-size:13px}.report-summary-caption p{margin:7px 0 0}
+    .report-span-title{margin:0 0 7px;text-align:center;color:#17213a;font-size:13px;font-weight:600}
+    .report-range-wrap{position:relative;padding-top:20px}
+    .report-range-bar{height:21px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;border-radius:5px}
+    .report-range-bar span:nth-child(1){background:#1b963d}.report-range-bar span:nth-child(2){background:#f4bf11}.report-range-bar span:nth-child(3){background:#f97316}.report-range-bar span:nth-child(4){background:#ef2029}
+    .report-range-bar span+span{border-left:1px solid rgba(255,255,255,.9)}
+    .report-range-marker{position:absolute;top:0;left:50%;transform:translateX(-50%);display:grid;justify-items:center;color:#16823a;font-weight:850;font-size:14px;line-height:1}
+    .report-range-marker i{margin-top:3px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:11px solid #16823a}
+    .report-range-labels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:8px;text-align:center}
+    .report-range-labels b{display:block;color:#17213a;font-size:12px;font-weight:600}.report-range-labels span{display:block;margin-top:2px;color:#17213a;font-size:12px;line-height:1.25}
+    .report-summary-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:20px;padding-top:18px;border-top:1px solid #d5deea}
+    .report-summary-stat{min-width:0;display:grid;grid-template-columns:38px minmax(0,1fr);gap:9px;align-items:center;padding:0 15px;border-right:1px solid #d5deea}
+    .report-summary-stat:first-child{padding-left:6px}.report-summary-stat:last-child{padding-right:0;border-right:0}
+    .report-summary-stat .stat-icon{width:38px;height:38px;display:grid;place-items:center;color:#087ea4}.report-summary-stat:nth-child(2) .stat-icon{color:#178c43}.report-summary-stat:nth-child(3) .stat-icon{color:#6423c7}.report-summary-stat:nth-child(4) .stat-icon{color:#ea580c}.report-summary-stat:nth-child(5) .stat-icon{color:#087ea4}
+    .report-summary-stat .ui-icon{width:34px;height:34px;stroke-width:1.8}.report-summary-stat span{display:block;color:#25324b;font-size:10.5px;line-height:1.2}.report-summary-stat strong{display:block;margin-top:3px;color:#0b1531;font-size:14px;line-height:1.25;font-weight:800}
+
+    /* 2–3. Operational context and analysis. */
+    .report-split{display:grid;grid-template-columns:1.08fr .92fr;gap:0;padding-top:18px}
+    .report-split>div:first-child{padding-right:24px}.report-split>div:last-child{position:relative;padding-left:24px}.report-split>div:last-child::before{content:"";position:absolute;left:0;top:40px;bottom:0;width:1px;background:#d5deea}
+    .report-context-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:0;border-radius:0;overflow:visible}
+    .report-context-item{min-width:0;padding:4px 9px 2px;text-align:center;border-right:1px solid #d5deea}.report-context-item:first-child{padding-left:0}.report-context-item:last-child{padding-right:0;border-right:0}
+    .report-context-item .ctx-icon{width:38px;height:38px;margin:0 auto 7px;display:grid;place-items:center;color:#163d88}.report-context-item .ui-icon{width:31px;height:31px;stroke-width:1.8}
+    .report-context-item span{display:block;color:#29364f;font-size:10.5px;line-height:1.25}.report-context-item strong{display:block;margin-top:5px;color:#153a87;font-size:13px;line-height:1.25;font-weight:800;overflow-wrap:anywhere}
+    .report-analysis-text{color:#0e1729;font-size:12.5px;line-height:1.48}
+    .report-callout{margin-top:13px;display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:center;padding:12px 14px;border:1px solid #c5e3cd;border-radius:9px;background:#f4fbf6;color:#146b31}
+    .report-callout .callout-icon{width:44px;height:44px;display:grid;place-items:center;border:3px solid #179543;border-radius:50%;font-size:24px;font-weight:800}.report-callout strong{font-size:12px;line-height:1.45;font-weight:600}
+
+    /* 4–5. Table and outcome visualization. */
+    .report-mid-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;padding-top:18px}
+    .report-mid-grid>div:first-child{padding-right:24px}.report-mid-grid>div:last-child{position:relative;padding-left:24px}.report-mid-grid>div:last-child::before{content:"";position:absolute;left:0;top:40px;bottom:0;width:1px;background:#d5deea}
+    .report-table-card{padding:0;border:1px solid #d5deea;border-radius:8px;overflow:hidden;background:#fff}
+    .report-table{width:100%;border-collapse:collapse;color:#0f172a;font-size:10.5px}.report-table th,.report-table td{padding:8px 7px;border:1px solid #d5deea;text-align:left}.report-table th{background:#f8fafc;color:#0f172a;font-weight:800}.report-table .num{text-align:center}
+    .report-outcome-grid{display:grid;grid-template-columns:176px minmax(0,1fr);gap:13px;align-items:center}
+    .report-donut-wrap{position:relative;width:158px;height:158px;margin:0 auto}.report-donut-svg{width:100%;height:100%;transform:rotate(-90deg)}.report-donut-svg circle{fill:none;stroke-width:17}.report-donut-bg{stroke:#edf1f6}.report-donut-1{stroke:#087ea4}.report-donut-2{stroke:#18a34a}.report-donut-3{stroke:#c77b00}.report-donut-4{stroke:#ef2b2d}
+    .report-donut-center{position:absolute;inset:0;display:grid;place-items:center;align-content:center;text-align:center}.report-donut-center strong{color:#16823a;font-size:44px;line-height:1;font-weight:850}.report-donut-center span{margin-top:5px;color:#17213a;font-size:12px;line-height:1.2}
+    .report-outcome-kpis{display:grid;grid-template-columns:1fr 1fr;border:1px solid #d5deea;border-radius:8px;overflow:hidden}
+    .report-outcome-kpi{min-width:0;display:grid;grid-template-columns:29px minmax(0,1fr);gap:8px;align-items:center;padding:15px 11px;border-right:1px solid #d5deea;border-bottom:1px solid #d5deea}.report-outcome-kpi:nth-child(2n){border-right:0}.report-outcome-kpi:nth-last-child(-n+2){border-bottom:0}
+    .report-outcome-kpi .kpi-icon{font-size:22px;line-height:1}.report-outcome-kpi span{display:block;color:#27344c;font-size:10px;line-height:1.2}.report-outcome-kpi strong{display:block;margin-top:3px;color:#0b1531;font-size:16px;line-height:1.1;font-weight:850}
+
+    /* 6–9. Bottom matrix follows the reference: method, notes, chart, then table. */
+    .report-bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;padding-top:18px}
+    .report-bottom-left{padding-right:24px}.report-bottom-right{position:relative;padding-left:24px}.report-bottom-right::before{content:"";position:absolute;left:0;top:40px;bottom:0;width:1px;background:#d5deea}
+    .report-method-notes{display:grid;grid-template-columns:1fr 1fr;gap:0}.report-method-notes>div:first-child{padding-right:18px}.report-method-notes>div:last-child{position:relative;padding-left:18px}.report-method-notes>div:last-child::before{content:"";position:absolute;left:0;top:40px;bottom:0;width:1px;background:#d5deea}
+    .report-formula{margin:2px 0 10px;color:#0c1930;font-family:Georgia,"Times New Roman",serif;font-size:17px;font-style:italic;line-height:1.35}
+    .report-plain-list{margin:0;padding-left:16px;color:#0d1729;font-size:10.5px;line-height:1.5}.report-plain-list li+li{margin-top:6px}.report-check-list{list-style:none;padding-left:0}.report-check-list li{position:relative;padding-left:20px}.report-check-list li::before{content:"✓";position:absolute;left:0;top:0;color:#087ea4;font-weight:900}
+    .report-chart-wrap{height:204px}.report-date-chart{width:100%;height:100%;overflow:visible}.report-chart-note{margin-top:4px;color:#516079;font-size:9px}
+    .report-impact-list{display:grid;gap:6px;margin-top:11px}.report-impact-row{display:grid;grid-template-columns:1.35fr 2.5fr 35px;gap:8px;align-items:center;color:#18243b;font-size:9.5px}.report-impact-row .bar{height:7px;border-radius:99px;background:#e8eef8;overflow:hidden}.report-impact-row .bar span{display:block;height:100%;border-radius:inherit;background:#087ea4}.report-impact-row strong{text-align:right;font-size:9.5px}
+    .report-period-table-wrap{margin-top:15px}.report-period-table-wrap h3{margin-bottom:9px}
+
+    /* 10–11 and disclaimer. */
+    .report-last-grid{display:grid;grid-template-columns:1fr 1fr .95fr;gap:0;padding-top:18px}.report-last-grid>div{position:relative;padding:0 22px}.report-last-grid>div:not(:last-child)::after{content:"";position:absolute;right:0;top:40px;bottom:0;width:1px;background:#d5deea}.report-last-grid>div:first-child{padding-left:0}.report-last-grid>div:last-child{padding-right:0}
+    .report-qr-box{display:grid;grid-template-columns:90px minmax(0,1fr);gap:13px;align-items:center}.report-fake-qr{width:82px;height:82px;border:3px solid #0b1224;background:repeating-conic-gradient(#0b1224 0 25%,#fff 0 50%) 0/12px 12px}.report-qr-box p{margin:0;color:#17213a;font-size:11px;line-height:1.45}
+    .report-disclaimer{display:grid;grid-template-columns:86px minmax(0,1fr);gap:14px;align-items:start;margin-top:16px;padding-top:14px;border-top:1px solid #d5deea;color:#17213a;font-size:9px;line-height:1.45}.report-disclaimer strong{color:#0b327f;text-transform:uppercase}
+    .report-footer,.report-footer-note,.report-print-page-footer{display:none!important}
+
+    .report-date-axis{stroke:#d7dfeb;stroke-width:1}.report-date-label{fill:#27344c;font-size:8px}.report-date-work{fill:#087ea4}.report-date-weekend{fill:#c77b00}.report-date-holiday{fill:#6423c7}.report-date-custom{fill:#c9363b}
+    @media(max-width:900px){.report-sheet{width:100%;min-height:0;padding:22px 18px}.report-header,.report-summary-grid,.report-split,.report-mid-grid,.report-bottom-grid,.report-last-grid{grid-template-columns:1fr}.report-header h2{font-size:40px}.report-split>div,.report-mid-grid>div,.report-bottom-left,.report-bottom-right,.report-last-grid>div{padding-left:0!important;padding-right:0!important;border-left:0!important;border-right:0!important}.report-split>div::before,.report-mid-grid>div::before,.report-bottom-right::before,.report-method-notes>div::before,.report-last-grid>div::after{display:none!important}.report-split>div+div,.report-mid-grid>div+div,.report-bottom-right,.report-last-grid>div+div{margin-top:16px;padding-top:14px!important;border-top:1px solid #d5deea!important}.report-context-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.report-summary-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.report-summary-stat{padding:8px 10px;border-bottom:1px solid #d5deea}.report-outcome-grid{grid-template-columns:1fr}.report-method-notes{grid-template-columns:1fr}.report-method-notes>div{padding:0!important;border:0!important}.report-method-notes>div+div{margin-top:14px;padding-top:12px!important;border-top:1px solid #d5deea!important}}
+    @media print{@page{size:A4 portrait;margin:8mm}.report-sheet{width:100%;min-height:0;padding:0}.report-header h2{font-size:42px}.report-summary-value{font-size:62px}.report-section{margin-top:12px;padding-top:12px}.report-header+.report-section{margin-top:0}.report-section h3{margin-bottom:14px}.report-table th,.report-table td{padding:5px 5px;font-size:8px}.report-context-item strong{font-size:11px}.report-chart-wrap{height:165px}.report-donut-wrap{width:136px;height:136px}.report-donut-center strong{font-size:38px}}
+
+    #calculatorLauncher{color:#087ea4;background:#d9edf4;border-color:#bae6fd}
+    .calculator-overlay[hidden]{display:none}
+    .calculator-overlay{position:fixed;top:8px;right:10px;z-index:200;width:min(390px,calc(100vw - 20px));pointer-events:none}
+    .calculator-shell{width:100%;max-height:calc(100vh - 16px);overflow:hidden;pointer-events:auto;border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 24px 70px rgba(15,23,42,.24)}
+    .calculator-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px 8px}.calculator-title{display:flex;align-items:center;gap:10px}.calculator-title-icon{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;color:#087ea4;background:#d9edf4;border:1px solid #bae6fd}.calculator-title-icon .ui-icon{width:17px;height:17px}.calculator-title h2{margin:0;font-size:17px}.calculator-close{width:32px;height:32px;border:1px solid var(--line);border-radius:9px;background:var(--surface-soft);color:var(--muted)}
+    .calculator-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:0 14px 9px;padding:4px;border-radius:11px;background:var(--surface-soft);border:1px solid var(--line)}.calculator-tab{height:33px;border:0;border-radius:8px;background:transparent;color:var(--muted);font-weight:750;font-size:12px}.calculator-tab.active{color:#fff;background:linear-gradient(135deg,#087ea4,#087ea4);box-shadow:0 4px 12px rgba(14,165,233,.22)}
+    .calculator-display{min-height:76px;margin:0 14px 10px;padding:11px 13px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;overflow:hidden;border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,#f8faff,#eef4ff)}.calculator-expression{width:100%;min-height:19px;overflow:hidden;text-align:right;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:13px}.calculator-result{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:25px;line-height:1.15;letter-spacing:-.03em}
+    .calculator-panel[hidden]{display:none}.calculator-keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 14px 14px}.calculator-key{min-height:42px;border:1px solid var(--line);border-radius:10px;background:var(--surface-soft);color:var(--text);font-weight:750;font-size:14px}.calculator-key:hover{border-color:#b8c8e2;background:#fff}.calculator-key:active{transform:translateY(1px)}.calculator-key.operator{color:#087ea4;background:#d9edf4;border-color:#bae6fd}.calculator-key.function{color:#6423c7;background:#e7ddf6;border-color:#cdb9ed;font-size:12px}.calculator-key.danger{color:#c9363b;background:#f6dcde;border-color:#edb7ba}.calculator-key.equals{color:#fff;background:linear-gradient(135deg,#087ea4,#087ea4);border-color:transparent;box-shadow:0 5px 14px rgba(14,165,233,.24)}.calculator-key.span-two{grid-column:span 2}#scientificCalculator .calculator-key{height:clamp(34px,5vh,42px);min-height:34px}
+    body.dark #calculatorLauncher{color:#71a5ff;background:#182d55;border-color:#294675}body.dark .calculator-shell{background:#151f31;border-color:#334155}body.dark .calculator-close,body.dark .calculator-tabs,body.dark .calculator-key{background:#111b2b;border-color:#334155;color:#e5edf8}body.dark .calculator-display{background:linear-gradient(145deg,#111b2b,#182438);border-color:#334155}body.dark .calculator-key.operator{color:#7fb0ff;background:#182d55;border-color:#294675}body.dark .calculator-key.function{color:#b89aff;background:#271f42;border-color:#493b70}body.dark .calculator-key.danger{color:#ff8b91;background:#3a2026;border-color:#653039}body.dark .calculator-key.equals{color:#fff;background:linear-gradient(135deg,#38bdf8,#087ea4);border-color:transparent}
+    @media(max-width:520px){#calculatorLauncher{display:inline-flex}.calculator-overlay{top:6px;right:6px;width:calc(100vw - 12px)}.calculator-shell{max-height:calc(100vh - 12px);border-radius:15px}.calculator-key{min-height:42px}}
+    @media(max-height:650px){.calculator-head{padding-top:8px}.calculator-title-icon{width:29px;height:29px}.calculator-tabs{margin-bottom:7px}.calculator-tab{height:30px}.calculator-display{min-height:62px;margin-bottom:7px;padding:8px 11px}.calculator-result{font-size:22px}.calculator-keypad{gap:5px;padding-bottom:9px}#scientificCalculator .calculator-key{height:31px;min-height:31px}}
+
+
+    body.dark{--bg:#0e1c24}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Date Difference Calculator",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "description":"Calculate the difference between two dates in calendar units, total days, weeks, exact time and business days with optional live public holidays.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
+  <link rel="stylesheet" href="category-button-themes.css">
+  <link rel="stylesheet" href="professional-report-theme.css">
+  <link rel="icon" type="image/png" href="kalq-transparent.png">
+<link rel="stylesheet" href="kalq-brand.css?v=20260718-10">
+</head>
+<body>
+  <svg aria-hidden="true" class="icon-sprite" focusable="false">
+<symbol id="i-search" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></symbol>
+<symbol id="i-globe" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></symbol>
+<symbol id="i-chevron-down" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></symbol>
+<symbol id="i-moon" viewbox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5Z"></path></symbol>
+<symbol id="i-sun" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></symbol>
+<symbol id="i-bookmark" viewbox="0 0 24 24"><path d="M6 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18l-6-4-6 4Z"></path></symbol>
+<symbol id="i-history" viewbox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5M12 7v5l3 2"></path></symbol>
+<symbol id="i-home" viewbox="0 0 24 24"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10M9 20v-6h6v6"></path></symbol>
+<symbol id="i-wallet" viewbox="0 0 24 24"><path d="M4 6h15a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h12"></path><path d="M16 12h5M16 15h5"></path></symbol>
+<symbol id="i-calculator" viewbox="0 0 24 24"><rect height="20" rx="2" width="16" x="4" y="2"></rect><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h4"></path></symbol>
+<symbol id="i-heart-pulse" viewbox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A5.5 5.5 0 0 0 12 5a5.5 5.5 0 0 0-10 3.5C2 13 12 21 12 21s2.2-1.8 4.5-4"></path><path d="M3 12h4l2-3 3 6 2-3h7"></path></symbol>
+<symbol id="i-graduation" viewbox="0 0 24 24"><path d="m2 10 10-5 10 5-10 5Z"></path><path d="M6 12v5c3 2 9 2 12 0v-5M22 10v6"></path></symbol>
+<symbol id="i-calendar-clock" viewbox="0 0 24 24"><rect height="17" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 9h18"></path><circle cx="16" cy="15" r="3"></circle><path d="M16 13.5V15l1 1"></path></symbol>
+<symbol id="i-hammer" viewbox="0 0 24 24"><path d="m15 5 4 4"></path><path d="m14 6-9.5 9.5a2.1 2.1 0 0 0 3 3L17 9"></path><path d="m12 3 3-1 6 6-1 3"></path></symbol>
+<symbol id="i-repeat" viewbox="0 0 24 24"><path d="m17 1 4 4-4 4"></path><path d="M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4"></path><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></symbol>
+<symbol id="i-code" viewbox="0 0 24 24"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"></path></symbol>
+<symbol id="i-coffee" viewbox="0 0 24 24"><path d="M3 8h13v7a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5Z"></path><path d="M16 10h2a3 3 0 0 1 0 6h-2M7 3v2M11 3v2"></path></symbol>
+<symbol id="i-atom" viewbox="0 0 24 24"><circle cx="12" cy="12" r="1"></circle><path d="M19.4 15c2.1-3.7 2.5-7.1.8-8.1-1.7-1-4.9.8-7 4.5s-2.5 7.1-.8 8.1 4.9-.8 7-4.5Z"></path><path d="M4.6 15c-2.1-3.7-2.5-7.1-.8-8.1 1.7-1 4.9.8 7 4.5s2.5 7.1.8 8.1-4.9-.8-7-4.5Z"></path><path d="M12 4c4.2 0 7.6 1.6 7.6 3.5S16.2 11 12 11 4.4 9.4 4.4 7.5 7.8 4 12 4Z" transform="rotate(90 12 12)"></path></symbol>
+<symbol id="i-flask" viewbox="0 0 24 24"><path d="M9 2h6M10 2v6l-5.5 9.5A3 3 0 0 0 7.1 22h9.8a3 3 0 0 0 2.6-4.5L14 8V2"></path><path d="M7 16h10"></path></symbol>
+<symbol id="i-gamepad" viewbox="0 0 24 24"><path d="M6 8h12a4 4 0 0 1 3.8 5.3l-1.6 4.8a2.5 2.5 0 0 1-4.2 1l-1.3-1.3H9.3L8 19.1a2.5 2.5 0 0 1-4.2-1l-1.6-4.8A4 4 0 0 1 6 8Z"></path><path d="M7 12v4M5 14h4M16 13h.01M19 15h.01"></path></symbol>
+<symbol id="i-grid" viewbox="0 0 24 24"><rect height="7" rx="1" width="7" x="3" y="3"></rect><rect height="7" rx="1" width="7" x="14" y="3"></rect><rect height="7" rx="1" width="7" x="3" y="14"></rect><rect height="7" rx="1" width="7" x="14" y="14"></rect></symbol>
+<symbol id="i-share" viewbox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"></path></symbol>
+<symbol id="i-credit-card" viewbox="0 0 24 24"><rect height="14" rx="3" width="19" x="2.5" y="5"></rect><path d="M2.5 9h19M6 15h4M16.5 14.5h.01"></path></symbol>
+<symbol id="i-calendar-check" viewbox="0 0 24 24"><rect height="17" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 9h18M8 15l2 2 5-5"></path></symbol>
+<symbol id="i-timer" viewbox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l3 2M9 2h6M12 2v3"></path></symbol>
+<symbol id="i-percent" viewbox="0 0 24 24"><circle cx="7" cy="7" r="2"></circle><circle cx="17" cy="17" r="2"></circle><path d="m7 17 10-10"></path></symbol>
+<symbol id="i-receipt" viewbox="0 0 24 24"><path d="M6 2v20l3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2Z"></path><path d="M9 9h6M9 13h6"></path></symbol>
+<symbol id="i-chart-line" viewbox="0 0 24 24"><path d="M3 3v18h18"></path><path d="m7 16 4-5 3 3 5-7"></path></symbol>
+<symbol id="i-circle-check" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></symbol>
+<symbol id="i-alert" viewbox="0 0 24 24"><path d="M10.3 3.7 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.7a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4M12 17h.01"></path></symbol>
+<symbol id="i-info" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></symbol>
+<symbol id="i-pie" viewbox="0 0 24 24"><path d="M11 2a10 10 0 1 0 10 10H11Z"></path><path d="M15 2.8A10 10 0 0 1 21.2 9H15Z"></path></symbol>
+<symbol id="i-compare" viewbox="0 0 24 24"><rect height="16" rx="2" width="7" x="3" y="4"></rect><rect height="12" rx="2" width="7" x="14" y="8"></rect><path d="M6.5 8h0M17.5 12h0"></path></symbol>
+<symbol id="i-download" viewbox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"></path></symbol>
+<symbol id="i-reset" viewbox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></symbol>
+<symbol id="i-file-chart" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6M8 17v-3M12 17v-6M16 17v-2"></path></symbol>
+<symbol id="i-file-down" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6M12 11v6M9 14l3 3 3-3"></path></symbol>
+<symbol id="i-printer" viewbox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect height="8" width="12" x="6" y="14"></rect></symbol>
+<symbol id="i-x" viewbox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></symbol>
+<symbol id="i-external" viewbox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></symbol>
+</svg>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="KalQ home"><span class="brand-mark">C</span><span>KalQ</span></a>
+    <label class="search" aria-label="Search tools"><svg class="ui-icon" aria-hidden="true"><use href="#i-search"></use></svg><input id="toolSearch" type="search" placeholder="Search calculators, converters and tools…"><span class="kbd">/</span></label>
+    <div class="top-spacer"></div>
+    <div class="top-actions">
+      <button class="lang-btn" type="button" aria-label="Language"><svg class="ui-icon" aria-hidden="true"><use href="#i-globe"></use></svg> <span>English</span><svg class="ui-icon chevron-icon" aria-hidden="true"><use href="#i-chevron-down"></use></svg></button>
+      <button class="icon-btn" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle light or dark theme"><svg class="ui-icon" aria-hidden="true"><use href="#i-moon"></use></svg></button>
+      <button class="icon-btn" id="topBookmarkBtn" type="button" title="Bookmark" aria-label="Bookmark this calculator"><svg class="ui-icon" aria-hidden="true"><use href="#i-bookmark"></use></svg></button>
+      <button class="icon-btn" id="recentActivityBtn" type="button" title="Recent activity" aria-label="Recent activity"><svg class="ui-icon" aria-hidden="true"><use href="#i-history"></use></svg></button>
+      <button class="icon-btn" id="calculatorLauncher" type="button" title="Quick calculator" aria-label="Open quick calculator" aria-haspopup="dialog"><svg class="ui-icon" aria-hidden="true"><use href="#i-calculator"></use></svg></button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Calculator categories">
+      <nav class="nav-list">
+        <a class="nav-item" href="index.html"><span class="nav-icon"><svg class="ui-icon"><use href="#i-home"></use></svg></span>Dashboard</a>
+        <a class="nav-item" href="index.html?category=Finance"><span class="nav-icon"><svg class="ui-icon"><use href="#i-wallet"></use></svg></span>Finance</a>
+        <a class="nav-item" href="index.html?category=Mathematics"><span class="nav-icon"><svg class="ui-icon"><use href="#i-calculator"></use></svg></span>Mathematics</a>
+        <a class="nav-item" href="index.html?category=Health"><span class="nav-icon"><svg class="ui-icon"><use href="#i-heart-pulse"></use></svg></span>Health</a>
+        <a class="nav-item" href="index.html?category=Education"><span class="nav-icon"><svg class="ui-icon"><use href="#i-graduation"></use></svg></span>Education</a>
+        <a class="nav-item active" href="index.html?category=Date%20%26%20Time"><span class="nav-icon"><svg class="ui-icon"><use href="#i-calendar-clock"></use></svg></span>Date &amp; Time</a>
+        <a class="nav-item" href="index.html?category=Construction"><span class="nav-icon"><svg class="ui-icon"><use href="#i-hammer"></use></svg></span>Construction</a>
+        <a class="nav-item" href="index.html?category=Converters"><span class="nav-icon"><svg class="ui-icon"><use href="#i-repeat"></use></svg></span>Converters</a>
+        <a class="nav-item" href="index.html?category=Digital"><span class="nav-icon"><svg class="ui-icon"><use href="#i-code"></use></svg></span>Digital</a>
+        <a class="nav-item" href="index.html?category=Everyday"><span class="nav-icon"><svg class="ui-icon"><use href="#i-coffee"></use></svg></span>Everyday Life</a>
+        <a class="nav-item" href="index.html?category=Science"><span class="nav-icon"><svg class="ui-icon"><use href="#i-atom"></use></svg></span>Science</a>
+        <a class="nav-item" href="index.html?category=Generators"><span class="nav-icon"><svg class="ui-icon"><use href="#i-flask"></use></svg></span>Generators</a>
+        <a class="nav-item" href="index.html?category=Games"><span class="nav-icon"><svg class="ui-icon"><use href="#i-gamepad"></use></svg></span>Games</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="page-head">
+        <div>
+          <div class="title-row"><span class="title-icon" aria-hidden="true"><svg class="ui-icon"><use href="#i-calendar-clock"></use></svg></span><h1>Date Difference Calculator</h1><span class="tag">Date &amp; Time</span></div>
+          <p class="subtitle">Calculate the exact duration between two dates in years, months, weeks, days, working days and precise elapsed time.</p>
+        </div>
+        <div class="head-actions"><button class="small-btn" type="button" id="bookmarkBtn" aria-label="Bookmark"><svg class="ui-icon" aria-hidden="true"><use href="#i-bookmark"></use></svg></button><button class="small-btn" type="button" id="shareTopBtn"><svg class="ui-icon" aria-hidden="true"><use href="#i-share"></use></svg><span>Share</span></button></div>
+      </section>
+
+      <div class="ad-slot" aria-label="Advertisement placeholder">Advertisement · Responsive 728 × 90</div>
+
+      <section class="metric-grid" aria-label="Date difference summary" aria-live="polite" aria-atomic="true">
+        <article class="card metric-card"><span class="metric-icon"><svg class="ui-icon"><use href="#i-timer"></use></svg></span><div class="metric-copy"><span class="metric-label">Total calendar days</span><strong class="metric-value" id="daysMetric">—</strong><span class="metric-note" id="daysMetricNote">End date excluded</span></div></article>
+        <article class="card metric-card"><span class="metric-icon"><svg class="ui-icon"><use href="#i-calendar-check"></use></svg></span><div class="metric-copy"><span class="metric-label">Calendar difference</span><strong class="metric-value" id="calendarMetric">—</strong><span class="metric-note" id="calendarMetricNote">Years, months and days</span></div></article>
+        <article class="card metric-card"><span class="metric-icon"><svg class="ui-icon"><use href="#i-repeat"></use></svg></span><div class="metric-copy"><span class="metric-label">Complete weeks</span><strong class="metric-value" id="weeksMetric">—</strong><span class="metric-note" id="weeksMetricNote">Weeks and remaining days</span></div></article>
+        <article class="card metric-card"><span class="metric-icon"><svg class="ui-icon"><use href="#i-receipt"></use></svg></span><div class="metric-copy"><span class="metric-label">Working days</span><strong class="metric-value" id="businessMetric">—</strong><span class="metric-note" id="businessMetricNote">Enable business-day mode</span></div></article>
+      </section>
+
+      <section class="workspace">
+        <section class="visual-stack">
+          <article class="card timeline-card">
+            <div class="chart-head"><h2 class="section-title"><span class="section-icon"><svg class="ui-icon"><use href="#i-chart-line"></use></svg></span> Days Included by Period</h2><div class="timeline-legend"><span><i style="background:#087ea4"></i>Working</span><span><i style="background:#c77b00"></i>Weekend</span><span><i style="background:#6423c7"></i>Holiday</span><span><i style="background:#c9363b"></i>Custom</span></div></div>
+            <div class="timeline-chart-wrap"><svg id="timelineChart" class="timeline-chart" viewBox="0 0 700 260" role="img" aria-label="Date range composition by month"><g id="timelineGrid"></g><g id="timelineBars"></g><g id="timelineLabels"></g></svg></div>
+            <div class="chart-note" id="timelineNote">The chart groups short ranges by week, medium ranges by month and long ranges by year.</div><p class="sr-only" id="timelineAccessibleSummary" aria-live="polite"></p>
+          </article>
+
+
+        </section>
+
+        <section class="analysis-stack">
+          <article class="card analysis-card">
+            <h2 class="section-title"><span class="section-icon"><svg class="ui-icon"><use href="#i-circle-check"></use></svg></span> Quick Analysis</h2>
+            <p id="analysisIntro">Choose a start and end date to generate an exact date analysis.</p>
+            <div class="analysis-list"><div class="analysis-line"><span class="status-dot"><svg class="ui-icon"><use href="#i-circle-check"></use></svg></span><span id="analysisPrimary">Calendar counting details will appear here.</span></div><div class="analysis-line"><span class="status-dot warn"><svg class="ui-icon"><use href="#i-alert"></use></svg></span><span id="analysisSecondary">Weekend and holiday effects will be highlighted.</span></div><div class="analysis-line"><span class="status-dot info"><svg class="ui-icon"><use href="#i-info"></use></svg></span><span id="analysisTip">Use Optional Inputs for times, time zones and working-day rules.</span></div></div>
+          </article>
+        </section>
+      </section>
+
+
+      <div class="insight-composition-row">
+            <article class="card insights-card">
+              <h2 class="section-title"><span class="section-icon" style="color:#087ea4;background:#d9edf4;border-color:#acd9e6"><svg class="ui-icon"><use href="#i-info"></use></svg></span> Date Insights &amp; Milestones</h2>
+              <div class="insight-grid"><div class="insight-tile"><span>Start weekday</span><strong id="startWeekday">—</strong><small id="startDateSmall">—</small></div><div class="insight-tile"><span>End weekday</span><strong id="endWeekday">—</strong><small id="endDateSmall">—</small></div><div class="insight-tile"><span>Midpoint date</span><strong id="midpointDate">—</strong><small id="midpointSmall">Halfway through the range</small></div><div class="insight-tile"><span>Calendar months touched</span><strong id="monthsTouched">—</strong><small>Distinct months with counted days</small></div><div class="insight-tile"><span>ISO weeks touched</span><strong id="isoWeeksTouched">—</strong><small>Distinct ISO week-year periods</small></div><div class="insight-tile"><span>Leap days crossed</span><strong id="leapDays">—</strong><small>29 February dates included</small></div></div>
+              <div class="milestone-strip"><div class="milestone-item"><div class="milestone-top"><span>25% point</span><strong id="quarterDate">—</strong></div><div class="milestone-track"><div class="milestone-fill" style="width:25%"></div></div></div><div class="milestone-item"><div class="milestone-top"><span>50% point</span><strong id="halfDate">—</strong></div><div class="milestone-track"><div class="milestone-fill" style="width:50%"></div></div></div><div class="milestone-item"><div class="milestone-top"><span>75% point</span><strong id="threeQuarterDate">—</strong></div><div class="milestone-track"><div class="milestone-fill" style="width:75%"></div></div></div></div>
+              <p class="insight-summary" id="insightSummary">Choose two dates to generate calendar milestones.</p>
+            </article>
+
+            <article class="card composition-card">
+              <h2 class="section-title"><span class="section-icon"><svg class="ui-icon"><use href="#i-pie"></use></svg></span> Day Composition</h2>
+              <div class="donut-wrap"><svg class="donut" viewBox="0 0 120 120" aria-hidden="true"><circle class="donut-bg" cx="60" cy="60" r="42"></circle><circle class="donut-work" id="donutWork" cx="60" cy="60" r="42" pathLength="100" stroke-dasharray="0 100" stroke-dashoffset="0"></circle><circle class="donut-weekend" id="donutWeekend" cx="60" cy="60" r="42" pathLength="100" stroke-dasharray="0 100" stroke-dashoffset="0"></circle><circle class="donut-holiday" id="donutHoliday" cx="60" cy="60" r="42" pathLength="100" stroke-dasharray="0 100" stroke-dashoffset="0"></circle><circle class="donut-custom" id="donutCustom" cx="60" cy="60" r="42" pathLength="100" stroke-dasharray="0 100" stroke-dashoffset="0"></circle></svg><div class="donut-center"><strong id="donutTotal">0</strong><span>Total days</span></div></div>
+              <div class="composition-list"><div class="composition-row"><span class="swatch primary"></span><span id="workLabel">Weekdays</span><strong id="workCount">0</strong><span class="composition-pct" id="workPct">0%</span></div><div class="composition-row"><span class="swatch orange"></span><span>Weekend days</span><strong id="weekendCount">0</strong><span class="composition-pct" id="weekendPct">0%</span></div><div class="composition-row"><span class="swatch purple"></span><span>Public holidays</span><strong id="holidayCount">0</strong><span class="composition-pct" id="holidayPct">0%</span></div><div class="composition-row"><span class="swatch" style="background:#c9363b"></span><span>Custom exclusions</span><strong id="customCount">0</strong><span class="composition-pct" id="customPct">0%</span></div></div>
+            </article>
+          </div>
+      <article class="card comparison-card">
+        <h2 class="section-title"><span class="section-icon"><svg class="ui-icon"><use href="#i-compare"></use></svg></span> Detailed Breakdown</h2>
+        <div class="date-main-result"><span>Exact calendar duration</span><strong id="mainDuration">—</strong><small id="mainDurationNote">Select two valid dates.</small><span class="direction-badge" id="directionBadge">Same or forward direction</span></div>
+        <div class="breakdown-grid"><div class="breakdown-tile"><span id="totalHoursLabel">Calendar hours</span><strong id="totalHours">—</strong><small id="totalHoursNote">24 hours per counted day</small></div><div class="breakdown-tile"><span id="totalMinutesLabel">Calendar minutes</span><strong id="totalMinutes">—</strong><small id="totalMinutesNote">1,440 minutes per counted day</small></div><div class="breakdown-tile"><span id="totalSecondsLabel">Calendar seconds</span><strong id="totalSeconds">—</strong><small id="totalSecondsNote">86,400 seconds per counted day</small></div><div class="breakdown-tile"><span>Approximate months</span><strong id="approxMonths">—</strong><small>Average Gregorian month</small></div><div class="breakdown-tile"><span>Weekend days</span><strong id="detailWeekend">—</strong><small id="weekendRuleLabel">Saturday–Sunday</small></div><div class="breakdown-tile"><span>Public holidays</span><strong id="detailHolidays">—</strong><small>Working-day overlaps excluded once</small></div><div class="breakdown-tile"><span>Custom exclusions</span><strong id="detailCustom">—</strong><small>Valid custom dates in range</small></div><div class="breakdown-tile"><span>Estimated work hours</span><strong id="workHours">—</strong><small id="workHoursNote">Based on working days</small></div></div>
+      </article>
+
+      <section class="card tabs-card">
+        <div class="tab-list" role="tablist" aria-label="Detailed date results"><button class="tab-btn active" type="button" role="tab" id="breakdownTabButton" aria-controls="breakdownTab" aria-selected="true" tabindex="0" data-tab="breakdownTab">Period Breakdown</button><button class="tab-btn" type="button" role="tab" id="holidayTabButton" aria-controls="holidayTab" aria-selected="false" tabindex="-1" data-tab="holidayTab">Holidays &amp; Exclusions</button><button class="tab-btn" type="button" role="tab" id="accuracyTabButton" aria-controls="accuracyTab" aria-selected="false" tabindex="-1" data-tab="accuracyTab">Data &amp; Accuracy</button><button class="tab-btn" type="button" role="tab" id="guideTabButton" aria-controls="guideTab" aria-selected="false" tabindex="-1" data-tab="guideTab">Formula &amp; Tips</button><button class="tab-btn" type="button" role="tab" id="faqTabButton" aria-controls="faqTab" aria-selected="false" tabindex="-1" data-tab="faqTab">FAQs &amp; References</button></div>
+        <div class="tab-content active" id="breakdownTab" role="tabpanel" aria-labelledby="breakdownTabButton" tabindex="0"><div class="schedule-tools"><p>Weekly, monthly or yearly composition of the selected range.</p></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Period</th><th>Calendar days</th><th id="periodWorkHeader">Weekdays</th><th>Weekend days</th><th>Public holidays</th><th>Custom exclusions</th></tr></thead><tbody id="periodTableBody"></tbody></table></div></div>
+        <div class="tab-content" id="holidayTab" role="tabpanel" aria-labelledby="holidayTabButton" tabindex="0"><div class="schedule-tools"><p>Live public holidays and custom exclusions that fall within the selected range.</p><span class="holiday-chip" id="holidaySourceChip">No live request yet</span></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Name</th><th>Type</th><th>Coverage / note</th><th>Effect</th></tr></thead><tbody id="holidayTableBody"></tbody></table></div></div>
+        <div class="tab-content" id="accuracyTab" role="tabpanel" aria-labelledby="accuracyTabButton" tabindex="0">
+          <div class="tab-panel-heading"><div><h3>Data &amp; Accuracy</h3><p>See which live sources, timestamp rules and privacy safeguards apply to this calculation.</p></div></div>
+          <div class="data-accuracy-grid"><div class="data-accuracy-status"><span class="guide-icon">↻</span><div><strong>Holiday source</strong><span id="guideHolidayStatus">Live holiday data has not been requested.</span></div></div><div class="data-accuracy-status"><span class="guide-icon">◷</span><div><strong>Timestamp rule</strong><span id="guideTimeStatus">Calendar dates only; enable time for exact elapsed duration.</span></div></div><div class="data-accuracy-status"><span class="guide-icon">⌁</span><div><strong>Private by default</strong><span>Calculations run in your browser. Dates are only shared when you choose a share action.</span></div></div></div>
+        </div>
+        <div class="tab-content" id="guideTab" role="tabpanel" aria-labelledby="guideTabButton" tabindex="0"><div class="content-columns"><article class="text-card"><h3>Calculation Method</h3><p><strong>Total calendar days</strong> = end date − start date. When “Include end date” is enabled, one day is added. Calendar years, months and days are counted using real month lengths rather than assuming 30-day months.</p><ul><li>Complete weeks = floor(total days ÷ 7).</li><li>Remaining days = total days mod 7.</li><li>Working days = total days − weekends − non-weekend holidays − custom exclusions.</li><li>Exact elapsed time converts the selected start and end time zones to UTC. Inclusive date counting affects calendar-day results, not timestamp duration.</li></ul></article><article class="text-card"><h3>Useful Tips</h3><ul><li>Enable inclusive counting when both boundary dates should count.</li><li>Choose the correct weekend rule before using the working-day result.</li><li>For Malaysia, select a state or federal territory so subdivision holidays can be filtered when supplied by the live source.</li><li>Add company shutdowns or personal leave under custom exclusions.</li><li>Use signed mode to show whether the second date occurs before the first.</li></ul></article></div></div>
+        <div class="tab-content" id="faqTab" role="tabpanel" aria-labelledby="faqTabButton" tabindex="0"><div class="content-columns"><section><h3 style="margin-top:0">Frequently Asked Questions</h3><div class="faq-list"><details class="faq"><summary>Does the calculator include the end date?</summary><p>The end date is excluded by default. Enable “Include end date” when both start and end dates should count.</p></details><details class="faq"><summary>Why does one month not always equal 30 days?</summary><p>Calendar months contain 28, 29, 30 or 31 days. Calendar duration uses the actual month boundaries.</p></details><details class="faq"><summary>How are leap years handled?</summary><p>The calculator automatically counts 29 February whenever it falls inside the selected range.</p></details><details class="faq"><summary>How are Malaysian working days calculated?</summary><p>Select Malaysia, choose a state or territory, select the weekend rule, and enable public-holiday exclusion. Malaysia requires a selected state or federal territory. The calculator then requests that state’s published holiday records from the Malaysia-specific provider.</p></details><details class="faq"><summary>Are holidays on weekends counted twice?</summary><p>No. A holiday that falls on an excluded weekend is shown as an overlap but is not subtracted again.</p></details><details class="faq"><summary>Can I compare dates in different directions?</summary><p>Yes. Absolute mode always shows a positive duration. Signed mode shows a negative result when the end date is earlier.</p></details><details class="faq"><summary>How does exact time work?</summary><p>Enable time inputs and select a shared time zone, or enable a different end time zone for international events. The calculator converts both timestamps to UTC. Inclusive calendar counting does not add 24 hours to this exact duration.</p></details><details class="faq"><summary>Are my dates stored?</summary><p>No server storage is used by this page. Shareable text is only created when you choose a share or copy action.</p></details></div></section><section><h3 style="margin-top:0">References &amp; Disclaimer</h3><div class="reference-list"><a class="reference-link" href="https://malaysia-holiday.dydxsoft.my/" target="_blank" rel="noopener"><div><strong>Malaysia Public Holiday API</strong><span>State and federal-territory holiday records with source traceability</span></div><svg class="ui-icon external-icon"><use href="#i-external"></use></svg></a><a class="reference-link" href="https://date.nager.at/api" target="_blank" rel="noopener"><div><strong>Nager.Date Holiday API</strong><span>Live holiday data for supported countries outside Malaysia</span></div><svg class="ui-icon external-icon"><use href="#i-external"></use></svg></a><a class="reference-link" href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank" rel="noopener"><div><strong>ISO 8601</strong><span>International date and time representation</span></div><svg class="ui-icon external-icon"><use href="#i-external"></use></svg></a><a class="reference-link" href="https://tc39.es/ecma262/" target="_blank" rel="noopener"><div><strong>ECMAScript Date</strong><span>Browser date arithmetic foundation</span></div><svg class="ui-icon external-icon"><use href="#i-external"></use></svg></a></div><div class="text-card" style="margin-top:12px"><h3>Disclaimer</h3><p>Results are informational estimates. Public holiday data may change after official announcements, replacement-day decisions or local updates. Confirm employment, payroll, legal, contractual or compliance deadlines with the relevant authority.</p></div></section></div></div>
+      </section>
+
+      <div class="ad-slot" style="margin-top:16px" aria-label="Advertisement placeholder">Advertisement · Content Responsive</div>
+    </main>
+
+    <aside class="right-panel" aria-label="Calculator controls">
+      <section class="card control-card">
+        <h2>Calculate Date Difference</h2>
+        <div class="input-toggle" role="tablist" aria-label="Calculator input groups"><button class="input-toggle-btn active" type="button" role="tab" id="basicPanelButton" aria-controls="basicPanel" aria-selected="true" tabindex="0" data-input-panel="basicPanel"><svg class="ui-icon"><use href="#i-calendar-check"></use></svg>Basic Inputs</button><button class="input-toggle-btn" type="button" role="tab" id="optionalPanelButton" aria-controls="optionalPanel" aria-selected="false" tabindex="-1" data-input-panel="optionalPanel"><svg class="ui-icon"><use href="#i-info"></use></svg>Optional Inputs</button></div>
+        <div class="input-panel active" id="basicPanel" role="tabpanel" aria-labelledby="basicPanelButton" tabindex="0"><div class="control-section"><div class="field"><label for="startDate">Start date</label><input class="text-input" type="date" id="startDate"></div><div class="field"><label for="endDate">End date</label><input class="text-input" type="date" id="endDate"></div><div class="check-row"><div class="check-copy"><strong>Include end date</strong><span>Counts both boundary dates for calendar-day results. Exact timestamp duration still uses the actual start and end times.</span></div><label class="switch"><input type="checkbox" id="includeEnd"><span class="switch-track"></span></label></div><div class="field"><label for="directionMode">Calculation direction</label><select class="select" id="directionMode"><option value="absolute">Absolute difference</option><option value="signed">Signed difference</option></select></div><div class="stack-actions"><button class="wide-btn primary" type="button" id="calculateBtn"><svg class="ui-icon"><use href="#i-calculator"></use></svg>Calculate</button><div class="inline-fields"><button class="wide-btn neutral" type="button" id="swapBtn"><svg class="ui-icon"><use href="#i-repeat"></use></svg>Swap dates</button><button class="wide-btn neutral" type="button" id="resetBtn"><svg class="ui-icon"><use href="#i-reset"></use></svg>Reset</button></div></div></div></div>
+
+        <div class="input-panel" id="optionalPanel" role="tabpanel" aria-labelledby="optionalPanelButton" tabindex="0"><div class="optional-intro"><svg class="ui-icon"><use href="#i-info"></use></svg><span>Optional settings add exact time, time-zone, business-day, public-holiday and custom-exclusion calculations.</span></div><div class="control-section"><div class="check-row"><div class="check-copy"><strong>Include time</strong><span>Add exact elapsed hours, minutes and seconds.</span></div><label class="switch"><input type="checkbox" id="includeTime"><span class="switch-track"></span></label></div><div id="timeFields" class="hidden"><div class="inline-fields"><div class="field"><label for="startTime">Start time</label><input class="text-input" type="time" id="startTime" value="00:00"></div><div class="field"><label for="endTime">End time</label><input class="text-input" type="time" id="endTime" value="00:00"></div></div><div class="check-row"><div class="check-copy"><strong>Different end time zone</strong><span>Useful for flights, remote meetings and international events.</span></div><label class="switch"><input type="checkbox" id="differentTimeZones"><span class="switch-track"></span></label></div><div class="field"><label for="timeZone">Start / shared time zone</label><select class="select" id="timeZone"><option value="browser">Browser time zone</option><option value="UTC">UTC</option><option value="Asia/Kuala_Lumpur">Asia/Kuala_Lumpur</option><option value="Asia/Singapore">Asia/Singapore</option><option value="Asia/Tokyo">Asia/Tokyo</option><option value="Asia/Dubai">Asia/Dubai</option><option value="Europe/London">Europe/London</option><option value="Europe/Paris">Europe/Paris</option><option value="America/New_York">America/New_York</option><option value="America/Los_Angeles">America/Los_Angeles</option><option value="Australia/Sydney">Australia/Sydney</option></select></div><div class="field hidden" id="endTimeZoneField"><label for="endTimeZone">End time zone</label><select class="select" id="endTimeZone"><option value="browser">Browser time zone</option><option value="UTC">UTC</option><option value="Asia/Kuala_Lumpur">Asia/Kuala_Lumpur</option><option value="Asia/Singapore">Asia/Singapore</option><option value="Asia/Tokyo">Asia/Tokyo</option><option value="Asia/Dubai">Asia/Dubai</option><option value="Europe/London">Europe/London</option><option value="Europe/Paris">Europe/Paris</option><option value="America/New_York">America/New_York</option><option value="America/Los_Angeles">America/Los_Angeles</option><option value="Australia/Sydney">Australia/Sydney</option></select></div><div class="compact-note">Inclusive date counting does not add 24 hours to an exact timestamp difference.</div></div>
+          <div class="check-row"><div class="check-copy"><strong>Business days only</strong><span>Classify working days, weekends, holidays and exclusions.</span></div><label class="switch"><input type="checkbox" id="businessMode"><span class="switch-track"></span></label></div>
+          <div id="businessFields" class="hidden"><div class="field"><label for="country">Country or region</label><select class="select" id="country"><option value="MY">Malaysia</option><option value="US">United States</option><option value="GB">United Kingdom</option><option value="SG">Singapore</option><option value="ID">Indonesia</option><option value="CN">China</option><option value="AU">Australia</option><option value="CA">Canada</option><option value="NZ">New Zealand</option><option value="IN">India</option><option value="JP">Japan</option><option value="KR">South Korea</option><option value="DE">Germany</option><option value="FR">France</option></select></div><div class="field" id="malaysiaRegionField"><label for="region">Malaysian state or federal territory</label><select class="select" id="region"><option value="">Select a state / territory</option><option value="MY-01">Johor</option><option value="MY-02">Kedah</option><option value="MY-03">Kelantan</option><option value="MY-04">Melaka</option><option value="MY-05">Negeri Sembilan</option><option value="MY-06">Pahang</option><option value="MY-07">Pulau Pinang</option><option value="MY-08">Perak</option><option value="MY-09">Perlis</option><option value="MY-10">Selangor</option><option value="MY-11">Terengganu</option><option value="MY-12">Sabah</option><option value="MY-13">Sarawak</option><option value="MY-14">Kuala Lumpur</option><option value="MY-15">Labuan</option><option value="MY-16">Putrajaya</option></select></div><div class="field"><label for="weekendRule">Weekend days</label><select class="select" id="weekendRule"><option value="sat-sun">Saturday–Sunday</option><option value="fri-sat">Friday–Saturday</option><option value="sun">Sunday only</option><option value="none">No weekend exclusion</option></select></div><div class="check-row"><div class="check-copy"><strong>Exclude public holidays</strong><span>Loads available live holiday data for every year in the selected range.</span></div><label class="switch"><input type="checkbox" id="excludeHolidays" checked><span class="switch-track"></span></label></div><div class="field"><label for="customDates">Custom excluded dates</label><textarea class="text-input" id="customDates" placeholder="One date per line or comma-separated, e.g. 2026-12-24"></textarea><span class="field-note">Useful for company closures, leave, school breaks or project blackout dates.</span></div><div class="field"><label for="dailyHours">Working hours per day</label><input class="text-input" type="number" id="dailyHours" value="8" min="0" max="24" step="0.25"></div></div>
+          <div class="inline-fields"><div class="field"><label for="dateFormat">Date format</label><select class="select" id="dateFormat"><option value="DD/MM/YYYY">DD/MM/YYYY</option><option value="MM/DD/YYYY">MM/DD/YYYY</option><option value="YYYY-MM-DD">YYYY-MM-DD</option><option value="long">Long English date</option></select></div><div class="field"><label for="precision">Decimal precision</label><select class="select" id="precision"><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div></div><div class="source-status" id="liveStatus"><span class="live-dot" id="liveDot"></span><span id="liveStatusText">Current browser time is live. Malaysia uses a state-level holiday source; other supported countries use Nager.Date.</span></div></div></div>
+      </section>
+
+      <section class="card actions-card"><h2>Report &amp; Export</h2><div class="stack-actions"><button class="wide-btn" type="button" id="viewReportBtn"><svg class="ui-icon"><use href="#i-file-chart"></use></svg>View Full Report</button><button class="wide-btn pdf" type="button" id="savePdfBtn"><svg class="ui-icon"><use href="#i-file-down"></use></svg>Save as PDF</button><button class="wide-btn" type="button" id="printReportBtn"><svg class="ui-icon"><use href="#i-printer"></use></svg>Print Report</button><button class="wide-btn" type="button" id="downloadCsvBtn"><svg class="ui-icon"><use href="#i-download"></use></svg>Download CSV</button><button class="wide-btn" type="button" id="shareResultBtn"><svg class="ui-icon"><use href="#i-share"></use></svg>Share Result</button></div><p class="helper-note">The printable A4 report includes a local date and time stamp, selected settings, exact duration, useful charts, period and holiday tables, quick analysis and a clear printable summary.</p></section>
+
+    </aside>
+  </div>
+
+  <div class="calculator-overlay" id="calculatorOverlay" hidden>
+    <section class="calculator-shell" role="dialog" aria-labelledby="calculatorTitle">
+      <div class="calculator-head">
+        <div class="calculator-title"><span class="calculator-title-icon" aria-hidden="true"><svg class="ui-icon"><use href="#i-calculator"></use></svg></span><h2 id="calculatorTitle">Quick Calculator</h2></div>
+        <button class="calculator-close" id="calculatorClose" type="button" aria-label="Close calculator">&times;</button>
+      </div>
+      <div class="calculator-tabs" role="tablist" aria-label="Calculator type">
+        <button class="calculator-tab active" id="basicTab" type="button" role="tab" aria-selected="true" aria-controls="basicCalculator" data-calc-mode="basic">Basic</button>
+        <button class="calculator-tab" id="scientificTab" type="button" role="tab" aria-selected="false" aria-controls="scientificCalculator" data-calc-mode="scientific">Scientific</button>
+      </div>
+      <div class="calculator-display" aria-live="polite">
+        <span class="calculator-expression" id="calculatorExpression">0</span>
+        <strong class="calculator-result" id="calculatorResult">0</strong>
+      </div>
+      <div class="calculator-panel" id="basicCalculator" role="tabpanel" aria-labelledby="basicTab">
+        <div class="calculator-keypad">
+          <button class="calculator-key danger" type="button" data-calc-action="clear">C</button><button class="calculator-key function" type="button" data-calc-action="backspace" aria-label="Backspace">&#9003;</button><button class="calculator-key operator" type="button" data-calc-value="%">%</button><button class="calculator-key operator" type="button" data-calc-value="&divide;">&divide;</button>
+          <button class="calculator-key" type="button" data-calc-value="7">7</button><button class="calculator-key" type="button" data-calc-value="8">8</button><button class="calculator-key" type="button" data-calc-value="9">9</button><button class="calculator-key operator" type="button" data-calc-value="&times;">&times;</button>
+          <button class="calculator-key" type="button" data-calc-value="4">4</button><button class="calculator-key" type="button" data-calc-value="5">5</button><button class="calculator-key" type="button" data-calc-value="6">6</button><button class="calculator-key operator" type="button" data-calc-value="&minus;">&minus;</button>
+          <button class="calculator-key" type="button" data-calc-value="1">1</button><button class="calculator-key" type="button" data-calc-value="2">2</button><button class="calculator-key" type="button" data-calc-value="3">3</button><button class="calculator-key operator" type="button" data-calc-value="+">+</button>
+          <button class="calculator-key function" type="button" data-calc-action="sign">&plusmn;</button><button class="calculator-key" type="button" data-calc-value="0">0</button><button class="calculator-key" type="button" data-calc-value=".">.</button><button class="calculator-key equals" type="button" data-calc-action="equals">=</button>
+        </div>
+      </div>
+      <div class="calculator-panel" id="scientificCalculator" role="tabpanel" aria-labelledby="scientificTab" hidden>
+        <div class="calculator-keypad">
+          <button class="calculator-key function" type="button" data-calc-value="sin(">sin</button><button class="calculator-key function" type="button" data-calc-value="cos(">cos</button><button class="calculator-key function" type="button" data-calc-value="tan(">tan</button><button class="calculator-key operator" type="button" data-calc-value="^">x<sup>y</sup></button>
+          <button class="calculator-key function" type="button" data-calc-value="log(">log</button><button class="calculator-key function" type="button" data-calc-value="ln(">ln</button><button class="calculator-key function" type="button" data-calc-value="sqrt(">&radic;</button><button class="calculator-key danger" type="button" data-calc-action="clear">C</button>
+          <button class="calculator-key function" type="button" data-calc-value="(">(</button><button class="calculator-key function" type="button" data-calc-value=")">)</button><button class="calculator-key function" type="button" data-calc-value="&pi;">&pi;</button><button class="calculator-key function" type="button" data-calc-action="backspace" aria-label="Backspace">&#9003;</button>
+          <button class="calculator-key" type="button" data-calc-value="7">7</button><button class="calculator-key" type="button" data-calc-value="8">8</button><button class="calculator-key" type="button" data-calc-value="9">9</button><button class="calculator-key operator" type="button" data-calc-value="&divide;">&divide;</button>
+          <button class="calculator-key" type="button" data-calc-value="4">4</button><button class="calculator-key" type="button" data-calc-value="5">5</button><button class="calculator-key" type="button" data-calc-value="6">6</button><button class="calculator-key operator" type="button" data-calc-value="&times;">&times;</button>
+          <button class="calculator-key" type="button" data-calc-value="1">1</button><button class="calculator-key" type="button" data-calc-value="2">2</button><button class="calculator-key" type="button" data-calc-value="3">3</button><button class="calculator-key operator" type="button" data-calc-value="&minus;">&minus;</button>
+          <button class="calculator-key function" type="button" data-calc-value="e">e</button><button class="calculator-key" type="button" data-calc-value="0">0</button><button class="calculator-key" type="button" data-calc-value=".">.</button><button class="calculator-key operator" type="button" data-calc-value="+">+</button>
+          <button class="calculator-key function" type="button" data-calc-value="%">%</button><button class="calculator-key function" type="button" data-calc-action="sign">&plusmn;</button><button class="calculator-key equals span-two" type="button" data-calc-action="equals">=</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+    <div class="modal-shell" tabindex="-1">
+      <div class="modal-actions"><button class="small-btn" id="modalSavePdfBtn"><svg class="ui-icon"><use href="#i-file-down"></use></svg>Save PDF</button><button class="small-btn" id="modalPrintBtn"><svg class="ui-icon"><use href="#i-printer"></use></svg>Print</button><button class="icon-btn" id="modalCloseBtn" aria-label="Close"><svg class="ui-icon"><use href="#i-x"></use></svg></button></div>
+      <article class="report-sheet" id="reportSheet">
+        <header class="report-header">
+          <div><div class="report-brand"><span class="brand-mark"><svg class="ui-icon"><use href="#i-heart-pulse"></use></svg></span><span>KalQ</span></div><h2 id="reportTitle">Date Difference Report</h2><p>Date Range Assessment</p></div>
+          <div class="report-meta"><div><span class="meta-icon"><svg class="ui-icon"><use href="#i-receipt"></use></svg></span><span>Report ID</span><strong id="reportId">—</strong></div><div><span class="meta-icon"><svg class="ui-icon"><use href="#i-calendar-clock"></use></svg></span><span>Date &amp; Time</span><strong id="reportGenerated">—</strong></div><div><span class="meta-icon"><svg class="ui-icon"><use href="#i-globe"></use></svg></span><span>Location</span><strong id="reportTimeZone">—</strong></div><div><span class="meta-icon"><svg class="ui-icon"><use href="#i-calendar-check"></use></svg></span><span>Date Range</span><strong id="reportMetaRange">—</strong></div><div><span class="meta-icon"><svg class="ui-icon"><use href="#i-calculator"></use></svg></span><span>Measurement System</span><strong>Calendar / elapsed time</strong></div><div><span class="meta-icon"><svg class="ui-icon"><use href="#i-grid"></use></svg></span><span>Data Source</span><strong id="reportHolidaySource">Not requested</strong></div></div>
+        </header>
+
+        <section class="report-section">
+          <h3><span class="report-num">1.</span>Your Date Summary</h3>
+          <div class="report-summary-grid">
+            <div><div class="report-summary-value" id="reportSummaryDays">—</div><div class="report-summary-label" id="reportSummaryLabel">Total days</div><div class="report-summary-caption"><strong id="reportSummaryCaption">—</strong><p id="reportSummaryNarrative">—</p></div></div>
+            <div><div class="report-span-title">Date Range Milestones</div><div class="report-range-wrap"><div class="report-range-marker"><strong id="reportRangeMarkerText">50%</strong><i></i></div><div class="report-range-bar"><span></span><span></span><span></span><span></span></div></div><div class="report-range-labels"><div><b>Start</b><span id="reportRangeStartLabel">—</span></div><div><b>25%</b><span id="reportRangeQuarterLabel">—</span></div><div><b>75%</b><span id="reportRangeThreeQuarterLabel">—</span></div><div><b>End</b><span id="reportRangeEndLabel">—</span></div></div></div>
+          </div>
+          <div class="report-summary-stats">
+            <div class="report-summary-stat"><div class="stat-icon"><svg class="ui-icon"><use href="#i-calendar-clock"></use></svg></div><div><span>Start date</span><strong id="reportStatStart">—</strong></div></div>
+            <div class="report-summary-stat"><div class="stat-icon"><svg class="ui-icon"><use href="#i-calendar-check"></use></svg></div><div><span>End date</span><strong id="reportStatEnd">—</strong></div></div>
+            <div class="report-summary-stat"><div class="stat-icon"><svg class="ui-icon"><use href="#i-repeat"></use></svg></div><div><span>Complete weeks</span><strong id="reportStatWeeks">—</strong></div></div>
+            <div class="report-summary-stat"><div class="stat-icon"><svg class="ui-icon"><use href="#i-wallet"></use></svg></div><div><span>Working days</span><strong id="reportStatWorking">—</strong></div></div>
+            <div class="report-summary-stat"><div class="stat-icon"><svg class="ui-icon"><use href="#i-info"></use></svg></div><div><span>Counting rule</span><strong id="reportStatRule">—</strong></div></div>
+          </div>
+        </section>
+
+        <section class="report-section report-split">
+          <div><h3><span class="report-num">2.</span>Operational Context</h3><div class="report-context-grid">
+            <div class="report-context-item"><div class="ctx-icon"><svg class="ui-icon"><use href="#i-calendar-clock"></use></svg></div><span>Date mode</span><strong id="reportCtxMode">—</strong></div>
+            <div class="report-context-item"><div class="ctx-icon"><svg class="ui-icon"><use href="#i-globe"></use></svg></div><span>Time zone</span><strong id="reportCtxTimeZone">—</strong></div>
+            <div class="report-context-item"><div class="ctx-icon"><svg class="ui-icon"><use href="#i-repeat"></use></svg></div><span>Direction</span><strong id="reportCtxDirection">—</strong></div>
+            <div class="report-context-item"><div class="ctx-icon"><svg class="ui-icon"><use href="#i-calendar-check"></use></svg></div><span>Weekend rule</span><strong id="reportCtxWeekend">—</strong></div>
+            <div class="report-context-item"><div class="ctx-icon"><svg class="ui-icon"><use href="#i-grid"></use></svg></div><span>Holiday region</span><strong id="reportCtxRegion">—</strong></div>
+            <div class="report-context-item"><div class="ctx-icon"><svg class="ui-icon"><use href="#i-calculator"></use></svg></div><span>Precision</span><strong id="reportCtxPrecision">—</strong></div>
+          </div></div>
+          <div><h3><span class="report-num">3.</span>Date Analysis</h3><div class="report-analysis-text" id="reportAnalysis">—</div><div class="report-callout"><div class="callout-icon">✓</div><strong id="reportActionNote">Use the date range to plan schedules and deadlines.</strong></div></div>
+        </section>
+
+        <section class="report-section report-mid-grid">
+          <div><h3><span class="report-num">4.</span>Scenario Comparison</h3><div class="report-table-card"><table class="report-table"><thead><tr><th>Scenario</th><th class="num">Result</th><th>Use</th></tr></thead><tbody id="reportScenarioBody"></tbody></table></div></div>
+          <div><h3><span class="report-num">5.</span>Outcome Composition</h3><div class="report-outcome-grid"><div class="report-donut-wrap"><svg class="report-donut-svg" viewBox="0 0 120 120"><circle class="report-donut-bg" cx="60" cy="60" r="42"></circle><circle class="report-donut-1" id="reportDonutWork" cx="60" cy="60" r="42" pathLength="100"></circle><circle class="report-donut-2" id="reportDonutWeekend" cx="60" cy="60" r="42" pathLength="100"></circle><circle class="report-donut-3" id="reportDonutHoliday" cx="60" cy="60" r="42" pathLength="100"></circle><circle class="report-donut-4" id="reportDonutCustom" cx="60" cy="60" r="42" pathLength="100"></circle></svg><div class="report-donut-center"><strong id="reportDonutValue">—</strong><span>Counted days</span></div></div><div class="report-outcome-kpis"><div class="report-outcome-kpi"><div class="kpi-icon" style="color:#087ea4">●</div><div><span id="reportOutcomeWorkLabel">Weekdays</span><strong id="reportOutcomeWork">—</strong></div></div><div class="report-outcome-kpi"><div class="kpi-icon" style="color:#18a34a">●</div><div><span>Weekend days</span><strong id="reportOutcomeWeekend">—</strong></div></div><div class="report-outcome-kpi"><div class="kpi-icon" style="color:#c77b00">●</div><div><span>Public holidays</span><strong id="reportOutcomeHoliday">—</strong></div></div><div class="report-outcome-kpi"><div class="kpi-icon" style="color:#ef2b2d">●</div><div><span>Custom exclusions</span><strong id="reportOutcomeCustom">—</strong></div></div></div></div></div>
+        </section>
+
+        <section class="report-section report-bottom-grid">
+          <div class="report-bottom-left">
+            <div class="report-method-notes">
+              <div><h3><span class="report-num">6.</span>Formula &amp; Method</h3><div class="report-formula">D = End date − Start date</div><ul class="report-plain-list report-check-list"><li>Calendar boundaries use actual month and year lengths.</li><li>Inclusive mode adds the end date.</li><li>Working days exclude selected weekends and exclusions.</li><li>Holiday overlaps are never deducted twice.</li></ul></div>
+              <div><h3><span class="report-num">7.</span>Notes &amp; Limitations</h3><ul class="report-plain-list" id="reportAssumptions"></ul></div>
+            </div>
+            <div class="report-period-table-wrap"><h3><span class="report-num">9.</span>Detailed Period Table</h3><table class="report-table"><thead><tr><th>Period</th><th class="num">Calendar</th><th class="num">Working</th><th class="num">Weekend</th><th class="num">Holiday</th><th class="num">Custom</th></tr></thead><tbody id="reportPeriodBody"></tbody></table></div>
+          </div>
+          <div class="report-bottom-right"><h3><span class="report-num">8.</span>Period Distribution &amp; Working-Day Mix</h3><div class="report-chart-wrap"><svg class="report-date-chart" id="reportPeriodChart" viewBox="0 0 500 190" role="img" aria-label="Date range composition chart"><g id="reportPeriodGrid"></g><g id="reportPeriodBars"></g><g id="reportPeriodLabels"></g></svg></div><div class="report-chart-note" id="reportPeriodNote">—</div><div class="report-impact-list" id="reportImpactList"></div></div>
+        </section>
+
+        <section class="report-section report-last-grid">
+          <div><h3><span class="report-num">10.</span>Key Takeaways</h3><ul class="report-plain-list report-check-list" id="reportTakeaways"></ul></div>
+          <div><h3><span class="report-num">11.</span>References</h3><ul class="report-plain-list" id="reportReferences"></ul></div>
+          <div><div class="report-qr-box"><div class="report-fake-qr" aria-hidden="true"></div><p>Scan to open the Date Difference Calculator and refresh this report using the latest date settings.</p></div></div>
+        </section>
+
+        <section class="report-section" id="reportHolidaySection"><h3><span class="report-num">12.</span>Holidays &amp; Exclusions</h3><table class="report-table"><thead><tr><th>Date</th><th>Name</th><th>Type</th><th>Coverage / note</th><th>Effect</th></tr></thead><tbody id="reportHolidayBody"></tbody></table></section>
+        <div class="report-disclaimer"><strong>Disclaimer:</strong><span>This report is for informational purposes only and does not constitute a legal, payroll, academic, contractual or regulatory determination. Confirm official deadlines and holiday observance with the relevant authority. <span id="reportDataSourceText"></span></span></div>
+        <div class="report-print-page-footer"><span id="reportFooterId">—</span></div>
+      </article>
+    </div>
+  </div>
+
+<script src="kalq-brand.js?v=20260718-8"></script>
+<script>
+(() => {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const DAY_MS = 86400000;
+  const holidayCache = new Map();
+  let calculationTimer = 0;
+  let result = null;
+  let runToken = 0;
+  let lastFocusedElement = null;
+  const defaultTZ = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+
+  const ui = {
+    startDate: $("startDate"), endDate: $("endDate"), includeEnd: $("includeEnd"), directionMode: $("directionMode"),
+    includeTime: $("includeTime"), startTime: $("startTime"), endTime: $("endTime"), timeZone: $("timeZone"), differentTimeZones: $("differentTimeZones"), endTimeZone: $("endTimeZone"),
+    businessMode: $("businessMode"), country: $("country"), region: $("region"), weekendRule: $("weekendRule"),
+    excludeHolidays: $("excludeHolidays"), customDates: $("customDates"), dailyHours: $("dailyHours"), dateFormat: $("dateFormat"), precision: $("precision")
+  };
+
+  const countryNames = {MY:"Malaysia",US:"United States",GB:"United Kingdom",SG:"Singapore",ID:"Indonesia",CN:"China",AU:"Australia",CA:"Canada",NZ:"New Zealand",IN:"India",JP:"Japan",KR:"South Korea",DE:"Germany",FR:"France"};
+  const regionNames = {"MY-01":"Johor","MY-02":"Kedah","MY-03":"Kelantan","MY-04":"Melaka","MY-05":"Negeri Sembilan","MY-06":"Pahang","MY-07":"Pulau Pinang","MY-08":"Perak","MY-09":"Perlis","MY-10":"Selangor","MY-11":"Terengganu","MY-12":"Sabah","MY-13":"Sarawak","MY-14":"Kuala Lumpur","MY-15":"Labuan","MY-16":"Putrajaya"};
+  const malaysiaStateCodes = {"MY-01":"JHR","MY-02":"KDH","MY-03":"KTN","MY-04":"MLK","MY-05":"NSN","MY-06":"PHG","MY-07":"PNG","MY-08":"PRK","MY-09":"PLS","MY-10":"SGR","MY-11":"TRG","MY-12":"SBH","MY-13":"SWK","MY-14":"KUL","MY-15":"LBN","MY-16":"PJY"};
+  const fridaySaturdayRegions = new Set(["MY-02","MY-03","MY-11"]);
+
+  function isoDate(date){return `${date.getUTCFullYear()}-${String(date.getUTCMonth()+1).padStart(2,"0")}-${String(date.getUTCDate()).padStart(2,"0")}`}
+  function parseDate(value){if(!/^\d{4}-\d{2}-\d{2}$/.test(value||""))return null;const [y,m,d]=value.split("-").map(Number);const date=new Date(Date.UTC(y,m-1,d));return date.getUTCFullYear()===y&&date.getUTCMonth()===m-1&&date.getUTCDate()===d?date:null}
+  function addDays(date,days){return new Date(date.getTime()+days*DAY_MS)}
+  function diffDays(a,b){return Math.round((b-a)/DAY_MS)}
+  function clampDay(year,month,day){return Math.min(day,new Date(Date.UTC(year,month+1,0)).getUTCDate())}
+  function addYearsClamped(date,years){const y=date.getUTCFullYear()+years,m=date.getUTCMonth(),d=clampDay(y,m,date.getUTCDate());return new Date(Date.UTC(y,m,d))}
+  function addMonthsClamped(date,months){const total=date.getUTCFullYear()*12+date.getUTCMonth()+months,y=Math.floor(total/12),m=((total%12)+12)%12,d=clampDay(y,m,date.getUTCDate());return new Date(Date.UTC(y,m,d))}
+  function calendarParts(start,endExclusive){if(endExclusive<=start)return {years:0,months:0,days:0};let years=endExclusive.getUTCFullYear()-start.getUTCFullYear();let cursor=addYearsClamped(start,years);if(cursor>endExclusive){years--;cursor=addYearsClamped(start,years)}let months=(endExclusive.getUTCFullYear()-cursor.getUTCFullYear())*12+(endExclusive.getUTCMonth()-cursor.getUTCMonth());let monthCursor=addMonthsClamped(cursor,months);if(monthCursor>endExclusive){months--;monthCursor=addMonthsClamped(cursor,months)}return {years,months,days:diffDays(monthCursor,endExclusive)}}
+  function plural(n,word){return `${n.toLocaleString()} ${word}${n===1?"":"s"}`}
+  function durationText(parts,sign=1){const arr=[];if(parts.years)arr.push(plural(parts.years,"year"));if(parts.months)arr.push(plural(parts.months,"month"));if(parts.days||!arr.length)arr.push(plural(parts.days,"day"));return `${sign<0?"−":""}${arr.join(", ")}`}
+  function compactDuration(parts,sign=1){const arr=[];if(parts.years)arr.push(`${parts.years}y`);if(parts.months)arr.push(`${parts.months}m`);if(parts.days||!arr.length)arr.push(`${parts.days}d`);return `${sign<0?"−":""}${arr.join(" ")}`}
+  function formatNumber(value,precision=0){return Number(value).toLocaleString("en-US",{minimumFractionDigits:precision,maximumFractionDigits:precision})}
+  function formatDate(date,format=ui.dateFormat.value){if(!date)return "—";const y=date.getUTCFullYear(),m=String(date.getUTCMonth()+1).padStart(2,"0"),d=String(date.getUTCDate()).padStart(2,"0");if(format==="DD/MM/YYYY")return `${d}/${m}/${y}`;if(format==="MM/DD/YYYY")return `${m}/${d}/${y}`;if(format==="YYYY-MM-DD")return `${y}-${m}-${d}`;return new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}).format(date)}
+  function longDate(date){return new Intl.DateTimeFormat("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}).format(date)}
+  function weekday(date){return new Intl.DateTimeFormat("en-GB",{weekday:"long",timeZone:"UTC"}).format(date)}
+  function monthLabel(date){return new Intl.DateTimeFormat("en-GB",{month:"short",year:"numeric",timeZone:"UTC"}).format(date)}
+  function dayOfYear(date){const first=new Date(Date.UTC(date.getUTCFullYear(),0,1));return diffDays(first,date)+1}
+  function isoWeekKey(date){const d=new Date(date);d.setUTCDate(d.getUTCDate()+4-(d.getUTCDay()||7));const yearStart=new Date(Date.UTC(d.getUTCFullYear(),0,1));const week=Math.ceil((((d-yearStart)/DAY_MS)+1)/7);return `${d.getUTCFullYear()}-W${String(week).padStart(2,"0")}`}
+  function reportTimestamp(){return new Intl.DateTimeFormat("en-GB",{dateStyle:"medium",timeStyle:"medium",timeZone:resolvedTimeZone("start")}).format(new Date())}
+  function resolvedTimeZone(which="start"){const value=which==="end"&&ui.differentTimeZones.checked?ui.endTimeZone.value:ui.timeZone.value;return value==="browser"?defaultTZ:value}
+  function weekendSet(rule){if(rule==="fri-sat")return new Set([5,6]);if(rule==="sun")return new Set([0]);if(rule==="none")return new Set();return new Set([0,6])}
+  function weekendLabel(rule){return {"sat-sun":"Saturday–Sunday","fri-sat":"Friday–Saturday",sun:"Sunday only",none:"No weekend exclusion"}[rule]||"Saturday–Sunday"}
+  function customDateSet(){const values=(ui.customDates.value||"").split(/[\s,;]+/).map(x=>x.trim()).filter(Boolean);return new Set(values.filter(v=>parseDate(v)))}
+  function showToast(message){const toast=$("toast");toast.textContent=message;toast.classList.add("show");clearTimeout(showToast.t);showToast.t=setTimeout(()=>toast.classList.remove("show"),2400)}
+  function setLiveStatus(text,type="ok"){const box=$("liveStatus"),dot=$("liveDot");box.classList.remove("error","warn");dot.classList.remove("loading","error");if(type==="loading")dot.classList.add("loading");if(type==="error"){box.classList.add("error");dot.classList.add("error")}if(type==="warn")box.classList.add("warn");$("liveStatusText").textContent=text}
+
+  function zonedTimeToUtc(dateString,timeString,timeZone){const [y,m,d]=dateString.split("-").map(Number);const [hh,mm,ss=0]=(timeString||"00:00").split(":").map(Number);const target=Date.UTC(y,m-1,d,hh,mm,ss);if(timeZone==="UTC")return new Date(target);let guess=target;const formatter=new Intl.DateTimeFormat("en-CA",{timeZone,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"});for(let i=0;i<3;i++){const parts=Object.fromEntries(formatter.formatToParts(new Date(guess)).filter(p=>p.type!=="literal").map(p=>[p.type,p.value]));const shown=Date.UTC(+parts.year,+parts.month-1,+parts.day,+parts.hour,+parts.minute,+parts.second);guess+=target-shown}return new Date(guess)}
+
+  async function fetchHolidays(year,country,region){
+    const stateCode=country==="MY"?malaysiaStateCodes[region]||"":"";
+    const key=`${country}-${stateCode||"ALL"}-${year}`;
+    if(holidayCache.has(key))return holidayCache.get(key);
+    const promise=(async()=>{
+      if(country==="MY"){
+        if(!stateCode)throw new Error("MALAYSIA_STATE_REQUIRED");
+        const url=`https://malaysia-holiday.dydxsoft.my/api/v1/holidays?year=${year}&state=${stateCode}&include_source=1`;
+        const response=await fetch(url,{headers:{Accept:"application/json"}});
+        if(!response.ok)throw new Error(`HTTP ${response.status}`);
+        const payload=await response.json();
+        const rows=Array.isArray(payload)?payload:Array.isArray(payload.data)?payload.data:[];
+        return rows.map(h=>({date:h.date,name:h.name||h.holiday_name||"Public holiday",coverage:regionNames[region]||stateCode,source:h.source?.source_name||"Malaysia Public Holiday API",subjectToChange:!!h.is_subject_to_change}));
+      }
+      const response=await fetch(`https://date.nager.at/api/v4/Holidays/${country}/${year}`,{headers:{Accept:"application/json"}});
+      if(!response.ok)throw new Error(`HTTP ${response.status}`);
+      const payload=await response.json();
+      const rows=Array.isArray(payload)?payload:Array.isArray(payload.data)?payload.data:[];
+      return rows.map(h=>({date:h.date,name:h.name||h.localName||"Public holiday",coverage:Array.isArray(h.subdivisionCodes)&&h.subdivisionCodes.length?h.subdivisionCodes.join(", "):"National / general",source:"Nager.Date",subjectToChange:false}));
+    })();
+    holidayCache.set(key,promise);
+    try{return await promise}catch(e){holidayCache.delete(key);throw e}
+  }
+  async function loadHolidayMap(start,endExclusive,token){
+    const map=new Map(),details=[];
+    if(!ui.businessMode.checked)return {map,details,status:"Not requested — business-day mode is off."};
+    if(!ui.excludeHolidays.checked)return {map,details,status:"Not requested — public-holiday exclusion is off."};
+    if(endExclusive<=start)return {map,details,status:"No counted dates"};
+    if(ui.country.value==="MY"&&!ui.region.value){const status="Select a Malaysian state or federal territory to load live holidays.";setLiveStatus(status,"warn");return {map,details,status}}
+    const years=[];for(let y=start.getUTCFullYear();y<=addDays(endExclusive,-1).getUTCFullYear();y++)years.push(y);
+    if(years.length>20){const status="Live holiday loading is limited to ranges of 20 calendar years. Weekend and custom exclusions remain accurate.";setLiveStatus(status,"warn");return {map,details,status}}
+    const place=ui.country.value==="MY"?(regionNames[ui.region.value]||"Malaysia"):(countryNames[ui.country.value]||ui.country.value);
+    setLiveStatus(`Loading live ${place} public holidays…`,"loading");
+    try{
+      const sets=await Promise.all(years.map(y=>fetchHolidays(y,ui.country.value,ui.region.value)));
+      if(token!==runToken)return {map,details,status:"Superseded"};
+      for(const data of sets){for(const h of data){const date=parseDate(h.date);if(!date||date<start||date>=endExclusive)continue;const item={date:h.date,name:h.name,coverage:h.coverage||place,source:h.source||"Live holiday provider",subjectToChange:!!h.subjectToChange};if(!map.has(h.date))map.set(h.date,[]);map.get(h.date).push(item);details.push(item)}}
+      const provider=ui.country.value==="MY"?"Malaysia Public Holiday API":"Nager.Date";
+      const loadedAt=new Intl.DateTimeFormat("en-GB",{dateStyle:"medium",timeStyle:"short"}).format(new Date());
+      const status=`${provider} loaded ${details.length} matching holiday record${details.length===1?"":"s"} for ${place}, ${years[0]}${years.length>1?`–${years[years.length-1]}`:""}. Updated ${loadedAt}.`;
+      setLiveStatus(status,"ok");return {map,details,status}
+    }catch(e){
+      const status=e.message==="MALAYSIA_STATE_REQUIRED"?"Select a Malaysian state or federal territory to load live holidays.":"Live holiday data could not be loaded. Weekend and custom-date calculations remain available.";
+      setLiveStatus(status,e.message==="MALAYSIA_STATE_REQUIRED"?"warn":"error");return {map,details,status}
+    }
+  }
+
+  function startOfIsoWeek(date){const d=new Date(date);const day=d.getUTCDay()||7;return addDays(d,1-day)}
+  function periodKey(date,mode){if(mode==="year")return String(date.getUTCFullYear());if(mode==="week")return isoDate(startOfIsoWeek(date));return `${date.getUTCFullYear()}-${String(date.getUTCMonth()+1).padStart(2,"0")}`}
+  function periodName(key,mode){if(mode==="year")return key;if(mode==="week"){const monday=parseDate(key);return `${isoWeekKey(monday).split("-")[1]} · ${new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short",timeZone:"UTC"}).format(monday)}`}const [y,m]=key.split("-").map(Number);return new Intl.DateTimeFormat("en-GB",{month:"short",year:"numeric",timeZone:"UTC"}).format(new Date(Date.UTC(y,m-1,1)))}
+
+  async function calculate({silent=false}={}){
+    const token=++runToken;
+    const rawStart=parseDate(ui.startDate.value),rawEnd=parseDate(ui.endDate.value);
+    if(!rawStart||!rawEnd){if(!silent)showToast("Please enter two valid dates.");return}
+    const reversed=rawEnd<rawStart;
+    const sign=(reversed&&ui.directionMode.value==="signed")?-1:1;
+    const start=reversed?rawEnd:rawStart;
+    const endBase=reversed?rawStart:rawEnd;
+    const endExclusive=addDays(endBase,ui.includeEnd.checked?1:0);
+    const totalDays=Math.max(0,diffDays(start,endExclusive));
+    const parts=calendarParts(start,endExclusive);
+    const holidays=await loadHolidayMap(start,endExclusive,token);
+    if(token!==runToken)return;
+    const weekends=weekendSet(ui.weekendRule.value),customs=customDateSet();
+    const counts={work:0,weekend:0,holiday:0,custom:0};
+    const periods=new Map(),holidayRows=[],monthKeys=new Set(),isoWeekKeys=new Set();
+    const periodMode=totalDays<=31?"week":totalDays>730?"year":"month";
+    let leapDays=0;
+    for(let date=new Date(start);date<endExclusive;date=addDays(date,1)){
+      const iso=isoDate(date),dow=date.getUTCDay(),period=periodKey(date,periodMode);
+      if(!periods.has(period))periods.set(period,{period:periodName(period,periodMode),calendar:0,work:0,weekend:0,holiday:0,custom:0});
+      const p=periods.get(period);p.calendar++;monthKeys.add(`${date.getUTCFullYear()}-${date.getUTCMonth()+1}`);isoWeekKeys.add(isoWeekKey(date));
+      if(date.getUTCMonth()===1&&date.getUTCDate()===29)leapDays++;
+      if(weekends.has(dow)){counts.weekend++;p.weekend++;continue}
+      if(ui.businessMode.checked&&ui.excludeHolidays.checked&&holidays.map.has(iso)){counts.holiday++;p.holiday++;continue}
+      if(ui.businessMode.checked&&customs.has(iso)){counts.custom++;p.custom++;continue}
+      counts.work++;p.work++;
+    }
+    for(const item of holidays.details){const d=parseDate(item.date),isWeekend=weekends.has(d.getUTCDay());holidayRows.push({date:item.date,name:item.name,type:"Public holiday",coverage:`${item.coverage}${item.source?` · ${item.source}`:""}${item.subjectToChange?" · subject to change":""}`,effect:isWeekend?"Weekend overlap":"Excluded working day"})}
+    for(const iso of customs){const d=parseDate(iso);if(!d||d<start||d>=endExclusive)continue;const isWeekend=weekends.has(d.getUTCDay()),isHoliday=holidays.map.has(iso);holidayRows.push({date:iso,name:"Custom excluded date",type:"Custom",coverage:"User supplied",effect:isWeekend?"Weekend overlap":isHoliday?"Holiday overlap":"Excluded working day"})}
+    holidayRows.sort((a,b)=>a.date.localeCompare(b.date));
+    const exact=exactElapsed(rawStart,rawEnd,sign);
+    const weeks=Math.floor(totalDays/7),remaining=totalDays%7;
+    const midpoint=totalDays?addDays(start,Math.floor((totalDays-1)/2)):start;
+    const q1=totalDays?addDays(start,Math.floor((totalDays-1)*.25)):start,q2=midpoint,q3=totalDays?addDays(start,Math.floor((totalDays-1)*.75)):start;
+    const precision=+ui.precision.value;
+    const approxMonths=totalDays/30.436875;
+    const workingDays=ui.businessMode.checked?counts.work:totalDays-counts.weekend;
+    const analysis=buildAnalysis({rawStart,rawEnd,start,endBase,totalDays,parts,weeks,remaining,reversed,sign,counts,leapDays,holidayStatus:holidays.status,workingDays});
+    result={rawStart,rawEnd,start,endBase,endExclusive,totalDays,parts,weeks,remaining,reversed,sign,counts,leapDays,monthsTouched:monthKeys.size,isoWeeksTouched:isoWeekKeys.size,midpoint,q1,q2,q3,exact,approxMonths,workingDays,periodMode,periods:[...periods.values()],holidayRows,holidayStatus:holidays.status,analysis,precision};
+    render();
+  }
+
+  function exactElapsed(rawStart,rawEnd,sign){if(!ui.includeTime.checked){const days=Math.abs(diffDays(rawStart,rawEnd))+(ui.includeEnd.checked?1:0);return {milliseconds:days*DAY_MS*sign,hours:days*24*sign,minutes:days*1440*sign,seconds:days*86400*sign,mode:"calendar-day conversion"}}const startTZ=resolvedTimeZone("start"),endTZ=resolvedTimeZone("end");let a=zonedTimeToUtc(isoDate(rawStart),ui.startTime.value,startTZ),b=zonedTimeToUtc(isoDate(rawEnd),ui.endTime.value,endTZ);let ms=b-a;if(ui.directionMode.value==="absolute")ms=Math.abs(ms);return {milliseconds:ms,hours:ms/3600000,minutes:ms/60000,seconds:ms/1000,mode:startTZ===endTZ?`exact in ${startTZ}`:`exact: ${startTZ} → ${endTZ}`}}
+
+  function buildAnalysis(x){const incl=ui.includeEnd.checked?"including":"excluding";const direction=x.reversed?"The end date occurs before the start date":"The end date is the same as or after the start date";const business=ui.businessMode.checked?` The range contains ${plural(x.workingDays,"working day")}, ${plural(x.counts.weekend,"weekend day")}, ${plural(x.counts.holiday,"public holiday day")} and ${plural(x.counts.custom,"custom excluded day")}.`:"";const leap=x.leapDays?` It crosses ${plural(x.leapDays,"leap day")}.`:" It does not include a 29 February.";return `${direction}. Counting ${incl} the end date gives ${plural(x.totalDays,"calendar day")}, equal to ${durationText(x.parts,1)} or ${plural(x.weeks,"complete week")} with ${plural(x.remaining,"day")} remaining.${business}${leap}`}
+
+  function specialRangeMessage(r){if(r.totalDays===100)return "You selected exactly 100 counted days.";if(r.totalDays===365)return "This range contains exactly 365 counted days.";if(r.totalDays===366)return "This range contains exactly 366 counted days.";if(r.leapDays)return `This range crosses ${plural(r.leapDays,"leap day")}.`;if(r.reversed)return "The dates are reversed; signed mode can preserve that direction.";return "No leap day falls inside the counted range."}
+  function pulseResults(){const nodes=[...document.querySelectorAll(".metric-card,.breakdown-tile,.insight-tile")];nodes.forEach(node=>{node.classList.remove("result-updated");void node.offsetWidth;node.classList.add("result-updated")});}
+  function render(){const r=result;if(!r)return;const signedDays=r.totalDays*r.sign,signedWeeks=r.weeks*r.sign;
+    $("calendarMetric").textContent=compactDuration(r.parts,r.sign);$("calendarMetricNote").textContent=ui.includeEnd.checked?"Inclusive calendar duration":"End date excluded";$("daysMetric").textContent=formatNumber(signedDays,0);$("daysMetricNote").textContent=ui.directionMode.value==="signed"&&r.reversed?"Signed result · end precedes start":ui.includeEnd.checked?"Both dates counted":"End date excluded";$("weeksMetric").textContent=`${r.sign<0?"−":""}${r.weeks}w ${r.remaining}d`;$("weeksMetricNote").textContent=`${formatNumber(signedWeeks,0)} complete weeks`;$("businessMetric").textContent=ui.businessMode.checked?formatNumber(r.workingDays*r.sign,0):"Off";$("businessMetricNote").textContent=ui.businessMode.checked?`${weekendLabel(ui.weekendRule.value)} · holidays ${ui.excludeHolidays.checked?"on":"off"}`:"Enable in Optional Inputs";
+    $("mainDuration").textContent=durationText(r.parts,r.sign);$("mainDurationNote").textContent=`${formatNumber(signedDays)} total calendar days · ${longDate(r.rawStart)} to ${longDate(r.rawEnd)} · ${ui.includeEnd.checked?"end date included":"end date excluded"}.`;$("directionBadge").textContent=r.reversed?(ui.directionMode.value==="signed"?"Reverse direction · signed negative result":"Reverse dates · absolute result"):"Same or forward direction";$("directionBadge").classList.toggle("reverse",r.reversed);
+    $("startWeekday").textContent=weekday(r.rawStart);$("startDateSmall").textContent=`${formatDate(r.rawStart)} · day ${dayOfYear(r.rawStart)} · ${isoWeekKey(r.rawStart)}`;$("endWeekday").textContent=weekday(r.rawEnd);$("endDateSmall").textContent=`${formatDate(r.rawEnd)} · day ${dayOfYear(r.rawEnd)} · ${isoWeekKey(r.rawEnd)}`;$("midpointDate").textContent=formatDate(r.midpoint);$("midpointSmall").textContent=r.totalDays?`Halfway through ${formatNumber(r.totalDays)} counted days`:"Same-day selection";$("monthsTouched").textContent=formatNumber(r.monthsTouched);$("isoWeeksTouched").textContent=formatNumber(r.isoWeeksTouched);$("leapDays").textContent=formatNumber(r.leapDays);$("quarterDate").textContent=formatDate(r.q1);$("halfDate").textContent=formatDate(r.q2);$("threeQuarterDate").textContent=formatDate(r.q3);$("insightSummary").textContent=`The midpoint is ${longDate(r.midpoint)}. Counted days touch ${plural(r.monthsTouched,"calendar month")} and ${plural(r.isoWeeksTouched,"ISO week")}.`;
+    $("analysisIntro").textContent=r.analysis;$("analysisPrimary").textContent=`${plural(r.totalDays,"calendar day")} equals ${plural(r.weeks,"complete week")} and ${plural(r.remaining,"remaining day")}.`;$("analysisSecondary").textContent=ui.businessMode.checked?`${plural(r.counts.weekend,"weekend day")}, ${plural(r.counts.holiday,"holiday day")} and ${plural(r.counts.custom,"custom exclusion")} are separated to prevent double deductions.`:"Business-day mode is off; enable it to classify weekends, holidays and exclusions.";$("analysisTip").textContent=specialRangeMessage(r);$("guideHolidayStatus").textContent=r.holidayStatus;$("guideTimeStatus").textContent=ui.includeTime.checked?(ui.differentTimeZones.checked?`Exact elapsed time compares ${resolvedTimeZone("start")} with ${resolvedTimeZone("end")}.`:`Exact elapsed time uses ${resolvedTimeZone("start")}.`):"Calendar dates only; enable time for exact elapsed duration.";
+    const p=r.precision,exactMode=ui.includeTime.checked;$("totalHoursLabel").textContent=exactMode?"Exact elapsed hours":"Calendar hours";$("totalMinutesLabel").textContent=exactMode?"Exact elapsed minutes":"Calendar minutes";$("totalSecondsLabel").textContent=exactMode?"Exact elapsed seconds":"Calendar seconds";$("totalHours").textContent=formatNumber(r.exact.hours,p);$("totalHoursNote").textContent=exactMode?r.exact.mode:"24 hours per counted day";$("totalMinutes").textContent=formatNumber(r.exact.minutes,p);$("totalMinutesNote").textContent=exactMode?"UTC-normalized timestamp difference":"1,440 minutes per counted day";$("totalSeconds").textContent=formatNumber(r.exact.seconds,p);$("totalSecondsNote").textContent=exactMode?"UTC-normalized timestamp difference":"86,400 seconds per counted day";$("approxMonths").textContent=formatNumber(r.approxMonths*r.sign,p);$("detailWeekend").textContent=formatNumber(r.counts.weekend);$("weekendRuleLabel").textContent=weekendLabel(ui.weekendRule.value);$("detailHolidays").textContent=ui.businessMode.checked&&ui.excludeHolidays.checked?formatNumber(r.counts.holiday):"Not enabled";$("detailCustom").textContent=ui.businessMode.checked?(customDateSet().size?formatNumber(r.counts.custom):"None added"):"Not enabled";$("workHours").textContent=ui.businessMode.checked?formatNumber(r.workingDays*(+ui.dailyHours.value||0),p):"—";$("workHoursNote").textContent=ui.businessMode.checked?`${formatNumber(+ui.dailyHours.value||0,p)} hours × working days`:"Enable business-day mode";
+    renderDonut();renderPeriodChart("timeline",r.periods);renderTables();renderReport();pulseResults();
+  }
+
+  function setCircle(id,value,offset){const c=$(id);c.setAttribute("stroke-dasharray",`${Math.max(0,value)} ${Math.max(0,100-value)}`);c.setAttribute("stroke-dashoffset",String(-offset))}
+  function renderDonut(){const r=result,total=Math.max(1,r.totalDays),vals=[r.counts.work,r.counts.weekend,r.counts.holiday,r.counts.custom],pct=vals.map(v=>v/total*100);let offset=0;[["donutWork",pct[0]],["donutWeekend",pct[1]],["donutHoliday",pct[2]],["donutCustom",pct[3]]].forEach(([id,v])=>{setCircle(id,v,offset);offset+=v});$("donutTotal").textContent=formatNumber(r.totalDays);$("workLabel").textContent=ui.businessMode.checked?"Working days":"Weekdays";$("periodWorkHeader").textContent=ui.businessMode.checked?"Working days":"Weekdays";const reportWorkLabelNode=$("reportWorkLabel");if(reportWorkLabelNode)reportWorkLabelNode.textContent=ui.businessMode.checked?"Working days":"Weekdays";$("workCount").textContent=formatNumber(vals[0]);$("workPct").textContent=`${formatNumber(r.totalDays?pct[0]:0,1)}%`;$("weekendCount").textContent=formatNumber(vals[1]);$("weekendPct").textContent=`${formatNumber(r.totalDays?pct[1]:0,1)}%`;$("holidayCount").textContent=ui.businessMode.checked&&ui.excludeHolidays.checked?formatNumber(vals[2]):"Not enabled";$("holidayPct").textContent=ui.businessMode.checked&&ui.excludeHolidays.checked?`${formatNumber(r.totalDays?pct[2]:0,1)}%`:"—";$("customCount").textContent=ui.businessMode.checked?(customDateSet().size?formatNumber(vals[3]):"None added"):"Not enabled";$("customPct").textContent=ui.businessMode.checked&&customDateSet().size?`${formatNumber(r.totalDays?pct[3]:0,1)}%`:"—"}
+
+  function svgEl(name,attrs={}){const el=document.createElementNS("http://www.w3.org/2000/svg",name);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,v);return el}
+  function renderPeriodChart(prefix,periods){const isReport=prefix==="report";const grid=$(isReport?"reportPeriodGrid":"timelineGrid"),bars=$(isReport?"reportPeriodBars":"timelineBars"),labels=$(isReport?"reportPeriodLabels":"timelineLabels");[grid,bars,labels].forEach(g=>g.innerHTML="");const W=isReport?500:700,H=isReport?190:260,m={l:isReport?34:42,r:10,t:12,b:isReport?34:40},cw=W-m.l-m.r,ch=H-m.t-m.b,max=Math.max(1,...periods.map(p=>p.calendar));for(let i=0;i<=4;i++){const y=m.t+ch*i/4;grid.appendChild(svgEl("line",{x1:m.l,y1:y,x2:W-m.r,y2:y,class:isReport?"report-date-axis":"timeline-axis"}));const t=svgEl("text",{x:m.l-6,y:y+3,"text-anchor":"end",class:isReport?"report-date-label":"timeline-label"});t.textContent=Math.round(max*(1-i/4));labels.appendChild(t)}if(!periods.length){const centerY=H/2;const marker=svgEl("circle",{cx:W/2,cy:centerY-12,r:isReport?8:10,fill:"#d9edf4",stroke:"#087ea4","stroke-width":2});bars.appendChild(marker);const title=svgEl("text",{x:W/2,y:centerY+16,"text-anchor":"middle",class:isReport?"report-date-label":"timeline-label"});title.textContent="Same-day selection";title.setAttribute("style",`font-size:${isReport?11:14}px;font-weight:700;fill:#344054`);labels.appendChild(title);const sub=svgEl("text",{x:W/2,y:centerY+35,"text-anchor":"middle",class:isReport?"report-date-label":"timeline-label"});sub.textContent="Include the end date or choose a later date to create a period chart.";labels.appendChild(sub);const note="The selected dates currently contain no elapsed calendar days.";if(isReport)$("reportPeriodNote").textContent=note;else{$("timelineNote").textContent=note;$("timelineAccessibleSummary").textContent=note}return}const groupW=cw/periods.length,barW=Math.max(4,Math.min(isReport?28:42,groupW*.58));periods.forEach((p,i)=>{const x=m.l+i*groupW+(groupW-barW)/2;let y=m.t+ch;for(const [key,cls] of [["work",isReport?"report-date-work":"timeline-work"],["weekend",isReport?"report-date-weekend":"timeline-weekend"],["holiday",isReport?"report-date-holiday":"timeline-holiday"],["custom",isReport?"report-date-custom":"timeline-custom"]]){const h=p[key]/max*ch;y-=h;if(h>0)bars.appendChild(svgEl("rect",{x,y,width:barW,height:h,class:cls,rx:2}))}const show=periods.length<=12||i%Math.ceil(periods.length/10)===0||i===periods.length-1; if(show){const t=svgEl("text",{x:x+barW/2,y:H-12,"text-anchor":"middle",class:isReport?"report-date-label":"timeline-label"});t.textContent=p.period;labels.appendChild(t)}});const unit=result.periodMode==="week"?"week":result.periodMode==="year"?"year":"month";const note=`${periods.length} ${unit} period${periods.length===1?"":"s"} shown; bar height represents counted calendar days.`;if(isReport)$("reportPeriodNote").textContent=note;else{$("timelineNote").textContent=note;$("timelineAccessibleSummary").textContent=`Chart summary: ${periods.map(p=>`${p.period}, ${p.calendar} calendar days, ${p.work} ${ui.businessMode.checked?"working days":"weekdays"}, ${p.weekend} weekend days, ${p.holiday} holidays and ${p.custom} custom exclusions`).join("; ")}.`}}
+
+  function renderTables(){const r=result;$("periodTableBody").innerHTML=r.periods.length?r.periods.map(p=>`<tr><td>${p.period}</td><td>${p.calendar}</td><td>${p.work}</td><td>${p.weekend}</td><td>${p.holiday}</td><td>${p.custom}</td></tr>`).join(""):`<tr><td colspan="6">No days fall in the selected range.</td></tr>`;$("holidayTableBody").innerHTML=r.holidayRows.length?r.holidayRows.map(row=>`<tr><td>${formatDate(parseDate(row.date))}</td><td>${escapeHtml(row.name)}</td><td>${row.type}</td><td>${escapeHtml(row.coverage)}</td><td>${row.effect}</td></tr>`).join(""):`<tr><td colspan="5">No public holidays or custom exclusions were found in the counted range.</td></tr>`;$("holidaySourceChip").textContent=r.holidayStatus}
+  function escapeHtml(value){return String(value).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]))}
+
+  function renderReport(){
+    const r=result;
+    const id=`DD-${new Date().toISOString().replace(/\D/g,"").slice(2,14)}`;
+    const tzText=ui.includeTime.checked?(ui.differentTimeZones.checked?`${resolvedTimeZone("start")} → ${resolvedTimeZone("end")}`:resolvedTimeZone("start")):"Calendar dates only";
+    const totalSigned=r.totalDays*r.sign;
+    const workingLabel=ui.businessMode.checked?"Working days":"Weekdays";
+    const workCount=ui.businessMode.checked?r.workingDays:r.counts.work;
+    const inclusiveDays=ui.includeEnd.checked?r.totalDays:r.totalDays+1;
+    const exclusiveDays=ui.includeEnd.checked?Math.max(0,r.totalDays-1):r.totalDays;
+    const directionText=r.reversed?(ui.directionMode.value==="signed"?"Reverse / signed":"Reverse / absolute"):"Forward";
+    const regionText=ui.businessMode.checked?`${countryNames[ui.country.value]||ui.country.value}${ui.country.value==="MY"&&ui.region.value?`, ${regionNames[ui.region.value]||ui.region.value}`:""}`:"Not enabled";
+    const percentages={work:0,weekend:0,holiday:0,custom:0};
+    const totalBase=Math.max(1,r.totalDays||1);
+    percentages.work=+(r.counts.work/totalBase*100).toFixed(1);
+    percentages.weekend=+(r.counts.weekend/totalBase*100).toFixed(1);
+    percentages.holiday=+(r.counts.holiday/totalBase*100).toFixed(1);
+    percentages.custom=+(r.counts.custom/totalBase*100).toFixed(1);
+
+    $("reportId").textContent=id;
+    $("reportFooterId").textContent=id;
+    $("reportGenerated").textContent=reportTimestamp();
+    $("reportTimeZone").textContent=tzText;
+    $("reportMetaRange").textContent=`${formatDate(r.rawStart)} → ${formatDate(r.rawEnd)}`;
+    $("reportHolidaySource").textContent=r.holidayStatus;
+
+    $("reportSummaryDays").textContent=formatNumber(totalSigned);
+    $("reportSummaryLabel").textContent=totalSigned===1?"Total day":"Total days";
+    $("reportSummaryCaption").textContent=`${durationText(r.parts,r.sign)} · ${r.sign<0?"−":""}${r.weeks} weeks, ${r.remaining} days`;
+    $("reportSummaryNarrative").textContent=`${longDate(r.rawStart)} to ${longDate(r.rawEnd)}. ${ui.includeEnd.checked?"Both boundary dates are counted.":"The end date is excluded."}`;
+    $("reportRangeMarkerText").textContent="50%";
+    $("reportRangeStartLabel").textContent=formatDate(r.rawStart);
+    $("reportRangeQuarterLabel").textContent=formatDate(r.q1);
+    $("reportRangeThreeQuarterLabel").textContent=formatDate(r.q3);
+    $("reportRangeEndLabel").textContent=formatDate(r.rawEnd);
+
+    $("reportStatStart").textContent=`${weekday(r.rawStart)} · ${formatDate(r.rawStart)}`;
+    $("reportStatEnd").textContent=`${weekday(r.rawEnd)} · ${formatDate(r.rawEnd)}`;
+    $("reportStatWeeks").textContent=`${r.sign<0?"−":""}${r.weeks} weeks, ${r.remaining} days`;
+    $("reportStatWorking").textContent=ui.businessMode.checked?formatNumber(r.workingDays*r.sign):"Not enabled";
+    $("reportStatRule").textContent=ui.includeEnd.checked?"Inclusive":"Exclusive";
+
+    $("reportCtxMode").textContent=ui.includeTime.checked?"Date + exact time":"Calendar only";
+    $("reportCtxTimeZone").textContent=tzText;
+    $("reportCtxDirection").textContent=directionText;
+    $("reportCtxWeekend").textContent=weekendLabel(ui.weekendRule.value);
+    $("reportCtxRegion").textContent=regionText;
+    $("reportCtxPrecision").textContent=`${ui.precision.value} decimals`;
+    $("reportAnalysis").textContent=r.analysis;
+    $("reportActionNote").textContent=ui.businessMode.checked?"Use the working-day count together with weekends, public holidays and exclusions when planning payroll cut-offs, leave, shipping or project deadlines.":"Use the calendar-day count for countdowns, due dates, anniversaries, schedules and general date planning.";
+
+    const scenarios=[
+      ["Exclusive count",formatNumber(exclusiveDays),"End date excluded"],
+      ["Inclusive count",formatNumber(inclusiveDays),"Both dates counted"],
+      [workingLabel,ui.businessMode.checked?formatNumber(r.workingDays):"Not enabled",ui.businessMode.checked?"Weekend and exclusion adjusted":"Enable business-day mode"],
+      [ui.includeTime.checked?"Exact hours":"Calendar hours",formatNumber(ui.includeTime.checked?r.exact.hours:r.totalDays*24,r.precision),ui.includeTime.checked?"Timestamp based":"24 hours per day"]
+    ];
+    $("reportScenarioBody").innerHTML=scenarios.map(([name,value,use])=>`<tr><td>${name}</td><td class="num"><strong>${value}</strong></td><td>${use}</td></tr>`).join("");
+
+    let offset=0;
+    [["reportDonutWork",percentages.work],["reportDonutWeekend",percentages.weekend],["reportDonutHoliday",percentages.holiday],["reportDonutCustom",percentages.custom]].forEach(([elementId,pct])=>{const node=$(elementId);node.setAttribute("stroke-dasharray",`${pct} ${100-pct}`);node.setAttribute("stroke-dashoffset",String(-offset));offset+=pct;});
+    $("reportDonutValue").textContent=formatNumber(totalSigned);
+    $("reportOutcomeWorkLabel").textContent=workingLabel;
+    $("reportOutcomeWork").textContent=`${formatNumber(workCount)} · ${percentages.work}%`;
+    $("reportOutcomeWeekend").textContent=`${formatNumber(r.counts.weekend)} · ${percentages.weekend}%`;
+    $("reportOutcomeHoliday").textContent=ui.businessMode.checked&&ui.excludeHolidays.checked?`${formatNumber(r.counts.holiday)} · ${percentages.holiday}%`:"Not enabled";
+    $("reportOutcomeCustom").textContent=customDateSet().size?`${formatNumber(r.counts.custom)} · ${percentages.custom}%`:"None added";
+
+    $("reportAssumptions").innerHTML=`<li>${ui.includeEnd.checked?"Both boundary dates are counted.":"The end date is excluded from the count."}</li><li>Weekend rule: ${weekendLabel(ui.weekendRule.value)}.</li><li>${ui.businessMode.checked?`Business-day mode is enabled for ${regionText}.`:"Business-day mode is disabled."}</li><li>${ui.includeTime.checked?`Exact elapsed time uses ${tzText}.`:"Time inputs are disabled; hour totals use calendar-day conversion."}</li><li>Live holiday data can change after official announcements.</li>`;
+
+    renderPeriodChart("report",r.periods);
+    $("reportImpactList").innerHTML=[[workingLabel,percentages.work],["Weekend days",percentages.weekend],["Public holidays",percentages.holiday],["Custom exclusions",percentages.custom]].map(([label,pct],index)=>`<div class="report-impact-row"><span>${index+1}. ${label}</span><div class="bar"><span style="width:${pct}%"></span></div><strong>${pct}%</strong></div>`).join("");
+    $("reportPeriodBody").innerHTML=r.periods.map(p=>`<tr><td>${p.period}</td><td class="num">${p.calendar}</td><td class="num">${p.work}</td><td class="num">${p.weekend}</td><td class="num">${p.holiday}</td><td class="num">${p.custom}</td></tr>`).join("")||`<tr><td colspan="6">No counted days.</td></tr>`;
+
+    const takeaways=[`${formatNumber(totalSigned)} counted ${Math.abs(totalSigned)===1?"day":"days"} between the selected dates.`,`${durationText(r.parts,r.sign)} across ${formatNumber(r.monthsTouched)} calendar months and ${formatNumber(r.isoWeeksTouched)} ISO weeks.`,`${formatNumber(r.counts.weekend)} weekend ${r.counts.weekend===1?"day":"days"}${ui.businessMode.checked?` and ${formatNumber(r.workingDays)} working ${r.workingDays===1?"day":"days"}`:""}.`,r.leapDays?`${formatNumber(r.leapDays)} leap ${r.leapDays===1?"day is":"days are"} included.`:"No leap day is included."];
+    $("reportTakeaways").innerHTML=takeaways.map(item=>`<li>${item}</li>`).join("");
+    $("reportReferences").innerHTML=["Gregorian calendar date arithmetic.","IANA browser time-zone rules.",ui.country.value==="MY"?"Malaysia public-holiday data when enabled.":"Nager.Date public-holiday data when enabled.","KalQ Date Difference methodology."].map(item=>`<li>${item}</li>`).join("");
+
+    $("reportHolidayBody").innerHTML=r.holidayRows.map(row=>`<tr><td>${formatDate(parseDate(row.date))}</td><td>${escapeHtml(row.name)}</td><td>${row.type}</td><td>${escapeHtml(row.coverage)}</td><td>${row.effect}</td></tr>`).join("")||`<tr><td colspan="5">No holidays or custom exclusions in range.</td></tr>`;
+    $("reportHolidaySection").hidden=!(ui.businessMode.checked&&(ui.excludeHolidays.checked||customDateSet().size));
+    $("reportDataSourceText").textContent=`Data status: ${r.holidayStatus}`;
+  }
+  function scheduleCalculation(){clearTimeout(calculationTimer);calculationTimer=setTimeout(()=>calculate({silent:true}),250)}
+  function toggleConditionalFields(){$("timeFields").classList.toggle("hidden",!ui.includeTime.checked);$("endTimeZoneField").classList.toggle("hidden",!ui.includeTime.checked||!ui.differentTimeZones.checked);$("businessFields").classList.toggle("hidden",!ui.businessMode.checked);$("malaysiaRegionField").classList.toggle("hidden",ui.country.value!=="MY")}
+  function reset(){const today=new Date(),todayUtc=new Date(Date.UTC(today.getFullYear(),today.getMonth(),today.getDate())),iso=isoDate(todayUtc);ui.startDate.value=iso;ui.endDate.value=isoDate(addDays(todayUtc,30));ui.includeEnd.checked=false;ui.directionMode.value="absolute";ui.includeTime.checked=false;ui.startTime.value="00:00";ui.endTime.value="00:00";ui.timeZone.value="browser";ui.differentTimeZones.checked=false;ui.endTimeZone.value="browser";ui.businessMode.checked=false;ui.country.value="MY";ui.region.value="";ui.weekendRule.value="sat-sun";ui.excludeHolidays.checked=true;ui.customDates.value="";ui.dailyHours.value="8";ui.dateFormat.value="DD/MM/YYYY";ui.precision.value="2";toggleConditionalFields();setLiveStatus("Browser time zone is detected live. Holiday data is requested only when business-day mode and holiday exclusion are enabled.");calculate({silent:true})}
+  function swapDates(){[ui.startDate.value,ui.endDate.value]=[ui.endDate.value,ui.startDate.value];[ui.startTime.value,ui.endTime.value]=[ui.endTime.value,ui.startTime.value];calculate()}
+  function openReport(print=false){if(!result)return;lastFocusedElement=document.activeElement;$("reportModal").classList.add("open");document.body.style.overflow="hidden";setTimeout(()=>$("modalCloseBtn").focus(),0);if(print)setTimeout(()=>window.print(),120)}
+  function closeReport(){if(!$("reportModal").classList.contains("open"))return;$("reportModal").classList.remove("open");document.body.style.overflow="";if(lastFocusedElement&&typeof lastFocusedElement.focus==="function")lastFocusedElement.focus()}
+  function summaryText(){if(!result)return "";return `Date difference: ${durationText(result.parts,result.sign)} (${formatNumber(result.totalDays*result.sign)} calendar days). From ${longDate(result.rawStart)} to ${longDate(result.rawEnd)}. ${ui.businessMode.checked?`${formatNumber(result.workingDays*result.sign)} working days under the selected rules.`:""}`}
+  async function copySummary(){try{await navigator.clipboard.writeText(summaryText());showToast("Summary copied to clipboard.")}catch(e){showToast("Unable to copy the summary.")}}
+  async function shareResult(){const text=summaryText();try{if(navigator.share)await navigator.share({title:"Date Difference Result",text});else{await navigator.clipboard.writeText(text);showToast("Result copied to clipboard.")}}catch(e){if(e.name!=="AbortError")showToast("Unable to share the result.")}}
+  function downloadCsv(){if(!result)return;const rows=[["Period","Calendar days","Working days","Weekend days","Public holidays","Custom exclusions"],...result.periods.map(p=>[p.period,p.calendar,p.work,p.weekend,p.holiday,p.custom])];const csv=rows.map(row=>row.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");const blob=new Blob([csv],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="date-difference-breakdown.csv";a.click();URL.revokeObjectURL(url)}
+
+  ui.region.addEventListener("change",()=>{if(ui.country.value==="MY"&&ui.region.value){ui.weekendRule.value=fridaySaturdayRegions.has(ui.region.value)?"fri-sat":"sat-sun";showToast(`Weekend rule set to ${weekendLabel(ui.weekendRule.value)} for ${regionNames[ui.region.value]}.`)}});
+  ui.country.addEventListener("change",()=>{if(ui.country.value!=="MY"){ui.region.value="";ui.weekendRule.value="sat-sun"}});
+  function setupTabs(buttonSelector,panelSelector,dataKey){const buttons=[...document.querySelectorAll(buttonSelector)],panels=[...document.querySelectorAll(panelSelector)];const activate=(button,moveFocus=true)=>{buttons.forEach(b=>{const active=b===button;b.classList.toggle("active",active);b.setAttribute("aria-selected",String(active));b.tabIndex=active?0:-1});panels.forEach(panel=>{const active=panel.id===button.dataset[dataKey];panel.classList.toggle("active",active);panel.hidden=!active});if(moveFocus)button.focus()};buttons.forEach((button,index)=>{button.addEventListener("click",()=>activate(button,false));button.addEventListener("keydown",event=>{let next=index;if(event.key==="ArrowRight")next=(index+1)%buttons.length;else if(event.key==="ArrowLeft")next=(index-1+buttons.length)%buttons.length;else if(event.key==="Home")next=0;else if(event.key==="End")next=buttons.length-1;else return;event.preventDefault();activate(buttons[next],true)})});const current=buttons.find(b=>b.classList.contains("active"))||buttons[0];activate(current,false)}
+  setupTabs(".input-toggle-btn",".input-panel","inputPanel");
+  setupTabs(".tab-btn",".tab-content","tab");
+  Object.values(ui).forEach(el=>{if(!el)return;el.addEventListener(el.type==="checkbox"||el.tagName==="SELECT"?"change":"input",()=>{toggleConditionalFields();scheduleCalculation()})});
+  $("calculateBtn").addEventListener("click",()=>calculate());$("swapBtn").addEventListener("click",swapDates);$("resetBtn").addEventListener("click",reset);$("viewReportBtn").addEventListener("click",()=>openReport(false));$("printReportBtn").addEventListener("click",()=>openReport(true));$("savePdfBtn").addEventListener("click",()=>{showToast("Choose ‘Save as PDF’ in the print dialog.");openReport(true)});$("modalSavePdfBtn").addEventListener("click",()=>{showToast("Choose ‘Save as PDF’ in the print dialog.");window.print()});$("modalPrintBtn").addEventListener("click",()=>window.print());$("modalCloseBtn").addEventListener("click",closeReport);$("reportModal").addEventListener("click",e=>{if(e.target===$("reportModal"))closeReport()});$("shareResultBtn").addEventListener("click",shareResult);$("shareTopBtn").addEventListener("click",shareResult);$("downloadCsvBtn").addEventListener("click",downloadCsv);[$("bookmarkBtn"),$("topBookmarkBtn")].forEach(b=>b.addEventListener("click",()=>showToast("Use your browser’s bookmark command to save this calculator.")));$("recentActivityBtn").addEventListener("click",()=>showToast("Recent calculator activity is available from your browser history."));$("themeToggle").addEventListener("click",()=>{document.body.classList.toggle("dark");$("themeToggle").innerHTML=document.body.classList.contains("dark")?`<svg class="ui-icon"><use href="#i-sun"></use></svg>`:`<svg class="ui-icon"><use href="#i-moon"></use></svg>`});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeReport()});
+    document.querySelector(".top-actions .lang-btn").addEventListener("click",()=>showToast("English is the default language."));
+    $("toolSearch").addEventListener("keydown",event=>{if(event.key==="Enter"&&event.target.value.trim())window.location.href=`index.html?search=${encodeURIComponent(event.target.value.trim())}`});
+    const calculatorOverlay=$("calculatorOverlay"),calculatorLauncher=$("calculatorLauncher"),calculatorClose=$("calculatorClose");
+    let calcExpression="",calcResult="0",calcJustEvaluated=false;
+    const calcOperators=["+","−","×","÷","^"];
+    const formatCalcResult=value=>{
+      if(!Number.isFinite(value))throw new Error("Invalid result");
+      if(value===0)return "0";
+      const magnitude=Math.abs(value);
+      return magnitude>=1e12||magnitude<1e-9?value.toExponential(8).replace(/\.0+e/,"e"):String(Number(value.toPrecision(12)));
+    };
+    const evaluateCalc=expression=>{
+      let source=expression.replace(/×/g,"*").replace(/÷/g,"/").replace(/−/g,"-").replace(/\^/g,"**").replace(/π/g,"PI").replace(/\be\b/g,"E").replace(/(\d+(?:\.\d+)?)%/g,"($1/100)");
+      if(!source||!/^[0-9+\-*/().,\sA-Za-z_*]+$/.test(source))throw new Error("Invalid expression");
+      const degrees=fn=>value=>fn(value*Math.PI/180);
+      return Function("sin","cos","tan","log","ln","sqrt","PI","E",`"use strict";return (${source})`)(degrees(Math.sin),degrees(Math.cos),degrees(Math.tan),Math.log10,Math.log,Math.sqrt,Math.PI,Math.E);
+    };
+    const updateCalcDisplay=()=>{$("calculatorExpression").textContent=calcExpression||"0";$("calculatorResult").textContent=calcResult};
+    const appendCalcValue=value=>{
+      const isOperator=calcOperators.includes(value);
+      if(calcJustEvaluated){calcExpression=isOperator&&calcResult!=="Error"?calcResult+value:"";calcJustEvaluated=false}
+      if(isOperator&&calcOperators.includes(calcExpression.slice(-1)))calcExpression=calcExpression.slice(0,-1)+value;
+      else if(value==="."&&/(?:^|[+−×÷^(])\d*\.\d*$/.test(calcExpression))return;
+      else calcExpression+=value;
+      updateCalcDisplay();
+    };
+    const runCalcAction=action=>{
+      if(action==="clear"){calcExpression="";calcResult="0";calcJustEvaluated=false}
+      if(action==="backspace"){calcExpression=calcExpression.slice(0,-1);calcJustEvaluated=false}
+      if(action==="sign"){calcExpression=calcExpression?`−(${calcExpression})`:"−";calcJustEvaluated=false}
+      if(action==="equals"&&calcExpression){try{calcResult=formatCalcResult(evaluateCalc(calcExpression));calcExpression=calcResult;calcJustEvaluated=true}catch(error){calcResult="Error";calcJustEvaluated=true}}
+      updateCalcDisplay();
+    };
+    const openCalculator=()=>{calculatorOverlay.hidden=false;calculatorLauncher.setAttribute("aria-expanded","true");calculatorClose.focus()};
+    const closeCalculator=()=>{calculatorOverlay.hidden=true;calculatorLauncher.setAttribute("aria-expanded","false");calculatorLauncher.focus()};
+    calculatorLauncher.setAttribute("aria-expanded","false");
+    calculatorLauncher.addEventListener("click",()=>calculatorOverlay.hidden?openCalculator():closeCalculator());calculatorClose.addEventListener("click",closeCalculator);
+    document.querySelectorAll("[data-calc-mode]").forEach(tab=>tab.addEventListener("click",()=>{
+      document.querySelectorAll("[data-calc-mode]").forEach(item=>{const active=item===tab;item.classList.toggle("active",active);item.setAttribute("aria-selected",String(active))});
+      $("basicCalculator").hidden=tab.dataset.calcMode!=="basic";$("scientificCalculator").hidden=tab.dataset.calcMode!=="scientific";
+    }));
+    calculatorOverlay.querySelectorAll("[data-calc-value],[data-calc-action]").forEach(button=>button.addEventListener("click",()=>button.dataset.calcAction?runCalcAction(button.dataset.calcAction):appendCalcValue(button.dataset.calcValue)));
+    document.addEventListener("keydown",event=>{
+      if(calculatorOverlay.hidden)return;
+      if(event.key==="Escape"){event.preventDefault();closeCalculator();return}
+      if(event.key==="Enter"||event.key==="="){event.preventDefault();runCalcAction("equals");return}
+      if(event.key==="Backspace"){event.preventDefault();runCalcAction("backspace");return}
+      const keyMap={"/":"÷","*":"×","-":"−"},value=keyMap[event.key]||event.key;
+      if(/^[0-9.+%()]$/.test(value)||calcOperators.includes(value)){event.preventDefault();appendCalcValue(value)}
+    });
+  document.addEventListener("keydown",event=>{if(event.key==="/"&&calculatorOverlay.hidden&&!/input|textarea|select/i.test(document.activeElement.tagName)){event.preventDefault();$("toolSearch").focus()}});
+  reset();
+})();
+</script>
+
+  <script src="report-qr-links.js"></script>
+</body>
+</html>

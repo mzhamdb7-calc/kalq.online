@@ -1,0 +1,318 @@
+/* Formal, print-friendly styling shared by all KalQ reports. */
+:root{
+  --report-navy:#17365d;
+  --report-navy-dark:#102a46;
+  --report-blue:#315f8c;
+  --report-slate:#5f7185;
+  --report-line:#d7e0e9;
+  --report-soft:#f4f7fa;
+  --report-soft-blue:#eaf0f6;
+  --report-green:#26734d;
+}
+
+.report-sheet{
+  color:#26384a!important;
+  background:#fff!important;
+  border-color:#cfd8e3!important;
+  box-shadow:0 22px 55px rgba(15,35,55,.16)!important;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+.report-sheet :is(h1,h2,h3,h4,strong){color:var(--report-navy-dark)}
+.report-sheet .report-header{border-bottom-color:var(--report-navy)!important}
+.report-sheet .report-brand,.report-sheet .report-header-title{color:var(--report-navy)!important}
+.report-sheet .report-meta,.report-sheet :is(.report-chart-note,.report-box-note,.report-disclaimer,.report-method-notes){color:var(--report-slate)!important}
+.report-sheet :is(.report-section,.report-summary-section,.report-analysis-section,.report-measurements-section,.report-method-section,.report-range-section,.report-scenario-section,.report-full-schedule-section)>h3{
+  color:var(--report-navy)!important;
+  border-bottom-color:var(--report-line)!important;
+}
+.report-sheet :is(.report-kpi,.report-box,.report-viz-box,.report-summary-item,.report-summary-stat,.report-outcome-kpi,.report-context-item,.report-info-block,.report-measurement,.report-scenario-panel,.report-table-card,.report-formula-box,.report-gauge-box,.report-history-box,.report-projection-box,.report-recommendation,.report-callout){
+  border-color:var(--report-line)!important;
+  background:var(--report-soft)!important;
+  box-shadow:none!important;
+}
+.report-sheet :is(.report-analysis-highlight,.report-summary-strip,.report-main-result){
+  border-color:#bdcbd9!important;
+  background:var(--report-soft-blue)!important;
+  color:var(--report-navy-dark)!important;
+}
+.report-sheet .report-table{color:#26384a!important;border-color:var(--report-line)!important}
+.report-sheet .report-table th{color:var(--report-navy-dark)!important;background:#e7edf3!important;border-color:#cbd6e1!important}
+.report-sheet .report-table td{border-color:#d9e1e9!important}
+.report-sheet .report-table tbody tr:nth-child(even) td{background:#f8fafc!important}
+.report-sheet :is(.report-bar-track,.report-adaptive-track,.report-projection-track){background:#dfe6ed!important;border-color:#d4dde6!important}
+.report-sheet :is(.report-bar-fill,.report-adaptive-fill,.report-projection-fill){background:linear-gradient(90deg,var(--report-navy),var(--report-blue))!important}
+.report-sheet :is(.report-chart-line,.report-gpa-line){stroke:var(--report-navy)!important}
+.report-sheet .report-cgpa-line{stroke:#52789c!important}
+.report-sheet .report-target-line{stroke:#8b9bad!important}
+.report-sheet :is(.report-axis,.report-yearly-axis,.report-monthly-axis){stroke:#cbd5df!important}
+.report-sheet :is(.report-chart-label,.report-yearly-label,.report-monthly-label){fill:#687b8f!important;color:#687b8f!important}
+.report-sheet .report-pie-principal{stroke:var(--report-navy)!important}
+.report-sheet .report-pie-interest{stroke:#52789c!important}
+.report-sheet .report-pie-fees{stroke:#a2b2c2!important}
+.report-sheet .report-pie-bg{stroke:#e4eaf0!important}
+.report-sheet .report-cost-fuel{background:var(--report-navy)!important}
+.report-sheet .report-cost-tolls{background:#42698d!important}
+.report-sheet .report-cost-parking{background:#708ba5!important}
+.report-sheet .report-cost-other{background:#a9b7c5!important}
+.report-sheet :is(.report-check,.report-analysis-check,.report-approved){color:var(--report-green)!important}
+.report-sheet :is(.report-badge,.report-option){border-color:#cbd6e1!important;color:var(--report-navy)!important;background:#eef2f6!important}
+.report-sheet :is(.report-footer,.report-print-page-footer){border-top-color:#cbd6e1!important;color:#607286!important;background:#f8fafc!important}
+
+/* Mental Math report uses its own class family, so map it to the same formal palette. */
+.report-sheet.mm-report .mm-report-header{border-bottom-color:var(--report-navy)!important}
+.report-sheet.mm-report :is(.mm-report-brand,.mm-report-section-title,.mm-footer-block h4){color:var(--report-navy)!important}
+.report-sheet.mm-report :is(.mm-report-panel,.mm-summary-stat,.mm-skill-card,.mm-formula-card,.mm-factor-card,.mm-recommendation,.mm-qr-card){
+  border-color:var(--report-line)!important;
+  background:var(--report-soft)!important;
+  box-shadow:none!important;
+}
+.report-sheet.mm-report .mm-hero-score{border-color:#bdcbd9!important;background:var(--report-soft-blue)!important}
+.report-sheet.mm-report :is(.mm-stat-icon,.mm-skill-symbol,.mm-rec-icon,.mm-footer-icon){color:var(--report-navy)!important;background:#e7edf3!important}
+.report-sheet.mm-report :is(.mm-factor-track,.mm-performance-scale){background:#dfe6ed!important}
+.report-sheet.mm-report .mm-factor-fill{background:linear-gradient(90deg,var(--report-navy),var(--report-blue))!important}
+.report-sheet.mm-report :is(.mm-review-table th,.mm-setup-row:first-child){color:var(--report-navy-dark)!important;background:#e7edf3!important}
+.report-sheet.mm-report :is(.mm-review-table td,.mm-review-table th,.mm-setup-row){border-color:var(--report-line)!important}
+.report-sheet.mm-report .mm-report-page-note{border-top-color:var(--report-line)!important;color:var(--report-slate)!important}
+
+/* Mental Math Rush report uses the newer mmr class family. */
+.report-sheet.report-game .mmr-report-header{border-bottom-color:var(--report-navy)!important}
+.report-sheet.report-game :is(.mmr-report-brand,.mmr-section-title,.mmr-footer-block h4){color:var(--report-navy)!important}
+.report-sheet.report-game :is(.mmr-summary-card,.mmr-panel,.mmr-skill-card,.mmr-analysis-card,.mmr-review-insight,.mmr-qr-box){
+  border-color:var(--report-line)!important;
+  background:var(--report-soft)!important;
+  box-shadow:none!important;
+}
+.report-sheet.report-game :is(.mmr-table-wrap,.mmr-report-table th,.mmr-meta-strip){border-color:var(--report-line)!important}
+.report-sheet.report-game .mmr-report-table th{color:var(--report-navy-dark)!important;background:#e7edf3!important}
+.report-sheet.report-game .mmr-report-table td{border-color:#d9e1e9!important}
+.report-sheet.report-game .mmr-report-table tbody tr:nth-child(even) td{background:#f8fafc!important}
+.report-sheet.report-game :is(.mmr-report-meta,.mmr-report-subtitle,.mmr-report-note){color:var(--report-slate)!important}
+.report-sheet.report-game .mmr-report-page-note{border-top-color:var(--report-line)!important;color:var(--report-slate)!important}
+
+/* Keep the Percentage Report analysis compact without sacrificing readability. */
+.report-sheet.report-follow .report-analysis-grid{
+  gap:22px!important;
+  align-items:center!important;
+}
+.report-sheet.report-follow .report-analysis-copy{
+  line-height:1.55!important;
+}
+.report-sheet.report-follow .report-analysis-callout{
+  gap:11px!important;
+  padding:10px 14px!important;
+}
+.report-sheet.report-follow .report-analysis-callout .callout-icon{
+  width:36px!important;
+  height:36px!important;
+  font-size:20px!important;
+}
+.report-sheet.report-follow .report-analysis-callout p{
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+.report-sheet.report-follow .report-analysis-callout p strong{
+  margin-bottom:2px!important;
+  font-size:13px!important;
+}
+
+/* BMI report: use clean white surfaces in place of tinted section fills. */
+.report-sheet.report-approved :is(
+  .report-main-result,
+  .report-measurement-grid,
+  .report-measurement,
+  .report-scenario-panel,
+  .report-gauge-panel,
+  .report-table-box,
+  .report-info-grid,
+  .report-info-block,
+  .report-qr-block,
+  .report-footer
+){
+  background:#fff!important;
+  background-image:none!important;
+}
+.report-sheet.report-approved :is(.report-section>h3,.report-scenario-panel>h3,.report-gauge-panel>h3,.report-table th){
+  background:#fff!important;
+  background-image:none!important;
+}
+.report-sheet.report-approved #reportScenarioBody tr{
+  background:#fff!important;
+}
+
+body.dark .report-sheet{color:#26384a!important;background:#fff!important}
+.report-sheet .report-live-qr{
+  display:block!important;
+  object-fit:contain!important;
+  border:1px solid #cfd8e3!important;
+  border-radius:6px!important;
+  background:#fff!important;
+  padding:3px!important;
+  image-rendering:pixelated;
+}
+.report-sheet .report-fake-qr.report-live-qr{width:82px!important;height:82px!important}
+.report-sheet .rr-qr.report-live-qr{width:32px!important;height:32px!important}
+.report-sheet .iwr-qr.report-live-qr{width:82px!important;height:82px!important}
+.report-sheet .mm-qr-svg.report-live-qr{width:68px!important;height:68px!important}
+.report-sheet .mmr-qr-box{
+  grid-template-columns:70px minmax(0,1fr)!important;
+  gap:10px!important;
+  align-items:center!important;
+  min-width:0!important;
+  overflow:hidden!important;
+}
+.report-sheet .mmr-qr-box .report-live-qr{
+  grid-column:1!important;
+  width:68px!important;
+  height:68px!important;
+  max-width:100%!important;
+}
+.report-sheet .mmr-qr-box p{
+  grid-column:2!important;
+  min-width:0!important;
+  margin:0!important;
+  overflow-wrap:anywhere!important;
+}
+
+/* Keep every report QR and its description in separate, shrinkable areas. */
+.report-sheet :is(
+  .report-qr-wrap,
+  .report-qr-block,
+  .report-qr-box,
+  .report-qr-card,
+  .rr-qr-card,
+  .rr-footer-qr,
+  .gpr-qr-block,
+  .r2-qr,
+  .r4-qr-box,
+  .iwr-qr,
+  .rp-marker-wrap,
+  .ucr-qr-box
+){min-width:0!important;box-sizing:border-box!important}
+.report-sheet :is(
+  .report-qr-wrap,
+  .report-qr-block,
+  .report-qr-box,
+  .report-qr-card,
+  .rr-qr-card,
+  .rr-footer-qr,
+  .gpr-qr-block,
+  .r2-qr,
+  .r4-qr-box,
+  .iwr-qr,
+  .rp-marker-wrap,
+  .ucr-qr-box
+) > :is(p,div,span){min-width:0!important;overflow-wrap:anywhere!important}
+
+@media print{
+  .report-sheet .mmr-qr-box{grid-template-columns:50px minmax(0,1fr)!important;gap:6px!important}
+  .report-sheet .mmr-qr-box .report-live-qr{width:48px!important;height:48px!important}
+}
+
+/* One clean header scale for every current and future calculator report. */
+.report-sheet :is(#reportTitle,.report-standard-title){
+  margin:8px 0 4px!important;
+  color:var(--report-navy-dark)!important;
+  font-size:22px!important;
+  font-weight:800!important;
+  line-height:1.2!important;
+  letter-spacing:-.025em!important;
+}
+.report-sheet :is(.report-brand,.rr-brand,.r2-brand,.r4-brand,.gpr-brand,.iwr-brand,.ar-brand,.mm-report-brand,.er-brand,.pr-brand,.rp-brand){
+  font-size:15px!important;
+  line-height:1.25!important;
+}
+.report-sheet #reportTitle + p,
+.report-sheet :is(.rr-subtitle,.r4-subtitle,.gpr-subtitle,.iwr-subtitle,.mm-report-subtitle,.er-subtitle,.rp-subtitle){
+  margin-top:0!important;
+  color:var(--report-slate)!important;
+  font-size:11px!important;
+  line-height:1.4!important;
+}
+
+.report-sheet .rp-marker[hidden]{display:none!important}
+.report-sheet .rp-report-qr{
+  display:block!important;
+  width:58px!important;
+  height:58px!important;
+  object-fit:contain!important;
+  padding:3px!important;
+  border:1px solid #cbd5e1!important;
+  border-radius:6px!important;
+  background:#fff!important;
+  image-rendering:pixelated;
+}
+.report-sheet :is(.report-meta,.rr-meta,.r2-meta,.r4-meta,.gpr-meta,.iwr-meta,.ar-meta,.mm-report-meta,.er-meta,.pr-meta,.rp-meta){
+  font-size:10px!important;
+  line-height:1.4!important;
+}
+.report-sheet :is(.report-meta,.rr-meta,.r2-meta,.r4-meta,.gpr-meta,.iwr-meta,.ar-meta,.mm-report-meta,.er-meta,.pr-meta,.rp-meta) :is(div,span,strong,dt,dd,p){
+  font-size:10px!important;
+  line-height:1.4!important;
+}
+.report-sheet :is(.report-meta,.rr-meta,.r2-meta,.r4-meta,.gpr-meta,.iwr-meta,.ar-meta,.mm-report-meta,.er-meta,.pr-meta,.rp-meta) :is(dt,span){
+  color:#66798c!important;
+  font-weight:600!important;
+}
+.report-sheet :is(.report-meta,.rr-meta,.r2-meta,.r4-meta,.gpr-meta,.iwr-meta,.ar-meta,.mm-report-meta,.er-meta,.pr-meta,.rp-meta) :is(dd,strong){
+  color:#26384a!important;
+  font-weight:700!important;
+}
+.report-sheet .report-standard-meta,
+.report-sheet .report-standard-meta :is(div,span,strong,dt,dd,p){
+  font-size:10px!important;
+  line-height:1.4!important;
+}
+.report-sheet .report-standard-meta :is(dt,span){
+  color:#66798c!important;
+  font-weight:600!important;
+}
+.report-sheet .report-standard-meta :is(dd,strong){
+  color:#26384a!important;
+  font-weight:700!important;
+}
+
+/* Tables with more than 30 body rows are wrapped by report-qr-links.js. */
+.report-sheet .report-table-scroll{
+  width:100%;
+  max-height:560px;
+  overflow:auto;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+  border:1px solid var(--report-line);
+  border-radius:8px;
+  background:#fff;
+}
+.report-sheet .report-table-scroll>table{
+  width:100%;
+  margin:0!important;
+}
+.report-sheet .report-table-scroll>table thead th{
+  position:sticky!important;
+  top:0;
+  z-index:2;
+  box-shadow:0 1px 0 var(--report-line);
+}
+.report-sheet .report-table-scroll:focus-visible{
+  outline:3px solid rgba(49,95,140,.25);
+  outline-offset:2px;
+}
+
+@media print{
+  .report-sheet{box-shadow:none!important;border-color:transparent!important}
+  .report-sheet :is(#reportTitle,.report-standard-title){font-size:22px!important}
+  .report-sheet :is(.report-meta,.rr-meta,.r2-meta,.r4-meta,.gpr-meta,.iwr-meta,.mm-report-meta,.er-meta,.pr-meta),
+  .report-sheet :is(.report-meta,.rr-meta,.r2-meta,.r4-meta,.gpr-meta,.iwr-meta,.mm-report-meta,.er-meta,.pr-meta) :is(div,span,strong,dt,dd,p),
+  .report-sheet .report-standard-meta,
+  .report-sheet .report-standard-meta :is(div,span,strong,dt,dd,p){font-size:10px!important}
+  .report-sheet .report-table-scroll{
+    max-height:none!important;
+    overflow:visible!important;
+    border:0!important;
+    border-radius:0!important;
+  }
+  .report-sheet .report-table-scroll>table thead th{
+    position:static!important;
+    box-shadow:none!important;
+  }
+}

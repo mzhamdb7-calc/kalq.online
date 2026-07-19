@@ -1,0 +1,74 @@
+/* Shared category button palette. Each calculator supplies its own --primary colors. */
+:root{--category-button-base:#fff;--category-button-ink:var(--primary-dark);--category-button-border:color-mix(in srgb,var(--primary) 24%,var(--category-button-base))}
+body.dark{--category-button-base:#111b2b;--category-button-ink:color-mix(in srgb,var(--primary) 64%,#fff);--category-button-border:color-mix(in srgb,var(--primary) 34%,#334155)}
+button,.wide-btn,.small-btn,.compact-btn,.rate-refresh{transition:background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease}
+:is(.icon-btn,.lang-btn,.small-btn,.compact-btn,.rate-refresh,.quick-extra-btn,.calculator-close){border-color:var(--category-button-border);color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 7%,var(--category-button-base))}
+:is(.icon-btn,.lang-btn,.small-btn,.compact-btn,.rate-refresh,.quick-extra-btn,.calculator-close):hover{border-color:color-mix(in srgb,var(--primary) 42%,var(--category-button-base));background:color-mix(in srgb,var(--primary) 13%,var(--category-button-base))}
+#calculatorLauncher,#themeToggle{border-color:color-mix(in srgb,var(--primary) 30%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 11%,var(--category-button-base))}
+:is(.input-toggle-btn,.mode-btn,.tab-btn,.calculator-tab){color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 4%,var(--category-button-base))}
+:is(.input-toggle-btn,.mode-btn,.tab-btn,.calculator-tab):hover{background:color-mix(in srgb,var(--primary) 10%,var(--category-button-base))}
+:is(.input-toggle-btn.active,.mode-btn.active,.tab-btn.active,.calculator-tab.active){border-color:transparent;color:#fff;background:linear-gradient(135deg,color-mix(in srgb,var(--primary) 84%,#fff),var(--primary-dark));box-shadow:0 7px 16px color-mix(in srgb,var(--primary) 24%,transparent)}
+.wide-btn{border-color:color-mix(in srgb,var(--primary) 22%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 9%,var(--category-button-base))}
+.wide-btn:hover{border-color:color-mix(in srgb,var(--primary) 40%,var(--category-button-base));background:color-mix(in srgb,var(--primary) 14%,var(--category-button-base))}
+#calculateBtn,.wide-btn.primary,.small-btn.primary,#modalSavePdfBtn{border-color:transparent;color:#fff;background:linear-gradient(135deg,color-mix(in srgb,var(--primary) 88%,#fff),var(--primary-dark));box-shadow:0 8px 18px color-mix(in srgb,var(--primary) 24%,transparent)}
+#viewReportBtn{border-color:color-mix(in srgb,var(--primary) 34%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 24%,var(--category-button-base))}
+#savePdfBtn,.wide-btn.pdf{border-color:transparent;color:#fff;background:linear-gradient(135deg,var(--primary),var(--primary-dark));box-shadow:0 8px 18px color-mix(in srgb,var(--primary) 26%,transparent)}
+#printReportBtn{border-color:color-mix(in srgb,var(--primary) 30%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 18%,var(--category-button-base))}
+#downloadCsvBtn{border-color:color-mix(in srgb,var(--primary) 25%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 13%,var(--category-button-base))}
+#shareResultBtn{border-color:color-mix(in srgb,var(--primary) 20%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 8%,var(--category-button-base))}
+#resetBtn,#swapBtn{border-color:color-mix(in srgb,var(--primary) 17%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 5%,var(--category-button-base))}
+.compact-btn.primary-soft{border-color:color-mix(in srgb,var(--primary) 32%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 15%,var(--category-button-base))}
+.remove-course{border-color:color-mix(in srgb,var(--primary) 25%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 10%,var(--category-button-base))}
+.calculator-key{border-color:color-mix(in srgb,var(--primary) 14%,var(--category-button-base));color:var(--text);background:color-mix(in srgb,var(--primary) 3%,var(--category-button-base))}
+.calculator-key:hover{background:color-mix(in srgb,var(--primary) 8%,var(--category-button-base))}
+.calculator-key.operator{border-color:color-mix(in srgb,var(--primary) 25%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 14%,var(--category-button-base))}
+.calculator-key.function{border-color:color-mix(in srgb,var(--primary) 30%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 19%,var(--category-button-base))}
+.calculator-key.danger{border-color:color-mix(in srgb,var(--primary) 22%,var(--category-button-base));color:var(--category-button-ink);background:color-mix(in srgb,var(--primary) 9%,var(--category-button-base))}
+.calculator-key.equals{border-color:transparent;color:#fff;background:linear-gradient(135deg,var(--primary),var(--primary-dark));box-shadow:0 6px 14px color-mix(in srgb,var(--primary) 24%,transparent)}
+button:focus-visible,.wide-btn:focus-visible,.small-btn:focus-visible,.compact-btn:focus-visible{outline:3px solid color-mix(in srgb,var(--primary) 28%,transparent);outline-offset:2px}
+
+/* Reduced-glare light theme shared by every current and future calculator. */
+body:not(.dark){
+  --surface:color-mix(in srgb,var(--primary) 5%,#e9eef3);
+  --surface-soft:color-mix(in srgb,var(--primary) 10%,#dce4ec);
+  --line:color-mix(in srgb,var(--primary) 14%,#b8c4d1);
+  --line-strong:color-mix(in srgb,var(--primary) 18%,#a4b1c0);
+  --muted:#536276;
+  --category-button-base:color-mix(in srgb,var(--primary) 7%,#e2e8ef);
+  background:color-mix(in srgb,var(--primary) 13%,#cbd5e1)!important;
+}
+body:not(.dark) :is(.topbar,.sidebar){
+  background:color-mix(in srgb,var(--primary) 5%,#e7ecf2)!important;
+  border-color:color-mix(in srgb,var(--primary) 14%,#b8c4d1)!important;
+}
+body:not(.dark) :is(input,select,textarea,.select,.text-input,.money-input){
+  color:#172033;
+  background:color-mix(in srgb,var(--primary) 5%,#e5ebf1)!important;
+  border-color:color-mix(in srgb,var(--primary) 15%,#b5c1ce)!important;
+}
+/* The search field uses its outer container as the visible control. */
+body:not(.dark) :is(.search,.top-search) input{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+body:not(.dark) :is(.kbd,.ad-slot,.sidebar-card){
+  background:color-mix(in srgb,var(--primary) 8%,#dce3ea)!important;
+  border-color:color-mix(in srgb,var(--primary) 15%,#b5c1ce)!important;
+}
+body:not(.dark) :is(.card,.control-card,.actions-card,.metric-card,.chart-card,.composition-card,.comparison-card,.tabs-card,.text-card){
+  background-color:var(--surface)!important;
+  border-color:var(--line)!important;
+}
+body:not(.dark) .calculator-shell{
+  background:color-mix(in srgb,var(--primary) 6%,#e5ebf1)!important;
+  border-color:color-mix(in srgb,var(--primary) 16%,#afbcc9)!important;
+}
+body:not(.dark) .calculator-display{
+  background:linear-gradient(145deg,color-mix(in srgb,var(--primary) 7%,#e1e7ed),color-mix(in srgb,var(--primary) 11%,#d5dee7))!important;
+  border-color:color-mix(in srgb,var(--primary) 16%,#afbcc9)!important;
+}
+body:not(.dark) .modal-actions{
+  background:color-mix(in srgb,var(--primary) 5%,#e7ecf2)!important;
+  border-color:color-mix(in srgb,var(--primary) 14%,#b8c4d1)!important;
+}
