@@ -1,47 +1,43 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KALQ – Free Calculators, Converters and Practical Tools</title>
-  <meta name="description" content="Find clear, practical calculators for finance, health, education, mathematics, construction, time, business, energy, and everyday use.">
+  <title>Free Online Calculators & Tools | KalQ</title>
+  <meta name="description" content="Use free online calculators for finance, math, health, education, construction, conversions and everyday planning. Fast, private and mobile-friendly.">
+<meta property="og:title" content="Free Online Calculators &amp; Tools | KalQ">
+<meta property="og:description" content="Use free online calculators for finance, math, health, education, construction, conversions and everyday planning. Fast, private and mobile-friendly.">
+<meta property="og:url" content="https://kalq.online/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KalQ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online Calculators &amp; Tools | KalQ">
+<meta name="twitter:description" content="Use free online calculators for finance, math, health, education, construction, conversions and everyday planning. Fast, private and mobile-friendly.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#0f2c3d">
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
   <link rel="canonical" href="https://kalq.online/">
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"WebSite",
-        "@id":"https://kalq.online/#website",
-        "url":"https://kalq.online/",
-        "name":"KALQ",
-        "description":"Free calculators, converters, and practical tools.",
-        "potentialAction":{
-          "@type":"SearchAction",
-          "target":"https://kalq.online/?q={search_term_string}",
-          "query-input":"required name=search_term_string"
-        }
-      },
-      {
-        "@type":"Organization",
-        "@id":"https://kalq.online/#organization",
-        "name":"KALQ",
-        "url":"https://kalq.online/"
-      },
-      {
-        "@type":"CollectionPage",
-        "@id":"https://kalq.online/#webpage",
-        "url":"https://kalq.online/",
-        "name":"KALQ – Free Calculators, Converters and Practical Tools",
-        "isPartOf":{"@id":"https://kalq.online/#website"},
-        "about":["Calculators","Converters","Finance tools","Health calculators","Education calculators"]
-      }
-    ]
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://kalq.online/#website",
+      "name": "KalQ",
+      "url": "https://kalq.online/",
+      "description": "Free calculators, converters, generators and practical online tools.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://kalq.online/#webpage",
+      "url": "https://kalq.online/",
+      "name": "Free Online Calculators & Tools | KalQ",
+      "isPartOf": { "@id": "https://kalq.online/#website" }
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --ink: #112936;
@@ -172,20 +168,6 @@
     .quick-links a { color: var(--muted); text-decoration: none; font-size: .87rem; font-weight: 720; }
     .quick-links a::before { content: "→"; margin-right: 7px; color: var(--coral); }
     .quick-links a:hover { color: var(--navy); }
-
-    .ad-slot {
-      min-height: 94px;
-      display: grid;
-      place-items: center;
-      margin: 6px 0 32px;
-      border-block: 1px dashed #cbd8d5;
-      color: #84939a;
-      text-align: center;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .11em;
-    }
-    .ad-slot small { display: block; margin-top: 4px; text-transform: none; letter-spacing: .02em; }
 
     .section { padding: clamp(58px, 7vw, 92px) 0; }
     .section-mist { background: linear-gradient(135deg, rgba(237,245,243,.92), rgba(251,250,246,.82)); }
@@ -683,18 +665,24 @@
 
   </style>
   <script>
-    try { const savedTheme = localStorage.getItem('kalq-theme'); if (savedTheme) document.documentElement.dataset.theme = savedTheme; } catch (e) {}
+    try { const savedTheme = localStorage.getItem('kalqTheme'); if (savedTheme) document.documentElement.dataset.theme = savedTheme; } catch (e) {}
   </script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/assets/kalq-shared.css">
+<script src="/assets/kalq-shared.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="#home" aria-label="KALQ home"><span class="brand-mark">K</span><span>KALQ</span></a>
+      <a class="brand" href="/" aria-label="KalQ home"><span class="brand-mark">K</span><span>KalQ</span></a>
       <nav class="topnav" id="topnav" aria-label="Main navigation">
-        <a href="#popular" data-i18n="navPopular">Popular</a>
-        <a href="#directory" data-i18n="navAll">All calculators</a>
-        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="/#popular" data-i18n="navPopular">Popular</a>
+        <a href="/calculators.html" data-i18n="navAll">All calculators</a>
+        <a href="/about.html" data-i18n="navAbout">About</a>
       </nav>
       <div class="header-search-wrap" id="headerSearchWrap">
         <form class="header-search" id="headerSearchForm" role="search">
@@ -747,64 +735,61 @@
   </aside>
   <div class="panel-backdrop" id="panelBackdrop" hidden></div>
 
-  <main id="main">
+  <main id="main-content">
     <section class="hero snap-page" id="home">
       <div class="wrap">
         <div class="hero-grid">
           <div>
             <div class="eyebrow" data-i18n="heroEyebrow">Practical calculation tools</div>
-            <h1 data-i18n="heroTitle">Clear answers, without the clutter.</h1>
-            <p class="hero-copy" data-i18n="heroCopy">Explore focused calculators, converters, and learning tools for money, health, school, work, construction, time, and everyday decisions.</p>
-            <form class="search-shell" id="heroSearchForm" role="search">
+            <h1>Free Online Calculators for Everyday Decisions</h1>
+            <p class="hero-copy">KalQ provides free online calculators, converters, generators and educational tools for finance, mathematics, health, construction and everyday planning. Each calculator includes clear inputs, understandable results, formulas and supporting explanations.</p>
+            <p class="hero-copy">Choose a category or search for a calculator. Calculations run directly in your browser, and no account is required for most tools.</p><form class="search-shell" id="heroSearchForm" role="search">
               <label class="visually-hidden" for="heroSearch">Search calculators</label>
               <input id="heroSearch" type="search" autocomplete="off" placeholder="Search BMI, GPA, percentage, conversions, polynomial roots, and more…" data-i18n-placeholder="searchPlaceholder">
               <button class="search-button" type="submit" data-i18n="findCalculator">Find a calculator</button>
             </form>
             <div class="quick-links" aria-label="Quick calculator links">
-              <a href="bmi-calculator/index.html">BMI Calculator</a>
-              <a href="gpa-calculator/index.html">GPA Calculator</a>
-              <a href="ideal-weight-calculator/index.html">Ideal Weight Calculator</a>
-              <a href="mental-math-rush/index.html">Mental Math Rush</a>
-              <a href="percentage-calculator/index.html">Percentage Calculator</a>
-              <a href="percentage-conversion-calculator/index.html">Percentage Conversion Calculator</a>
-              <a href="polynomial-root-finder-calculator/index.html">Polynomial Root Finder</a>
-              <a href="pregnancy-calculator/index.html">Pregnancy Due Date Calculator</a>
-              <a href="retirement-calculator/index.html">Retirement Savings Calculator</a>
-              <a href="salary-increase-calculator/index.html">Salary Increase Calculator</a>
-              <a href="salary-payroll-calculator/index.html">Salary Payroll Calculator</a>
-              <a href="savings-calculator/index.html">Savings Calculator</a>
-              <a href="tip-calculator/index.html">Tip Calculator</a>
+              <a href="/bmi-calculator/">BMI Calculator</a>
+              <a href="/gpa-calculator/">GPA Calculator</a>
+              <a href="/ideal-weight-calculator/">Ideal Weight Calculator</a>
+              <a href="/mental-math-rush/">Mental Math Rush</a>
+              <a href="/percentage-calculator/">Percentage Calculator</a>
+              <a href="/percentage-conversion-calculator/">Percentage Conversion Calculator</a>
+              <a href="/polynomial-root-finder-calculator/">Polynomial Root Finder</a>
+              <a href="/pregnancy-calculator/">Pregnancy Due Date Calculator</a>
+              <a href="/retirement-calculator/">Retirement Savings Calculator</a>
+              <a href="/salary-increase-calculator/">Salary Increase Calculator</a>
+              <a href="/salary-payroll-calculator/">Salary Payroll Calculator</a>
+              <a href="/savings-calculator/">Savings Calculator</a>
+              <a href="/tip-calculator/">Tip Calculator</a>
             </div>
           </div>
-          <aside class="hero-side">
-            <strong data-i18n="oneTask">One task per calculator.</strong>
-            Each tool keeps its inputs, result, explanation, and report focused on the calculator title—making it faster to use and easier to understand.
-          </aside>
+          <aside class="hero-side"><strong>Clear methods and privacy-conscious tools.</strong> Calculations run in your browser. Where available, each page explains its formula, assumptions, limitations, references and printable report.</aside>
         </div>
       </div>
-      <div class="wrap"><div class="ad-slot hero-ad" aria-label="Advertisement placeholder">Advertisement<small>Reserved space that stays separate from calculator controls</small></div></div>
+      
     </section>
 
     <section class="section section-mist snap-page" id="popular">
       <div class="wrap">
         <div class="section-heading">
           <h2 data-i18n="popularTitle">Popular calculators</h2>
-          <p>Use the calculators currently available on KALQ.</p>
+          <p>Explore featured calculators currently available on KalQ.</p>
         </div>
         <div class="popular-grid">
-          <a class="tool-link" href="bmi-calculator/index.html"><span class="tool-icon">BMI</span><span class="tool-copy"><strong>BMI Calculator</strong><span>Calculate BMI with age-appropriate interpretation.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="gpa-calculator/index.html"><span class="tool-icon">GPA</span><span class="tool-copy"><strong>GPA Calculator</strong><span>Calculate a credit-weighted grade point average.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="ideal-weight-calculator/index.html"><span class="tool-icon">IW</span><span class="tool-copy"><strong>Ideal Weight Calculator</strong><span>Compare established height-based reference formulas.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="mental-math-rush/index.html"><span class="tool-icon">MM</span><span class="tool-copy"><strong>Mental Math Rush</strong><span>Build speed and accuracy with adaptive arithmetic rounds.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="percentage-calculator/index.html"><span class="tool-icon">%</span><span class="tool-copy"><strong>Percentage Calculator</strong><span>Solve 11 common percentage relationships with clear formulas and reports.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="percentage-conversion-calculator/index.html"><span class="tool-icon">%↔</span><span class="tool-copy"><strong>Percentage Conversion Calculator</strong><span>Convert fractions, decimals, percentages, and ratios in five focused modes.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="polynomial-root-finder-calculator/index.html"><span class="tool-icon">P(x)</span><span class="tool-copy"><strong>Polynomial Root Finder Calculator</strong><span>Find real and complex polynomial roots with steps, graph, and verification.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="pregnancy-calculator/index.html"><span class="tool-icon">40W</span><span class="tool-copy"><strong>Pregnancy Due Date Calculator</strong><span>Estimate a due date, pregnancy week, trimester, and key timeline milestones.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="retirement-calculator/index.html"><span class="tool-icon">RET</span><span class="tool-copy"><strong>Retirement Savings Calculator</strong><span>Project retirement savings, compare a spending goal, and estimate needed contributions.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="salary-increase-calculator/index.html"><span class="tool-icon">PAY+</span><span class="tool-copy"><strong>Salary Increase Calculator</strong><span>Calculate new gross salary and compare the increase across common pay periods.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="salary-payroll-calculator/index.html"><span class="tool-icon">PAY</span><span class="tool-copy"><strong>Salary Payroll Calculator</strong><span>Calculate gross pay, deductions, net pay, employer cost, and payroll projections.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="savings-calculator/index.html"><span class="tool-icon">SAVE</span><span class="tool-copy"><strong>Savings Calculator</strong><span>Estimate how current savings and monthly deposits may grow with APY.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="tip-calculator/index.html"><span class="tool-icon">TIP</span><span class="tool-copy"><strong>Tip Calculator</strong><span>Calculate a tip, final bill, and equal amount per person.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/bmi-calculator/"><span class="tool-icon">BMI</span><span class="tool-copy"><strong>BMI Calculator</strong><span>Calculate BMI with age-appropriate interpretation.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/gpa-calculator/"><span class="tool-icon">GPA</span><span class="tool-copy"><strong>GPA Calculator</strong><span>Calculate a credit-weighted grade point average.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/ideal-weight-calculator/"><span class="tool-icon">IW</span><span class="tool-copy"><strong>Ideal Weight Calculator</strong><span>Compare established height-based reference formulas.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/mental-math-rush/"><span class="tool-icon">MM</span><span class="tool-copy"><strong>Mental Math Rush</strong><span>Build speed and accuracy with adaptive arithmetic rounds.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/percentage-calculator/"><span class="tool-icon">%</span><span class="tool-copy"><strong>Percentage Calculator</strong><span>Solve 11 common percentage relationships with clear formulas and reports.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/percentage-conversion-calculator/"><span class="tool-icon">%↔</span><span class="tool-copy"><strong>Percentage Conversion Calculator</strong><span>Convert fractions, decimals, percentages, and ratios in five focused modes.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/polynomial-root-finder-calculator/"><span class="tool-icon">P(x)</span><span class="tool-copy"><strong>Polynomial Root Finder Calculator</strong><span>Find real and complex polynomial roots with steps, graph, and verification.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/pregnancy-calculator/"><span class="tool-icon">40W</span><span class="tool-copy"><strong>Pregnancy Due Date Calculator</strong><span>Estimate a due date, pregnancy week, trimester, and key timeline milestones.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/retirement-calculator/"><span class="tool-icon">RET</span><span class="tool-copy"><strong>Retirement Savings Calculator</strong><span>Project retirement savings, compare a spending goal, and estimate needed contributions.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/salary-increase-calculator/"><span class="tool-icon">PAY+</span><span class="tool-copy"><strong>Salary Increase Calculator</strong><span>Calculate new gross salary and compare the increase across common pay periods.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/salary-payroll-calculator/"><span class="tool-icon">PAY</span><span class="tool-copy"><strong>Salary Payroll Calculator</strong><span>Calculate gross pay, deductions, net pay, employer cost, and payroll projections.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/savings-calculator/"><span class="tool-icon">SAVE</span><span class="tool-copy"><strong>Savings Calculator</strong><span>Estimate how current savings and monthly deposits may grow with APY.</span></span><span class="tool-arrow">→</span></a>
+          <a class="tool-link" href="/tip-calculator/"><span class="tool-icon">TIP</span><span class="tool-copy"><strong>Tip Calculator</strong><span>Calculate a tip, final bill, and equal amount per person.</span></span><span class="tool-arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -816,7 +801,21 @@
           <p>Search by name or filter by category. Every result opens as a separate focused calculator page.</p>
         </div>
         <div class="directory-controls" id="directoryControls" aria-label="Calculator category filters"></div>
-        <div class="directory-grid" id="directoryGrid" aria-live="polite"></div>
+        <div class="directory-grid is-results" id="directoryGrid" aria-live="polite">
+          <a class="directory-item" href="/bmi-calculator/" data-category="Health"><span class="directory-item-icon">BMI</span><span><strong>BMI Calculator</strong><span>Calculate body mass index with age-appropriate interpretation for adults, children and teenagers.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/gpa-calculator/" data-category="Education"><span class="directory-item-icon">GPA</span><span><strong>GPA Calculator</strong><span>Calculate a credit-weighted grade point average and review how each course affects the result.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/ideal-weight-calculator/" data-category="Health"><span class="directory-item-icon">IW</span><span><strong>Ideal Weight Calculator</strong><span>Compare established height-based reference formulas and a BMI-based healthy-weight range.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/mental-math-rush/" data-category="Mathematics"><span class="directory-item-icon">MM</span><span><strong>Mental Math Rush</strong><span>Practise arithmetic speed and accuracy with adaptive rounds and a performance report.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/percentage-calculator/" data-category="Mathematics"><span class="directory-item-icon">%</span><span><strong>Percentage Calculator</strong><span>Solve common percentage relationships with formulas, steps and a printable report.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/percentage-conversion-calculator/" data-category="Mathematics"><span class="directory-item-icon">%↔</span><span><strong>Percentage Conversion Calculator</strong><span>Convert fractions, decimals, percentages and ratios in five focused modes.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/polynomial-root-finder-calculator/" data-category="Mathematics"><span class="directory-item-icon">P(x)</span><span><strong>Polynomial Root Finder Calculator</strong><span>Find real and complex polynomial roots with steps, a graph and verification.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/pregnancy-calculator/" data-category="Health"><span class="directory-item-icon">40W</span><span><strong>Pregnancy Due Date Calculator</strong><span>Estimate a due date, pregnancy week, trimester and key timeline milestones.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/retirement-calculator/" data-category="Finance"><span class="directory-item-icon">RET</span><span><strong>Retirement Savings Calculator</strong><span>Project retirement savings, compare a spending goal and estimate required contributions.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/salary-increase-calculator/" data-category="Finance"><span class="directory-item-icon">PAY+</span><span><strong>Salary Increase Calculator</strong><span>Calculate a new gross salary and compare the increase across common pay periods.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/salary-payroll-calculator/" data-category="Finance"><span class="directory-item-icon">PAY</span><span><strong>Salary Payroll Calculator</strong><span>Estimate gross pay, deductions, net pay, employer cost and payroll projections.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/savings-calculator/" data-category="Finance"><span class="directory-item-icon">SAVE</span><span><strong>Savings Calculator</strong><span>Estimate how current savings and recurring deposits may grow with a stated APY.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="/tip-calculator/" data-category="Finance"><span class="directory-item-icon">TIP</span><span><strong>Tip Calculator</strong><span>Calculate a tip, final bill and equal amount per person.</span></span><em aria-hidden="true">→</em></a>
+        </div>
         <p class="empty-state" id="emptyState">No calculator matched your search. Try a broader term or choose another category.</p>
       </div>
     </section>
@@ -828,10 +827,10 @@
           <p>Use categories when you know the kind of problem you need to solve but not the exact calculator name.</p>
         </div>
         <div class="category-strip">
-          <div class="category-summary"><small>Money</small><strong>Finance & property</strong><span>Interest, loans, returns, budgets, income, property, and business metrics.</span></div>
-          <div class="category-summary"><small>Wellbeing</small><strong>Health & fitness</strong><span>BMI, energy needs, hydration, sleep, heart rate, and body measurements.</span></div>
-          <div class="category-summary"><small>Learning</small><strong>Education & mathematics</strong><span>Grades, GPA, equations, matrices, fractions, calculus, and practice tools.</span></div>
-          <div class="category-summary"><small>Projects</small><strong>Construction & home</strong><span>Concrete, paint, tiles, roofing, flooring, energy, and renovation estimates.</span></div>
+          <a class="category-summary" href="/finance-calculators.html"><small>Money</small><strong>Finance calculators</strong><span>Savings, retirement, salary, payroll and tipping tools.</span></a>
+          <a class="category-summary" href="/health-calculators.html"><small>Wellbeing</small><strong>Health calculators</strong><span>BMI, ideal-weight references and pregnancy timeline estimates.</span></a>
+          <a class="category-summary" href="/math-calculators.html"><small>Mathematics</small><strong>Math calculators</strong><span>Percentages, conversions and polynomial roots.</span></a>
+          <a class="category-summary" href="/education-calculators.html"><small>Learning</small><strong>Education calculators</strong><span>GPA calculations and arithmetic practice.</span></a>
         </div>
       </div>
     </section>
@@ -840,7 +839,7 @@
       <div class="wrap">
         <div class="section-heading">
           <h2 data-i18n="aboutTitle">Designed for useful decisions</h2>
-          <p>KALQ tools are built to provide a fast answer first, followed by enough context to understand the result without overwhelming the page.</p>
+          <p>KalQ tools are built to provide a fast answer first, followed by enough context to understand the result without overwhelming the page.</p>
         </div>
         <div class="why-grid">
           <div class="why-list">
@@ -852,47 +851,69 @@
           <div>
             <div class="eyebrow">Explore collections</div>
             <div class="collection-list">
-              <a class="collection-link" href="finance-calculators/"><span><strong>Finance calculators</strong><span>Savings, investment, loans, debt, property, and income.</span></span><b>→</b></a>
-              <a class="collection-link" href="health-calculators/"><span><strong>Health calculators</strong><span>General screening and everyday wellness estimates.</span></span><b>→</b></a>
-              <a class="collection-link" href="education-calculators/"><span><strong>Education calculators</strong><span>Grades, GPA, required scores, credits, and study time.</span></span><b>→</b></a>
-              <a class="collection-link" href="construction-calculators/"><span><strong>Construction calculators</strong><span>Materials, quantities, costs, and renovation planning.</span></span><b>→</b></a>
+              <a class="collection-link" href="/finance-calculators.html"><span><strong>Finance calculators</strong><span>Savings, investment, loans, debt, property, and income.</span></span><b>→</b></a>
+              <a class="collection-link" href="/health-calculators.html"><span><strong>Health calculators</strong><span>General screening and everyday wellness estimates.</span></span><b>→</b></a>
+              <a class="collection-link" href="/education-calculators.html"><span><strong>Education calculators</strong><span>Grades, GPA, required scores, credits, and study time.</span></span><b>→</b></a>
+              <a class="collection-link" href="/calculator-methodology.html"><span><strong>How KalQ calculations work</strong><span>Review formula selection, testing, rounding, units and limitations.</span></span><b>→</b></a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="wrap"><div class="ad-slot" aria-label="Advertisement placeholder">Advertisement<small>Placed between content areas, away from search and navigation controls</small></div></div>
+    
 
     <section class="section snap-page" id="suggest" style="padding-top:24px">
       <div class="wrap">
         <div class="newsletter-row">
-          <div><h2 data-i18n="suggestTitle">Need a calculator added?</h2><p data-i18n="suggestCopy">Suggest a practical tool or report that would make KALQ more useful.</p></div>
-          <a href="contact/" data-i18n="suggestButton">Suggest a calculator</a>
+          <div><h2 data-i18n="suggestTitle">Need a calculator added?</h2><p data-i18n="suggestCopy">Suggest a practical tool or report that would make KalQ more useful.</p></div>
+          <a href="/contact.html" data-i18n="suggestButton">Suggest a calculator</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer snap-page" id="footer">
-    <div class="wrap">
-      <div class="footer-simple">
-        <div class="footer-intro">
-          <a class="brand brand-inverse" href="#home" aria-label="KALQ home"><span class="brand-mark">K</span><span>KALQ</span></a>
-          <p data-i18n="footerCopy">Focused calculators, converters, and practical tools with clear results and useful explanations.</p>
+  <footer class="site-footer kalq-global-footer" id="footer">
+  <div class="kalq-footer-inner">
+    <div class="kalq-footer-grid">
+      <div class="kalq-footer-about">
+        <a class="kalq-footer-brand" href="/" aria-label="KalQ home"><span class="kalq-footer-brand-mark">K</span><span>KalQ</span></a>
+        <p class="kalq-footer-summary">Free calculators, converters and educational tools with clear inputs, formulas, assumptions and practical explanations.</p>
+      </div>
+      <nav class="kalq-footer-column" aria-label="Information">
+        <h2>Information</h2>
+        <div class="kalq-footer-links">
+          <a href="/about.html">About KalQ</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-use.html">Terms of Use</a>
+          <a href="/disclaimer.html">Disclaimer</a>
+          <a href="/cookie-policy.html">Cookie Policy</a>
+          <a href="/calculator-methodology.html">Calculator Methodology</a>
+          <a href="/faq.html">Frequently Asked Questions</a>
+          <a href="/sitemap.html">HTML Sitemap</a>
+          <a href="/calculators.html">All Calculators</a>
         </div>
-        <nav class="footer-nav" aria-label="Footer links">
-          <a href="#directory" data-i18n="footerDirectory">Calculators</a>
-          <a href="about/" data-i18n="footerAbout">About</a>
-          <a href="privacy/">Privacy</a>
-        </nav>
-      </div>
-      <div class="footer-bottom-simple">
-        <span>© <span id="year"></span> KALQ</span>
-        <span data-i18n="footerDisclaimer">General informational tools. Results are not professional advice.</span>
-      </div>
+      </nav>
+      <nav class="kalq-footer-column" aria-label="Calculator collections">
+        <h2>Calculator collections</h2>
+        <div class="kalq-footer-links">
+          <a href="/finance-calculators.html">Finance Calculators</a>
+          <a href="/math-calculators.html">Math Calculators</a>
+          <a href="/health-calculators.html">Health Calculators</a>
+          <a href="/education-calculators.html">Education Calculators</a>
+          <a href="/converters.html">Converters</a>
+          <a href="/games.html">Games</a>
+          <a href="/cookie-policy.html#settings">Cookie Settings</a>
+        </div>
+      </nav>
     </div>
-  </footer>
+    <div class="kalq-footer-bottom">
+      <p>© <span id="year">2026</span> KalQ. All rights reserved.</p>
+      <p>KalQ calculators provide estimates for informational and educational purposes. Results may vary depending on the information entered and should not replace professional advice.</p>
+    </div>
+  </div>
+</footer>
 
   <button class="go-up-button" id="goUpButton" type="button" aria-label="Go to top">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"></path></svg><span data-i18n="goUp">Top</span>
@@ -900,18 +921,18 @@
 
   <script>
     const tools = [
-      {name:'BMI Calculator', category:'Health', description:'Calculate BMI with age-appropriate interpretation.', path:'bmi-calculator/index.html', icon:'BMI'},
-      {name:'Ideal Weight Calculator', category:'Health', description:'Compare established height-based reference formulas.', path:'ideal-weight-calculator/index.html', icon:'IW'},
-      {name:'Mental Math Rush', category:'Tools', description:'Build speed and accuracy with adaptive arithmetic rounds.', path:'mental-math-rush/index.html', icon:'MM'},
-      {name:'Percentage Calculator', category:'Math', description:'Solve 11 common percentage relationships with clear formulas and reports.', path:'percentage-calculator/index.html', icon:'%'},
-      {name:'Percentage Conversion Calculator', category:'Math', description:'Convert fractions, decimals, percentages, and ratios in five focused modes.', path:'percentage-conversion-calculator/index.html', icon:'%↔'},
-      {name:'Polynomial Root Finder Calculator', category:'Math', description:'Find real and complex polynomial roots with steps, graph, and verification.', path:'polynomial-root-finder-calculator/index.html', icon:'P(x)'},
-      {name:'Pregnancy Due Date Calculator', category:'Health', description:'Estimate a due date, pregnancy week, trimester, and key timeline milestones.', path:'pregnancy-calculator/index.html', icon:'40W'},
-      {name:'Retirement Savings Calculator', category:'Finance', description:'Project retirement savings, compare a spending goal, and estimate needed contributions.', path:'retirement-calculator/index.html', icon:'RET'},
-      {name:'Salary Increase Calculator', category:'Finance', description:'Calculate new gross salary and compare the increase across common pay periods.', path:'salary-increase-calculator/index.html', icon:'PAY+'},
-      {name:'Salary Payroll Calculator', category:'Finance', description:'Calculate gross pay, deductions, net pay, employer cost, and payroll projections.', path:'salary-payroll-calculator/index.html', icon:'PAY'},
-      {name:'Savings Calculator', category:'Finance', description:'Estimate how current savings and monthly deposits may grow with APY.', path:'savings-calculator/index.html', icon:'SAVE'},
-      {name:'Tip Calculator', category:'Finance', description:'Calculate a tip, final bill, and equal amount per person.', path:'tip-calculator/index.html', icon:'TIP'},
+      {name:'BMI Calculator', category:'Health', description:'Calculate BMI with age-appropriate interpretation.', path:'/bmi-calculator/', icon:'BMI'},
+      {name:'Ideal Weight Calculator', category:'Health', description:'Compare established height-based reference formulas.', path:'/ideal-weight-calculator/', icon:'IW'},
+      {name:'Mental Math Rush', category:'Tools', description:'Build speed and accuracy with adaptive arithmetic rounds.', path:'/mental-math-rush/', icon:'MM'},
+      {name:'Percentage Calculator', category:'Math', description:'Solve 11 common percentage relationships with clear formulas and reports.', path:'/percentage-calculator/', icon:'%'},
+      {name:'Percentage Conversion Calculator', category:'Math', description:'Convert fractions, decimals, percentages, and ratios in five focused modes.', path:'/percentage-conversion-calculator/', icon:'%↔'},
+      {name:'Polynomial Root Finder Calculator', category:'Math', description:'Find real and complex polynomial roots with steps, graph, and verification.', path:'/polynomial-root-finder-calculator/', icon:'P(x)'},
+      {name:'Pregnancy Due Date Calculator', category:'Health', description:'Estimate a due date, pregnancy week, trimester, and key timeline milestones.', path:'/pregnancy-calculator/', icon:'40W'},
+      {name:'Retirement Savings Calculator', category:'Finance', description:'Project retirement savings, compare a spending goal, and estimate needed contributions.', path:'/retirement-calculator/', icon:'RET'},
+      {name:'Salary Increase Calculator', category:'Finance', description:'Calculate new gross salary and compare the increase across common pay periods.', path:'/salary-increase-calculator/', icon:'PAY+'},
+      {name:'Salary Payroll Calculator', category:'Finance', description:'Calculate gross pay, deductions, net pay, employer cost, and payroll projections.', path:'/salary-payroll-calculator/', icon:'PAY'},
+      {name:'Savings Calculator', category:'Finance', description:'Estimate how current savings and monthly deposits may grow with APY.', path:'/savings-calculator/', icon:'SAVE'},
+      {name:'Tip Calculator', category:'Finance', description:'Calculate a tip, final bill, and equal amount per person.', path:'/tip-calculator/', icon:'TIP'},
       {name:'BMR Calculator', category:'Health', description:'Estimate resting daily energy needs.', path:'bmr-calculator/', icon:'BMR'},
       {name:'TDEE Calculator', category:'Health', description:'Estimate total daily energy use.', path:'tdee-calculator/', icon:'TDEE'},
       {name:'Body Fat Calculator', category:'Health', description:'Estimate body-fat percentage from measurements.', path:'body-fat-calculator/', icon:'BF'},
@@ -929,7 +950,7 @@
       {name:'Credit Card Interest Calculator', category:'Finance', description:'Estimate interest and payoff time.', path:'credit-card-interest-calculator/', icon:'CC'},
       {name:'Rent vs Buy Calculator', category:'Finance', description:'Compare estimated renting and buying costs.', path:'rent-vs-buy-calculator/', icon:'R/B'},
       {name:'Salary to Hourly Calculator', category:'Finance', description:'Convert salary into hourly, daily, and weekly pay.', path:'salary-to-hourly-calculator/', icon:'PAY'},
-      {name:'GPA Calculator', category:'Education', description:'Calculate a credit-weighted GPA from courses and credits.', path:'gpa-calculator/index.html', icon:'GPA'},
+      {name:'GPA Calculator', category:'Education', description:'Calculate a credit-weighted GPA from courses and credits.', path:'/gpa-calculator/', icon:'GPA'},
       {name:'CGPA Calculator', category:'Education', description:'Combine semester results into cumulative GPA.', path:'cgpa-calculator/', icon:'CGPA'},
       {name:'Final Grade Calculator', category:'Education', description:'Estimate the grade needed on a final assessment.', path:'final-grade-calculator/', icon:'FG'},
       {name:'Required Score Calculator', category:'Education', description:'Find the score needed to reach a target grade.', path:'required-score-calculator/', icon:'REQ'},
@@ -973,7 +994,7 @@
       {name:'Sudoku', category:'Tools', description:'Play and print Sudoku puzzles.', path:'sudoku/', icon:'SDK'},
       {name:'Word Scramble', category:'Tools', description:'Create and solve word scramble worksheets.', path:'word-scramble/', icon:'WORD'},
       {name:'Spin the Wheel', category:'Tools', description:'Make a custom random choice wheel.', path:'spin-the-wheel/', icon:'SPIN'}
-    ].filter(tool => ['bmi-calculator/index.html', 'gpa-calculator/index.html', 'ideal-weight-calculator/index.html', 'mental-math-rush/index.html', 'percentage-calculator/index.html', 'percentage-conversion-calculator/index.html', 'polynomial-root-finder-calculator/index.html', 'pregnancy-calculator/index.html', 'retirement-calculator/index.html', 'salary-increase-calculator/index.html', 'salary-payroll-calculator/index.html', 'savings-calculator/index.html', 'tip-calculator/index.html'].includes(tool.path));
+    ].filter(tool => ['/bmi-calculator/', '/gpa-calculator/', '/ideal-weight-calculator/', '/mental-math-rush/', '/percentage-calculator/', '/percentage-conversion-calculator/', '/polynomial-root-finder-calculator/', '/pregnancy-calculator/', '/retirement-calculator/', '/salary-increase-calculator/', '/salary-payroll-calculator/', '/savings-calculator/', '/tip-calculator/'].includes(tool.path));
 
     const categoryOrder = ['All', ...new Set(tools.map(tool => tool.category))];
     const grid = document.getElementById('directoryGrid');
@@ -1008,6 +1029,7 @@
       controls.appendChild(count);
     }
 
+    const categoryPages = {Finance:'/finance-calculators.html', Health:'/health-calculators.html', Education:'/education-calculators.html', Math:'/math-calculators.html', Tools:'/games.html'};
     const categoryMeta = {
       Finance:{icon:'$'}, Health:{icon:'BMI'}, Education:{icon:'GPA'}, Math:{icon:'x²'}, Converters:{icon:'↔'}, Time:{icon:'24h'}, Work:{icon:'WK'}, Construction:{icon:'BUILD'}, Energy:{icon:'kWh'}, Tools:{icon:'TOOL'}
     };
@@ -1033,13 +1055,12 @@
           <header class="directory-group-head">
             <span class="directory-group-icon">${categoryMeta[category]?.icon || slugLabel(category)}</span>
             <span><strong>${category}</strong><span>${categoryTools.length} calculator${categoryTools.length === 1 ? '' : 's'}</span></span>
-            <button class="directory-group-view" type="button">View all →</button>
+            <a class="directory-group-view" href="${categoryPages[category] || '/calculators.html'}">View all →</a>
           </header>
           <div class="directory-group-list">
             ${visible.map(tool => `<a class="directory-mini-link" href="${tool.path}"><strong>${tool.name}</strong><span aria-hidden="true">→</span></a>`).join('')}
           </div>
           ${categoryTools.length > visible.length ? `<button class="directory-more" type="button">+ ${categoryTools.length - visible.length} more in ${category}</button>` : ''}`;
-        group.querySelector('.directory-group-view').addEventListener('click', () => selectCategory(category));
         const more = group.querySelector('.directory-more');
         if (more) more.addEventListener('click', () => selectCategory(category));
         grid.appendChild(group);
@@ -1159,7 +1180,7 @@
     const themeButton = document.getElementById('themeButton');
     function setTheme(theme) {
       document.documentElement.dataset.theme = theme;
-      try { localStorage.setItem('kalq-theme', theme); } catch (e) {}
+      try { localStorage.setItem('kalqTheme', theme); } catch (e) {}
       themeButton.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
       document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0b202c' : '#0f2c3d');
     }
@@ -1172,15 +1193,15 @@
       en: {
         navPopular:'Popular', navAll:'All calculators', navCategories:'Categories', navAbout:'About',
         searchEyebrow:'Calculator search', searchTitle:'Find a tool quickly', quickCalculator:'Quick calculator', calculateWithoutLeaving:'Calculate without leaving the page', basic:'Basic', scientific:'Scientific', calculatorLocal:'Keyboard input: use 0–9 and the decimal key. Calculations stay in this browser.',
-        heroEyebrow:'Practical calculation tools', heroTitle:'Clear answers, without the clutter.', heroCopy:'Explore focused calculators, converters, and learning tools for money, health, school, work, construction, time, and everyday decisions.', findCalculator:'Find a calculator', searchPlaceholder:'Search BMI, GPA, percentage, conversions, polynomial roots, and more…', oneTask:'One task per calculator.',
-        popularTitle:'Popular calculators', directoryTitle:'Find your calculator', categoriesTitle:'Browse by purpose', aboutTitle:'Designed for useful decisions', suggestTitle:'Need a calculator added?', suggestCopy:'Suggest a practical tool or report that would make KALQ more useful.', suggestButton:'Suggest a calculator',
+        heroEyebrow:'Practical calculation tools', heroTitle:'Free Online Calculators for Everyday Decisions', heroCopy:'Free calculators, converters and educational tools with clear formulas and supporting explanations.', findCalculator:'Find a calculator', searchPlaceholder:'Search BMI, GPA, percentage, conversions, polynomial roots, and more…', oneTask:'One task per calculator.',
+        popularTitle:'Popular calculators', directoryTitle:'Find your calculator', categoriesTitle:'Browse by purpose', aboutTitle:'Designed for useful decisions', suggestTitle:'Need a calculator added?', suggestCopy:'Suggest a practical tool or report that would make KalQ more useful.', suggestButton:'Suggest a calculator',
         footerTitle:'Calculate with clarity.', footerCopy:'Focused calculators, converters, and practical tools with clear results and useful explanations.', footerPopular:'Popular tools', footerPopularCopy:'Start with everyday calculators', footerDirectory:'Calculators', footerDirectoryCopy:'Search and filter every tool', footerCategories:'Categories', footerCategoriesCopy:'Find tools by purpose', footerAbout:'About', footerAboutCopy:'Methods and editorial standards', footerDisclaimer:'General informational tools. Results are not professional advice.', goUp:'Top'
       },
       ms: {
         navPopular:'Popular', navAll:'Semua kalkulator', navCategories:'Kategori', navAbout:'Tentang',
         searchEyebrow:'Carian kalkulator', searchTitle:'Cari alat dengan cepat', quickCalculator:'Kalkulator pantas', calculateWithoutLeaving:'Kira tanpa meninggalkan halaman', basic:'Asas', scientific:'Saintifik', calculatorLocal:'Input papan kekunci: gunakan 0–9 dan kekunci perpuluhan. Pengiraan kekal dalam pelayar ini.',
         heroEyebrow:'Alat pengiraan praktikal', heroTitle:'Jawapan jelas, tanpa serabut.', heroCopy:'Terokai kalkulator, penukar dan alat pembelajaran khusus untuk kewangan, kesihatan, sekolah, kerja, pembinaan, masa dan keputusan harian.', findCalculator:'Cari kalkulator', searchPlaceholder:'Cari BMI, GPA, peratusan, penukaran, punca polinomial dan lagi…', oneTask:'Satu tugas bagi setiap kalkulator.',
-        popularTitle:'Kalkulator popular', directoryTitle:'Cari kalkulator anda', categoriesTitle:'Lihat mengikut tujuan', aboutTitle:'Direka untuk keputusan berguna', suggestTitle:'Perlukan kalkulator baharu?', suggestCopy:'Cadangkan alat praktikal atau laporan yang boleh menjadikan KALQ lebih berguna.', suggestButton:'Cadangkan kalkulator',
+        popularTitle:'Kalkulator popular', directoryTitle:'Cari kalkulator anda', categoriesTitle:'Lihat mengikut tujuan', aboutTitle:'Direka untuk keputusan berguna', suggestTitle:'Perlukan kalkulator baharu?', suggestCopy:'Cadangkan alat praktikal atau laporan yang boleh menjadikan KalQ lebih berguna.', suggestButton:'Cadangkan kalkulator',
         footerTitle:'Kira dengan jelas.', footerCopy:'Kalkulator, penukar dan alat praktikal dengan hasil yang jelas serta penerangan berguna.', footerPopular:'Alat popular', footerPopularCopy:'Mulakan dengan kalkulator harian', footerDirectory:'Kalkulator', footerDirectoryCopy:'Cari dan tapis semua alat', footerCategories:'Kategori', footerCategoriesCopy:'Cari alat mengikut tujuan', footerAbout:'Tentang', footerAboutCopy:'Kaedah dan piawaian editorial', footerDisclaimer:'Alat maklumat umum. Keputusan bukan nasihat profesional.', goUp:'Atas'
       }
     };
