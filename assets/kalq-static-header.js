@@ -54,9 +54,142 @@
     link.addEventListener("click", closeMenu)
   );
 
-  calculatorButton?.addEventListener("click", () => {
-    location.href = localHref("/#home");
-  });
+  const createQuickCalculator = () => {
+    if (!calculatorButton || document.getElementById("calculatorPanel")) return null;
+
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      `<div class="kalq-quick-calc-backdrop" id="kalqQuickCalcBackdrop" hidden></div>
+      <aside class="kalq-quick-calc-panel" id="kalqQuickCalculatorPanel" role="dialog" aria-modal="true" aria-labelledby="kalqQuickCalculatorTitle" aria-hidden="true">
+        <div class="kalq-quick-calc-head">
+          <div><span>Quick calculator</span><h2 id="kalqQuickCalculatorTitle">Calculate without leaving the page</h2></div>
+          <button class="kalq-quick-calc-close" id="kalqQuickCalcClose" type="button" aria-label="Close calculator">&times;</button>
+        </div>
+        <div class="kalq-quick-calc-display" aria-live="polite"><small id="kalqQuickCalcExpression">0</small><strong id="kalqQuickCalcResult">0</strong></div>
+        <div class="kalq-quick-calc-keys" id="kalqQuickCalcKeys">
+          <button type="button" data-key="clear" class="is-action">C</button><button type="button" data-key="backspace" aria-label="Backspace">&#9003;</button><button type="button" data-key="percent">%</button><button type="button" data-key="/" class="is-operator">&divide;</button>
+          <button type="button" data-key="7">7</button><button type="button" data-key="8">8</button><button type="button" data-key="9">9</button><button type="button" data-key="*" class="is-operator">&times;</button>
+          <button type="button" data-key="4">4</button><button type="button" data-key="5">5</button><button type="button" data-key="6">6</button><button type="button" data-key="-" class="is-operator">&minus;</button>
+          <button type="button" data-key="1">1</button><button type="button" data-key="2">2</button><button type="button" data-key="3">3</button><button type="button" data-key="+" class="is-operator">+</button>
+          <button type="button" data-key="negate">&plusmn;</button><button type="button" data-key="0">0</button><button type="button" data-key=".">.</button><button type="button" data-key="equals" class="is-equals">=</button>
+        </div>
+        <p>Keyboard input is supported. Calculations stay in this browser.</p>
+      </aside>`
+    );
+
+    const panel = document.getElementById("kalqQuickCalculatorPanel");
+    const backdrop = document.getElementById("kalqQuickCalcBackdrop");
+    const closeButton = document.getElementById("kalqQuickCalcClose");
+    const keys = document.getElementById("kalqQuickCalcKeys");
+    const expressionDisplay = document.getElementById("kalqQuickCalcExpression");
+    const resultDisplay = document.getElementById("kalqQuickCalcResult");
+    let expression = "";
+    let previousFocus = null;
+
+    calculatorButton.setAttribute("aria-controls", panel.id);
+
+    const render = () => {
+      expressionDisplay.textContent = expression.replaceAll("*", "×").replaceAll("/", "÷") || "0";
+    };
+
+    const calculate = () => {
+      if (!expression || !/^[0-9+\-*/().\s]+$/.test(expression)) return null;
+      try {
+        const value = Function(`"use strict"; return (${expression})`)();
+        if (!Number.isFinite(value)) return null;
+        const result = Number(value.toPrecision(12));
+        resultDisplay.textContent = String(result);
+        return result;
+      } catch {
+        resultDisplay.textContent = "Error";
+        return null;
+      }
+    };
+
+    const append = (value) => {
+      if (/^[+\-*/]$/.test(value)) {
+        if (!expression && value !== "-") return;
+        expression = expression.replace(/[+\-*/]+$/, "") + value;
+      } else if (value === ".") {
+        const current = expression.split(/[+\-*/()]/).pop();
+        if (current.includes(".")) return;
+        expression += current ? "." : "0.";
+      } else {
+        expression += value;
+      }
+      render();
+      if (!/[+\-*/.]$/.test(expression)) calculate();
+    };
+
+    const useKey = (value) => {
+      if (value === "clear") {
+        expression = "";
+        resultDisplay.textContent = "0";
+      } else if (value === "backspace") {
+        expression = expression.slice(0, -1);
+        if (!expression) resultDisplay.textContent = "0";
+      } else if (value === "percent") {
+        if (expression && /[0-9)]$/.test(expression)) expression = `(${expression})/100`;
+      } else if (value === "negate") {
+        if (expression) expression = `-(${expression})`;
+      } else if (value === "equals") {
+        const result = calculate();
+        if (result !== null) expression = String(result);
+      } else {
+        append(value);
+        return;
+      }
+      render();
+      if (expression && !/[+\-*/.]$/.test(expression)) calculate();
+    };
+
+    const open = () => {
+      previousFocus = document.activeElement;
+      panel.classList.add("is-open");
+      panel.setAttribute("aria-hidden", "false");
+      backdrop.hidden = false;
+      calculatorButton.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+      closeButton.focus();
+    };
+
+    const close = () => {
+      panel.classList.remove("is-open");
+      panel.setAttribute("aria-hidden", "true");
+      backdrop.hidden = true;
+      calculatorButton.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      previousFocus?.focus?.();
+    };
+
+    calculatorButton.addEventListener("click", open);
+    closeButton.addEventListener("click", close);
+    backdrop.addEventListener("click", close);
+    keys.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-key]");
+      if (button) useKey(button.dataset.key);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (!panel.classList.contains("is-open")) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+        return;
+      }
+      const keyboardKey = event.key === "Enter" || event.key === "=" ? "equals"
+        : event.key === "Backspace" ? "backspace"
+        : /^[0-9.+\-*/]$/.test(event.key) ? event.key
+        : "";
+      if (keyboardKey) {
+        event.preventDefault();
+        useKey(keyboardKey);
+      }
+    });
+
+    return panel;
+  };
+
+  createQuickCalculator();
 
   const applyTheme = (theme) => {
     document.documentElement.dataset.theme = theme;

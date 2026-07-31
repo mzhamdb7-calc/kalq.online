@@ -1038,7 +1038,259 @@ html[data-theme="dark"] .kalq-static-page .moon-icon {
   }
 }
 
+/* Match every breadcrumb row to the BMI Calculator proportions. */
+.crumbs,
+.kalq-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  color: var(--muted, var(--kalq-muted));
+  font-size: .84rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.crumbs a,
+.kalq-breadcrumbs a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.crumbs > a:not(:first-child),
+.kalq-breadcrumbs > a:not(:first-child) {
+  color: var(--teal, var(--kalq-teal));
+}
+
+.crumbs > [aria-current="page"],
+.kalq-breadcrumbs > [aria-current="page"] {
+  color: var(--navy, var(--kalq-navy));
+}
+
+.crumbs > span:not([aria-current="page"]),
+.kalq-breadcrumbs > span:not([aria-current="page"]) {
+  color: var(--muted, var(--kalq-muted));
+  font-size: 0;
+}
+
+.crumbs > span:not([aria-current="page"])::before,
+.kalq-breadcrumbs > span:not([aria-current="page"])::before {
+  content: "›";
+  font-size: .84rem;
+}
+
+.crumbs a:hover,
+.crumbs a:focus-visible,
+.kalq-breadcrumbs a:hover,
+.kalq-breadcrumbs a:focus-visible {
+  color: var(--teal, var(--kalq-teal));
+}
+
+@media (max-width: 720px) {
+  .crumbs,
+  .kalq-breadcrumbs {
+    gap: 6px;
+    margin-bottom: 11px;
+    font-size: .76rem;
+  }
+
+  .crumbs > span:not([aria-current="page"])::before,
+  .kalq-breadcrumbs > span:not([aria-current="page"])::before {
+    font-size: .76rem;
+  }
+}
+
+.kalq-quick-calc-backdrop {
+  position: fixed;
+  z-index: 89;
+  inset: 0;
+  background: rgba(8, 28, 40, .38);
+  backdrop-filter: blur(4px);
+}
+
+.kalq-quick-calc-panel {
+  position: fixed;
+  z-index: 90;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  width: min(410px, calc(100% - 20px));
+  display: flex;
+  flex-direction: column;
+  padding: clamp(15px, 2.4vh, 21px);
+  overflow: hidden;
+  border-radius: 24px;
+  color: #eef7f5;
+  background: #102f40;
+  box-shadow: -20px 0 70px rgba(0, 0, 0, .22);
+  transform: translateX(calc(100% + 28px));
+  transition: transform .3s ease;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.kalq-quick-calc-panel.is-open {
+  transform: translateX(0);
+}
+
+.kalq-quick-calc-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kalq-quick-calc-head span {
+  display: block;
+  margin-bottom: 5px;
+  color: #79ddd5;
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.kalq-quick-calc-head h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.05rem, 2.4vh, 1.3rem);
+  line-height: 1.15;
+}
+
+.kalq-quick-calc-close {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, .08);
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+
+.kalq-quick-calc-close:hover,
+.kalq-quick-calc-close:focus-visible {
+  background: rgba(255, 255, 255, .16);
+}
+
+.kalq-quick-calc-display {
+  min-height: clamp(80px, 15vh, 112px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 14px 3px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+
+.kalq-quick-calc-display small,
+.kalq-quick-calc-display strong {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kalq-quick-calc-display small {
+  color: #9eb5be;
+  font-size: .78rem;
+}
+
+.kalq-quick-calc-display strong {
+  color: #fff;
+  font-size: clamp(2.2rem, 7vh, 3.5rem);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.kalq-quick-calc-keys {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, minmax(42px, 1fr));
+  gap: clamp(5px, .9vh, 8px);
+  margin-top: clamp(9px, 1.3vh, 13px);
+}
+
+.kalq-quick-calc-keys button {
+  min-height: 0;
+  border: 0;
+  border-radius: clamp(10px, 1.7vh, 14px);
+  color: #fff;
+  background: rgba(255, 255, 255, .12);
+  font: inherit;
+  font-size: clamp(.88rem, 2vh, 1.05rem);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.kalq-quick-calc-keys button:hover,
+.kalq-quick-calc-keys button:focus-visible {
+  background: rgba(255, 255, 255, .2);
+}
+
+.kalq-quick-calc-keys .is-operator {
+  color: #84e2da;
+  background: rgba(255, 255, 255, .07);
+}
+
+.kalq-quick-calc-keys .is-action {
+  color: #ff9a8f;
+}
+
+.kalq-quick-calc-keys .is-equals {
+  color: #102f40;
+  background: linear-gradient(135deg, #73ddd5, #ecfaf8);
+}
+
+.kalq-quick-calc-panel > p {
+  flex: 0 0 auto;
+  margin: 9px 0 0;
+  color: #97afb8;
+  font-size: .67rem;
+  text-align: center;
+}
+
+@media (max-height: 600px) {
+  .kalq-quick-calc-panel {
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    width: min(390px, calc(100% - 10px));
+    padding: 11px;
+    border-radius: 18px;
+  }
+
+  .kalq-quick-calc-head span,
+  .kalq-quick-calc-panel > p {
+    display: none;
+  }
+
+  .kalq-quick-calc-display {
+    min-height: 64px;
+    padding-block: 8px;
+  }
+}
+
+@media (max-width: 520px) {
+  .kalq-quick-calc-panel {
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    width: calc(100% - 10px);
+    border-radius: 18px;
+  }
+}
+
 @media print {
+  .kalq-quick-calc-panel,
+  .kalq-quick-calc-backdrop,
   .kalq-site-header,
   .kalq-global-footer,
   .kalq-review-date {
