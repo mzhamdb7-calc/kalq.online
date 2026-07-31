@@ -27,23 +27,37 @@ body {
 }
 
 .kalq-global-footer {
-  margin-top: 36px;
-  padding: 42px 0 24px !important;
+  margin-top: 18px;
+  padding: 17px 0 9px !important;
   color: rgba(255, 255, 255, .82) !important;
   background: var(--kalq-navy) !important;
-  font-size: .82rem !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: .71rem !important;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.kalq-global-footer,
+.kalq-global-footer *,
+.kalq-global-footer *::before,
+.kalq-global-footer *::after {
+  box-sizing: border-box;
 }
 
 .kalq-footer-inner {
-  width: min(var(--kalq-content), calc(100% - 36px));
+  width: min(1600px, calc(100% - 36px));
   margin: 0 auto;
 }
 
 .kalq-footer-grid {
   display: grid;
-  grid-template-columns: minmax(220px, 1.25fr) repeat(2, minmax(180px, 1fr));
-  gap: 42px;
-  padding-bottom: 30px;
+  grid-template-columns: minmax(250px, .9fr) minmax(500px, 1.55fr) minmax(360px, 1.05fr);
+  align-items: start;
+  gap: 24px;
+  padding-bottom: 10px;
 }
 
 .kalq-footer-brand {
@@ -51,45 +65,49 @@ body {
   align-items: center;
   gap: 10px;
   color: var(--kalq-white) !important;
-  font-size: 1.08rem;
+  font-size: 1rem;
   font-weight: 900;
   text-decoration: none;
 }
 
 .kalq-footer-brand-mark,
 .kalq-site-brand-mark {
-  width: 34px;
-  height: 34px;
+  width: 31px;
+  height: 31px;
   display: grid;
   place-items: center;
-  border-radius: 10px;
+  border-radius: 50% 50% 50% 16%;
   color: var(--kalq-white);
-  background: var(--kalq-teal);
+  background: linear-gradient(135deg, var(--kalq-teal), var(--kalq-navy));
+  box-shadow: 0 8px 20px rgba(5, 25, 36, .2);
   font-weight: 900;
 }
 
 .kalq-footer-summary {
-  max-width: 390px;
-  margin: 16px 0 0;
-  line-height: 1.65;
+  max-width: 410px;
+  margin: 6px 0 0;
+  line-height: 1.35;
 }
 
 .kalq-footer-column h2 {
-  margin: 0 0 13px;
+  margin: 1px 0 6px;
   color: var(--kalq-white);
-  font-size: .72rem;
+  font-size: .64rem;
   letter-spacing: .1em;
   text-transform: uppercase;
 }
 
 .kalq-footer-links {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
 }
 
 .kalq-footer-links a {
+  white-space: nowrap;
   color: rgba(255, 255, 255, .82) !important;
+  font-size: .71rem;
+  line-height: 1.5;
   text-decoration: none;
 }
 
@@ -102,21 +120,163 @@ body {
 
 .kalq-footer-bottom {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(250px, .9fr) minmax(500px, 1.55fr) minmax(360px, 1.05fr);
+  align-items: center;
   gap: 24px;
-  padding-top: 22px;
+  padding-top: 7px;
   border-top: 1px solid rgba(255, 255, 255, .16);
-  line-height: 1.55;
+  font-size: .64rem;
+  line-height: 1.25;
 }
 
 .kalq-footer-bottom p {
   margin: 0;
 }
 
+.kalq-footer-bottom p:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+}
+
 .kalq-footer-bottom p:last-child {
-  justify-self: end;
-  max-width: 720px;
-  text-align: right;
+  grid-column: 2 / 4;
+  grid-row: 1;
+  justify-self: start;
+  width: auto;
+  max-width: none;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Keep the homepage introduction compact on desktop instead of filling a full viewport. */
+body:not(.kalq-static-page) .hero.snap-page {
+  min-height: auto;
+  padding-block: clamp(34px, 4.5vw, 58px) 30px;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-grid {
+  grid-template-columns: minmax(0, 1.45fr) minmax(270px, .55fr);
+  grid-template-rows: auto auto auto auto auto auto;
+  column-gap: 38px;
+  row-gap: 0;
+  align-items: center;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-grid > div {
+  display: contents;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .eyebrow {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+body:not(.kalq-static-page) .hero.snap-page h1 {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 880px;
+  font-size: clamp(3.15rem, 5.35vw, 5rem);
+  line-height: .96;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-copy:first-of-type {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-copy:nth-of-type(2) {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-side {
+  grid-column: 2;
+  grid-row: 1 / 5;
+  align-self: center;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .search-shell {
+  grid-column: 1 / -1;
+  grid-row: 5;
+  width: 100%;
+  max-width: none;
+  margin-top: 24px;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .quick-links {
+  grid-column: 1 / -1;
+  grid-row: 6;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px clamp(20px, 3vw, 48px);
+  width: 100%;
+  margin-top: 15px;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .quick-links a {
+  display: block;
+  min-width: 0;
+}
+
+@media (max-width: 1080px) {
+  body:not(.kalq-static-page) .hero.snap-page .quick-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  body:not(.kalq-static-page) .hero.snap-page .quick-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  body:not(.kalq-static-page) .hero.snap-page .quick-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1180px) {
+  .kalq-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kalq-footer-bottom {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kalq-footer-about {
+    grid-column: 1 / -1;
+  }
+
+  .kalq-footer-bottom p:last-child {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    width: auto;
+    white-space: normal;
+    text-align: left;
+  }
+}
+
+@media (max-width: 900px) {
+  body:not(.kalq-static-page) .hero.snap-page .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  body:not(.kalq-static-page) .hero.snap-page .hero-grid > div {
+    display: block;
+  }
+
+  body:not(.kalq-static-page) .hero.snap-page .hero-side {
+    grid-column: auto;
+    grid-row: auto;
+    max-width: 720px;
+  }
 }
 
 .kalq-static-page {
@@ -221,6 +381,402 @@ body {
 
 .kalq-site-nav a:hover {
   color: var(--kalq-teal);
+}
+
+/* Match the index header on informational and category pages. */
+.kalq-static-page {
+  --navy: var(--kalq-navy);
+  --teal: var(--kalq-teal);
+  --coral: var(--kalq-coral);
+  --paper: var(--kalq-paper);
+  --mist: var(--kalq-mist);
+  --line: var(--kalq-line);
+  --muted: var(--kalq-muted);
+  --white: var(--kalq-white);
+  --content: 1320px;
+  --topbar-height: 64px;
+  --soft-shadow: 0 12px 34px rgba(16, 43, 57, .09);
+  --shadow: 0 24px 70px rgba(16, 43, 57, .16);
+}
+
+.kalq-static-page .topbar {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  border-bottom: 1px solid rgba(17, 41, 54, .08);
+  background: rgba(251, 250, 246, .88);
+  backdrop-filter: blur(16px);
+}
+
+.kalq-static-page .topbar-inner {
+  position: relative;
+  max-width: var(--content);
+  min-height: var(--topbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.kalq-static-page .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--navy);
+  font-weight: 900;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+
+.kalq-static-page .brand-mark {
+  width: 34px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50% 50% 50% 16%;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--teal), var(--navy));
+  box-shadow: var(--soft-shadow);
+}
+
+.kalq-static-page .topnav,
+.kalq-static-page .header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.kalq-static-page .topnav {
+  gap: 22px;
+}
+
+.kalq-static-page .topnav a {
+  color: var(--muted);
+  font-size: .91rem;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.kalq-static-page .topnav a:hover,
+.kalq-static-page .topnav a:focus-visible {
+  color: var(--navy);
+}
+
+.kalq-static-page .header-actions {
+  gap: 7px;
+}
+
+.kalq-static-page .icon-button,
+.kalq-static-page .header-search-close,
+.kalq-static-page .menu-button,
+.kalq-static-page .language-menu button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.kalq-static-page .icon-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--navy);
+  background: transparent;
+  display: inline-grid;
+  place-items: center;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.kalq-static-page .icon-button:hover,
+.kalq-static-page .icon-button:focus-visible {
+  border-color: var(--line);
+  background: var(--mist);
+  transform: translateY(-1px);
+}
+
+.kalq-static-page .icon-button svg,
+.kalq-static-page .header-search svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kalq-static-page .sun-icon {
+  display: none;
+}
+
+.kalq-static-page .header-popover-wrap {
+  position: relative;
+}
+
+.kalq-static-page .language-menu {
+  position: absolute;
+  z-index: 80;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 190px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.kalq-static-page .language-menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 11px;
+  border: 0;
+  border-radius: 11px;
+  color: var(--muted);
+  background: transparent;
+  text-align: left;
+}
+
+.kalq-static-page .language-menu button:hover,
+.kalq-static-page .language-menu button.is-active {
+  color: var(--navy);
+  background: var(--mist);
+}
+
+.kalq-static-page .language-menu button span {
+  width: 32px;
+  color: var(--teal);
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.kalq-static-page .header-search-wrap {
+  position: absolute;
+  z-index: 75;
+  top: 50%;
+  right: 190px;
+  left: clamp(220px, 27vw, 410px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scaleX(.84);
+  transform-origin: right center;
+  transition: opacity .2s ease, transform .24s ease;
+}
+
+.kalq-static-page .header-search-wrap.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scaleX(1);
+}
+
+.kalq-static-page .topbar-inner.search-open .topnav {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.kalq-static-page .header-search {
+  height: 44px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 0 7px 0 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  box-shadow: var(--soft-shadow);
+}
+
+.kalq-static-page .header-search svg {
+  width: 18px;
+  height: 18px;
+  color: var(--muted);
+}
+
+.kalq-static-page .header-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--navy);
+  background: transparent;
+  font-size: .91rem;
+}
+
+.kalq-static-page .header-search-close {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.kalq-static-page .header-search-results {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+  left: 0;
+  max-height: min(330px, calc(100dvh - var(--topbar-height) - 34px));
+  overflow-y: auto;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.kalq-static-page .header-search-result {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+  align-items: center;
+  padding: 11px 5px;
+  border-bottom: 1px solid var(--line);
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.kalq-static-page .header-search-result:last-child {
+  border-bottom: 0;
+}
+
+.kalq-static-page .header-search-result strong,
+.kalq-static-page .header-search-result span {
+  display: block;
+}
+
+.kalq-static-page .header-search-result strong {
+  font-size: .9rem;
+}
+
+.kalq-static-page .header-search-result span {
+  color: var(--muted);
+  font-size: .74rem;
+}
+
+.kalq-static-page .header-search-result b {
+  color: var(--coral);
+}
+
+.kalq-static-page .header-search-empty {
+  padding: 17px 5px;
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+.kalq-static-page .menu-button {
+  display: none;
+  border: 0;
+  color: var(--navy);
+  background: transparent;
+  font-weight: 850;
+}
+
+html[data-theme="dark"] .kalq-static-page .topbar {
+  --navy: #f5fbfa;
+  --muted: #a9bec6;
+  --mist: #123442;
+  --line: #294653;
+  --white: #102c3a;
+  color-scheme: dark;
+  background: rgba(11, 32, 44, .9);
+}
+
+html[data-theme="dark"] .kalq-static-page .sun-icon {
+  display: block;
+}
+
+html[data-theme="dark"] .kalq-static-page .moon-icon {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .kalq-static-page .topnav {
+    gap: 13px;
+  }
+
+  .kalq-static-page .topnav a {
+    font-size: .82rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .kalq-static-page {
+    --topbar-height: 58px;
+  }
+
+  .kalq-static-page .topbar-inner {
+    min-height: var(--topbar-height);
+    padding-inline: 18px;
+  }
+
+  .kalq-static-page .header-actions {
+    margin-left: auto;
+    gap: 1px;
+  }
+
+  .kalq-static-page .icon-button {
+    width: 37px;
+    height: 37px;
+  }
+
+  .kalq-static-page .menu-button {
+    display: block;
+    margin-left: 4px;
+  }
+
+  .kalq-static-page .topnav {
+    position: absolute;
+    top: var(--topbar-height);
+    right: 0;
+    left: 0;
+    display: none;
+    padding: 16px 22px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(251, 250, 246, .98);
+  }
+
+  .kalq-static-page .topnav.is-open {
+    display: flex;
+  }
+
+  .kalq-static-page .header-search-wrap {
+    top: calc(100% + 7px);
+    right: 12px;
+    left: 12px;
+    transform: translateY(-8px) scaleX(.92);
+  }
+
+  .kalq-static-page .header-search-wrap.is-open {
+    transform: translateY(0) scaleX(1);
+  }
+
+  .kalq-static-page .header-search {
+    height: 42px;
+  }
+
+  .kalq-static-page .topbar-inner.search-open .brand,
+  .kalq-static-page .topbar-inner.search-open .topnav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  html[data-theme="dark"] .kalq-static-page .topnav {
+    background: rgba(11, 32, 44, .98);
+  }
 }
 
 .kalq-page-shell {
@@ -441,7 +997,7 @@ body {
   }
 
   .kalq-footer-links {
-    grid-template-columns: 1fr;
+    gap: 8px 16px;
   }
 
   .kalq-footer-bottom {
@@ -449,7 +1005,10 @@ body {
   }
 
   .kalq-footer-bottom p:last-child {
-    justify-self: auto;
+    grid-column: auto;
+    grid-row: 2;
+    justify-self: start;
+    width: auto;
     text-align: left;
   }
 
@@ -483,6 +1042,69 @@ body {
   .kalq-site-header,
   .kalq-global-footer,
   .kalq-review-date {
+    display: none !important;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  body,
+  #reportRoot,
+  #reportRoot * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .site-shell,
+  #reportRoot .preview-toolbar,
+  #reportRoot .preview-close {
+    display: none !important;
+  }
+
+  #reportRoot,
+  #reportRoot.is-preview {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+    backdrop-filter: none !important;
+  }
+
+  #reportRoot > .report-page,
+  #reportRoot > .certificate-page {
+    margin: 0 !important;
+    transform: none !important;
+    transform-origin: initial !important;
+    box-shadow: none !important;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  #reportRoot > .report-page {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  #reportRoot > .report-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  #reportRoot > .hidden-report-page,
+  #reportRoot > [hidden] {
     display: none !important;
   }
 }

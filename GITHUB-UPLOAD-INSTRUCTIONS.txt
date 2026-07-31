@@ -1,10 +1,11 @@
-KALQ — GitHub Pages upload
+KalQ — GitHub Pages upload
 
-1. Extract KALQ-GitHub-Pages.zip on your computer.
+1. Extract kalq.online-ready.zip on your computer.
 2. Open the extracted folder.
-3. Upload ALL files and folders inside it to the root of your GitHub repository.
+3. Upload all files and folders inside it to the root of your GitHub repository.
    Do not upload the ZIP file by itself.
-4. Confirm that index.html is visible at the repository root (not inside another folder).
-5. In GitHub: Settings > Pages > Deploy from a branch > main > /(root) > Save.
+4. Confirm that index.html is visible at the repository root, not inside another folder.
+5. In GitHub, open Settings > Pages, select Deploy from a branch, choose main and /(root), then save.
 
-The package includes the main index page, favicon, and all calculator/game folders.
+The package includes the main index page, favicon files, trust pages, category pages,
+the Unit Converter dashboard, and every completed calculator/game folder.
