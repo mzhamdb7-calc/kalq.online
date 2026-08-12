@@ -1,47 +1,43 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KALQ – Free Calculators, Converters and Practical Tools</title>
-  <meta name="description" content="Find clear, practical calculators for finance, health, education, mathematics, construction, time, business, energy, and everyday use.">
+  <title>Free Online Calculators & Tools | KALQ</title>
+  <meta name="description" content="Use free online calculators for finance, math, health, education, weather, conversions and everyday planning. Fast, clear and mobile-friendly.">
+<meta property="og:title" content="Free Online Calculators &amp; Tools | KALQ">
+<meta property="og:description" content="Calculate, convert and plan with free online tools for finance, math, health, education and everyday life.">
+<meta property="og:url" content="https://kalq.online/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KALQ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online Calculators &amp; Tools | KALQ">
+<meta name="twitter:description" content="Calculate, convert and plan with free online tools for finance, math, health, education and everyday life.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#0f2c3d">
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
   <link rel="canonical" href="https://kalq.online/">
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"WebSite",
-        "@id":"https://kalq.online/#website",
-        "url":"https://kalq.online/",
-        "name":"KALQ",
-        "description":"Free calculators, converters, and practical tools.",
-        "potentialAction":{
-          "@type":"SearchAction",
-          "target":"https://kalq.online/?q={search_term_string}",
-          "query-input":"required name=search_term_string"
-        }
-      },
-      {
-        "@type":"Organization",
-        "@id":"https://kalq.online/#organization",
-        "name":"KALQ",
-        "url":"https://kalq.online/"
-      },
-      {
-        "@type":"CollectionPage",
-        "@id":"https://kalq.online/#webpage",
-        "url":"https://kalq.online/",
-        "name":"KALQ – Free Calculators, Converters and Practical Tools",
-        "isPartOf":{"@id":"https://kalq.online/#website"},
-        "about":["Calculators","Converters","Finance tools","Health calculators","Education calculators"]
-      }
-    ]
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://kalq.online/#website",
+      "name": "KALQ",
+      "url": "https://kalq.online/",
+      "description": "Calculate, convert and plan with free online tools for finance, math, health, education and everyday life.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://kalq.online/#webpage",
+      "url": "https://kalq.online/",
+      "name": "Free Online Calculators & Tools | KALQ",
+      "isPartOf": { "@id": "https://kalq.online/#website" }
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --ink: #112936;
@@ -125,15 +121,15 @@
     .menu-button { display: none; border: 0; background: transparent; color: var(--navy); font-weight: 850; }
 
     .wrap { max-width: var(--content); margin: 0 auto; padding-inline: 24px; }
-    .hero { padding: clamp(54px, 7vw, 90px) 0 42px; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(310px, .7fr); gap: 64px; align-items: end; }
+    .hero { padding: clamp(24px, 3vw, 34px) 0 30px; }
+    .hero-grid { display: block; max-width: 100%; }
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 13px;
+      margin-bottom: 7px;
       color: var(--teal);
-      font-size: .78rem;
+      font-size: .66rem;
       font-weight: 880;
       text-transform: uppercase;
       letter-spacing: .12em;
@@ -141,51 +137,112 @@
     .eyebrow::before { content: ""; width: 32px; height: 2px; background: currentColor; }
     h1, h2, h3, p { margin-top: 0; }
     h1 {
-      max-width: 760px;
-      margin-bottom: 18px;
+      max-width: 860px;
+      margin-bottom: 10px;
       color: var(--navy);
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: .93;
-      letter-spacing: -.07em;
+      font-size: clamp(2.15rem, 3.2vw, 2.85rem);
+      line-height: .98;
+      letter-spacing: -.055em;
     }
-    .hero-copy { max-width: 730px; margin-bottom: 0; color: var(--muted); font-size: clamp(1rem, 1.8vw, 1.16rem); }
-    .hero-side { padding-left: 26px; border-left: 3px solid var(--coral); color: var(--muted); }
-    .hero-side strong { display: block; margin-bottom: 8px; color: var(--ink); font-size: 1.03rem; }
+    .hero-copy { max-width: 860px; margin-bottom: 0; color: var(--muted); font-size: clamp(.84rem, 1vw, .94rem); line-height: 1.5; }
+    .hero-copy + .hero-copy { margin-top: 5px; }
 
+    .hero-search-wrap {
+      position: relative;
+      z-index: 12;
+      width: 100%;
+      margin-top: 24px;
+    }
     .search-shell {
-      margin-top: 36px;
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 12px;
-      max-width: 820px;
-      padding: 9px 10px 9px 22px;
+      width: 100%;
+      max-width: none;
+      padding: 7px 8px 7px 19px;
       border: 1px solid rgba(15, 44, 61, .12);
       border-radius: 999px;
       background: rgba(255, 255, 255, .86);
       box-shadow: var(--soft-shadow);
     }
-    .search-shell input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--navy); font-size: 1rem; }
+    .search-shell input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--navy); font-size: .9rem; }
     .search-shell input::placeholder { color: #829198; }
-    .search-button { border: 0; border-radius: 999px; padding: 13px 22px; color: white; background: var(--navy); font-weight: 850; }
-    .quick-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; }
-    .quick-links a { color: var(--muted); text-decoration: none; font-size: .87rem; font-weight: 720; }
-    .quick-links a::before { content: "→"; margin-right: 7px; color: var(--coral); }
-    .quick-links a:hover { color: var(--navy); }
-
-    .ad-slot {
-      min-height: 94px;
+    .search-button { border: 0; border-radius: 999px; padding: 11px 19px; color: white; background: var(--navy); font-size: .86rem; font-weight: 850; }
+    .hero-search-suggestions {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      top: calc(100% + 8px);
+      z-index: 40;
+      max-height: min(420px, 62vh);
+      overflow-y: auto;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 22px 54px rgba(15, 44, 61, .16);
+    }
+    .hero-search-suggestions[hidden] { display: none; }
+    .hero-search-suggestion {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr) auto;
+      gap: 11px;
+      align-items: center;
+      padding: 10px 5px;
+      border-bottom: 1px solid var(--line);
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .hero-search-suggestion:last-child { border-bottom: 0; }
+    .hero-search-suggestion:hover,
+    .hero-search-suggestion:focus-visible,
+    .hero-search-suggestion.is-active { background: var(--mist); }
+    .hero-search-suggestion-icon {
+      width: 34px;
+      height: 34px;
       display: grid;
       place-items: center;
-      margin: 6px 0 32px;
-      border-block: 1px dashed #cbd8d5;
-      color: #84939a;
-      text-align: center;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .11em;
+      border-radius: 50%;
+      color: var(--navy);
+      background: rgba(10, 166, 154, .1);
+      font-size: .59rem;
+      font-weight: 900;
     }
-    .ad-slot small { display: block; margin-top: 4px; text-transform: none; letter-spacing: .02em; }
+    .hero-search-suggestion-copy strong { display: block; font-size: .84rem; }
+    .hero-search-suggestion-copy span { display: block; margin-top: 1px; color: var(--muted); font-size: .7rem; }
+    .hero-search-suggestion-arrow { color: var(--coral); font-size: .9rem; }
+    .hero-search-empty { padding: 15px 6px; color: var(--muted); font-size: .8rem; }
+    .hero-popular { margin-top: 16px; scroll-margin-top: calc(var(--topbar-height) + 12px); }
+    .popular-tools-title { margin: 0 0 8px; color: var(--teal); font-size: .66rem; font-weight: 900; letter-spacing: .11em; line-height: 1.3; text-transform: uppercase; }
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 0;
+      border: 0;
+      background: transparent;
+    }
+    .quick-links a {
+      min-width: 0;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, .76);
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 760;
+      line-height: 1.35;
+      box-shadow: 0 8px 24px rgba(15, 44, 61, .045);
+      transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+    .quick-links a::before { width: 25px; height: 25px; display: grid; flex: 0 0 25px; place-items: center; content: "→"; margin-right: 10px; border-radius: 50%; color: var(--coral); background: rgba(240, 109, 95, .09); font-size: .76rem; }
+    .quick-links a:hover,
+    .quick-links a:focus-visible { border-color: rgba(10, 166, 154, .42); color: var(--navy); background: rgba(255, 255, 255, .96); box-shadow: 0 12px 30px rgba(15, 44, 61, .09); transform: translateY(-2px); }
 
     .section { padding: clamp(58px, 7vw, 92px) 0; }
     .section-mist { background: linear-gradient(135deg, rgba(237,245,243,.92), rgba(251,250,246,.82)); }
@@ -201,42 +258,16 @@
     .section-heading h2 { margin: 0; color: var(--navy); font-size: clamp(2.2rem, 4.6vw, 4rem); line-height: 1; letter-spacing: -.055em; }
     .section-heading p { max-width: 720px; margin: 4px 0 0; color: var(--muted); }
 
-    .popular-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin-top: 0;
-      border-bottom: 1px solid var(--line);
+    #directory.section { padding: clamp(34px, 4vw, 48px) 0 46px; }
+    #directory .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 16px;
     }
-    .tool-link {
-      min-height: 138px;
-      display: grid;
-      grid-template-columns: 52px 1fr auto;
-      gap: 16px;
-      align-items: center;
-      padding: 25px 22px;
-      border-right: 1px solid var(--line);
-      border-top: 1px solid var(--line);
-      text-decoration: none;
-      transition: background .2s ease, transform .2s ease;
-    }
-    .tool-link:nth-child(3n) { border-right: 0; }
-    .tool-link:hover { background: rgba(255,255,255,.60); transform: translateY(-2px); }
-    .tool-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: var(--navy);
-      background: var(--mist);
-      font-size: .76rem;
-      font-weight: 900;
-      letter-spacing: -.02em;
-    }
-    .tool-copy strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: 1rem; }
-    .tool-copy span { display: block; color: var(--muted); font-size: .84rem; }
-    .tool-arrow { color: var(--coral); font-size: 1.12rem; transition: transform .2s ease; }
-    .tool-link:hover .tool-arrow { transform: translateX(4px); }
+    #directory .section-heading h2 { flex: 0 0 auto; font-size: clamp(1.65rem, 2.7vw, 2.3rem); line-height: 1.05; letter-spacing: -.04em; white-space: nowrap; }
+    #directory .section-heading p { max-width: 650px; margin: 0; font-size: .86rem; line-height: 1.5; text-align: right; }
 
     .directory-section {
       position: relative;
@@ -250,128 +281,132 @@
       flex-wrap: wrap;
       gap: 8px;
       align-items: center;
-      padding: 20px 0;
+      padding: 14px 0;
       border-bottom: 1px solid var(--line);
     }
     .filter-button {
       border: 1px solid transparent;
       border-radius: 999px;
-      padding: 8px 13px;
+      padding: 7px 12px;
       color: var(--muted);
       background: rgba(15,44,61,.055);
-      font-size: .78rem;
+      font-size: .74rem;
       font-weight: 820;
       transition: color .2s ease, background .2s ease, border-color .2s ease;
     }
     .filter-button:hover { color: var(--navy); border-color: var(--line); background: var(--white); }
     .filter-button.is-active { border-color: var(--navy); color: white; background: var(--navy); }
-    .result-count { margin-left: auto; color: var(--muted); font-size: .78rem; font-weight: 760; }
+    .result-count { margin-left: auto; color: var(--muted); font-size: .73rem; font-weight: 760; }
 
-    .directory-grid { padding-top: 24px; }
+    .directory-grid { padding-top: 18px; }
     .directory-grid.is-groups {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 26px 34px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
     .directory-group {
       min-width: 0;
-      padding-top: 16px;
+      padding: 14px 15px 0;
+      border: 1px solid var(--line);
       border-top: 2px solid var(--navy);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .6);
     }
     .directory-group:nth-child(3n+2) { border-top-color: var(--teal); }
     .directory-group:nth-child(3n) { border-top-color: var(--coral); }
     .directory-group-head {
       display: grid;
-      grid-template-columns: 44px 1fr auto;
-      gap: 13px;
+      grid-template-columns: 36px 1fr auto;
+      gap: 10px;
       align-items: center;
-      padding-bottom: 13px;
+      padding-bottom: 10px;
       border-bottom: 1px solid var(--line);
     }
     .directory-group-icon {
-      width: 42px;
-      height: 42px;
+      width: 34px;
+      height: 34px;
       display: grid;
       place-items: center;
       border-radius: 50%;
       color: var(--navy);
       background: var(--mist);
-      font-size: .68rem;
+      font-size: .62rem;
       font-weight: 900;
       letter-spacing: -.02em;
     }
-    .directory-group-head strong { display: block; color: var(--navy); font-size: 1.02rem; }
-    .directory-group-head span { display: block; margin-top: 2px; color: var(--muted); font-size: .74rem; }
+    .directory-group-head strong { display: block; color: var(--navy); font-size: .9rem; }
+    .directory-group-head span { display: block; margin-top: 1px; color: var(--muted); font-size: .68rem; }
     .directory-group-view {
       border: 0;
       padding: 6px 0;
       color: var(--coral);
       background: transparent;
-      font-size: .74rem;
+      font-size: .69rem;
       font-weight: 850;
     }
     .directory-group-view:hover { color: var(--navy); }
-    .directory-group-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .directory-group-list { display: grid; grid-template-columns: 1fr; }
     .directory-mini-link {
       min-width: 0;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 10px;
       align-items: center;
-      padding: 12px 8px 12px 0;
+      padding: 9px 2px 9px 0;
       border-bottom: 1px solid var(--line);
       text-decoration: none;
     }
-    .directory-mini-link:nth-child(odd) { margin-right: 15px; }
+    .directory-mini-link:nth-child(odd) { margin-right: 0; }
     .directory-mini-link strong {
       display: block;
       overflow: hidden;
       color: var(--navy);
-      font-size: .84rem;
+      font-size: .78rem;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .directory-mini-link span { color: var(--coral); font-size: .86rem; transition: transform .18s ease; }
+    .directory-mini-link span { color: var(--coral); font-size: .78rem; transition: transform .18s ease; }
     .directory-mini-link:hover strong { color: var(--teal); }
     .directory-mini-link:hover span { transform: translateX(3px); }
     .directory-more {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      margin-top: 12px;
+      margin-top: 9px;
       border: 0;
       padding: 0;
       color: var(--muted);
       background: transparent;
-      font-size: .74rem;
+      font-size: .69rem;
       font-weight: 800;
     }
     .directory-more:hover { color: var(--navy); }
 
     .directory-grid.is-results {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0;
       padding-top: 0;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
     .directory-item {
-      min-height: 112px;
+      min-height: 88px;
       display: grid;
-      grid-template-columns: 40px 1fr auto;
+      grid-template-columns: 34px 1fr auto;
       align-items: center;
-      gap: 13px;
-      padding: 18px 16px;
+      gap: 10px;
+      padding: 14px 12px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       text-decoration: none;
       transition: background .2s ease;
     }
-    .directory-item:nth-child(3n) { border-right: 0; }
+    .directory-item:nth-child(3n) { border-right: 1px solid var(--line); }
+    .directory-item:nth-child(4n) { border-right: 0; }
     .directory-item-icon {
-      width: 38px;
-      height: 38px;
+      width: 32px;
+      height: 32px;
       display: grid;
       place-items: center;
       border-radius: 50%;
@@ -381,35 +416,58 @@
       font-weight: 900;
     }
     .directory-item:hover { background: rgba(255,255,255,.64); }
-    .directory-item strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: .9rem; }
-    .directory-item span { display: block; color: var(--muted); font-size: .74rem; line-height: 1.42; }
+    .directory-item strong { display: block; margin-bottom: 3px; color: var(--navy); font-size: .82rem; }
+    .directory-item span { display: block; color: var(--muted); font-size: .68rem; line-height: 1.4; }
     .directory-item em { color: var(--coral); font-style: normal; }
     .empty-state { display: none; padding: 34px 0 0; color: var(--muted); }
-
-    .category-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-block: 1px solid var(--line);
-      margin-top: 26px;
-    }
-    .category-summary { min-height: 138px; padding: 24px; border-right: 1px solid var(--line); }
-    .category-summary:last-child { border-right: 0; }
-    .category-summary small { display: block; margin-bottom: 10px; color: var(--coral); font-weight: 880; text-transform: uppercase; letter-spacing: .08em; }
-    .category-summary strong { display: block; margin-bottom: 7px; color: var(--navy); font-size: 1.08rem; }
-    .category-summary span { color: var(--muted); font-size: .84rem; }
+    .noscript-directory { margin: 24px 0 0; color: var(--muted); }
+    .noscript-directory a { color: var(--navy); font-weight: 800; }
 
     .why-grid {
+      width: 100%;
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 70px;
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: start;
       padding-top: 32px;
     }
-    .why-list { border-top: 1px solid var(--line); }
-    .why-item { display: grid; grid-template-columns: 42px 1fr; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .why-list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-block: 1px solid var(--line);
+    }
+    .why-item { min-width: 0; display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 18px; padding: 28px 34px 28px 0; border-bottom: 1px solid var(--line); }
+    .why-item:nth-child(odd) { border-right: 1px solid var(--line); }
+    .why-item:nth-child(even) { padding-right: 0; padding-left: 34px; }
+    .why-item:nth-last-child(-n + 2) { border-bottom: 0; }
     .why-number { color: var(--coral); font-size: .78rem; font-weight: 900; letter-spacing: .08em; }
     .why-item strong { display: block; margin-bottom: 5px; color: var(--navy); }
     .why-item p { margin: 0; color: var(--muted); font-size: .9rem; }
+    #about.section { padding: clamp(34px, 4vw, 48px) 0 42px; }
+    #about .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 16px;
+    }
+    #about .section-heading h2 { flex: 0 0 auto; font-size: clamp(1.65rem, 2.7vw, 2.3rem); line-height: 1.05; letter-spacing: -.04em; white-space: nowrap; }
+    #about .section-heading p { max-width: 650px; margin: 0; font-size: .86rem; line-height: 1.5; text-align: right; }
+    #about .why-grid { padding-top: 18px; }
+    #about .why-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    #about .why-item,
+    #about .why-item:nth-child(even) {
+      display: block;
+      min-height: 0;
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+      border-bottom: 0;
+    }
+    #about .why-item:last-child { border-right: 0; }
+    #about .why-number { display: block; margin-bottom: 9px; font-size: .69rem; }
+    #about .why-item strong { margin-bottom: 4px; font-size: .86rem; }
+    #about .why-item p { font-size: .74rem; line-height: 1.5; }
     .collection-list { border-top: 1px solid var(--line); }
     .collection-link { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
     .collection-link strong { display: block; color: var(--navy); }
@@ -420,13 +478,14 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      gap: 34px;
-      padding: 30px 0;
+      gap: 24px;
+      padding: 20px 0;
       border-block: 1px solid var(--line);
     }
-    .newsletter-row h2 { margin-bottom: 6px; color: var(--navy); font-size: clamp(1.8rem, 3.8vw, 3rem); letter-spacing: -.04em; }
-    .newsletter-row p { margin: 0; color: var(--muted); }
-    .newsletter-row a { display: inline-flex; align-items: center; justify-content: center; min-width: 180px; padding: 13px 20px; border-radius: 999px; text-decoration: none; color: white; background: var(--navy); font-weight: 850; }
+    .newsletter-row h2 { margin-bottom: 5px; color: var(--navy); font-size: clamp(1.35rem, 2vw, 1.75rem); letter-spacing: -.03em; line-height: 1.08; }
+    .newsletter-row p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.5; }
+    .newsletter-row a { display: inline-flex; align-items: center; justify-content: center; min-width: 158px; padding: 10px 17px; border-radius: 999px; text-decoration: none; color: white; background: var(--navy); font-size: .84rem; font-weight: 850; }
+    #suggest.section { padding: 18px 0 30px; }
 
     footer { padding: 34px 0 48px; color: var(--muted); font-size: .82rem; }
     .footer-grid { display: grid; grid-template-columns: 1.2fr repeat(3, .6fr); gap: 34px; padding-bottom: 30px; border-bottom: 1px solid var(--line); }
@@ -442,15 +501,18 @@
     @media (max-width: 960px) {
       .hero-grid, .section-heading, .why-grid { grid-template-columns: 1fr; gap: 24px; }
       .hero-side { max-width: 700px; }
-      .popular-grid, .directory-grid.is-results { grid-template-columns: repeat(2, 1fr); }
-      .directory-grid.is-groups { grid-template-columns: 1fr; }
-      .tool-link:nth-child(3n), .directory-item:nth-child(3n) { border-right: 1px solid var(--line); }
-      .tool-link:nth-child(2n), .directory-item:nth-child(2n) { border-right: 0; }
-      .category-strip { grid-template-columns: repeat(2, 1fr); }
-      .category-summary:nth-child(2) { border-right: 0; }
-      .category-summary:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .quick-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .directory-grid.is-results { grid-template-columns: repeat(2, 1fr); }
+      .directory-grid.is-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .directory-item:nth-child(3n) { border-right: 1px solid var(--line); }
+      .directory-item:nth-child(2n) { border-right: 0; }
       .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; }
       .footer-about { grid-column: 1 / -1; }
+      #about .why-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #about .why-item,
+      #about .why-item:nth-child(even) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      #about .why-item:nth-child(2n) { border-right: 0; }
+      #about .why-item:nth-last-child(-n + 2) { border-bottom: 0; }
     }
 
     @media (max-width: 720px) {
@@ -460,17 +522,33 @@
       .topnav { display: none; position: absolute; left: 0; right: 0; top: var(--topbar-height); padding: 16px 22px 20px; flex-direction: column; align-items: flex-start; gap: 12px; background: rgba(251,250,246,.98); border-bottom: 1px solid var(--line); }
       .topnav.is-open { display: flex; }
       .wrap { padding-inline: 18px; }
-      .hero { padding-top: 44px; }
-      h1 { font-size: clamp(3rem, 15vw, 4.8rem); }
+      .hero { padding-top: 26px; }
+      h1 { font-size: clamp(2.1rem, 10.5vw, 3rem); }
       .search-shell { grid-template-columns: 1fr; padding: 14px; border-radius: 22px; }
       .search-shell input { padding: 7px 4px; }
       .search-button { width: 100%; }
-      .popular-grid, .directory-grid.is-results, .directory-grid.is-groups, .category-strip, .footer-grid { grid-template-columns: 1fr; }
+      .hero-search-suggestions { left: 0; right: 0; }
+      .quick-links { grid-template-columns: 1fr; }
+      #directory .section-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+      #directory .section-heading h2 { white-space: normal; }
+      #directory .section-heading p { text-align: left; }
+      .directory-grid.is-groups { grid-template-columns: 1fr; }
+      #about .section-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+      #about .section-heading h2 { white-space: normal; }
+      #about .section-heading p { text-align: left; }
+      #about .why-list { grid-template-columns: 1fr; }
+      #about .why-item,
+      #about .why-item:nth-child(even),
+      #about .why-item:nth-last-child(-n + 2) { border-right: 0; border-bottom: 1px solid var(--line); }
+      #about .why-item:last-child { border-bottom: 0; }
+      .why-list { grid-template-columns: 1fr; }
+      .why-item,
+      .why-item:nth-child(even) { padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .why-item:last-child { border-bottom: 0; }
+      .directory-grid.is-results, .directory-grid.is-groups, .footer-grid { grid-template-columns: 1fr; }
       .directory-group-list { grid-template-columns: 1fr; }
       .directory-mini-link:nth-child(odd) { margin-right: 0; }
-      .tool-link, .directory-item, .category-summary { border-right: 0 !important; }
-      .category-summary { border-bottom: 1px solid var(--line); }
-      .category-summary:last-child { border-bottom: 0; }
+      .directory-item { border-right: 0 !important; }
       .result-count { width: 100%; margin-left: 0; }
       .newsletter-row { grid-template-columns: 1fr; }
       .newsletter-row a { width: 100%; }
@@ -616,10 +694,9 @@
       .calculator-tabs button { padding: 5px; }
     }
 
-    /* Adaptive section scrolling */
+    /* Section anchor spacing */
     .snap-page { scroll-margin-top: var(--topbar-height); }
-    html.is-page-snapping, html.is-page-snapping body { overscroll-behavior: none; }
-    .hero.snap-page { min-height: calc(100dvh - var(--topbar-height)); display: flex; flex-direction: column; justify-content: center; }
+    .hero.snap-page { min-height: 0; display: block; }
     .hero-ad { margin-top: 36px; margin-bottom: 0; }
 
     /* Compact footer */
@@ -651,9 +728,17 @@
     html[data-theme="dark"] .sun-icon { display: block; }
     html[data-theme="dark"] .moon-icon { display: none; }
     html[data-theme="dark"] .search-shell, html[data-theme="dark"] .filter-button { background: rgba(255,255,255,.045); }
+    html[data-theme="dark"] .hero-search-suggestions { background: rgba(16,44,58,.99); }
+    html[data-theme="dark"] .hero-search-suggestion:hover,
+    html[data-theme="dark"] .hero-search-suggestion:focus-visible,
+    html[data-theme="dark"] .hero-search-suggestion.is-active { background: rgba(255,255,255,.06); }
+    html[data-theme="dark"] .quick-links { background: var(--line); }
+    html[data-theme="dark"] .quick-links a { background: rgba(16,44,58,.96); }
+    html[data-theme="dark"] .quick-links a:hover,
+    html[data-theme="dark"] .quick-links a:focus-visible { background: rgba(255,255,255,.06); }
     html[data-theme="dark"] .section-mist { background: linear-gradient(135deg, rgba(18,52,66,.88), rgba(11,32,44,.84)); }
     html[data-theme="dark"] .section-warm { background: linear-gradient(135deg, rgba(51,39,34,.90), rgba(11,32,44,.84)); }
-    html[data-theme="dark"] .tool-link:hover, html[data-theme="dark"] .directory-item:hover { background: rgba(255,255,255,.045); }
+    html[data-theme="dark"] .directory-item:hover { background: rgba(255,255,255,.045); }
     html[data-theme="dark"] .directory-section { background: radial-gradient(circle at 8% 12%, rgba(10,166,154,.08), transparent 26%), radial-gradient(circle at 92% 4%, rgba(240,109,95,.06), transparent 24%), var(--paper); }
     html[data-theme="dark"] .language-menu, html[data-theme="dark"] .header-search, html[data-theme="dark"] .header-search-results { background: #102c3a; }
 
@@ -683,18 +768,30 @@
 
   </style>
   <script>
-    try { const savedTheme = localStorage.getItem('kalq-theme'); if (savedTheme) document.documentElement.dataset.theme = savedTheme; } catch (e) {}
+    try { const savedTheme = localStorage.getItem('kalqTheme'); if (savedTheme) document.documentElement.dataset.theme = savedTheme; } catch (e) {}
   </script>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<script src="assets/kalq-shared.js?v=20260812-5" defer></script>
+<link rel="stylesheet" href="assets/kalq-shared.css?v=20260812-16">
+<link rel="stylesheet" href="assets/kalq-index-header.css?v=20260804-11">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="topbar">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="topbar kalq-site-header">
     <div class="topbar-inner">
-      <a class="brand" href="#home" aria-label="KALQ home"><span class="brand-mark">K</span><span>KALQ</span></a>
-      <nav class="topnav" id="topnav" aria-label="Main navigation">
-        <a href="#popular" data-i18n="navPopular">Popular</a>
-        <a href="#directory" data-i18n="navAll">All calculators</a>
-        <a href="#about" data-i18n="navAbout">About</a>
+      <a class="brand" href="index.html" aria-label="KALQ home"><span class="brand-mark">K</span><span>KALQ</span></a>
+      <nav class="topnav nav-collections" id="topnav" aria-label="Calculator collections">
+        <a href="finance-calculators.html">Finance</a>
+        <a href="health-calculators.html">Health</a>
+        <a href="date-time-calculators.html">Date &amp; Time</a>
+        <a href="math-calculators.html">Math</a>
+        <a href="converters.html">Converters</a>
+        <a href="education-calculators.html">Education</a>
+        <a href="games.html">Games</a>
       </nav>
       <div class="header-search-wrap" id="headerSearchWrap">
         <form class="header-search" id="headerSearchForm" role="search">
@@ -709,10 +806,6 @@
         <button class="icon-button" id="calculatorButton" type="button" aria-label="Open calculator" aria-expanded="false" aria-controls="calculatorPanel">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="3"></rect><path d="M7.5 6.5h9M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h4"></path></svg>
         </button>
-        <button class="icon-button" id="themeButton" type="button" aria-label="Switch to dark mode">
-          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"></path></svg>
-          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
-        </button>
         <div class="header-popover-wrap">
           <button class="icon-button" id="languageButton" type="button" aria-label="Change language" aria-expanded="false" aria-controls="languageMenu">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg>
@@ -720,6 +813,15 @@
           <div class="language-menu" id="languageMenu" hidden>
             <button type="button" data-lang="en" class="is-active"><span>EN</span> English</button>
             <button type="button" data-lang="ms"><span>BM</span> Bahasa Melayu</button>
+          </div>
+        </div>
+        <div class="header-currency-wrap">
+          <button class="icon-button currency-button" id="currencyButton" type="button" aria-label="Currency: US Dollar" aria-controls="currencyMenu" aria-expanded="false">
+            <span id="currencyButtonLabel">USD</span>
+          </button>
+          <div class="currency-menu" id="currencyMenu" role="radiogroup" aria-label="Currency" hidden>
+            <button type="button" role="radio" data-site-currency="USD"><span>$</span>USD &middot; US Dollar</button>
+            <button type="button" role="radio" data-site-currency="MYR"><span>RM</span>MYR &middot; Malaysian Ringgit</button>
           </div>
         </div>
         <button class="icon-button" id="searchOpenButton" type="button" aria-label="Open search" aria-expanded="false" aria-controls="headerSearchWrap">
@@ -747,66 +849,40 @@
   </aside>
   <div class="panel-backdrop" id="panelBackdrop" hidden></div>
 
-  <main id="main">
+  <main id="main-content">
     <section class="hero snap-page" id="home">
       <div class="wrap">
         <div class="hero-grid">
           <div>
             <div class="eyebrow" data-i18n="heroEyebrow">Practical calculation tools</div>
-            <h1 data-i18n="heroTitle">Clear answers, without the clutter.</h1>
-            <p class="hero-copy" data-i18n="heroCopy">Explore focused calculators, converters, and learning tools for money, health, school, work, construction, time, and everyday decisions.</p>
-            <form class="search-shell" id="heroSearchForm" role="search">
-              <label class="visually-hidden" for="heroSearch">Search calculators</label>
-              <input id="heroSearch" type="search" autocomplete="off" placeholder="Search BMI, GPA, percentage, conversions, polynomial roots, and more…" data-i18n-placeholder="searchPlaceholder">
-              <button class="search-button" type="submit" data-i18n="findCalculator">Find a calculator</button>
-            </form>
-            <div class="quick-links" aria-label="Quick calculator links">
-              <a href="bmi-calculator/index.html">BMI Calculator</a>
-              <a href="gpa-calculator/index.html">GPA Calculator</a>
-              <a href="ideal-weight-calculator/index.html">Ideal Weight Calculator</a>
-              <a href="mental-math-rush/index.html">Mental Math Rush</a>
-              <a href="percentage-calculator/index.html">Percentage Calculator</a>
-              <a href="percentage-conversion-calculator/index.html">Percentage Conversion Calculator</a>
-              <a href="polynomial-root-finder-calculator/index.html">Polynomial Root Finder</a>
-              <a href="pregnancy-calculator/index.html">Pregnancy Due Date Calculator</a>
-              <a href="retirement-calculator/index.html">Retirement Savings Calculator</a>
-              <a href="salary-increase-calculator/index.html">Salary Increase Calculator</a>
-              <a href="salary-payroll-calculator/index.html">Salary Payroll Calculator</a>
-              <a href="savings-calculator/index.html">Savings Calculator</a>
-              <a href="tip-calculator/index.html">Tip Calculator</a>
-            </div>
+            <h1 class="homepage-title">Free Online Calculators and Tools with Report</h1>
+            <p class="hero-copy">Free calculators, converters and learning tools with clear inputs, helpful explanations and printable reports.</p>
+            <p class="hero-copy">Choose a category or search for a calculator. Most calculations run directly in your browser and do not require an account.</p>
           </div>
-          <aside class="hero-side">
-            <strong data-i18n="oneTask">One task per calculator.</strong>
-            Each tool keeps its inputs, result, explanation, and report focused on the calculator title—making it faster to use and easier to understand.
-          </aside>
         </div>
+            <div class="hero-search-wrap" id="heroSearchWrap">
+              <form class="search-shell" id="heroSearchForm" role="search">
+                <label class="visually-hidden" for="heroSearch">Search calculators</label>
+                <input id="heroSearch" type="search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="heroSearchSuggestions" placeholder="Search age, BMI, GPA, chemistry, percentages, unit conversions, polynomial roots, and more…" data-i18n-placeholder="searchPlaceholder">
+                <button class="search-button" type="submit" data-i18n="findCalculator">Find a calculator</button>
+              </form>
+              <div class="hero-search-suggestions" id="heroSearchSuggestions" role="listbox" aria-label="Calculator suggestions" hidden></div>
+            </div>
+            <div class="hero-popular" id="popular">
+              <p class="popular-tools-title" data-i18n="popularTitle">Popular tools</p>
+              <div class="quick-links" aria-label="Popular tools">
+                <a href="age-calculator/index.html">Age Calculator</a>
+                <a href="bmi-calculator/index.html">BMI Calculator</a>
+                <a href="gpa-calculator/index.html">GPA Calculator</a>
+                <a href="periodic-table-chemistry-calculator/index.html">Periodic Table & Chemistry Calculator</a>
+                <a href="ideal-weight-calculator/index.html">Ideal Weight Calculator</a>
+                <a href="abacus-quest/index.html">Abacus Quest</a>
+                <a href="mental-math-rush/index.html">Mental Math Rush</a>
+                <a href="percentage-calculator/index.html">Percentage Calculator</a>
+              </div>
+            </div>
       </div>
-      <div class="wrap"><div class="ad-slot hero-ad" aria-label="Advertisement placeholder">Advertisement<small>Reserved space that stays separate from calculator controls</small></div></div>
-    </section>
-
-    <section class="section section-mist snap-page" id="popular">
-      <div class="wrap">
-        <div class="section-heading">
-          <h2 data-i18n="popularTitle">Popular calculators</h2>
-          <p>Use the calculators currently available on KALQ.</p>
-        </div>
-        <div class="popular-grid">
-          <a class="tool-link" href="bmi-calculator/index.html"><span class="tool-icon">BMI</span><span class="tool-copy"><strong>BMI Calculator</strong><span>Calculate BMI with age-appropriate interpretation.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="gpa-calculator/index.html"><span class="tool-icon">GPA</span><span class="tool-copy"><strong>GPA Calculator</strong><span>Calculate a credit-weighted grade point average.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="ideal-weight-calculator/index.html"><span class="tool-icon">IW</span><span class="tool-copy"><strong>Ideal Weight Calculator</strong><span>Compare established height-based reference formulas.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="mental-math-rush/index.html"><span class="tool-icon">MM</span><span class="tool-copy"><strong>Mental Math Rush</strong><span>Build speed and accuracy with adaptive arithmetic rounds.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="percentage-calculator/index.html"><span class="tool-icon">%</span><span class="tool-copy"><strong>Percentage Calculator</strong><span>Solve 11 common percentage relationships with clear formulas and reports.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="percentage-conversion-calculator/index.html"><span class="tool-icon">%↔</span><span class="tool-copy"><strong>Percentage Conversion Calculator</strong><span>Convert fractions, decimals, percentages, and ratios in five focused modes.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="polynomial-root-finder-calculator/index.html"><span class="tool-icon">P(x)</span><span class="tool-copy"><strong>Polynomial Root Finder Calculator</strong><span>Find real and complex polynomial roots with steps, graph, and verification.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="pregnancy-calculator/index.html"><span class="tool-icon">40W</span><span class="tool-copy"><strong>Pregnancy Due Date Calculator</strong><span>Estimate a due date, pregnancy week, trimester, and key timeline milestones.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="retirement-calculator/index.html"><span class="tool-icon">RET</span><span class="tool-copy"><strong>Retirement Savings Calculator</strong><span>Project retirement savings, compare a spending goal, and estimate needed contributions.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="salary-increase-calculator/index.html"><span class="tool-icon">PAY+</span><span class="tool-copy"><strong>Salary Increase Calculator</strong><span>Calculate new gross salary and compare the increase across common pay periods.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="salary-payroll-calculator/index.html"><span class="tool-icon">PAY</span><span class="tool-copy"><strong>Salary Payroll Calculator</strong><span>Calculate gross pay, deductions, net pay, employer cost, and payroll projections.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="savings-calculator/index.html"><span class="tool-icon">SAVE</span><span class="tool-copy"><strong>Savings Calculator</strong><span>Estimate how current savings and monthly deposits may grow with APY.</span></span><span class="tool-arrow">→</span></a>
-          <a class="tool-link" href="tip-calculator/index.html"><span class="tool-icon">TIP</span><span class="tool-copy"><strong>Tip Calculator</strong><span>Calculate a tip, final bill, and equal amount per person.</span></span><span class="tool-arrow">→</span></a>
-        </div>
-      </div>
+      
     </section>
 
     <section class="section directory-section snap-page" id="directory">
@@ -816,23 +892,32 @@
           <p>Search by name or filter by category. Every result opens as a separate focused calculator page.</p>
         </div>
         <div class="directory-controls" id="directoryControls" aria-label="Calculator category filters"></div>
-        <div class="directory-grid" id="directoryGrid" aria-live="polite"></div>
+        <div class="directory-grid is-results" id="directoryGrid" aria-live="polite">
+          <a class="directory-item" href="age-calculator/index.html" data-category="Date &amp; Time"><span class="directory-item-icon">AGE</span><span><strong>Age Calculator</strong><span>Calculate exact age, birthday progress, upcoming milestones and a detailed printable profile.</span></span><em aria-hidden="true">&#8594;</em></a>
+          <a class="directory-item" href="date-difference-calculator/index.html" data-category="Date & Time"><span class="directory-item-icon">DATE</span><span><strong>Date Difference Calculator</strong><span>Calculate the exact calendar distance between two dates in years, months, weeks and days with holiday analysis, a visual timeline and a printable report.</span></span><em aria-hidden="true">&rarr;</em></a>
+          <a class="directory-item" href="bmi-calculator/index.html" data-category="Health"><span class="directory-item-icon">BMI</span><span><strong>BMI Calculator</strong><span>Calculate body mass index with age-appropriate interpretation for adults, children and teenagers.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="gpa-calculator/index.html" data-category="Education"><span class="directory-item-icon">GPA</span><span><strong>GPA Calculator</strong><span>Calculate a credit-weighted grade point average and review how each course affects the result.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="periodic-table-chemistry-calculator/index.html" data-category="Education"><span class="directory-item-icon">PT</span><span><strong>Periodic Table & Chemistry Calculator</strong><span>Analyze elements, isotopes and ions with particle counts, electron shells and periodic-table position.</span></span><em aria-hidden="true">&#8594;</em></a>
+          <a class="directory-item" href="ideal-weight-calculator/index.html" data-category="Health"><span class="directory-item-icon">IW</span><span><strong>Ideal Weight Calculator</strong><span>Compare established height-based reference formulas and a BMI-based healthy-weight range.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="abacus-quest/index.html" data-category="Games"><span class="directory-item-icon">AQ</span><span><strong>Abacus Quest</strong><span>Practise place value and arithmetic by moving Soroban beads, completing guided challenges, and reviewing a learning report.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="mental-math-rush/index.html" data-category="Games"><span class="directory-item-icon">MM</span><span><strong>Mental Math Rush</strong><span>Practise arithmetic speed and accuracy with adaptive rounds and a performance report.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="percentage-calculator/index.html" data-category="Mathematics"><span class="directory-item-icon">%</span><span><strong>Percentage Calculator</strong><span>Solve common percentage relationships with formulas, steps and a printable report.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="percentage-conversion-calculator/index.html" data-category="Mathematics"><span class="directory-item-icon">%↔</span><span><strong>Percentage Conversion Calculator</strong><span>Convert fractions, decimals, percentages and ratios in five focused modes.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="unit-converters/index.html" data-category="Mathematics"><span class="directory-item-icon">UNIT</span><span><strong>Unit Converter</strong><span>Convert 75 everyday, engineering, digital, electrical, thermal, chemistry and radiation measurements.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="currency-converter-and-comparison-calculator/index.html" data-category="Converters"><span class="directory-item-icon">FX</span><span><strong>Currency Converter & Comparison Calculator</strong><span>Convert currencies with a disclosed benchmark rate and compare provider rates, fees and final amounts received.</span></span><em aria-hidden="true">&rarr;</em></a>
+          <a class="directory-item" href="polynomial-root-finder-calculator/index.html" data-category="Mathematics"><span class="directory-item-icon">P(x)</span><span><strong>Polynomial Root Finder Calculator</strong><span>Find real and complex polynomial roots with steps, a graph and verification.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="pregnancy-calculator/index.html" data-category="Health"><span class="directory-item-icon">40W</span><span><strong>Pregnancy Due Date Calculator</strong><span>Estimate a due date, pregnancy week, trimester and key timeline milestones.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="retirement-calculator/index.html" data-category="Finance"><span class="directory-item-icon">RET</span><span><strong>Retirement Savings Calculator</strong><span>Project retirement savings, compare a spending goal and estimate required contributions.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="salary-increase-calculator/index.html" data-category="Finance"><span class="directory-item-icon">PAY+</span><span><strong>Salary Increase Calculator</strong><span>Calculate a new gross salary and compare the increase across common pay periods.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="salary-payroll-calculator/index.html" data-category="Finance"><span class="directory-item-icon">PAY</span><span><strong>Salary Payroll Calculator</strong><span>Estimate gross pay, deductions, net pay, employer cost and payroll projections.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="savings-calculator/index.html" data-category="Finance"><span class="directory-item-icon">SAVE</span><span><strong>Savings Calculator</strong><span>Estimate how current savings and recurring deposits may grow with a stated APY.</span></span><em aria-hidden="true">→</em></a>
+          <a class="directory-item" href="compound-interest-calculator/index.html" data-category="Finance"><span class="directory-item-icon">CI</span><span><strong>Compound Interest Calculator</strong><span>Project compound growth from a starting balance and regular monthly contributions.</span></span><em aria-hidden="true">&rarr;</em></a>
+          <a class="directory-item" href="credit-card-payoff-calculator/index.html" data-category="Finance"><span class="directory-item-icon">CC</span><span><strong>Credit Card Payoff Calculator</strong><span>Estimate a credit card debt-free date, total interest, total repayment and savings from an extra monthly payment.</span></span><em aria-hidden="true">&rarr;</em></a>
+          <a class="directory-item" href="apr-calculator/index.html" data-category="Finance"><span class="directory-item-icon">APR</span><span><strong>APR Calculator</strong><span>Estimate a fixed-rate loan APR, monthly payment, fee impact and total borrowing cost.</span></span><em aria-hidden="true">&rarr;</em></a>
+          <a class="directory-item" href="tip-calculator/index.html" data-category="Finance"><span class="directory-item-icon">TIP</span><span><strong>Tip Calculator</strong><span>Calculate a tip, final bill and equal amount per person.</span></span><em aria-hidden="true">→</em></a>
+        </div>
+        <noscript><p class="noscript-directory">JavaScript is not required to open a calculator. Browse the complete <a href="calculators.html">All Calculators directory</a>.</p></noscript>
         <p class="empty-state" id="emptyState">No calculator matched your search. Try a broader term or choose another category.</p>
-      </div>
-    </section>
-
-    <section class="section section-warm snap-page" id="categories">
-      <div class="wrap">
-        <div class="section-heading">
-          <h2 data-i18n="categoriesTitle">Browse by purpose</h2>
-          <p>Use categories when you know the kind of problem you need to solve but not the exact calculator name.</p>
-        </div>
-        <div class="category-strip">
-          <div class="category-summary"><small>Money</small><strong>Finance & property</strong><span>Interest, loans, returns, budgets, income, property, and business metrics.</span></div>
-          <div class="category-summary"><small>Wellbeing</small><strong>Health & fitness</strong><span>BMI, energy needs, hydration, sleep, heart rate, and body measurements.</span></div>
-          <div class="category-summary"><small>Learning</small><strong>Education & mathematics</strong><span>Grades, GPA, equations, matrices, fractions, calculus, and practice tools.</span></div>
-          <div class="category-summary"><small>Projects</small><strong>Construction & home</strong><span>Concrete, paint, tiles, roofing, flooring, energy, and renovation estimates.</span></div>
-        </div>
       </div>
     </section>
 
@@ -849,51 +934,64 @@
             <div class="why-item"><span class="why-number">03</span><div><strong>Separate reports</strong><p>Where useful, detailed printable reports stay separate from the compact calculator result.</p></div></div>
             <div class="why-item"><span class="why-number">04</span><div><strong>Universal use</strong><p>Support common international units and practical defaults while keeping room for Malaysian use.</p></div></div>
           </div>
-          <div>
-            <div class="eyebrow">Explore collections</div>
-            <div class="collection-list">
-              <a class="collection-link" href="finance-calculators/"><span><strong>Finance calculators</strong><span>Savings, investment, loans, debt, property, and income.</span></span><b>→</b></a>
-              <a class="collection-link" href="health-calculators/"><span><strong>Health calculators</strong><span>General screening and everyday wellness estimates.</span></span><b>→</b></a>
-              <a class="collection-link" href="education-calculators/"><span><strong>Education calculators</strong><span>Grades, GPA, required scores, credits, and study time.</span></span><b>→</b></a>
-              <a class="collection-link" href="construction-calculators/"><span><strong>Construction calculators</strong><span>Materials, quantities, costs, and renovation planning.</span></span><b>→</b></a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <div class="wrap"><div class="ad-slot" aria-label="Advertisement placeholder">Advertisement<small>Placed between content areas, away from search and navigation controls</small></div></div>
+    
 
-    <section class="section snap-page" id="suggest" style="padding-top:24px">
+    <section class="section snap-page" id="suggest">
       <div class="wrap">
         <div class="newsletter-row">
           <div><h2 data-i18n="suggestTitle">Need a calculator added?</h2><p data-i18n="suggestCopy">Suggest a practical tool or report that would make KALQ more useful.</p></div>
-          <a href="contact/" data-i18n="suggestButton">Suggest a calculator</a>
+          <a href="contact.html" data-i18n="suggestButton">Suggest a calculator</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer snap-page" id="footer">
-    <div class="wrap">
-      <div class="footer-simple">
-        <div class="footer-intro">
-          <a class="brand brand-inverse" href="#home" aria-label="KALQ home"><span class="brand-mark">K</span><span>KALQ</span></a>
-          <p data-i18n="footerCopy">Focused calculators, converters, and practical tools with clear results and useful explanations.</p>
+  <footer class="site-footer kalq-global-footer" id="footer">
+  <div class="kalq-footer-inner">
+    <div class="kalq-footer-grid">
+      <div class="kalq-footer-about">
+        <a class="kalq-footer-brand" href="index.html" aria-label="KALQ home"><span class="kalq-footer-brand-mark">K</span><span>KALQ</span></a>
+        <p class="kalq-footer-summary">Free calculators, converters and educational tools with clear inputs, formulas, assumptions and practical explanations.</p>
+      </div>
+      <nav class="kalq-footer-column" aria-label="Information">
+        <h2>Information</h2>
+        <div class="kalq-footer-links">
+          <a href="about.html">About KALQ</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-use.html">Terms of Use</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="cookie-policy.html">Cookie Policy</a>
+          <a href="calculator-methodology.html">Calculator Methodology</a>
+          <a href="faq.html">Frequently Asked Questions</a>
+          <a href="sitemap.html">HTML Sitemap</a>
+          <a href="cookie-policy.html#settings">Cookie Settings</a>
         </div>
-        <nav class="footer-nav" aria-label="Footer links">
-          <a href="#directory" data-i18n="footerDirectory">Calculators</a>
-          <a href="#categories" data-i18n="footerCategories">Categories</a>
-          <a href="about/" data-i18n="footerAbout">About</a>
-          <a href="privacy/">Privacy</a>
-        </nav>
-      </div>
-      <div class="footer-bottom-simple">
-        <span>© <span id="year"></span> KALQ</span>
-        <span data-i18n="footerDisclaimer">General informational tools. Results are not professional advice.</span>
-      </div>
+      </nav>
+      <nav class="kalq-footer-column" aria-label="Calculator collections">
+        <h2>Calculator collections</h2>
+        <div class="kalq-footer-links">
+          <a href="finance-calculators.html">Finance Calculators</a>
+          <a href="health-calculators.html">Health Calculators</a>
+          <a href="date-time-calculators.html">Date &amp; Time Calculators</a>
+          <a href="math-calculators.html">Math Calculators</a>
+          <a href="converters.html">Converters</a>
+          <a href="education-calculators.html">Education Calculators</a>
+          <a href="games.html">Games</a>
+          <a href="calculators.html">All Calculators</a>
+        </div>
+      </nav>
     </div>
-  </footer>
+    <div class="kalq-footer-bottom">
+      <p>© <span id="year">2026</span> KALQ. All rights reserved.</p>
+      <p>KALQ calculators provide estimates for informational use and do not replace qualified advice.</p>
+    </div>
+  </div>
+</footer>
 
   <button class="go-up-button" id="goUpButton" type="button" aria-label="Go to top">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"></path></svg><span data-i18n="goUp">Top</span>
@@ -901,82 +999,219 @@
 
   <script>
     const tools = [
-      {name:'BMI Calculator', category:'Health', description:'Calculate BMI with age-appropriate interpretation.', path:'bmi-calculator/index.html', icon:'BMI'},
-      {name:'Ideal Weight Calculator', category:'Health', description:'Compare established height-based reference formulas.', path:'ideal-weight-calculator/index.html', icon:'IW'},
-      {name:'Mental Math Rush', category:'Tools', description:'Build speed and accuracy with adaptive arithmetic rounds.', path:'mental-math-rush/index.html', icon:'MM'},
-      {name:'Percentage Calculator', category:'Math', description:'Solve 11 common percentage relationships with clear formulas and reports.', path:'percentage-calculator/index.html', icon:'%'},
-      {name:'Percentage Conversion Calculator', category:'Math', description:'Convert fractions, decimals, percentages, and ratios in five focused modes.', path:'percentage-conversion-calculator/index.html', icon:'%↔'},
-      {name:'Polynomial Root Finder Calculator', category:'Math', description:'Find real and complex polynomial roots with steps, graph, and verification.', path:'polynomial-root-finder-calculator/index.html', icon:'P(x)'},
-      {name:'Pregnancy Due Date Calculator', category:'Health', description:'Estimate a due date, pregnancy week, trimester, and key timeline milestones.', path:'pregnancy-calculator/index.html', icon:'40W'},
-      {name:'Retirement Savings Calculator', category:'Finance', description:'Project retirement savings, compare a spending goal, and estimate needed contributions.', path:'retirement-calculator/index.html', icon:'RET'},
-      {name:'Salary Increase Calculator', category:'Finance', description:'Calculate new gross salary and compare the increase across common pay periods.', path:'salary-increase-calculator/index.html', icon:'PAY+'},
-      {name:'Salary Payroll Calculator', category:'Finance', description:'Calculate gross pay, deductions, net pay, employer cost, and payroll projections.', path:'salary-payroll-calculator/index.html', icon:'PAY'},
-      {name:'Savings Calculator', category:'Finance', description:'Estimate how current savings and monthly deposits may grow with APY.', path:'savings-calculator/index.html', icon:'SAVE'},
-      {name:'Tip Calculator', category:'Finance', description:'Calculate a tip, final bill, and equal amount per person.', path:'tip-calculator/index.html', icon:'TIP'},
-      {name:'BMR Calculator', category:'Health', description:'Estimate resting daily energy needs.', path:'bmr-calculator/', icon:'BMR'},
-      {name:'TDEE Calculator', category:'Health', description:'Estimate total daily energy use.', path:'tdee-calculator/', icon:'TDEE'},
-      {name:'Body Fat Calculator', category:'Health', description:'Estimate body-fat percentage from measurements.', path:'body-fat-calculator/', icon:'BF'},
-      {name:'Water Intake Calculator', category:'Health', description:'Estimate a general daily water-intake range.', path:'water-intake-calculator/', icon:'H2O'},
-      {name:'Sleep Calculator', category:'Health', description:'Plan sleep and wake times around sleep cycles.', path:'sleep-calculator/', icon:'ZZZ'},
-      {name:'Heart Rate Zone Calculator', category:'Health', description:'Estimate exercise heart-rate zones.', path:'heart-rate-zone-calculator/', icon:'HR'},
-      {name:'Compound Interest Calculator', category:'Finance', description:'Project savings or investment growth.', path:'compound-interest-calculator/', icon:'CI'},
-      {name:'Investment Return Calculator', category:'Finance', description:'Measure gain, loss, and investment return.', path:'investment-return-calculator/', icon:'IR'},
-      {name:'ROI Calculator', category:'Finance', description:'Calculate return on investment.', path:'roi-calculator/', icon:'ROI'},
-      {name:'APY Calculator', category:'Finance', description:'Convert rates and estimate annual percentage yield.', path:'apy-calculator/', icon:'APY'},
-      {name:'CAGR Calculator', category:'Finance', description:'Calculate compound annual growth rate.', path:'cagr-calculator/', icon:'CAGR'},
-      {name:'Budget Calculator', category:'Finance', description:'Compare income, expenses, and remaining balance.', path:'budget-calculator/', icon:'BUD'},
-      {name:'Mortgage Calculator', category:'Finance', description:'Estimate monthly mortgage payments and interest.', path:'mortgage-calculator/', icon:'HOME'},
-      {name:'Car Loan Calculator', category:'Finance', description:'Estimate vehicle loan payments and cost.', path:'car-loan-calculator/', icon:'CAR'},
-      {name:'Credit Card Interest Calculator', category:'Finance', description:'Estimate interest and payoff time.', path:'credit-card-interest-calculator/', icon:'CC'},
-      {name:'Rent vs Buy Calculator', category:'Finance', description:'Compare estimated renting and buying costs.', path:'rent-vs-buy-calculator/', icon:'R/B'},
-      {name:'Salary to Hourly Calculator', category:'Finance', description:'Convert salary into hourly, daily, and weekly pay.', path:'salary-to-hourly-calculator/', icon:'PAY'},
-      {name:'GPA Calculator', category:'Education', description:'Calculate a credit-weighted GPA from courses and credits.', path:'gpa-calculator/index.html', icon:'GPA'},
-      {name:'CGPA Calculator', category:'Education', description:'Combine semester results into cumulative GPA.', path:'cgpa-calculator/', icon:'CGPA'},
-      {name:'Final Grade Calculator', category:'Education', description:'Estimate the grade needed on a final assessment.', path:'final-grade-calculator/', icon:'FG'},
-      {name:'Required Score Calculator', category:'Education', description:'Find the score needed to reach a target grade.', path:'required-score-calculator/', icon:'REQ'},
-      {name:'Credit Hour Calculator', category:'Education', description:'Total course credits and workload.', path:'credit-hour-calculator/', icon:'CR'},
-      {name:'Study Time Allocator', category:'Education', description:'Distribute available study time across subjects.', path:'study-time-allocator/', icon:'STUDY'},
-      {name:'Percentage Calculator', category:'Math', description:'Solve common percentage questions.', path:'percentage-calculator/', icon:'%'},
-      {name:'Fraction Calculator', category:'Math', description:'Add, subtract, multiply, and divide fractions.', path:'fraction-calculator/', icon:'1/2'},
-      {name:'Quadratic Equation Calculator', category:'Math', description:'Solve quadratic equations and review the discriminant.', path:'quadratic-equation-calculator/', icon:'x²'},
-      {name:'Matrix Calculator', category:'Math', description:'Perform common matrix operations.', path:'matrix-calculator/', icon:'MAT'},
-      {name:'Derivative Calculator', category:'Math', description:'Find derivatives with steps and rules.', path:'derivative-calculator/', icon:'d/dx'},
-      {name:'Integral Calculator', category:'Math', description:'Evaluate common definite and indefinite integrals.', path:'integral-calculator/', icon:'∫'},
-      {name:'Equation Solver', category:'Math', description:'Solve common algebraic equations.', path:'equation-solver/', icon:'x='},
-      {name:'Unit Converter', category:'Converters', description:'Convert common measurement units.', path:'unit-converter/', icon:'UNIT'},
-      {name:'Time Zone Converter', category:'Converters', description:'Compare times between locations.', path:'time-zone-converter/', icon:'TZ'},
-      {name:'Base64 Encoder', category:'Converters', description:'Encode and decode Base64 text.', path:'base64-encoder/', icon:'B64'},
-      {name:'Morse Code Translator', category:'Converters', description:'Translate text and Morse code.', path:'morse-code-translator/', icon:'···'},
-      {name:'Binary Converter', category:'Converters', description:'Convert binary, decimal, and text values.', path:'binary-converter/', icon:'01'},
-      {name:'QR Code Generator', category:'Converters', description:'Create a QR code from text or a URL.', path:'qr-code-generator/', icon:'QR'},
-      {name:'Date Calculator', category:'Time', description:'Add or subtract time from a date.', path:'date-calculator/', icon:'DATE'},
-      {name:'Business Day Calculator', category:'Time', description:'Count working days between dates.', path:'business-day-calculator/', icon:'BD'},
-      {name:'Time Duration Calculator', category:'Time', description:'Calculate elapsed time between two times.', path:'time-duration-calculator/', icon:'TIME'},
-      {name:'Days Until Calculator', category:'Time', description:'Count down to a selected date.', path:'days-until-calculator/', icon:'DAYS'},
-      {name:'Attendance Calculator', category:'Work', description:'Calculate attendance rate and required attendance.', path:'attendance-calculator/', icon:'ATT'},
-      {name:'Working Days Calculator', category:'Work', description:'Count workdays in a period.', path:'working-days-calculator/', icon:'WD'},
-      {name:'Shift Work Scheduler', category:'Work', description:'Build and review a repeating shift pattern.', path:'shift-work-scheduler/', icon:'SHIFT'},
-      {name:'Startup Runway Calculator', category:'Work', description:'Estimate how long available cash may last.', path:'startup-runway-calculator/', icon:'RUN'},
-      {name:'Burn Rate Calculator', category:'Work', description:'Measure monthly cash use.', path:'burn-rate-calculator/', icon:'BURN'},
-      {name:'Profit Margin Calculator', category:'Work', description:'Calculate margin, markup, revenue, and cost relationships.', path:'profit-margin-calculator/', icon:'PM'},
-      {name:'Concrete Calculator', category:'Construction', description:'Estimate concrete volume and material quantity.', path:'concrete-calculator/', icon:'CON'},
-      {name:'Paint Calculator', category:'Construction', description:'Estimate paint quantity for walls and rooms.', path:'paint-calculator/', icon:'PAINT'},
-      {name:'Tile Calculator', category:'Construction', description:'Estimate tile quantity and waste allowance.', path:'tile-calculator/', icon:'TILE'},
-      {name:'Roofing Calculator', category:'Construction', description:'Estimate roofing area and materials.', path:'roofing-calculator/', icon:'ROOF'},
-      {name:'Flooring Calculator', category:'Construction', description:'Estimate flooring area, packs, and waste.', path:'flooring-calculator/', icon:'FLR'},
-      {name:'Brick Calculator', category:'Construction', description:'Estimate brick quantity for a wall.', path:'brick-calculator/', icon:'BRK'},
-      {name:'Solar Panel Calculator', category:'Energy', description:'Estimate solar capacity and energy production.', path:'solar-panel-calculator/', icon:'SOL'},
-      {name:'Electricity Cost Calculator', category:'Energy', description:'Estimate appliance and household electricity cost.', path:'electricity-cost-calculator/', icon:'kWh'},
-      {name:'EV Charging Cost Calculator', category:'Energy', description:'Estimate electric vehicle charging cost.', path:'ev-charging-cost-calculator/', icon:'EV'},
-      {name:'Fuel vs EV Calculator', category:'Energy', description:'Compare estimated fuel and charging expenses.', path:'fuel-vs-ev-calculator/', icon:'F/EV'},
-      {name:'Mileage Calculator', category:'Energy', description:'Calculate fuel economy and travel cost.', path:'mileage-calculator/', icon:'MPG'},
-      {name:'Random Number Generator', category:'Tools', description:'Generate random numbers within a selected range.', path:'random-number-generator/', icon:'RNG'},
-      {name:'Sudoku', category:'Tools', description:'Play and print Sudoku puzzles.', path:'sudoku/', icon:'SDK'},
-      {name:'Word Scramble', category:'Tools', description:'Create and solve word scramble worksheets.', path:'word-scramble/', icon:'WORD'},
-      {name:'Spin the Wheel', category:'Tools', description:'Make a custom random choice wheel.', path:'spin-the-wheel/', icon:'SPIN'}
-    ].filter(tool => ['bmi-calculator/index.html', 'gpa-calculator/index.html', 'ideal-weight-calculator/index.html', 'mental-math-rush/index.html', 'percentage-calculator/index.html', 'percentage-conversion-calculator/index.html', 'polynomial-root-finder-calculator/index.html', 'pregnancy-calculator/index.html', 'retirement-calculator/index.html', 'salary-increase-calculator/index.html', 'salary-payroll-calculator/index.html', 'savings-calculator/index.html', 'tip-calculator/index.html'].includes(tool.path));
+          {
+        "name": "Date Difference Calculator",
+        "category": "Date & Time",
+        "description": "Calculate the exact calendar distance between two dates in years, months, weeks and days with holiday analysis, a visual timeline and a printable report.",
+        "path": "date-difference-calculator/index.html",
+        "icon": "DATE"
+    },
+{
+            "name": "Age Calculator",
+            "category": "Date & Time",
+            "description": "Calculate exact age, birthday progress, upcoming milestones and a detailed printable profile.",
+            "path": "age-calculator/index.html",
+            "icon": "AGE"
+      },
+      {
+            "name": "BMI Calculator",
+            "category": "Health",
+            "description": "Calculate body mass index with age-appropriate interpretation for adults, children and teenagers.",
+            "path": "bmi-calculator/index.html",
+            "icon": "BMI"
+      },
+      {
+            "name": "GPA Calculator",
+            "category": "Education",
+            "description": "Calculate a credit-weighted grade point average and review how each course affects the result.",
+            "path": "gpa-calculator/index.html",
+            "icon": "GPA"
+      },
+      {
+            "name": "Periodic Table & Chemistry Calculator",
+            "category": "Education",
+            "description": "Analyze elements, isotopes and ions with particle counts, electron shells and periodic-table position.",
+            "path": "periodic-table-chemistry-calculator/index.html",
+            "icon": "PT"
+      },
+      {
+            "name": "Ideal Weight Calculator",
+            "category": "Health",
+            "description": "Compare established height-based reference formulas and a BMI-based healthy-weight range.",
+            "path": "ideal-weight-calculator/index.html",
+            "icon": "IW"
+      },
+      {
+            "name": "Abacus Quest",
+            "category": "Games",
+            "description": "Practise place value and arithmetic by moving Soroban beads, completing guided challenges, and reviewing a learning report.",
+            "path": "abacus-quest/index.html",
+            "icon": "AQ"
+      },
+      {
+            "name": "Mental Math Rush",
+            "category": "Games",
+            "description": "Practise arithmetic speed and accuracy with adaptive rounds and a performance report.",
+            "path": "mental-math-rush/index.html",
+            "icon": "MM"
+      },
+      {
+            "name": "Percentage Calculator",
+            "category": "Math",
+            "description": "Solve common percentage relationships with formulas, steps and a printable report.",
+            "path": "percentage-calculator/index.html",
+            "icon": "%"
+      },
+      {
+            "name": "Percentage Conversion Calculator",
+            "category": "Converters",
+            "description": "Convert fractions, decimals, percentages and ratios in five focused modes.",
+            "path": "percentage-conversion-calculator/index.html",
+            "icon": "%↔"
+      },
+      {
+            "name": "Unit Converter",
+            "category": "Converters",
+            "description": "Convert 75 everyday, engineering, digital, electrical, thermal, chemistry and radiation measurements.",
+            "path": "unit-converters/index.html",
+            "icon": "UNIT"
+      },
+    {
+        "name": "Currency Converter & Comparison Calculator",
+        "category": "Converters",
+        "description": "Convert currencies with a disclosed benchmark rate and compare provider rates, fees and final amounts received.",
+        "path": "currency-converter-and-comparison-calculator/index.html",
+        "icon": "FX"
+    },
+      {
+            "name": "Polynomial Root Finder Calculator",
+            "category": "Math",
+            "description": "Find real and complex polynomial roots with steps, a graph and verification.",
+            "path": "polynomial-root-finder-calculator/index.html",
+            "icon": "P(x)"
+      },
+      {
+            "name": "Pregnancy Due Date Calculator",
+            "category": "Health",
+            "description": "Estimate a due date, pregnancy week, trimester and key timeline milestones.",
+            "path": "pregnancy-calculator/index.html",
+            "icon": "40W"
+      },
+      {
+            "name": "Retirement Savings Calculator",
+            "category": "Finance",
+            "description": "Project retirement savings, compare a spending goal and estimate required contributions.",
+            "path": "retirement-calculator/index.html",
+            "icon": "RET"
+      },
+      {
+            "name": "Salary Increase Calculator",
+            "category": "Finance",
+            "description": "Calculate a new gross salary and compare the increase across common pay periods.",
+            "path": "salary-increase-calculator/index.html",
+            "icon": "PAY+"
+      },
+      {
+            "name": "Salary Payroll Calculator",
+            "category": "Finance",
+            "description": "Estimate gross pay, deductions, net pay, employer cost and payroll projections.",
+            "path": "salary-payroll-calculator/index.html",
+            "icon": "PAY"
+      },
+      {
+            "name": "Savings Calculator",
+            "category": "Finance",
+            "description": "Estimate how current savings and recurring deposits may grow with a stated APY.",
+            "path": "savings-calculator/index.html",
+            "icon": "SAVE"
+      },
+      {
+            "name": "Compound Interest Calculator",
+            "category": "Finance",
+            "description": "Project compound growth from a starting balance and regular monthly contributions.",
+            "path": "compound-interest-calculator/index.html",
+            "icon": "CI"
+      },
+    {
+        "name": "Credit Card Payoff Calculator",
+        "category": "Finance",
+        "description": "Estimate a credit card debt-free date, total interest, total repayment and savings from an extra monthly payment.",
+        "path": "credit-card-payoff-calculator/index.html",
+        "icon": "CC"
+    },
+    {
+        "name": "APR Calculator",
+        "category": "Finance",
+        "description": "Estimate a fixed-rate loan APR, monthly payment, fee impact and total borrowing cost.",
+        "path": "apr-calculator/index.html",
+        "icon": "APR"
+    },
 
-    const categoryOrder = ['All', ...new Set(tools.map(tool => tool.category))];
+      {
+            "name": "Tip Calculator",
+            "category": "Finance",
+            "description": "Calculate a tip, final bill and equal amount per person.",
+            "path": "tip-calculator/index.html",
+            "icon": "TIP"
+      }
+];
+
+    const searchModesByPath = {
+      '/date-difference-calculator/': ['Calendar Difference', 'Total Days', 'Working Days', 'Public Holiday Analysis', 'Date Timeline'],
+      '/age-calculator/': ['Exact Age', 'Birthday Countdown', 'Age Milestones', 'Hijri Age', 'Leap-Day Birthday'],
+      '/bmi-calculator/': ['Adult BMI', 'Child & Teen BMI'],
+      '/gpa-calculator/': ['Course GPA', 'Common 4.0 Scale', 'Custom Grading Scale', 'Grade Improvement'],
+      '/periodic-table-chemistry-calculator/': ['Periodic Table', 'Element Explorer', 'Isotope Calculator', 'Ion Calculator', 'Electron Configuration'],
+      '/ideal-weight-calculator/': ['Robinson Formula', 'Miller Formula', 'Devine Formula', 'Hamwi Formula', 'Healthy BMI Range'],
+      '/abacus-quest/': ['Adventure', 'Practice', 'Daily Challenge', 'Flash Anzan', 'Number Builder', 'Abacus Detective', 'Soroban Calculator'],
+      '/mental-math-rush/': ['Rush', 'Survival', 'Streak', 'Practice', 'Daily', 'Addition', 'Subtraction', 'Multiplication', 'Division'],
+      '/percentage-calculator/': ['Percentage of a Number', 'What Percent', 'Whole from Percentage', 'Percentage Increase', 'Percentage Decrease', 'Percentage Change', 'Percentage Difference', 'Percentage Point Change', 'Original Value Before Increase', 'Original Value Before Decrease', 'Successive Percentage Change'],
+      '/percentage-conversion-calculator/': ['Fraction to Percentage', 'Decimal to Percentage', 'Percentage to Fraction', 'Percentage to Decimal', 'Ratio to Percentage'],
+      '/unit-converters/': [
+        'Length Converter', 'Weight Converter', 'Temperature Converter', 'Volume Converter', 'Area Converter', 'Time Unit Converter', 'Angle Converter', 'Speed Converter', 'Fuel Economy Converter', 'Acceleration Converter', 'Pace Converter', 'Frequency Converter', 'Angular Velocity Converter', 'Angular Acceleration Converter', 'Pressure Converter', 'Force Converter', 'Torque Converter', 'Moment of Inertia Converter', 'Surface Tension Converter', 'Linear Density Converter', 'Surface Density Converter', 'Permeability Converter', 'Compressibility Converter', 'Wavenumber Converter', 'Density Converter', 'Flow Rate Converter', 'Mass Flow Rate Converter', 'Dynamic Viscosity Converter', 'Kinematic Viscosity Converter', 'Specific Volume Converter', 'Energy Converter', 'Power Converter', 'Specific Energy Converter', 'Energy Density Converter', 'Power Density Converter', 'Heat Rate Converter', 'Fuel Heating Value Converter', 'Thermal Conductivity Converter', 'Specific Heat Capacity Converter', 'Heat Flux Converter', 'Heat Transfer Coefficient Converter', 'Thermal Resistance Converter', 'Electric Current Converter', 'Voltage Converter', 'Electrical Resistance Converter', 'Capacitance Converter', 'Electrical Conductance Converter', 'Electrical Resistivity Converter', 'Electrical Conductivity Converter', 'Inductance Converter', 'Electric Charge Converter', 'Electric Field Strength Converter', 'Magnetic Flux Converter', 'Magnetic Flux Density Converter', 'Magnetomotive Force Converter', 'Electrical Charge Density Converter', 'Data Storage Converter', 'Data Transfer Rate Converter', 'Illuminance Converter', 'Sound Pressure Level Converter', 'Luminous Flux Converter', 'Luminous Intensity Converter', 'Luminance Converter', 'Radiant Power Converter', 'Irradiance Converter', 'Solid Angle Converter', 'Mass Concentration Converter', 'Molar Concentration Converter', 'Amount of Substance Converter', 'Molar Mass Converter', 'Catalytic Activity Converter', 'Radioactivity Converter', 'Absorbed Radiation Dose Converter', 'Equivalent Radiation Dose Converter', 'Radiation Exposure Converter'
+      ],
+      '/currency-converter-and-comparison-calculator/': ['Currency Converter', 'Provider Comparison', 'Historical Exchange Rates'],
+      '/polynomial-root-finder-calculator/': ['Linear Roots', 'Quadratic Roots', 'Cubic Roots', 'Quartic Roots', 'Complex Roots', 'Polynomial Graph'],
+      '/pregnancy-calculator/': ['Last Menstrual Period Due Date', 'Pregnancy Week', 'Trimester Timeline'],
+      '/retirement-calculator/': ['Retirement Savings Projection', 'Retirement Spending Goal', 'Required Monthly Contribution'],
+      '/salary-increase-calculator/': ['Use Raise Percentage', 'Use New Salary'],
+      '/salary-payroll-calculator/': ['Quick Payroll', 'Detailed Payroll'],
+      '/savings-calculator/': ['Monthly Savings Projection', 'Beginning-of-Month Deposits', 'End-of-Month Deposits'],
+      '/compound-interest-calculator/': ['Daily Compounding', 'Weekly Compounding', 'Monthly Compounding', 'Yearly Compounding'],
+      '/credit-card-payoff-calculator/': ['Minimum Payment Payoff', 'Extra Monthly Payment', 'Debt-Free Date', 'Interest Savings'],
+      '/apr-calculator/': ['Loan APR', 'Fee Impact', 'Monthly Payment', 'Total Borrowing Cost', 'Amortization Schedule'],
+      '/tip-calculator/': ['Standard', 'With Outlook', 'Split Bill', 'Tip Percentage']
+    };
+
+    tools.forEach(tool => { const modePath = '/' + tool.path.replace(/index\.html$/, ''); tool.modes = searchModesByPath[tool.path] || searchModesByPath[modePath] || []; });
+
+    function getSearchEntries(value = '', limit = 8) {
+      const normalized = value.trim().toLowerCase();
+      const entries = tools.flatMap(tool => [
+        { ...tool, title: tool.name, parentName: '', isMode: false },
+        ...tool.modes.map(mode => ({ ...tool, title: mode, parentName: tool.name, isMode: true }))
+      ]);
+      if (!normalized) return entries.filter(entry => !entry.isMode).slice(0, limit);
+      return entries
+        .map(entry => {
+          const title = entry.title.toLowerCase();
+          const parent = entry.parentName.toLowerCase();
+          const details = `${entry.category} ${entry.description}`.toLowerCase();
+          let score = 99;
+          if (title === normalized) score = 0;
+          else if (title.startsWith(normalized)) score = 1;
+          else if (title.includes(normalized)) score = 2;
+          else if (parent.startsWith(normalized)) score = 3;
+          else if (parent.includes(normalized)) score = 4;
+          else if (details.includes(normalized)) score = 5;
+          return { ...entry, score };
+        })
+        .filter(entry => entry.score < 99)
+        .sort((a, b) => a.score - b.score || Number(a.isMode) - Number(b.isMode) || a.title.localeCompare(b.title))
+        .slice(0, limit);
+    }
+
+    const categoryOrder = ['All', 'Finance', 'Health', 'Date & Time', 'Math', 'Converters', 'Education', 'Games'];
     const grid = document.getElementById('directoryGrid');
     const controls = document.getElementById('directoryControls');
     const emptyState = document.getElementById('emptyState');
@@ -1009,8 +1244,18 @@
       controls.appendChild(count);
     }
 
+    const categoryPages = {Finance:'/finance-calculators.html', Health:'/health-calculators.html', 'Date & Time':'/date-time-calculators.html', Math:'/math-calculators.html', Converters:'/converters.html', Education:'/education-calculators.html', Games:'/games.html'};
     const categoryMeta = {
-      Finance:{icon:'$'}, Health:{icon:'BMI'}, Education:{icon:'GPA'}, Math:{icon:'x²'}, Converters:{icon:'↔'}, Time:{icon:'24h'}, Work:{icon:'WK'}, Construction:{icon:'BUILD'}, Energy:{icon:'kWh'}, Tools:{icon:'TOOL'}
+      Finance:{icon:'$'}, Health:{icon:'BMI'}, 'Date & Time':{icon:'DATE'}, Math:{icon:'x²'}, Converters:{icon:'↔'}, Education:{icon:'GPA'}, Games:{icon:'GAME'}
+    };
+    const categoryToolOrder = {
+      Finance: ['Savings Calculator', 'Compound Interest Calculator', 'Retirement Savings Calculator', 'Credit Card Payoff Calculator', 'APR Calculator', 'Salary Increase Calculator', 'Salary Payroll Calculator', 'Tip Calculator'],
+      Health: ['BMI Calculator', 'Ideal Weight Calculator', 'Pregnancy Due Date Calculator'],
+      'Date & Time': ['Age Calculator', 'Date Difference Calculator'],
+      Math: ['Percentage Calculator', 'Polynomial Root Finder Calculator'],
+      Converters: ['Percentage Conversion Calculator', 'Unit Converter', 'Currency Converter & Comparison Calculator'],
+      Education: ['GPA Calculator', 'Periodic Table & Chemistry Calculator'],
+      Games: ['Abacus Quest', 'Mental Math Rush']
     };
 
     function selectCategory(category) {
@@ -1029,20 +1274,17 @@
         if (!categoryTools.length) return;
         const group = document.createElement('section');
         group.className = 'directory-group';
-        const visible = categoryTools.slice(0, 6);
+        const preferredOrder = categoryToolOrder[category] || [];
+        const visible = [...categoryTools].sort((a, b) => preferredOrder.indexOf(a.name) - preferredOrder.indexOf(b.name));
         group.innerHTML = `
           <header class="directory-group-head">
             <span class="directory-group-icon">${categoryMeta[category]?.icon || slugLabel(category)}</span>
             <span><strong>${category}</strong><span>${categoryTools.length} calculator${categoryTools.length === 1 ? '' : 's'}</span></span>
-            <button class="directory-group-view" type="button">View all →</button>
+            <a class="directory-group-view" href="${categoryPages[category] || '/calculators.html'}">View all →</a>
           </header>
           <div class="directory-group-list">
             ${visible.map(tool => `<a class="directory-mini-link" href="${tool.path}"><strong>${tool.name}</strong><span aria-hidden="true">→</span></a>`).join('')}
-          </div>
-          ${categoryTools.length > visible.length ? `<button class="directory-more" type="button">+ ${categoryTools.length - visible.length} more in ${category}</button>` : ''}`;
-        group.querySelector('.directory-group-view').addEventListener('click', () => selectCategory(category));
-        const more = group.querySelector('.directory-more');
-        if (more) more.addEventListener('click', () => selectCategory(category));
+          </div>`;
         grid.appendChild(group);
       });
     }
@@ -1051,7 +1293,7 @@
       const normalized = query.trim().toLowerCase();
       const filtered = tools.filter(tool => {
         const categoryMatch = activeCategory === 'All' || tool.category === activeCategory;
-        const searchMatch = !normalized || `${tool.name} ${tool.category} ${tool.description}`.toLowerCase().includes(normalized);
+        const searchMatch = !normalized || `${tool.name} ${tool.category} ${tool.description} ${tool.modes.join(' ')}`.toLowerCase().includes(normalized);
         return categoryMatch && searchMatch;
       });
       grid.innerHTML = '';
@@ -1080,15 +1322,76 @@
       if (scroll) document.getElementById('directory').scrollIntoView({behavior:'smooth', block:'start'});
     }
 
+    const heroSearchWrap = document.getElementById('heroSearchWrap');
+    const heroSearchSuggestions = document.getElementById('heroSearchSuggestions');
+    let heroSuggestionMatches = [];
+    let heroSuggestionIndex = -1;
+
+    function closeHeroSuggestions() {
+      heroSearchSuggestions.hidden = true;
+      heroSearch.setAttribute('aria-expanded', 'false');
+      heroSearch.removeAttribute('aria-activedescendant');
+      heroSuggestionIndex = -1;
+    }
+
+    function setHeroSuggestionIndex(index) {
+      const links = [...heroSearchSuggestions.querySelectorAll('.hero-search-suggestion')];
+      if (!links.length) return;
+      heroSuggestionIndex = (index + links.length) % links.length;
+      links.forEach((link, position) => {
+        const active = position === heroSuggestionIndex;
+        link.classList.toggle('is-active', active);
+        link.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      heroSearch.setAttribute('aria-activedescendant', links[heroSuggestionIndex].id);
+      links[heroSuggestionIndex].scrollIntoView({block:'nearest'});
+    }
+
+    function renderHeroSuggestions(value = '') {
+      const normalized = value.trim().toLowerCase();
+      heroSuggestionMatches = getSearchEntries(normalized, 8);
+      heroSuggestionIndex = -1;
+      heroSearchSuggestions.innerHTML = heroSuggestionMatches.length
+        ? heroSuggestionMatches.map((entry, index) => `
+            <a class="hero-search-suggestion" id="heroSearchSuggestion${index}" href="${entry.path}" role="option" aria-selected="false">
+              <span class="hero-search-suggestion-icon" aria-hidden="true">${entry.icon || slugLabel(entry.name)}</span>
+              <span class="hero-search-suggestion-copy"><strong>${entry.title}</strong><span>${entry.isMode ? `${entry.parentName} · ${entry.category}` : entry.category}</span></span>
+              <span class="hero-search-suggestion-arrow" aria-hidden="true">&rarr;</span>
+            </a>`).join('')
+        : '<div class="hero-search-empty">No matching calculator. Try a broader name or category.</div>';
+      heroSearchSuggestions.hidden = false;
+      heroSearch.setAttribute('aria-expanded', 'true');
+    }
+
     document.getElementById('heroSearchForm').addEventListener('submit', event => {
       event.preventDefault();
-      applySearch(heroSearch.value);
-    });
-    heroSearch.addEventListener('input', () => {
-      if (!heroSearch.value.trim()) {
-        query = '';
-        renderTools();
+      const selected = heroSuggestionMatches[heroSuggestionIndex] || heroSuggestionMatches[0];
+      if (selected) {
+        location.href = selected.path;
+      } else {
+        closeHeroSuggestions();
+        applySearch(heroSearch.value);
       }
+    });
+    heroSearch.addEventListener('focus', () => renderHeroSuggestions(heroSearch.value));
+    heroSearch.addEventListener('input', () => renderHeroSuggestions(heroSearch.value));
+    heroSearch.addEventListener('keydown', event => {
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        if (heroSearchSuggestions.hidden) renderHeroSuggestions(heroSearch.value);
+        setHeroSuggestionIndex(heroSuggestionIndex + 1);
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (heroSearchSuggestions.hidden) renderHeroSuggestions(heroSearch.value);
+        setHeroSuggestionIndex(heroSuggestionIndex - 1);
+      } else if (event.key === 'Escape') {
+        event.preventDefault();
+        closeHeroSuggestions();
+      }
+    });
+    heroSearchSuggestions.addEventListener('mousedown', event => event.preventDefault());
+    document.addEventListener('click', event => {
+      if (!event.target.closest('#heroSearchWrap')) closeHeroSuggestions();
     });
 
     document.getElementById('menuButton').addEventListener('click', () => {
@@ -1120,9 +1423,9 @@
         headerSearchResults.innerHTML = '';
         return;
       }
-      const matches = tools.filter(tool => `${tool.name} ${tool.category} ${tool.description}`.toLowerCase().includes(q)).slice(0, 6);
+      const matches = getSearchEntries(q, 7);
       headerSearchResults.innerHTML = matches.length
-        ? matches.map(tool => `<a class="header-search-result" href="${tool.path}"><span><strong>${tool.name}</strong><span>${tool.category} · ${tool.description}</span></span><b>→</b></a>`).join('')
+        ? matches.map(entry => `<a class="header-search-result" href="${entry.path}"><span><strong>${entry.title}</strong><span>${entry.isMode ? `${entry.parentName} · ${entry.category}` : `${entry.category} · ${entry.description}`}</span></span><b>→</b></a>`).join('')
         : '<div class="header-search-empty">No matching calculator. Try a broader term.</div>';
       headerSearchResults.hidden = false;
     }
@@ -1156,16 +1459,6 @@
       if (!event.target.closest('#headerSearchWrap') && !event.target.closest('#searchOpenButton')) closeHeaderSearch();
     });
 
-    /* Theme */
-    const themeButton = document.getElementById('themeButton');
-    function setTheme(theme) {
-      document.documentElement.dataset.theme = theme;
-      try { localStorage.setItem('kalq-theme', theme); } catch (e) {}
-      themeButton.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0b202c' : '#0f2c3d');
-    }
-    themeButton.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
-
     /* Language */
     const languageMenu = document.getElementById('languageMenu');
     const languageButton = document.getElementById('languageButton');
@@ -1173,15 +1466,15 @@
       en: {
         navPopular:'Popular', navAll:'All calculators', navCategories:'Categories', navAbout:'About',
         searchEyebrow:'Calculator search', searchTitle:'Find a tool quickly', quickCalculator:'Quick calculator', calculateWithoutLeaving:'Calculate without leaving the page', basic:'Basic', scientific:'Scientific', calculatorLocal:'Keyboard input: use 0–9 and the decimal key. Calculations stay in this browser.',
-        heroEyebrow:'Practical calculation tools', heroTitle:'Clear answers, without the clutter.', heroCopy:'Explore focused calculators, converters, and learning tools for money, health, school, work, construction, time, and everyday decisions.', findCalculator:'Find a calculator', searchPlaceholder:'Search BMI, GPA, percentage, conversions, polynomial roots, and more…', oneTask:'One task per calculator.',
-        popularTitle:'Popular calculators', directoryTitle:'Find your calculator', categoriesTitle:'Browse by purpose', aboutTitle:'Designed for useful decisions', suggestTitle:'Need a calculator added?', suggestCopy:'Suggest a practical tool or report that would make KALQ more useful.', suggestButton:'Suggest a calculator',
-        footerTitle:'Calculate with clarity.', footerCopy:'Focused calculators, converters, and practical tools with clear results and useful explanations.', footerPopular:'Popular tools', footerPopularCopy:'Start with everyday calculators', footerDirectory:'Calculators', footerDirectoryCopy:'Search and filter every tool', footerCategories:'Categories', footerCategoriesCopy:'Find tools by purpose', footerAbout:'About', footerAboutCopy:'Methods and editorial standards', footerDisclaimer:'General informational tools. Results are not professional advice.', goUp:'Top'
+        heroEyebrow:'Practical calculation tools', heroTitle:'Free Online Calculators and Tools with Report', heroCopy:'Free calculators, converters and educational tools with clear formulas and supporting explanations.', findCalculator:'Find a calculator', searchPlaceholder:'Search age, BMI, GPA, chemistry, percentages, unit conversions, polynomial roots, and more…', oneTask:'One task per calculator.',
+        popularTitle:'Popular tools', directoryTitle:'Find your calculator', categoriesTitle:'Browse by purpose', aboutTitle:'Designed for useful decisions', suggestTitle:'Need a calculator added?', suggestCopy:'Suggest a practical tool or report that would make KALQ more useful.', suggestButton:'Suggest a calculator',
+        footerTitle:'Calculate with clarity.', footerCopy:'Focused calculators, converters, and practical tools with clear results and useful explanations.', footerPopular:'Popular tools', footerPopularCopy:'Start with everyday calculators', footerDirectory:'Calculators', footerDirectoryCopy:'Search and filter every tool', footerCategories:'Categories', footerCategoriesCopy:'Find tools by purpose', footerAbout:'About', footerAboutCopy:'Methods and editorial standards', footerDisclaimer:'General informational tools. Results are not qualified advice.', goUp:'Top'
       },
       ms: {
         navPopular:'Popular', navAll:'Semua kalkulator', navCategories:'Kategori', navAbout:'Tentang',
         searchEyebrow:'Carian kalkulator', searchTitle:'Cari alat dengan cepat', quickCalculator:'Kalkulator pantas', calculateWithoutLeaving:'Kira tanpa meninggalkan halaman', basic:'Asas', scientific:'Saintifik', calculatorLocal:'Input papan kekunci: gunakan 0–9 dan kekunci perpuluhan. Pengiraan kekal dalam pelayar ini.',
         heroEyebrow:'Alat pengiraan praktikal', heroTitle:'Jawapan jelas, tanpa serabut.', heroCopy:'Terokai kalkulator, penukar dan alat pembelajaran khusus untuk kewangan, kesihatan, sekolah, kerja, pembinaan, masa dan keputusan harian.', findCalculator:'Cari kalkulator', searchPlaceholder:'Cari BMI, GPA, peratusan, penukaran, punca polinomial dan lagi…', oneTask:'Satu tugas bagi setiap kalkulator.',
-        popularTitle:'Kalkulator popular', directoryTitle:'Cari kalkulator anda', categoriesTitle:'Lihat mengikut tujuan', aboutTitle:'Direka untuk keputusan berguna', suggestTitle:'Perlukan kalkulator baharu?', suggestCopy:'Cadangkan alat praktikal atau laporan yang boleh menjadikan KALQ lebih berguna.', suggestButton:'Cadangkan kalkulator',
+        popularTitle:'Alat popular', directoryTitle:'Cari kalkulator anda', categoriesTitle:'Lihat mengikut tujuan', aboutTitle:'Direka untuk keputusan berguna', suggestTitle:'Perlukan kalkulator baharu?', suggestCopy:'Cadangkan alat praktikal atau laporan yang boleh menjadikan KALQ lebih berguna.', suggestButton:'Cadangkan kalkulator',
         footerTitle:'Kira dengan jelas.', footerCopy:'Kalkulator, penukar dan alat praktikal dengan hasil yang jelas serta penerangan berguna.', footerPopular:'Alat popular', footerPopularCopy:'Mulakan dengan kalkulator harian', footerDirectory:'Kalkulator', footerDirectoryCopy:'Cari dan tapis semua alat', footerCategories:'Kategori', footerCategoriesCopy:'Cari alat mengikut tujuan', footerAbout:'Tentang', footerAboutCopy:'Kaedah dan piawaian editorial', footerDisclaimer:'Alat maklumat umum. Keputusan bukan nasihat profesional.', goUp:'Atas'
       }
     };
@@ -1322,44 +1615,6 @@
     window.addEventListener('scroll', updateGoUp, {passive:true});
     goUpButton.addEventListener('click', () => window.scrollTo({top:0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}));
     updateGoUp();
-
-    /* Adaptive full-section wheel navigation */
-    (() => {
-      const desktopWheel = window.matchMedia('(min-width: 901px) and (pointer: fine)');
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const targets = [...document.querySelectorAll('main .snap-page'), document.querySelector('footer.snap-page')].filter(Boolean);
-      let locked=false, unlockTimer=0, accumulated=0, accumulationTimer=0;
-      const threshold=46, tolerance=7;
-      const topbarHeight=()=>Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--topbar-height'))||66;
-      const scrollTopFor=target=>target.matches('footer')?Math.max(0,document.documentElement.scrollHeight-window.innerHeight):Math.max(0,window.scrollY+target.getBoundingClientRect().top-topbarHeight());
-      function activeIndex(){
-        if(window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-tolerance)return targets.length-1;
-        const anchor=topbarHeight()+Math.min(window.innerHeight*.34,240); let index=0;
-        targets.forEach((target,i)=>{const r=target.getBoundingClientRect();if(r.top<=anchor&&r.bottom>anchor)index=i;}); return index;
-      }
-      function moveTo(index){ if(index<0||index>=targets.length)return; locked=true; accumulated=0; document.documentElement.classList.add('is-page-snapping'); window.scrollTo({top:scrollTopFor(targets[index]),behavior:reduceMotion.matches?'auto':'smooth'}); clearTimeout(unlockTimer); unlockTimer=setTimeout(()=>{locked=false;document.documentElement.classList.remove('is-page-snapping');},reduceMotion.matches?80:680); }
-      window.addEventListener('wheel',event=>{
-        if(!desktopWheel.matches||locked||document.body.style.overflow==='hidden'||event.ctrlKey)return;
-        if(event.target.closest('.calculator-panel,.header-search-results'))return;
-        accumulated+=event.deltaY; clearTimeout(accumulationTimer); accumulationTimer=setTimeout(()=>accumulated=0,160);
-        if(Math.abs(accumulated)<threshold)return;
-        const direction=accumulated>0?1:-1, index=activeIndex(), current=targets[index], rect=current.getBoundingClientRect();
-        const viewportTop=topbarHeight(), viewportBottom=window.innerHeight;
-        const taller=rect.height>viewportBottom-viewportTop+tolerance;
-        const atBottom=rect.bottom<=viewportBottom+tolerance||window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-tolerance;
-        const atTop=rect.top>=viewportTop-tolerance;
-        if(taller&&direction>0&&!atBottom){accumulated=0;return;}
-        if(taller&&direction<0&&!atTop){accumulated=0;return;}
-        event.preventDefault(); moveTo(index+direction);
-      },{passive:false});
-      window.addEventListener('keydown',event=>{
-        if(!desktopWheel.matches||document.body.style.overflow==='hidden'||['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;
-        const index=activeIndex();
-        if(['PageDown','ArrowDown'].includes(event.key)||(event.key===' '&&!event.shiftKey)){event.preventDefault();moveTo(index+1);}
-        if(['PageUp','ArrowUp'].includes(event.key)||(event.key===' '&&event.shiftKey)){event.preventDefault();moveTo(index-1);}
-        if(event.key==='Home'){event.preventDefault();moveTo(0);} if(event.key==='End'){event.preventDefault();moveTo(targets.length-1);}
-      });
-    })();
 
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') { if (headerSearchWrap.classList.contains('is-open')) closeHeaderSearch(); if (calculatorPanel.classList.contains('is-open')) closeCalculator(); }

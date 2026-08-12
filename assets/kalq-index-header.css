@@ -1,0 +1,702 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: auto;
+  border-bottom: 1px solid rgba(17, 41, 54, .08);
+  background: rgba(251, 250, 246, .88);
+  backdrop-filter: blur(16px);
+  color: var(--navy);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.topbar,
+.topbar *,
+.topbar *::before,
+.topbar *::after {
+  box-sizing: border-box;
+}
+
+.topbar-inner {
+  position: relative;
+  width: auto;
+  max-width: 1320px;
+  min-height: 64px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--navy);
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 900;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 34px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50% 50% 50% 16%;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--teal), var(--navy));
+  box-shadow: var(--soft-shadow);
+}
+
+.topnav,
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.topnav {
+  gap: 22px;
+}
+
+.topnav a {
+  color: var(--muted);
+  font-size: .91rem;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.topnav a:hover,
+.topnav a:focus-visible {
+  color: var(--navy);
+}
+
+.header-actions {
+  gap: 7px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.icon-button,
+.header-search-close,
+.menu-button,
+.language-menu button,
+.currency-menu button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.icon-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--navy);
+  background: transparent;
+  display: inline-grid;
+  place-items: center;
+}
+
+.icon-button:hover,
+.icon-button:focus-visible {
+  border-color: var(--line);
+  background: var(--mist);
+  transform: translateY(-1px);
+}
+
+.icon-button svg,
+.header-search svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sun-icon {
+  display: none;
+}
+
+.header-popover-wrap {
+  position: relative;
+}
+
+.header-currency-wrap {
+  position: relative;
+}
+
+.currency-button {
+  width: auto;
+  min-width: 52px;
+  padding: 0 10px;
+  border-color: var(--line);
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+.language-menu,
+.currency-menu {
+  position: absolute;
+  z-index: 80;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 190px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.language-menu[hidden],
+.currency-menu[hidden] {
+  display: none;
+}
+
+.language-menu button,
+.currency-menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 11px;
+  border: 0;
+  border-radius: 11px;
+  color: var(--muted);
+  background: transparent;
+  text-align: left;
+}
+
+.language-menu button:hover,
+.language-menu button.is-active,
+.currency-menu button:hover,
+.currency-menu button.is-active {
+  color: var(--navy);
+  background: var(--mist);
+}
+
+.language-menu button span,
+.currency-menu button span {
+  width: 32px;
+  color: var(--teal);
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.header-search-wrap {
+  position: absolute;
+  z-index: 75;
+  top: 50%;
+  right: 190px;
+  left: clamp(220px, 27vw, 410px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scaleX(.84);
+  transform-origin: right center;
+  transition: opacity .2s ease, transform .24s ease;
+}
+
+.header-search-wrap.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scaleX(1);
+}
+
+.topbar-inner.search-open .topnav {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.header-search {
+  height: 44px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 0 7px 0 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  box-shadow: var(--soft-shadow);
+}
+
+.header-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--navy);
+  background: transparent;
+  font-size: .91rem;
+}
+
+.header-search-close {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.header-search-results {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+  left: 0;
+  max-height: min(330px, calc(100dvh - 98px));
+  overflow-y: auto;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.header-search-result {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+  align-items: center;
+  padding: 11px 5px;
+  border-bottom: 1px solid var(--line);
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.header-search-result:last-child {
+  border-bottom: 0;
+}
+
+.header-search-result strong,
+.header-search-result span {
+  display: block;
+}
+
+.header-search-result span {
+  color: var(--muted);
+  font-size: .74rem;
+}
+
+.header-search-result b {
+  color: var(--coral);
+}
+
+.header-search-empty {
+  padding: 17px 5px;
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+.menu-button {
+  display: none;
+  border: 0;
+  color: var(--navy);
+  background: transparent;
+  font-weight: 850;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+html[data-theme="dark"] .topbar {
+  --navy: #f5fbfa;
+  --muted: #a9bec6;
+  --mist: #123442;
+  --line: #294653;
+  --white: #102c3a;
+  background: rgba(11, 32, 44, .9);
+}
+
+html[data-theme="dark"] .sun-icon {
+  display: block;
+}
+
+html[data-theme="dark"] .moon-icon {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .topnav {
+    gap: 13px;
+  }
+
+  .topnav a {
+    font-size: .82rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar-inner {
+    min-height: 58px;
+    padding-inline: 18px;
+  }
+
+  .header-actions {
+    margin-left: auto;
+    gap: 1px;
+  }
+
+  .icon-button {
+    width: 37px;
+    height: 37px;
+  }
+
+  .currency-button {
+    width: auto;
+    min-width: 47px;
+    padding-inline: 7px;
+  }
+
+  .menu-button {
+    display: block;
+    margin-left: 4px;
+  }
+
+  .topnav {
+    position: absolute;
+    top: 58px;
+    right: 0;
+    left: 0;
+    display: none;
+    padding: 16px 22px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(251, 250, 246, .98);
+  }
+
+  .topnav.is-open {
+    display: flex;
+  }
+
+  .header-search-wrap {
+    top: calc(100% + 7px);
+    right: 12px;
+    left: 12px;
+    transform: translateY(-8px) scaleX(.92);
+  }
+
+  .header-search-wrap.is-open {
+    transform: translateY(0) scaleX(1);
+  }
+
+  .header-search {
+    height: 42px;
+  }
+
+  .topbar-inner.search-open .brand,
+  .topbar-inner.search-open .topnav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+/* Canonical index-header geometry. These selectors outrank legacy page styles. */
+.topbar > .topbar-inner {
+  width: 100%;
+  max-width: 1320px;
+  min-height: 64px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.topbar .brand {
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.topbar .brand-mark {
+  width: 34px;
+}
+
+.topbar .topnav.nav-collections {
+  gap: clamp(10px, 1.25vw, 18px);
+}
+
+.topbar .topnav.nav-collections > a {
+  padding: 6px 0;
+  font-size: .8rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+@media (max-width: 1040px) and (min-width: 721px) {
+  .topbar .topnav.nav-collections {
+    gap: 10px;
+  }
+
+  .topbar .topnav.nav-collections > a {
+    font-size: .72rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar > .topbar-inner {
+    min-height: 58px;
+    padding-inline: 18px;
+  }
+
+  .topbar .topnav.nav-collections {
+    gap: 7px;
+  }
+
+  .topbar .topnav.nav-collections > a {
+    width: 100%;
+    padding: 5px 0;
+  }
+}
+
+/*
+ * Final shared-shell lock.
+ * Legacy calculator styles still contain their original header/footer rules.
+ * Keep the visible site shell identical without affecting calculator reports
+ * or their print layouts.
+ */
+@media screen {
+  html {
+    overflow-y: scroll !important;
+    scrollbar-gutter: stable !important;
+  }
+
+  body {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  body > .site-shell {
+    width: 100% !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    display: flex !important;
+    flex: 1 0 auto !important;
+    flex-direction: column !important;
+  }
+
+  body > main,
+  body > .site-shell > main {
+    width: 100% !important;
+    flex: 1 0 auto !important;
+  }
+
+  body > footer,
+  body > .site-shell > footer {
+    flex: 0 0 auto !important;
+  }
+
+  .topbar.kalq-site-header {
+    --navy: #0d2a3a;
+    --muted: #607580;
+    --teal: #0aa69a;
+    --white: #ffffff;
+    --line: #d5e1df;
+    --mist: #eef6f4;
+    --soft-shadow: 0 12px 30px rgba(13, 42, 58, .12);
+    position: sticky !important;
+    inset: 0 0 auto !important;
+    z-index: 30 !important;
+    width: 100% !important;
+    height: 65px !important;
+    min-height: 65px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 0 0 65px !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(17, 41, 54, .08) !important;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+  }
+
+  .topbar.kalq-site-header > .topbar-inner {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 1320px !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 24px !important;
+  }
+
+  .topbar.kalq-site-header .brand {
+    width: auto !important;
+    min-width: max-content !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+  }
+
+  .topbar.kalq-site-header .brand-mark {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    flex: 0 0 34px !important;
+  }
+
+  .topbar.kalq-site-header .topnav.nav-collections {
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 0 1 auto !important;
+    align-items: center !important;
+  }
+
+  .topbar.kalq-site-header .topnav.nav-collections > a {
+    margin: 0 !important;
+    font-family: inherit !important;
+  }
+
+  .topbar.kalq-site-header .header-actions {
+    min-width: max-content !important;
+    margin: 0 0 0 auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    gap: 7px !important;
+    font-family: inherit !important;
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+  }
+
+  .topbar.kalq-site-header .icon-button {
+    height: 40px !important;
+    min-height: 40px !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .topbar.kalq-site-header .currency-button {
+    width: 52px !important;
+    min-width: 52px !important;
+    padding: 0 10px !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    font-size: 11.52px !important;
+    font-weight: 900 !important;
+    line-height: 1.55 !important;
+    letter-spacing: .04em !important;
+  }
+
+  .kalq-global-footer {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 14px 0 10px !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, .12) !important;
+    background: #0d2939 !important;
+    color: #e8f1f2 !important;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  .kalq-global-footer .kalq-footer-inner {
+    width: min(1180px, calc(100% - 40px)) !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .topbar.kalq-site-header {
+    height: 59px !important;
+    min-height: 59px !important;
+    flex-basis: 59px !important;
+  }
+
+  .topbar.kalq-site-header > .topbar-inner {
+    height: 58px !important;
+    min-height: 58px !important;
+    padding-inline: 18px !important;
+  }
+
+  .topbar.kalq-site-header .header-actions {
+    gap: 1px !important;
+  }
+
+  .topbar.kalq-site-header .menu-button {
+    margin-left: 4px !important;
+    padding: 1px 6px !important;
+    font-family: inherit !important;
+    font-size: 16px !important;
+    font-weight: 850 !important;
+    line-height: 1.55 !important;
+  }
+
+  .kalq-global-footer .kalq-footer-inner {
+    width: min(100% - 36px, 1180px) !important;
+  }
+}
+
+/* Keep the slide-out calculator close control visible on every page. */
+.calculator-panel .close-button {
+  width: 35px !important;
+  min-width: 35px !important;
+  height: 35px !important;
+  min-height: 35px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  opacity: 1 !important;
+  appearance: none !important;
+}
+
+.calculator-panel .close-button:hover,
+.calculator-panel .close-button:focus-visible {
+  background: rgba(255, 255, 255, .10) !important;
+}
