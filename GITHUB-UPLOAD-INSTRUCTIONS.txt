@@ -1,4 +1,4 @@
-KalQ — GitHub Pages upload
+KALQ — GitHub Pages upload
 
 1. Extract kalq.online-ready.zip on your computer.
 2. Open the extracted folder.

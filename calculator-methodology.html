@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calculator Methodology | KalQ</title>
-  <meta name="description" content="Learn how KalQ selects formulas and sources, tests calculations, handles rounding, currencies, units, dates and updates.">
+  <title>Calculator Methodology | KALQ</title>
+  <meta name="description" content="Learn how KALQ selects formulas and sources, tests calculations, handles rounding, currencies, units, dates and updates.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#0f2c3d">
-  <meta property="og:title" content="Calculator Methodology | KalQ">
-<meta property="og:description" content="Learn how KalQ selects formulas and sources, tests calculations, handles rounding, currencies, units, dates and updates.">
+  <meta property="og:title" content="Calculator Methodology | KALQ">
+<meta property="og:description" content="Learn how KALQ selects formulas and sources, tests calculations, handles rounding, currencies, units, dates and updates.">
 <meta property="og:url" content="https://kalq.online/calculator-methodology.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="KalQ">
+<meta property="og:site_name" content="KALQ">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Calculator Methodology | KalQ">
-<meta name="twitter:description" content="Learn how KalQ selects formulas and sources, tests calculations, handles rounding, currencies, units, dates and updates.">
+<meta name="twitter:title" content="Calculator Methodology | KALQ">
+<meta name="twitter:description" content="Learn how KALQ selects formulas and sources, tests calculations, handles rounding, currencies, units, dates and updates.">
   <link rel="canonical" href="https://kalq.online/calculator-methodology.html">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/manifest.webmanifest">
-  <script src="/assets/kalq-shared.js" defer></script>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <script src="assets/kalq-shared.js?v=20260812-5" defer></script>
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -29,7 +29,7 @@
       "@id": "https://kalq.online/calculator-methodology.html#webpage",
       "name": "Calculator Methodology",
       "url": "https://kalq.online/calculator-methodology.html",
-      "description": "Learn how KalQ selects formulas and sources, tests calculations, handles rounding, currencies, units, dates and updates.",
+      "description": "Learn how KALQ selects formulas and sources, tests calculations, handles rounding, currencies, units, dates and updates.",
       "inLanguage": "en",
       "breadcrumb": {
         "@id": "https://kalq.online/calculator-methodology.html#breadcrumb"
@@ -56,19 +56,123 @@
   ]
 }</script>
   
-  <script src="/assets/kalq-static-header.js" defer></script>
-<link rel="stylesheet" href="/assets/kalq-shared.css?v=20260731-4">
-<link rel="stylesheet" href="/assets/kalq-index-header.css?v=20260731-4">
+  <script src="assets/kalq-static-header.js?v=20260812-3" defer></script>
+<link rel="stylesheet" href="assets/kalq-shared.css?v=20260812-16">
+<link rel="stylesheet" href="assets/kalq-index-header.css?v=20260804-11">
+<style>
+  .kalq-methodology-page .kalq-page-shell {
+    max-width: 1180px;
+    padding: 32px 24px 52px;
+  }
+
+  .kalq-methodology-page .kalq-breadcrumbs {
+    margin-bottom: 16px;
+  }
+
+  .kalq-methodology-page .kalq-page-hero {
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--kalq-line);
+  }
+
+  .kalq-methodology-page .kalq-page-hero h1 {
+    margin-bottom: 10px;
+    font-size: clamp(2rem, 3.5vw, 2.7rem);
+  }
+
+  .kalq-methodology-page .kalq-page-hero p:last-child {
+    font-size: .94rem;
+  }
+
+  .kalq-methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+    counter-reset: methodology-card;
+  }
+
+  .kalq-methodology-page .kalq-methodology-grid .kalq-content-section {
+    min-width: 0;
+    min-height: 164px;
+    display: block !important;
+    padding: 20px;
+    border: 1px solid var(--kalq-line);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, .58);
+    box-shadow: 0 8px 24px rgba(15, 44, 61, .035);
+    counter-increment: methodology-card;
+  }
+
+  .kalq-methodology-page .kalq-methodology-grid .kalq-content-section::before {
+    display: block;
+    margin-bottom: 11px;
+    color: var(--kalq-coral);
+    content: "0" counter(methodology-card);
+    font-size: .66rem;
+    font-weight: 850;
+    letter-spacing: .1em;
+  }
+
+  .kalq-methodology-page .kalq-methodology-grid .kalq-content-section h2 {
+    margin: 0 0 8px;
+    font-size: .98rem;
+    letter-spacing: -.02em;
+    line-height: 1.25;
+  }
+
+  .kalq-methodology-page .kalq-methodology-grid .kalq-content-section p {
+    max-width: none;
+    margin: 0;
+    font-size: .78rem;
+    line-height: 1.55;
+  }
+
+  .kalq-methodology-page .kalq-meta {
+    margin-top: 20px;
+    padding-top: 14px;
+  }
+
+  html[data-theme="dark"] .kalq-methodology-page .kalq-methodology-grid .kalq-content-section {
+    border-color: #294653;
+    background: rgba(16, 44, 58, .88);
+    box-shadow: none;
+  }
+
+  @media (max-width: 900px) {
+    .kalq-methodology-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 620px) {
+    .kalq-methodology-page .kalq-page-shell {
+      padding: 26px 18px 44px;
+    }
+
+    .kalq-methodology-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .kalq-methodology-page .kalq-methodology-grid .kalq-content-section {
+      min-height: 0;
+      padding: 18px;
+    }
+  }
+</style>
 </head>
-<body class="kalq-static-page">
+<body class="kalq-static-page kalq-methodology-page">
   <a class="kalq-skip-link" href="#main-content">Skip to main content</a>
-  <header class="topbar">
+  <header class="topbar kalq-site-header">
     <div class="topbar-inner">
-      <a class="brand" href="/" aria-label="KalQ home"><span class="brand-mark">K</span><span>KalQ</span></a>
-      <nav class="topnav" id="topnav" aria-label="Main navigation">
-        <a href="/#popular" data-i18n="navPopular">Popular</a>
-        <a href="/calculators.html" data-i18n="navAll">All calculators</a>
-        <a href="/about.html" data-i18n="navAbout">About</a>
+      <a class="brand" href="index.html" aria-label="KALQ home"><span class="brand-mark">K</span><span>KALQ</span></a>
+      <nav class="topnav nav-collections" id="topnav" aria-label="Calculator collections">
+        <a href="finance-calculators.html">Finance</a>
+        <a href="health-calculators.html">Health</a>
+        <a href="date-time-calculators.html">Date &amp; Time</a>
+        <a href="math-calculators.html">Math</a>
+        <a href="converters.html">Converters</a>
+        <a href="education-calculators.html">Education</a>
+        <a href="games.html">Games</a>
       </nav>
       <div class="header-search-wrap" id="headerSearchWrap">
         <form class="header-search" id="headerSearchForm" role="search">
@@ -83,10 +187,6 @@
         <button class="icon-button" id="calculatorButton" type="button" aria-label="Open calculator" aria-expanded="false" aria-controls="calculatorPanel">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="3"></rect><path d="M7.5 6.5h9M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h4"></path></svg>
         </button>
-        <button class="icon-button" id="themeButton" type="button" aria-label="Switch to dark mode">
-          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"></path></svg>
-          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
-        </button>
         <div class="header-popover-wrap">
           <button class="icon-button" id="languageButton" type="button" aria-label="Change language" aria-expanded="false" aria-controls="languageMenu">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg>
@@ -94,6 +194,15 @@
           <div class="language-menu" id="languageMenu" hidden>
             <button type="button" data-lang="en" class="is-active"><span>EN</span> English</button>
             <button type="button" data-lang="ms"><span>BM</span> Bahasa Melayu</button>
+          </div>
+        </div>
+        <div class="header-currency-wrap">
+          <button class="icon-button currency-button" id="currencyButton" type="button" aria-label="Currency: US Dollar" aria-controls="currencyMenu" aria-expanded="false">
+            <span id="currencyButtonLabel">USD</span>
+          </button>
+          <div class="currency-menu" id="currencyMenu" role="radiogroup" aria-label="Currency" hidden>
+            <button type="button" role="radio" data-site-currency="USD"><span>$</span>USD &middot; US Dollar</button>
+            <button type="button" role="radio" data-site-currency="MYR"><span>RM</span>MYR &middot; Malaysian Ringgit</button>
           </div>
         </div>
         <button class="icon-button" id="searchOpenButton" type="button" aria-label="Open search" aria-expanded="false" aria-controls="headerSearchWrap">
@@ -104,51 +213,64 @@
     </div>
   </header>
   <main id="main-content" class="kalq-page-shell">
-    <nav class="kalq-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">›</span><span aria-current="page">Calculator Methodology</span></nav>
-    <section class="kalq-page-hero"><p class="kalq-eyebrow">KalQ information</p><h1>Calculator Methodology</h1><p>KalQ combines established formulas with transparent assumptions and practical browser-based calculation.</p></section>
-    <section class="kalq-content-section"><h2>Formula and source selection</h2><p>Methods are chosen for relevance to the named calculator. Authoritative government, university, standards, medical and educational sources are preferred where the subject requires them.</p></section><section class="kalq-content-section"><h2>Calculation testing</h2><p>Tests use representative inputs, boundary values, empty states, invalid combinations and independent manual calculations. Working calculator logic is preserved when shared presentation code is updated.</p></section><section class="kalq-content-section"><h2>Rounding and number formatting</h2><p>Intermediate calculations generally retain precision while displayed results use a practical number of decimals. Currency output should use locale-aware formatting.</p></section><section class="kalq-content-section"><h2>Currency and units</h2><p>The site defaults to USD and SI units unless a calculator states otherwise. MYR and other units may be offered when relevant. Inputs are converted before formulas to avoid mixed-unit calculations.</p></section><section class="kalq-content-section"><h2>Dates and time zones</h2><p>Date tools should use valid calendar dates and state material assumptions. Local-browser dates can differ by time zone, so timeline calculators explain their reference date.</p></section><section class="kalq-content-section"><h2>Live and regulatory data</h2><p>A value is called live only when connected to a real source with an update time. Jurisdiction-specific rules require an effective period, official source and review date.</p></section><section class="kalq-content-section"><h2>Review, updates and errors</h2><p>Pages display a review date after a substantive check. Reports of errors should include reproducible inputs, the observed result and an authoritative supporting source.</p></section><section class="kalq-content-section"><h2>Limitations</h2><p>Simplified formulas cannot model every personal, regulatory or professional circumstance. Calculator-specific limitations take priority over this general methodology.</p></section>
+    <nav class="kalq-breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">›</span><span aria-current="page">Calculator Methodology</span></nav>
+    <section class="kalq-page-hero"><p class="kalq-eyebrow">KALQ information</p><h1>Calculator Methodology</h1><p>KALQ combines established formulas with transparent assumptions and practical browser-based calculation.</p></section>
+    <div class="kalq-methodology-grid">
+      <section class="kalq-content-section"><h2>Formula and source selection</h2><p>Methods are chosen for relevance to the named calculator. Authoritative government, university, standards, medical and educational sources are preferred where the subject requires them.</p></section>
+      <section class="kalq-content-section"><h2>Calculation testing</h2><p>Tests use representative inputs, boundary values, empty states, invalid combinations and independent manual calculations. Working calculator logic is preserved when shared presentation code is updated.</p></section>
+      <section class="kalq-content-section"><h2>Rounding and number formatting</h2><p>Intermediate calculations generally retain precision while displayed results use a practical number of decimals. Currency output should use locale-aware formatting.</p></section>
+      <section class="kalq-content-section"><h2>Currency and units</h2><p>The site defaults to USD and SI units unless a calculator states otherwise. MYR and other units may be offered when relevant. Inputs are converted before formulas to avoid mixed-unit calculations.</p></section>
+      <section class="kalq-content-section"><h2>Dates and time zones</h2><p>Date tools should use valid calendar dates and state material assumptions. Local-browser dates can differ by time zone, so timeline calculators explain their reference date.</p></section>
+      <section class="kalq-content-section"><h2>Live and regulatory data</h2><p>A value is called live only when connected to a real source with an update time. Jurisdiction-specific rules require an effective period, official source and review date.</p></section>
+      <section class="kalq-content-section"><h2>Review, updates and errors</h2><p>Pages display a review date after a substantive check. Reports of errors should include reproducible inputs, the observed result and an authoritative supporting source.</p></section>
+      <section class="kalq-content-section"><h2>Limitations</h2><p>Simplified formulas cannot model every personal, regulatory or specialist circumstance. Calculator-specific limitations take priority over this general methodology.</p></section>
+    </div>
     <p class="kalq-meta">Last updated: 31 July 2026</p>
   </main>
   <footer class="site-footer kalq-global-footer" id="footer">
   <div class="kalq-footer-inner">
     <div class="kalq-footer-grid">
       <div class="kalq-footer-about">
-        <a class="kalq-footer-brand" href="/" aria-label="KalQ home"><span class="kalq-footer-brand-mark">K</span><span>KalQ</span></a>
+        <a class="kalq-footer-brand" href="index.html" aria-label="KALQ home"><span class="kalq-footer-brand-mark">K</span><span>KALQ</span></a>
         <p class="kalq-footer-summary">Free calculators, converters and educational tools with clear inputs, formulas, assumptions and practical explanations.</p>
       </div>
       <nav class="kalq-footer-column" aria-label="Information">
         <h2>Information</h2>
         <div class="kalq-footer-links">
-          <a href="/about.html">About KalQ</a>
-          <a href="/contact.html">Contact</a>
-          <a href="/privacy-policy.html">Privacy Policy</a>
-          <a href="/terms-of-use.html">Terms of Use</a>
-          <a href="/disclaimer.html">Disclaimer</a>
-          <a href="/cookie-policy.html">Cookie Policy</a>
-          <a href="/calculator-methodology.html">Calculator Methodology</a>
-          <a href="/faq.html">Frequently Asked Questions</a>
-          <a href="/sitemap.html">HTML Sitemap</a>
-          <a href="/calculators.html">All Calculators</a>
+          <a href="about.html">About KALQ</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-use.html">Terms of Use</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="cookie-policy.html">Cookie Policy</a>
+          <a href="calculator-methodology.html">Calculator Methodology</a>
+          <a href="faq.html">Frequently Asked Questions</a>
+          <a href="sitemap.html">HTML Sitemap</a>
+          <a href="cookie-policy.html#settings">Cookie Settings</a>
         </div>
       </nav>
       <nav class="kalq-footer-column" aria-label="Calculator collections">
         <h2>Calculator collections</h2>
         <div class="kalq-footer-links">
-          <a href="/finance-calculators.html">Finance Calculators</a>
-          <a href="/math-calculators.html">Math Calculators</a>
-          <a href="/health-calculators.html">Health Calculators</a>
-          <a href="/education-calculators.html">Education Calculators</a>
-          <a href="/converters.html">Converters</a>
-          <a href="/games.html">Games</a>
-          <a href="/cookie-policy.html#settings">Cookie Settings</a>
+          <a href="finance-calculators.html">Finance Calculators</a>
+          <a href="health-calculators.html">Health Calculators</a>
+          <a href="date-time-calculators.html">Date &amp; Time Calculators</a>
+          <a href="math-calculators.html">Math Calculators</a>
+          <a href="converters.html">Converters</a>
+          <a href="education-calculators.html">Education Calculators</a>
+          <a href="games.html">Games</a>
+          <a href="calculators.html">All Calculators</a>
         </div>
       </nav>
     </div>
     <div class="kalq-footer-bottom">
-      <p>© <span id="year">2026</span> KalQ. All rights reserved.</p>
-      <p>KalQ calculators provide estimates for informational and educational purposes. Results may vary depending on the information entered and should not replace professional advice.</p>
+      <p>© <span id="year">2026</span> KALQ. All rights reserved.</p>
+      <p>KALQ calculators provide estimates for informational use and do not replace qualified advice.</p>
     </div>
   </div>
 </footer>
+<button class="go-up-button" id="goUpButton" type="button" aria-label="Go to top" data-shared-go-up>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"></path></svg><span data-i18n="goUp">Top</span>
+</button>
 </body>
 </html>

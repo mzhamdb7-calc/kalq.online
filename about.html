@@ -3,33 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About KalQ | Calculator Methods, Testing &amp; Privacy</title>
-  <meta name="description" content="Learn what KalQ provides, how calculator formulas are selected and tested, and how privacy and limitations are handled.">
+  <title>About KALQ | Calculator Methods, Testing &amp; Privacy</title>
+  <meta name="description" content="Learn what KALQ provides, how calculator formulas are selected and tested, and how privacy and limitations are handled.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#0f2c3d">
-  <meta property="og:title" content="About KalQ | Calculator Methods, Testing &amp; Privacy">
-<meta property="og:description" content="Learn what KalQ provides, how calculator formulas are selected and tested, and how privacy and limitations are handled.">
+  <meta property="og:title" content="About KALQ | Calculator Methods, Testing &amp; Privacy">
+<meta property="og:description" content="Learn what KALQ provides, how calculator formulas are selected and tested, and how privacy and limitations are handled.">
 <meta property="og:url" content="https://kalq.online/about.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="KalQ">
+<meta property="og:site_name" content="KALQ">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About KalQ | Calculator Methods, Testing &amp; Privacy">
-<meta name="twitter:description" content="Learn what KalQ provides, how calculator formulas are selected and tested, and how privacy and limitations are handled.">
+<meta name="twitter:title" content="About KALQ | Calculator Methods, Testing &amp; Privacy">
+<meta name="twitter:description" content="Learn what KALQ provides, how calculator formulas are selected and tested, and how privacy and limitations are handled.">
   <link rel="canonical" href="https://kalq.online/about.html">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/manifest.webmanifest">
-  <script src="/assets/kalq-shared.js" defer></script>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <script src="assets/kalq-shared.js?v=20260812-5" defer></script>
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
       "@id": "https://kalq.online/about.html#webpage",
-      "name": "About KalQ | Calculator Methods, Testing & Privacy",
+      "name": "About KALQ | Calculator Methods, Testing & Privacy",
       "url": "https://kalq.online/about.html",
-      "description": "Learn what KalQ provides, how calculator formulas are selected and tested, and how privacy and limitations are handled.",
+      "description": "Learn what KALQ provides, how calculator formulas are selected and tested, and how privacy and limitations are handled.",
       "inLanguage": "en",
       "breadcrumb": {
         "@id": "https://kalq.online/about.html#breadcrumb"
@@ -48,7 +48,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "About KalQ | Calculator Methods, Testing & Privacy",
+          "name": "About KALQ | Calculator Methods, Testing & Privacy",
           "item": "https://kalq.online/about.html"
         }
       ]
@@ -56,19 +56,127 @@
   ]
 }</script>
   
-  <script src="/assets/kalq-static-header.js" defer></script>
-<link rel="stylesheet" href="/assets/kalq-shared.css?v=20260731-4">
-<link rel="stylesheet" href="/assets/kalq-index-header.css?v=20260731-4">
+  <script src="assets/kalq-static-header.js?v=20260812-3" defer></script>
+<link rel="stylesheet" href="assets/kalq-shared.css?v=20260812-16">
+<link rel="stylesheet" href="assets/kalq-index-header.css?v=20260804-11">
+<style>
+  .kalq-about-page .kalq-page-shell {
+    max-width: 1180px;
+    padding: 32px 24px 52px;
+  }
+
+  .kalq-about-page .kalq-breadcrumbs {
+    margin-bottom: 16px;
+  }
+
+  .kalq-about-page .kalq-page-hero {
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--kalq-line);
+  }
+
+  .kalq-about-page .kalq-page-hero h1 {
+    margin-bottom: 10px;
+    font-size: clamp(2rem, 3.5vw, 2.7rem);
+  }
+
+  .kalq-about-page .kalq-page-hero p:last-child {
+    font-size: .94rem;
+  }
+
+  .kalq-about-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+    counter-reset: about-card;
+  }
+
+  .kalq-about-page .kalq-about-grid .kalq-content-section {
+    grid-column: span 2;
+    min-width: 0;
+    min-height: 174px;
+    display: block !important;
+    padding: 22px;
+    border: 1px solid var(--kalq-line);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .56);
+    box-shadow: 0 10px 28px rgba(15, 44, 61, .035);
+    counter-increment: about-card;
+  }
+
+  .kalq-about-page .kalq-about-grid .kalq-content-section:nth-child(-n + 2) {
+    grid-column: span 3;
+  }
+
+  .kalq-about-page .kalq-about-grid .kalq-content-section::before {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--kalq-coral);
+    content: "0" counter(about-card);
+    font-size: .68rem;
+    font-weight: 850;
+    letter-spacing: .12em;
+  }
+
+  .kalq-about-page .kalq-about-grid .kalq-content-section h2 {
+    margin: 0 0 9px;
+    font-size: 1.08rem;
+    letter-spacing: -.02em;
+    line-height: 1.25;
+  }
+
+  .kalq-about-page .kalq-about-grid .kalq-content-section p {
+    max-width: none;
+    margin: 0;
+    font-size: .83rem;
+    line-height: 1.58;
+  }
+
+  .kalq-about-page .kalq-meta {
+    margin-top: 22px;
+    padding-top: 14px;
+  }
+
+  html[data-theme="dark"] .kalq-about-page .kalq-about-grid .kalq-content-section {
+    border-color: #294653;
+    background: rgba(16, 44, 58, .88);
+    box-shadow: none;
+  }
+
+  @media (max-width: 900px) {
+    .kalq-about-page .kalq-about-grid .kalq-content-section,
+    .kalq-about-page .kalq-about-grid .kalq-content-section:nth-child(-n + 2) {
+      grid-column: span 3;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .kalq-about-page .kalq-page-shell {
+      padding: 26px 18px 44px;
+    }
+
+    .kalq-about-page .kalq-about-grid .kalq-content-section,
+    .kalq-about-page .kalq-about-grid .kalq-content-section:nth-child(-n + 2) {
+      grid-column: 1 / -1;
+      min-height: 0;
+      padding: 19px;
+    }
+  }
+</style>
 </head>
-<body class="kalq-static-page">
+<body class="kalq-static-page kalq-about-page">
   <a class="kalq-skip-link" href="#main-content">Skip to main content</a>
-  <header class="topbar">
+  <header class="topbar kalq-site-header">
     <div class="topbar-inner">
-      <a class="brand" href="/" aria-label="KalQ home"><span class="brand-mark">K</span><span>KalQ</span></a>
-      <nav class="topnav" id="topnav" aria-label="Main navigation">
-        <a href="/#popular" data-i18n="navPopular">Popular</a>
-        <a href="/calculators.html" data-i18n="navAll">All calculators</a>
-        <a href="/about.html" data-i18n="navAbout">About</a>
+      <a class="brand" href="index.html" aria-label="KALQ home"><span class="brand-mark">K</span><span>KALQ</span></a>
+      <nav class="topnav nav-collections" id="topnav" aria-label="Calculator collections">
+        <a href="finance-calculators.html">Finance</a>
+        <a href="health-calculators.html">Health</a>
+        <a href="date-time-calculators.html">Date &amp; Time</a>
+        <a href="math-calculators.html">Math</a>
+        <a href="converters.html">Converters</a>
+        <a href="education-calculators.html">Education</a>
+        <a href="games.html">Games</a>
       </nav>
       <div class="header-search-wrap" id="headerSearchWrap">
         <form class="header-search" id="headerSearchForm" role="search">
@@ -83,10 +191,6 @@
         <button class="icon-button" id="calculatorButton" type="button" aria-label="Open calculator" aria-expanded="false" aria-controls="calculatorPanel">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="3"></rect><path d="M7.5 6.5h9M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h4"></path></svg>
         </button>
-        <button class="icon-button" id="themeButton" type="button" aria-label="Switch to dark mode">
-          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"></path></svg>
-          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
-        </button>
         <div class="header-popover-wrap">
           <button class="icon-button" id="languageButton" type="button" aria-label="Change language" aria-expanded="false" aria-controls="languageMenu">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg>
@@ -94,6 +198,15 @@
           <div class="language-menu" id="languageMenu" hidden>
             <button type="button" data-lang="en" class="is-active"><span>EN</span> English</button>
             <button type="button" data-lang="ms"><span>BM</span> Bahasa Melayu</button>
+          </div>
+        </div>
+        <div class="header-currency-wrap">
+          <button class="icon-button currency-button" id="currencyButton" type="button" aria-label="Currency: US Dollar" aria-controls="currencyMenu" aria-expanded="false">
+            <span id="currencyButtonLabel">USD</span>
+          </button>
+          <div class="currency-menu" id="currencyMenu" role="radiogroup" aria-label="Currency" hidden>
+            <button type="button" role="radio" data-site-currency="USD"><span>$</span>USD &middot; US Dollar</button>
+            <button type="button" role="radio" data-site-currency="MYR"><span>RM</span>MYR &middot; Malaysian Ringgit</button>
           </div>
         </div>
         <button class="icon-button" id="searchOpenButton" type="button" aria-label="Open search" aria-expanded="false" aria-controls="headerSearchWrap">
@@ -104,51 +217,61 @@
     </div>
   </header>
   <main id="main-content" class="kalq-page-shell">
-    <nav class="kalq-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">›</span><span aria-current="page">About KalQ</span></nav>
-    <section class="kalq-page-hero"><p class="kalq-eyebrow">KalQ information</p><h1>About KalQ</h1><p>KalQ provides free calculators, converters and educational tools for everyday decisions.</p></section>
-    <section class="kalq-content-section"><h2>What KalQ provides</h2><p>The site includes focused tools for finance, mathematics, health, education and everyday planning. It is intended for people who want a quick estimate followed by enough context to understand the result.</p></section><section class="kalq-content-section"><h2>Formula and source selection</h2><p>Formulas are selected from established mathematical methods and authoritative sources where relevant. Calculator pages identify assumptions, limitations and references when those details materially affect interpretation.</p></section><section class="kalq-content-section"><h2>Testing and error reporting</h2><p>Calculators are reviewed with representative inputs, boundary cases and independent hand calculations. Automated and manual checks reduce errors, but no calculator can cover every situation. Use the Contact page instructions to report a calculation problem.</p></section><section class="kalq-content-section"><h2>Privacy approach</h2><p>Calculator inputs are designed to be processed in the browser. Theme and tool preferences may use local browser storage. KalQ does not currently include advertising or analytics code in this package.</p></section><section class="kalq-content-section"><h2>Limitations</h2><p>Results are estimates for informational and educational use. Rules, rates, personal circumstances and professional methods can differ, so important decisions should be checked with a qualified professional.</p></section>
+    <nav class="kalq-breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">›</span><span aria-current="page">About KALQ</span></nav>
+    <section class="kalq-page-hero"><p class="kalq-eyebrow">KALQ information</p><h1>About KALQ</h1><p>KALQ provides free calculators, converters and educational tools for everyday decisions.</p></section>
+    <div class="kalq-about-grid">
+      <section class="kalq-content-section"><h2>What KALQ provides</h2><p>The site includes focused tools for finance, mathematics, health, education and everyday planning. It is intended for people who want a quick estimate followed by enough context to understand the result.</p></section>
+      <section class="kalq-content-section"><h2>Formula and source selection</h2><p>Formulas are selected from established mathematical methods and authoritative sources where relevant. Calculator pages identify assumptions, limitations and references when those details materially affect interpretation.</p></section>
+      <section class="kalq-content-section"><h2>Testing and error reporting</h2><p>Calculators are reviewed with representative inputs, boundary cases and independent hand calculations. Automated and manual checks reduce errors, but no calculator can cover every situation. Use the Contact page instructions to report a calculation problem.</p></section>
+      <section class="kalq-content-section"><h2>Privacy approach</h2><p>Calculator inputs are designed to be processed in the browser. Theme and tool preferences may use local browser storage. KALQ does not currently include advertising or analytics code in this package.</p></section>
+      <section class="kalq-content-section"><h2>Limitations</h2><p>Results are estimates for informational and educational use. Rules, rates, personal circumstances and specialist methods can differ, so important decisions should be checked with a qualified adviser.</p></section>
+    </div>
     <p class="kalq-meta">Last updated: 31 July 2026</p>
   </main>
   <footer class="site-footer kalq-global-footer" id="footer">
   <div class="kalq-footer-inner">
     <div class="kalq-footer-grid">
       <div class="kalq-footer-about">
-        <a class="kalq-footer-brand" href="/" aria-label="KalQ home"><span class="kalq-footer-brand-mark">K</span><span>KalQ</span></a>
+        <a class="kalq-footer-brand" href="index.html" aria-label="KALQ home"><span class="kalq-footer-brand-mark">K</span><span>KALQ</span></a>
         <p class="kalq-footer-summary">Free calculators, converters and educational tools with clear inputs, formulas, assumptions and practical explanations.</p>
       </div>
       <nav class="kalq-footer-column" aria-label="Information">
         <h2>Information</h2>
         <div class="kalq-footer-links">
-          <a href="/about.html">About KalQ</a>
-          <a href="/contact.html">Contact</a>
-          <a href="/privacy-policy.html">Privacy Policy</a>
-          <a href="/terms-of-use.html">Terms of Use</a>
-          <a href="/disclaimer.html">Disclaimer</a>
-          <a href="/cookie-policy.html">Cookie Policy</a>
-          <a href="/calculator-methodology.html">Calculator Methodology</a>
-          <a href="/faq.html">Frequently Asked Questions</a>
-          <a href="/sitemap.html">HTML Sitemap</a>
-          <a href="/calculators.html">All Calculators</a>
+          <a href="about.html">About KALQ</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-use.html">Terms of Use</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="cookie-policy.html">Cookie Policy</a>
+          <a href="calculator-methodology.html">Calculator Methodology</a>
+          <a href="faq.html">Frequently Asked Questions</a>
+          <a href="sitemap.html">HTML Sitemap</a>
+          <a href="cookie-policy.html#settings">Cookie Settings</a>
         </div>
       </nav>
       <nav class="kalq-footer-column" aria-label="Calculator collections">
         <h2>Calculator collections</h2>
         <div class="kalq-footer-links">
-          <a href="/finance-calculators.html">Finance Calculators</a>
-          <a href="/math-calculators.html">Math Calculators</a>
-          <a href="/health-calculators.html">Health Calculators</a>
-          <a href="/education-calculators.html">Education Calculators</a>
-          <a href="/converters.html">Converters</a>
-          <a href="/games.html">Games</a>
-          <a href="/cookie-policy.html#settings">Cookie Settings</a>
+          <a href="finance-calculators.html">Finance Calculators</a>
+          <a href="health-calculators.html">Health Calculators</a>
+          <a href="date-time-calculators.html">Date &amp; Time Calculators</a>
+          <a href="math-calculators.html">Math Calculators</a>
+          <a href="converters.html">Converters</a>
+          <a href="education-calculators.html">Education Calculators</a>
+          <a href="games.html">Games</a>
+          <a href="calculators.html">All Calculators</a>
         </div>
       </nav>
     </div>
     <div class="kalq-footer-bottom">
-      <p>© <span id="year">2026</span> KalQ. All rights reserved.</p>
-      <p>KalQ calculators provide estimates for informational and educational purposes. Results may vary depending on the information entered and should not replace professional advice.</p>
+      <p>© <span id="year">2026</span> KALQ. All rights reserved.</p>
+      <p>KALQ calculators provide estimates for informational use and do not replace qualified advice.</p>
     </div>
   </div>
 </footer>
+<button class="go-up-button" id="goUpButton" type="button" aria-label="Go to top" data-shared-go-up>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"></path></svg><span data-i18n="goUp">Top</span>
+</button>
 </body>
 </html>

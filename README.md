@@ -1,4 +1,4 @@
-# KalQ GitHub Pages site
+# KALQ GitHub Pages site
 
 Publish the contents of this folder from the repository root. The CNAME value remains `kalq.online`.
 
