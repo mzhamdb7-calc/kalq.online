@@ -13,13 +13,13 @@
   "@graph":[
     {"@type":"WebPage","@id":"https://kalq.online/periodic-table-chemistry-calculator/#webpage","url":"https://kalq.online/periodic-table-chemistry-calculator/","name":"Periodic Table & Chemistry Calculator","description":"Calculate atomic composition, isotope structure, ion electrons, electron shells, and periodic-table position.","isPartOf":{"@id":"https://kalq.online/#website"},"breadcrumb":{"@id":"https://kalq.online/periodic-table-chemistry-calculator/#breadcrumb"}},
     {"@type":"WebApplication","@id":"https://kalq.online/periodic-table-chemistry-calculator/#app","name":"Periodic Table & Chemistry Calculator","url":"https://kalq.online/periodic-table-chemistry-calculator/","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
-    {"@type":"BreadcrumbList","@id":"https://kalq.online/periodic-table-chemistry-calculator/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kalq.online/"},{"@type":"ListItem","position":2,"name":"Chemistry Calculators","item":"https://kalq.online/education-calculators.html"},{"@type":"ListItem","position":3,"name":"Periodic Table & Chemistry Calculator","item":"https://kalq.online/periodic-table-chemistry-calculator/"}]},
+    {"@type":"BreadcrumbList","@id":"https://kalq.online/periodic-table-chemistry-calculator/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kalq.online/"},{"@type":"ListItem","position":2,"name":"Education Calculators","item":"https://kalq.online/education-calculators.html"},{"@type":"ListItem","position":3,"name":"Periodic Table & Chemistry Calculator","item":"https://kalq.online/periodic-table-chemistry-calculator/"}]},
     {"@type":"FAQPage","mainEntity":[
       {"@type":"Question","name":"How do I calculate protons, neutrons, and electrons?","acceptedAnswer":{"@type":"Answer","text":"Protons equal the atomic number. Neutrons equal mass number minus atomic number. Electrons equal atomic number minus the signed ion charge."}},
       {"@type":"Question","name":"Is atomic weight the same as mass number?","acceptedAnswer":{"@type":"Answer","text":"No. Atomic weight is generally a weighted value for naturally occurring isotopes, while mass number is an integer for one isotope."}},
       {"@type":"Question","name":"Does ion charge change the element?","acceptedAnswer":{"@type":"Answer","text":"No. Ion charge changes the electron count. The proton count and atomic number remain unchanged."}}
     ]},
-    {"@type":"Organization","@id":"https://kalq.online/#organization","name":"KALQ","url":"https://kalq.online/"}
+    {"@type":"Organization","@id":"https://kalq.online/#organization","name":"KalQ","url":"https://kalq.online/"}
   ]
 }</script>
 <style>
@@ -2376,7 +2376,7 @@
     }
     .element-tile {
       width: 124px; height: 124px; display: grid; grid-template-rows: auto 1fr auto;
-      padding: 12px 13px 10px; border-radius: 18px; color: var(--navy);
+      padding: 12px 13px 10px; border-radius: 18px; color: var(--white);
       background: linear-gradient(145deg,var(--teal),var(--navy)); box-shadow: var(--soft-shadow);
     }
     .element-tile .atomic-no { font-size: .72rem; font-weight: 850; opacity: .82; }
@@ -2980,300 +2980,26 @@
       overflow: hidden;
     }
 
-
-
-    /* Exact compact full-width controls requested */
-    .result-actions {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-    }
-    .result-actions .btn {
-      width: 100%;
-      height: 34px;
-      min-height: 34px;
-      padding: 0 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .68rem;
-      line-height: 1;
-      white-space: nowrap;
-    }
-    .quick-input-actions { width: 100%; }
-    .quick-input-actions button,
-    .calculate-btn {
-      width: 100%;
-      height: 34px;
-      min-height: 34px;
-      padding: 0 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .68rem;
-      line-height: 1;
-    }
-
-
-
-    /* Approved Abacus Quest lower-section accordion geometry — Periodic Table & Chemistry Calculator only. */
-    .section-dropdown {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
-    .section-dropdown > summary::-webkit-details-marker { display: none; }
-    .section-dropdown > summary::marker { content: ""; }
-    .section-dropdown-body {
-      padding-top: 0;
-      border: 0;
-      box-shadow: none;
-    }
-
-    /* One shared container: exactly the calculator/page-title .wrap geometry. */
-    #how-to-use > .wrap,
-      #element-meaning > .wrap,
-      #formula > .wrap,
-      #tips-mistakes > .wrap,
-      #examples > .wrap,
-      #faq > .wrap,
-      #references > .wrap,
-      #disclaimer > .wrap,
-      #related-calculators > .wrap {
-      width: 100% !important;
-      max-width: var(--content) !important;
-      margin-inline: auto !important;
-      padding-inline: 20px !important;
-    }
-
-    #how-to-use,
-      #element-meaning,
-      #formula,
-      #tips-mistakes,
-      #examples,
-      #faq,
-      #references,
-      #disclaimer,
-      #related-calculators {
-      min-height: 0 !important;
-      height: auto !important;
-      border: 0 !important;
-      border-block: 0 !important;
-      box-shadow: none !important;
-      overflow: visible !important;
-    }
-
-    @media (min-width: 901px) {
-      #how-to-use,
-      #element-meaning,
-      #formula,
-      #tips-mistakes,
-      #examples,
-      #faq,
-      #references,
-      #disclaimer,
-      #related-calculators {
-        padding-top: 50px !important;
-        padding-bottom: 50px !important;
-      }
-
-      .section-dropdown > summary.section-heading {
-        position: relative !important;
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-        column-gap: 30px !important;
-        row-gap: 0 !important;
-        align-items: center !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        min-height: 0 !important;
-        margin: 0 !important;
-        padding: 0 46px 0 0 !important;
-        border: 0 !important;
-        border-block: 0 !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        list-style: none !important;
-        cursor: pointer;
-        user-select: none;
-      }
-
-      .section-dropdown-title {
-        grid-column: 1 !important;
-        justify-self: start !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        color: var(--navy) !important;
-        font-size: clamp(1.35rem, 2.1vw, 1.95rem) !important;
-        font-weight: 650 !important;
-        line-height: 1.12 !important;
-        letter-spacing: -.035em !important;
-      }
-
-      .section-dropdown-copy {
-        grid-column: 2 !important;
-        justify-self: stretch !important;
-        min-width: 0 !important;
-        width: 100% !important;
-        max-width: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        color: var(--muted) !important;
-        font-size: .80rem !important;
-        font-weight: 400 !important;
-        line-height: 1.45 !important;
-      }
-
-      .section-dropdown > summary::after {
-        content: "+";
-        position: absolute !important;
-        right: 0 !important;
-        top: 50% !important;
-        width: 28px !important;
-        height: 28px !important;
-        display: grid !important;
-        place-items: center !important;
-        transform: translateY(-50%) !important;
-        border: 1px solid var(--line) !important;
-        border-radius: 50% !important;
-        background: rgba(255,255,255,.42) !important;
-        color: var(--navy) !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        line-height: 1 !important;
-      }
-      .section-dropdown[open] > summary::after { content: "−" !important; }
-      .section-dropdown[open] > summary.section-heading { margin-bottom: 20px !important; }
-    }
-
-    .section-dropdown > summary:hover .section-dropdown-title,
-    .section-dropdown > summary:focus-visible .section-dropdown-title { color: var(--teal) !important; }
-    .section-dropdown > summary:focus-visible {
-      outline: 2px solid var(--teal);
-      outline-offset: 6px;
-      border-radius: 2px;
-    }
-
-    @media (max-width: 900px) {
-      #how-to-use,
-      #element-meaning,
-      #formula,
-      #tips-mistakes,
-      #examples,
-      #faq,
-      #references,
-      #disclaimer,
-      #related-calculators {
-        padding-block: 28px !important;
-      }
-
-      .section-dropdown > summary.section-heading {
-        position: relative !important;
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) !important;
-        column-gap: 0 !important;
-        row-gap: 7px !important;
-        align-items: start !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        min-height: 0 !important;
-        margin: 0 !important;
-        padding: 0 40px 0 0 !important;
-        border: 0 !important;
-        border-block: 0 !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        list-style: none !important;
-        cursor: pointer;
-      }
-      .section-dropdown-title,
-      .section-dropdown-copy {
-        grid-column: 1 !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-      .section-dropdown-title {
-        color: var(--navy) !important;
-        font-size: 1.25rem !important;
-        font-weight: 650 !important;
-        line-height: 1.12 !important;
-        letter-spacing: -.035em !important;
-      }
-      .section-dropdown-copy {
-        width: 100% !important;
-        max-width: 100% !important;
-        color: var(--muted) !important;
-        font-size: .78rem !important;
-        font-weight: 400 !important;
-        line-height: 1.45 !important;
-      }
-      .section-dropdown > summary::after {
-        content: "+";
-        position: absolute !important;
-        right: 0 !important;
-        top: 50% !important;
-        width: 28px !important;
-        height: 28px !important;
-        display: grid !important;
-        place-items: center !important;
-        transform: translateY(-50%) !important;
-        border: 1px solid var(--line) !important;
-        border-radius: 50% !important;
-        background: rgba(255,255,255,.42) !important;
-        color: var(--navy) !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
-        line-height: 1 !important;
-      }
-      .section-dropdown[open] > summary::after { content: "−" !important; }
-      .section-dropdown[open] > summary.section-heading { margin-bottom: 20px !important; }
-    }
-
-    @media (max-width: 620px) {
-      #how-to-use > .wrap,
-      #element-meaning > .wrap,
-      #formula > .wrap,
-      #tips-mistakes > .wrap,
-      #examples > .wrap,
-      #faq > .wrap,
-      #references > .wrap,
-      #disclaimer > .wrap,
-      #related-calculators > .wrap {
-        padding-inline: 16px !important;
-      }
-    }
-
 </style>
-<link rel="icon" href="../favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="manifest" href="../manifest.webmanifest">
-<script src="../assets/kalq-shared.js?v=20260812-5" defer></script>
-<script src="../assets/kalq-static-header.js?v=20260812-3" defer></script>
-<link rel="stylesheet" href="../assets/kalq-shared.css?v=20260812-16">
-<link rel="stylesheet" href="../assets/kalq-index-header.css?v=20260804-11">
-
-<link rel="stylesheet" href="../assets/kalq-report-groups.css?v=20260812-20">
-<script defer src="../assets/kalq-report-groups.js?v=20260812-14"></script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<script src="/assets/kalq-shared.js" defer></script>
+<script src="/assets/kalq-static-header.js" defer></script>
+<link rel="stylesheet" href="/assets/kalq-shared.css?v=20260731-4">
+<link rel="stylesheet" href="/assets/kalq-index-header.css?v=20260731-4">
 </head>
-<body class="kalq-compact-input-boxes kalq-compact-output-boxes">
+<body>
 <a class="skip-link" href="#calculator">Skip to calculator</a>
 <div class="site-shell">
-<header class="topbar kalq-site-header">
+<header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="../index.html" aria-label="KALQ home"><span class="brand-mark">K</span><span>KALQ</span></a>
-      <nav class="topnav nav-collections" id="topnav" aria-label="Calculator collections">
-        <a href="../finance-calculators.html">Finance</a>
-        <a href="../health-calculators.html">Health</a>
-        <a href="../date-time-calculators.html">Date &amp; Time</a>
-        <a href="../math-calculators.html">Math</a>
-        <a href="../converters.html">Converters</a>
-        <a href="../education-calculators.html">Education</a>
-        <a href="../games.html">Games</a>
+      <a class="brand" href="/" aria-label="KalQ home"><span class="brand-mark">K</span><span>KalQ</span></a>
+      <nav class="topnav" id="topnav" aria-label="Main navigation">
+        <a href="/#popular" data-i18n="navPopular">Popular</a>
+        <a href="/calculators.html" data-i18n="navAll">All calculators</a>
+        <a href="/about.html" data-i18n="navAbout">About</a>
       </nav>
       <div class="header-search-wrap" id="headerSearchWrap">
         <form class="header-search" id="headerSearchForm" role="search">
@@ -3288,6 +3014,10 @@
         <button class="icon-button" id="calculatorButton" type="button" aria-label="Open calculator" aria-expanded="false" aria-controls="calculatorPanel">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="3"></rect><path d="M7.5 6.5h9M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h4"></path></svg>
         </button>
+        <button class="icon-button" id="themeButton" type="button" aria-label="Switch to dark mode">
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"></path></svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+        </button>
         <div class="header-popover-wrap">
           <button class="icon-button" id="languageButton" type="button" aria-label="Change language" aria-expanded="false" aria-controls="languageMenu">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg>
@@ -3295,15 +3025,6 @@
           <div class="language-menu" id="languageMenu" hidden>
             <button type="button" data-lang="en" class="is-active"><span>EN</span> English</button>
             <button type="button" data-lang="ms"><span>BM</span> Bahasa Melayu</button>
-          </div>
-        </div>
-        <div class="header-currency-wrap">
-          <button class="icon-button currency-button" id="currencyButton" type="button" aria-label="Currency: US Dollar" aria-controls="currencyMenu" aria-expanded="false">
-            <span id="currencyButtonLabel">USD</span>
-          </button>
-          <div class="currency-menu" id="currencyMenu" role="radiogroup" aria-label="Currency" hidden>
-            <button type="button" role="radio" data-site-currency="USD"><span>$</span>USD &middot; US Dollar</button>
-            <button type="button" role="radio" data-site-currency="MYR"><span>RM</span>MYR &middot; Malaysian Ringgit</button>
           </div>
         </div>
         <button class="icon-button" id="searchOpenButton" type="button" aria-label="Open search" aria-expanded="false" aria-controls="headerSearchWrap">
@@ -3315,7 +3036,7 @@
   </header>
 <main>
 <div class="snap-page snap-calculator" id="calculator-page">
-<section class="hero"><div class="wrap"><nav aria-label="Breadcrumb" class="crumbs"><a href="../index.html">Home</a><span>›</span><a href="../education-calculators.html">Education Calculators</a><span>›</span><span aria-current="page">Periodic Table &amp; Chemistry Calculator</span></nav><div class="hero-grid"><div><div class="eyebrow">Atomic structure dashboard</div><h1>Periodic Table &amp; Chemistry Calculator</h1><p class="lead">Select one element to calculate its protons, neutrons, electrons, isotope notation, ion structure, electron shells, and exact position in the periodic table.</p></div><aside class="adult-note chem-note"><strong>One focused tool.</strong><br/>This page analyzes a selected element, isotope, or ion. Compound mass, equations, pH, and stoichiometry stay in separate calculators.</aside></div></div></section>
+<section class="hero"><div class="wrap"><nav aria-label="Breadcrumb" class="crumbs"><a href="/">Home</a><span>›</span><a href="/education-calculators.html">Education calculators</a><span>›</span><span aria-current="page">Periodic Table &amp; Chemistry Calculator</span></nav><div class="hero-grid"><div><div class="eyebrow">Atomic structure dashboard</div><h1>Periodic Table &amp; Chemistry Calculator</h1><p class="lead">Select one element to calculate its protons, neutrons, electrons, isotope notation, ion structure, electron shells, and exact position in the periodic table.</p></div><aside class="adult-note chem-note"><strong>One focused tool.</strong><br/>This page analyzes a selected element, isotope, or ion. Compound mass, equations, pH, and stoichiometry stay in separate calculators.</aside></div></div></section>
 
 <section aria-labelledby="calculator-title" class="wrap" id="calculator">
 <div class="calculator-shell chem-shell">
@@ -3331,7 +3052,7 @@
 </section>
 <form class="input-panel chem-input" id="chemForm" novalidate>
 <h2>Choose an element</h2><p>Use one search field, then optionally change the isotope mass number and ion charge.</p>
-<div class="field element-field"><label for="elementInput">Element <span>Name, symbol, or atomic number</span></label><div class="element-combobox" id="elementCombobox"><div class="input-wrap"><input aria-autocomplete="list" aria-controls="elementMenu" aria-expanded="false" autocomplete="off" id="elementInput" placeholder="Sodium, Na, or 11" role="combobox" value="Sodium"/><button aria-label="Open element list" aria-controls="elementMenu" aria-expanded="false" class="element-picker-toggle" id="elementPickerToggle" type="button"><span aria-hidden="true">▾</span></button></div><div class="element-menu" hidden id="elementMenu" role="listbox"></div></div><div class="error" id="elementError"></div></div>
+<div class="field element-field"><label for="elementInput">Element <span>Name, symbol, or atomic number</span></label><div class="element-combobox" id="elementCombobox"><div class="input-wrap"><input aria-autocomplete="list" aria-controls="elementMenu" aria-expanded="false" autocomplete="off" id="elementInput" placeholder="Sodium, Na, or 11" role="combobox" value="Sodium"/><span class="input-unit element-count">118</span><button aria-label="Open element list" aria-controls="elementMenu" aria-expanded="false" class="element-picker-toggle" id="elementPickerToggle" type="button"><span aria-hidden="true">▾</span></button></div><div class="element-menu" hidden id="elementMenu" role="listbox"></div></div><div class="error" id="elementError"></div></div>
 <div class="atomic-settings" aria-label="Atomic settings">
   <div class="atomic-setting-row">
     <div class="atomic-setting-copy">
@@ -3366,26 +3087,29 @@
 
 <section class="section snap-page natural-height" data-snap-label="How to use" id="how-to-use">
 <div class="wrap">
-<details class="section-dropdown"><summary class="section-heading"><span class="section-dropdown-title">How to use</span><span class="section-dropdown-copy">Select one element, refine the isotope and ion charge when needed, then review the atomic structure using the correct chemistry relationships.</span></summary><div class="section-dropdown-body">
+<div class="section-heading">
+<h2>How to use the Chemistry Calculator</h2>
+<p>Select one element, refine the isotope and ion charge when needed, then review the atomic structure using the correct chemistry relationships.</p>
+</div>
 <div class="steps">
 <div class="step"><strong>Select an element</strong><span>Type its name, symbol, or atomic number, or choose it from the periodic table.</span></div>
 <div class="step"><strong>Choose an isotope</strong><span>Keep the suggested mass number or enter an exact isotope mass number.</span></div>
 <div class="step"><strong>Set ion charge</strong><span>Use zero for a neutral atom, positive for lost electrons, or negative for gained electrons.</span></div>
 <div class="step"><strong>Calculate</strong><span>Review protons, neutrons, electrons, notation, shells, and periodic position.</span></div>
-<div class="step"><strong>Use the result</strong><span>Preview, print, or save the complete chemistry report; verify laboratory, safety, or important decisions with authoritative scientific references.</span></div>
+<div class="step"><strong>Use the result</strong><span>Preview, print, or save the complete chemistry report; verify laboratory, safety, or professional decisions with authoritative scientific references.</span></div>
 </div>
-</div></details></div>
+</div>
 </section>
 
-<section class="section section-band natural-height" id="element-meaning"><div class="wrap"><details class="section-dropdown"><summary class="section-heading"><span class="section-dropdown-title">What your result means</span><span class="section-dropdown-copy">The dashboard separates the properties that define an element from the properties that can change when an isotope or ion is selected.</span></summary><div class="section-dropdown-body"><div class="properties-dashboard"><div><div class="property-lines"><div class="property-line"><span>Element identity</span><strong id="meaningIdentity">Atomic number 11 fixes the proton count at 11.</strong></div><div class="property-line"><span>Periodic position</span><strong id="meaningPosition">Period 3, group 1, s-block.</strong></div><div class="property-line"><span>Outer electrons</span><strong id="meaningValence">One outer-shell electron in the neutral atom.</strong></div><div class="property-line"><span>Common oxidation states</span><strong id="meaningOxidation">−1, +1</strong></div><div class="property-line"><span>Typical context</span><strong id="meaningUses">Sodium compounds are central to chemical manufacturing, lighting, heat transfer, and biological electrolytes.</strong></div></div></div><div><div class="mini-trend"><h3>Across a period</h3><p>Atomic radius generally decreases while ionization energy and electronegativity generally rise, with important exceptions.</p></div><div class="mini-trend"><h3>Down a group</h3><p>Additional electron shells generally increase atomic size and can change reactivity and metallic character.</p></div><div class="mini-trend"><h3 id="selectedTrendTitle">Sodium trend snapshot</h3><p id="selectedTrendText">Its measured properties can be compared with neighboring elements using the report table.</p></div></div></div></div></details></div></section>
+<section class="section section-band natural-height" id="element-meaning"><div class="wrap"><div class="section-heading"><h2>What the result explains</h2><p>The dashboard separates the properties that define an element from the properties that can change when an isotope or ion is selected.</p></div><div class="properties-dashboard"><div><div class="property-lines"><div class="property-line"><span>Element identity</span><strong id="meaningIdentity">Atomic number 11 fixes the proton count at 11.</strong></div><div class="property-line"><span>Periodic position</span><strong id="meaningPosition">Period 3, group 1, s-block.</strong></div><div class="property-line"><span>Outer electrons</span><strong id="meaningValence">One outer-shell electron in the neutral atom.</strong></div><div class="property-line"><span>Common oxidation states</span><strong id="meaningOxidation">−1, +1</strong></div><div class="property-line"><span>Typical context</span><strong id="meaningUses">Sodium compounds are central to chemical manufacturing, lighting, heat transfer, and biological electrolytes.</strong></div></div></div><div><div class="mini-trend"><h3>Across a period</h3><p>Atomic radius generally decreases while ionization energy and electronegativity generally rise, with important exceptions.</p></div><div class="mini-trend"><h3>Down a group</h3><p>Additional electron shells generally increase atomic size and can change reactivity and metallic character.</p></div><div class="mini-trend"><h3 id="selectedTrendTitle">Sodium trend snapshot</h3><p id="selectedTrendText">Its measured properties can be compared with neighboring elements using the report table.</p></div></div></div></div></section>
 
-<section class="section natural-height" id="formula"><div class="wrap"><details class="section-dropdown"><summary class="section-heading"><span class="section-dropdown-title">Formula</span><span class="section-dropdown-copy">All particle counts are integer relationships. Standard atomic weight is displayed separately and is not silently rounded into a mass number.</span></summary><div class="section-dropdown-body"><div class="formula-display"><div class="formula-row"><span>Protons</span><div class="formula">p = Z</div></div><div class="formula-row"><span>Neutrons</span><div class="formula">n = A − Z</div></div><div class="formula-row"><span>Electrons</span><div class="formula">e = Z − q</div></div><div class="formula-row"><span>Mass number</span><div class="formula">A = p + n</div></div></div><div class="worked-example" id="dynamicWorkedExample">Example: Sodium-23 with charge +1 has 11 protons, 12 neutrons, and 10 electrons.</div></div></details></div></section>
+<section class="section natural-height" id="formula"><div class="wrap"><div class="section-heading"><h2>Formula used</h2><p>All particle counts are integer relationships. Standard atomic weight is displayed separately and is not silently rounded into a mass number.</p></div><div class="formula-display"><div class="formula-row"><span>Protons</span><div class="formula">p = Z</div></div><div class="formula-row"><span>Neutrons</span><div class="formula">n = A − Z</div></div><div class="formula-row"><span>Electrons</span><div class="formula">e = Z − q</div></div><div class="formula-row"><span>Mass number</span><div class="formula">A = p + n</div></div></div><div class="worked-example" id="dynamicWorkedExample">Example: Sodium-23 with charge +1 has 11 protons, 12 neutrons, and 10 electrons.</div></div></section>
 
-<section class="section section-warm natural-height" id="tips-mistakes"><div class="wrap"><details class="section-dropdown"><summary class="section-heading"><span class="section-dropdown-title">Tips and common mistakes</span><span class="section-dropdown-copy">Use the calculator as an educational structure model and keep isotope data, atomic weight, and chemical hazards conceptually separate.</span></summary><div class="section-dropdown-body"><div class="tips-mistakes"><div><h3>Useful tips</h3><ul class="line-list"><li>Enter an integer isotope mass number when you need an exact neutron count.</li><li>Use a positive charge when electrons are lost and a negative charge when electrons are gained.</li><li>Compare the neutral and ion diagrams to see which particle count changes.</li><li>Use the highlighted group and period to study periodic relationships.</li><li>Verify isotope stability and laboratory properties in an authoritative database.</li></ul></div><div><h3>Common mistakes</h3><ul class="line-list mistakes"><li>Treating standard atomic weight as the exact mass number of one isotope.</li><li>Adding a positive ion charge to the electron count instead of subtracting it.</li><li>Changing the number of protons when creating an ion.</li><li>Assuming every oxidation state represents a stable monatomic ion.</li><li>Treating a simplified shell diagram as a complete quantum-mechanical model.</li></ul></div></div></div></details></div></section>
+<section class="section section-warm natural-height" id="tips-mistakes"><div class="wrap"><div class="section-heading"><h2>Tips and common mistakes</h2><p>Use the calculator as an educational structure model and keep isotope data, atomic weight, and chemical hazards conceptually separate.</p></div><div class="tips-mistakes"><div><h3>Useful tips</h3><ul class="line-list"><li>Enter an integer isotope mass number when you need an exact neutron count.</li><li>Use a positive charge when electrons are lost and a negative charge when electrons are gained.</li><li>Compare the neutral and ion diagrams to see which particle count changes.</li><li>Use the highlighted group and period to study periodic relationships.</li><li>Verify isotope stability and laboratory properties in an authoritative database.</li></ul></div><div><h3>Common mistakes</h3><ul class="line-list mistakes"><li>Treating standard atomic weight as the exact mass number of one isotope.</li><li>Adding a positive ion charge to the electron count instead of subtracting it.</li><li>Changing the number of protons when creating an ion.</li><li>Assuming every oxidation state represents a stable monatomic ion.</li><li>Treating a simplified shell diagram as a complete quantum-mechanical model.</li></ul></div></div></div></section>
 
-<section class="section natural-height" id="examples"><div class="wrap"><details class="section-dropdown"><summary class="section-heading"><span class="section-dropdown-title">Worked examples</span><span class="section-dropdown-copy">Three familiar cases show how isotope mass and charge affect the result without mixing in unrelated chemistry calculations.</span></summary><div class="section-dropdown-body"><div class="worked-examples"><article class="worked-example-item"><small>Positive ion</small><h3>Sodium-23, Na⁺</h3><div class="example-equation">n = 23 − 11 = 12<br/>e = 11 − (+1) = 10</div><p>The ion loses one electron while retaining 11 protons, so it remains sodium.</p></article><article class="worked-example-item"><small>Negative ion</small><h3>Chlorine-35, Cl⁻</h3><div class="example-equation">n = 35 − 17 = 18<br/>e = 17 − (−1) = 18</div><p>The ion gains one electron; its atomic number and proton count remain 17.</p></article><article class="worked-example-item"><small>Isotope comparison</small><h3>Carbon-12 and Carbon-14</h3><div class="example-equation">C-12: 6 neutrons<br/>C-14: 8 neutrons</div><p>Both are carbon because both have six protons. Their neutron counts and stability differ.</p></article></div></div></details></div></section>
+<section class="section natural-height" id="examples"><div class="wrap"><div class="section-heading"><h2>Worked examples</h2><p>Three familiar cases show how isotope mass and charge affect the result without mixing in unrelated chemistry calculations.</p></div><div class="worked-examples"><article class="worked-example-item"><small>Positive ion</small><h3>Sodium-23, Na⁺</h3><div class="example-equation">n = 23 − 11 = 12<br/>e = 11 − (+1) = 10</div><p>The ion loses one electron while retaining 11 protons, so it remains sodium.</p></article><article class="worked-example-item"><small>Negative ion</small><h3>Chlorine-35, Cl⁻</h3><div class="example-equation">n = 35 − 17 = 18<br/>e = 17 − (−1) = 18</div><p>The ion gains one electron; its atomic number and proton count remain 17.</p></article><article class="worked-example-item"><small>Isotope comparison</small><h3>Carbon-12 and Carbon-14</h3><div class="example-equation">C-12: 6 neutrons<br/>C-14: 8 neutrons</div><p>Both are carbon because both have six protons. Their neutron counts and stability differ.</p></article></div></div></section>
 
-<section class="section natural-height" id="faq"><div class="wrap"><details class="section-dropdown"><summary class="section-heading"><span class="section-dropdown-title">Frequently asked questions</span><span class="section-dropdown-copy">Answers focus on the selected element, isotope, ion, and periodic-table result.</span></summary><div class="section-dropdown-body"><div class="faq-list">
+<section class="section natural-height" id="faq"><div class="wrap"><div class="section-heading"><h2>Frequently asked questions</h2><p>Answers focus on the selected element, isotope, ion, and periodic-table result.</p></div><div class="faq-list">
 <div class="faq-item"><button type="button"><span>What does this periodic table calculator calculate?</span><span>+</span></button><div class="faq-answer">It calculates protons, neutrons, electrons, isotope-and-ion notation, a simplified shell distribution, periodic position, and selected atomic properties for one element.</div></div>
 <div class="faq-item"><button type="button"><span>How do I calculate protons, neutrons, and electrons?</span><span>+</span></button><div class="faq-answer">Protons equal atomic number. Neutrons equal mass number minus atomic number. Electrons equal atomic number minus the signed ion charge.</div></div>
 <div class="faq-item"><button type="button"><span>What is the difference between atomic weight and mass number?</span><span>+</span></button><div class="faq-answer">Mass number is an integer for one isotope. Standard atomic weight generally represents isotope-abundance information for normal materials and may be a decimal or interval.</div></div>
@@ -3394,55 +3118,52 @@
 <div class="faq-item"><button type="button"><span>What do group, period, and block mean?</span><span>+</span></button><div class="faq-answer">Period identifies the horizontal row, group identifies the vertical family when assigned, and block describes the subshell type associated with the element’s position.</div></div>
 <div class="faq-item"><button type="button"><span>Is the shell diagram exact?</span><span>+</span></button><div class="faq-answer">It is a simplified educational Bohr-style view. Electron configuration and ion formation can require more detailed quantum-mechanical treatment, especially for transition and inner-transition elements.</div></div>
 <div class="faq-item"><button type="button"><span>Can this calculator determine isotope stability?</span><span>+</span></button><div class="faq-answer">No. It identifies particle counts. Stability, half-life, decay mode, and abundance should be checked in an isotope database.</div></div>
-</div></div></details></div></section>
+</div></div></section>
 
-<section class="section compact section-band" id="references"><div class="wrap"><details class="section-dropdown"><summary class="section-heading"><span class="section-dropdown-title">References and data notes</span><span class="section-dropdown-copy">Element values should be reviewed against current authoritative releases before laboratory, regulatory, or publication use.</span></summary><div class="section-dropdown-body"><ul class="references"><li><a href="https://iupac.org/what-we-do/periodic-table-of-elements/" rel="noopener" target="_blank">IUPAC Periodic Table of Elements</a> — names, symbols, atomic weights, and official table context.</li><li><a href="https://www.nist.gov/pml/periodic-table-elements" rel="noopener" target="_blank">NIST Periodic Table: Atomic Properties</a> — critically evaluated atomic-property references.</li><li><a href="https://pubchem.ncbi.nlm.nih.gov/periodic-table/" rel="noopener" target="_blank">PubChem Periodic Table</a> — interactive element-property reference and linked records.</li><li><a href="https://periodic-table.rsc.org/" rel="noopener" target="_blank">Royal Society of Chemistry Periodic Table</a> — educational trends and element context.</li><li><a href="https://ciaaw.org/atomic-weights.htm" rel="noopener" target="_blank">CIAAW Standard Atomic Weights</a> — standard atomic-weight tables and explanatory notes.</li><li><a href="https://periodictableofelements.org/api/" rel="noopener" target="_blank">PeriodicTableOfElements.org API</a> — embedded 118-element property dataset used for this implementation; no live request is required.</li></ul></div></details></div></section>
+<section class="section compact section-band" id="references"><div class="wrap"><div class="section-heading"><h2>References and data notes</h2><p>Element values should be reviewed against current authoritative releases before laboratory, regulatory, or publication use.</p></div><ul class="references"><li><a href="https://iupac.org/what-we-do/periodic-table-of-elements/" rel="noopener" target="_blank">IUPAC Periodic Table of Elements</a> — names, symbols, atomic weights, and official table context.</li><li><a href="https://www.nist.gov/pml/periodic-table-elements" rel="noopener" target="_blank">NIST Periodic Table: Atomic Properties</a> — critically evaluated atomic-property references.</li><li><a href="https://pubchem.ncbi.nlm.nih.gov/periodic-table/" rel="noopener" target="_blank">PubChem Periodic Table</a> — interactive element-property reference and linked records.</li><li><a href="https://periodic-table.rsc.org/" rel="noopener" target="_blank">Royal Society of Chemistry Periodic Table</a> — educational trends and element context.</li><li><a href="https://ciaaw.org/atomic-weights.htm" rel="noopener" target="_blank">CIAAW Standard Atomic Weights</a> — standard atomic-weight tables and explanatory notes.</li><li><a href="https://periodictableofelements.org/api/" rel="noopener" target="_blank">PeriodicTableOfElements.org API</a> — embedded 118-element property dataset used for this implementation; no live request is required.</li></ul></div></section>
 
-<section class="section compact" id="disclaimer"><div class="wrap"><details class="section-dropdown"><summary class="section-heading"><span class="section-dropdown-title">Disclaimer</span><span class="section-dropdown-copy">Important limits for educational, specialist, and safety-related use.</span></summary><div class="section-dropdown-body"><aside class="disclaimer" role="note"><div class="disclaimer-label"><small>Educational model</small><strong>Atomic structure output is not a laboratory safety assessment.</strong></div><div class="disclaimer-copy"><h3>Verify high-stakes chemistry information.</h3><p class="disclaimer-text">This calculator is designed for education and general practical reference. The shell visual is simplified, representative isotope defaults are identified as such, and elemental properties do not fully describe compounds, mixtures, exposure risks, isotope stability, or reaction behavior. Confirm values with IUPAC, NIST, PubChem, safety data sheets, and qualified laboratory guidance before scientific, industrial, medical, environmental, or regulatory decisions.</p><div class="disclaimer-details"><div class="disclaimer-detail"><strong>Isotopes</strong><span>Mass number, abundance, half-life, and decay mode are isotope-specific.</span></div><div class="disclaimer-detail"><strong>Ions</strong><span>Electron-shell adjustment is a simplified teaching representation.</span></div><div class="disclaimer-detail"><strong>Hazards</strong><span>Chemical form, concentration, route, and conditions determine risk.</span></div></div></div></aside></div></details></div></section>
+<section class="section compact" id="disclaimer"><div class="wrap"><div class="section-heading"><h2>Disclaimer</h2><p>Important limits for educational, professional, and safety-related use.</p></div><aside class="disclaimer" role="note"><div class="disclaimer-label"><small>Educational model</small><strong>Atomic structure output is not a laboratory safety assessment.</strong></div><div class="disclaimer-copy"><h3>Verify high-stakes chemistry information.</h3><p class="disclaimer-text">This calculator is designed for education and general professional reference. The shell visual is simplified, representative isotope defaults are identified as such, and elemental properties do not fully describe compounds, mixtures, exposure risks, isotope stability, or reaction behavior. Confirm values with IUPAC, NIST, PubChem, safety data sheets, and qualified laboratory guidance before scientific, industrial, medical, environmental, or regulatory decisions.</p><div class="disclaimer-details"><div class="disclaimer-detail"><strong>Isotopes</strong><span>Mass number, abundance, half-life, and decay mode are isotope-specific.</span></div><div class="disclaimer-detail"><strong>Ions</strong><span>Electron-shell adjustment is a simplified teaching representation.</span></div><div class="disclaimer-detail"><strong>Hazards</strong><span>Chemical form, concentration, route, and conditions determine risk.</span></div></div></div></aside></div></section>
 
-<section class="section section-warm natural-height" id="related-calculators"><div class="wrap"><details class="section-dropdown"><summary class="section-heading"><span class="section-dropdown-title">Related tools</span><span class="section-dropdown-copy">These are separate tools so their inputs and outputs do not dilute this element-focused calculator.</span></summary><div class="section-dropdown-body"><div class="related-grid">
-<a class="related-link" href="../apr-calculator/index.html"><span aria-hidden="true" class="related-icon">APR</span><span class="related-copy"><strong>APR Calculator</strong><span>Estimate a fixed-rate loan APR, monthly payment, fee impact and total borrowing cost.</span></span><span aria-hidden="true" class="related-arrow">&rarr;</span></a><a class="related-link" href="../gpa-calculator/index.html"><span aria-hidden="true" class="related-icon">GPA</span><span class="related-copy"><strong>GPA Calculator</strong><span>Calculate a credit-weighted grade point average and review how each course affects the result.</span></span><span aria-hidden="true" class="related-arrow">→</span></a><a class="related-link" href="../percentage-conversion-calculator/index.html"><span aria-hidden="true" class="related-icon">%↔</span><span class="related-copy"><strong>Percentage Conversion Calculator</strong><span>Convert fractions, decimals, percentages and ratios.</span></span><span aria-hidden="true" class="related-arrow">→</span></a><a class="related-link" href="../unit-converters/index.html"><span aria-hidden="true" class="related-icon">UNIT</span><span class="related-copy"><strong>Unit Converter</strong><span>Convert everyday, engineering, digital, thermal, chemistry and radiation measurements.</span></span><span aria-hidden="true" class="related-arrow">→</span></a><a class="related-link" href="../polynomial-root-finder-calculator/index.html"><span aria-hidden="true" class="related-icon">x²</span><span class="related-copy"><strong>Polynomial Root Finder Calculator</strong><span>Find real and complex polynomial roots with steps, a graph and verification.</span></span><span aria-hidden="true" class="related-arrow">→</span></a><a class="related-link" href="../mental-math-rush/index.html"><span aria-hidden="true" class="related-icon">MM</span><span class="related-copy"><strong>Mental Math Rush</strong><span>Practise arithmetic speed and accuracy with adaptive rounds and a performance report.</span></span><span aria-hidden="true" class="related-arrow">→</span></a><a class="related-link" href="../abacus-quest/index.html"><span aria-hidden="true" class="related-icon">AQ</span><span class="related-copy"><strong>Abacus Quest</strong><span>Practise place value and arithmetic with an interactive Soroban.</span></span><span aria-hidden="true" class="related-arrow">→</span></a><a class="related-link" href="../currency-converter-and-comparison-calculator/index.html"><span aria-hidden="true" class="related-icon">FX</span><span class="related-copy"><strong>Currency Converter & Comparison Calculator</strong><span>Convert currencies with a disclosed benchmark rate and compare provider rates, fees and final amounts received.</span></span><span aria-hidden="true" class="related-arrow">&rarr;</span></a><a class="related-link" href="../date-difference-calculator/index.html"><span aria-hidden="true" class="related-icon">DATE</span><span class="related-copy"><strong>Date Difference Calculator</strong><span>Calculate the exact calendar distance between two dates in years, months, weeks and days with holiday analysis, a visual timeline and a printable report.</span></span><span aria-hidden="true" class="related-arrow">&rarr;</span></a><a class="related-link" href="../credit-card-payoff-calculator/index.html"><span aria-hidden="true" class="related-icon">CC</span><span class="related-copy"><strong>Credit Card Payoff Calculator</strong><span>Estimate a credit card debt-free date, total interest, total repayment and savings from an extra monthly payment.</span></span><span aria-hidden="true" class="related-arrow">&rarr;</span></a></div></div></details></div></section>
+<section class="section section-warm natural-height" id="related-calculators"><div class="wrap"><div class="section-heading"><h2>Related calculators</h2><p>Use these separate KalQ tools when the task moves beyond element, isotope and ion analysis.</p></div><div class="related-grid"><a class="related-link" href="/unit-converters/"><span aria-hidden="true" class="related-icon">UNIT</span><span class="related-copy"><strong>Unit Converter</strong><span>Convert chemistry, temperature, pressure, energy and other measurements.</span></span><span aria-hidden="true" class="related-arrow">&#8594;</span></a><a class="related-link" href="/percentage-conversion-calculator/"><span aria-hidden="true" class="related-icon">%↔</span><span class="related-copy"><strong>Percentage Conversion Calculator</strong><span>Convert fractions, decimals, percentages and ratios.</span></span><span aria-hidden="true" class="related-arrow">&#8594;</span></a><a class="related-link" href="/polynomial-root-finder-calculator/"><span aria-hidden="true" class="related-icon">P(x)</span><span class="related-copy"><strong>Polynomial Root Finder</strong><span>Find and verify real and complex polynomial roots.</span></span><span aria-hidden="true" class="related-arrow">&#8594;</span></a><a class="related-link" href="/gpa-calculator/"><span aria-hidden="true" class="related-icon">GPA</span><span class="related-copy"><strong>GPA Calculator</strong><span>Calculate a credit-weighted grade point average.</span></span><span aria-hidden="true" class="related-arrow">&#8594;</span></a><a class="related-link" href="/mental-math-rush/"><span aria-hidden="true" class="related-icon">MM</span><span class="related-copy"><strong>Mental Math Rush</strong><span>Build arithmetic speed and accuracy with adaptive rounds.</span></span><span aria-hidden="true" class="related-arrow">&#8594;</span></a><a class="related-link" href="/abacus-quest/"><span aria-hidden="true" class="related-icon">AQ</span><span class="related-copy"><strong>Abacus Quest</strong><span>Practise place value and arithmetic with an interactive Soroban.</span></span><span aria-hidden="true" class="related-arrow">&#8594;</span></a><a class="related-link" href="/age-calculator/"><span aria-hidden="true" class="related-icon">AGE</span><span class="related-copy"><strong>Age Calculator</strong><span>Calculate exact age, birthday progress, upcoming milestones and a detailed printable profile.</span></span><span aria-hidden="true" class="related-arrow">&#8594;</span></a></div><p class="related-note">These calculators open separately and do not transfer values automatically.</p></div></section>
 </main>
-<p class="kalq-review-date">Last reviewed: 4 August 2026</p>
 <footer class="site-footer kalq-global-footer" id="footer">
   <div class="kalq-footer-inner">
     <div class="kalq-footer-grid">
       <div class="kalq-footer-about">
-        <a class="kalq-footer-brand" href="../index.html" aria-label="KALQ home"><span class="kalq-footer-brand-mark">K</span><span>KALQ</span></a>
+        <a class="kalq-footer-brand" href="/" aria-label="KalQ home"><span class="kalq-footer-brand-mark">K</span><span>KalQ</span></a>
         <p class="kalq-footer-summary">Free calculators, converters and educational tools with clear inputs, formulas, assumptions and practical explanations.</p>
       </div>
       <nav class="kalq-footer-column" aria-label="Information">
         <h2>Information</h2>
         <div class="kalq-footer-links">
-          <a href="../about.html">About KALQ</a>
-          <a href="../contact.html">Contact</a>
-          <a href="../privacy-policy.html">Privacy Policy</a>
-          <a href="../terms-of-use.html">Terms of Use</a>
-          <a href="../disclaimer.html">Disclaimer</a>
-          <a href="../cookie-policy.html">Cookie Policy</a>
-          <a href="../calculator-methodology.html">Calculator Methodology</a>
-          <a href="../faq.html">Frequently Asked Questions</a>
-          <a href="../sitemap.html">HTML Sitemap</a>
-          <a href="../cookie-policy.html#settings">Cookie Settings</a>
+          <a href="/about.html">About KalQ</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-use.html">Terms of Use</a>
+          <a href="/disclaimer.html">Disclaimer</a>
+          <a href="/cookie-policy.html">Cookie Policy</a>
+          <a href="/calculator-methodology.html">Calculator Methodology</a>
+          <a href="/faq.html">Frequently Asked Questions</a>
+          <a href="/sitemap.html">HTML Sitemap</a>
+          <a href="/calculators.html">All Calculators</a>
         </div>
       </nav>
       <nav class="kalq-footer-column" aria-label="Calculator collections">
         <h2>Calculator collections</h2>
         <div class="kalq-footer-links">
-          <a href="../finance-calculators.html">Finance Calculators</a>
-          <a href="../health-calculators.html">Health Calculators</a>
-          <a href="../date-time-calculators.html">Date &amp; Time Calculators</a>
-          <a href="../math-calculators.html">Math Calculators</a>
-          <a href="../converters.html">Converters</a>
-          <a href="../education-calculators.html">Education Calculators</a>
-          <a href="../games.html">Games</a>
-          <a href="../calculators.html">All Calculators</a>
+          <a href="/finance-calculators.html">Finance Calculators</a>
+          <a href="/math-calculators.html">Math Calculators</a>
+          <a href="/health-calculators.html">Health Calculators</a>
+          <a href="/education-calculators.html">Education Calculators</a>
+          <a href="/converters.html">Converters</a>
+          <a href="/games.html">Games</a>
+          <a href="/cookie-policy.html#settings">Cookie Settings</a>
         </div>
       </nav>
     </div>
     <div class="kalq-footer-bottom">
-      <p>© <span id="year">2026</span> KALQ. All rights reserved.</p>
-      <p>KALQ calculators provide estimates for informational use and do not replace qualified advice.</p>
+      <p>© <span id="year">2026</span> KalQ. All rights reserved.</p>
+      <p>KalQ calculators provide estimates for informational and educational purposes. Results may vary depending on the information entered and should not replace professional advice.</p>
     </div>
   </div>
 </footer>
@@ -3452,7 +3173,7 @@
 <div class="preview-toolbar"><button id="previewPrintBtn" type="button">Print / Save PDF</button><button id="closePreviewBtn" type="button">Close report</button></div>
 
 <section class="report-page" id="reportPage1">
-<div class="report-masthead"><div class="report-brand"><span class="brand-mark">K</span><span class="report-brand-copy"><strong>KALQ</strong><small>CHEMISTRY REPORT</small></span></div><div class="report-page-no"><span class="reportDate">Date and time</span><br/>Page 1 of 4</div></div>
+<div class="report-masthead"><div class="report-brand"><span class="brand-mark">K</span><span class="report-brand-copy"><strong>KalQ</strong><small>CHEMISTRY REPORT</small></span></div><div class="report-page-no"><span class="reportDate">Date and time</span><br/>Page 1 of 4</div></div>
 <div class="report-title"><div class="eyebrow">Element overview</div><h1 id="reportTitle1">Sodium-23 Snapshot</h1><p>A concise summary of the selected element, isotope, charge, particle counts, and the most useful structural context.</p></div>
 <div class="report-identity">
 <div><small>Element</small><strong id="reportElement">Sodium (Na)</strong></div>
@@ -3474,7 +3195,7 @@
 </section>
 
 <section class="report-page" id="reportPage2">
-<div class="report-masthead"><div class="report-brand"><span class="brand-mark">K</span><span class="report-brand-copy"><strong>KALQ</strong><small>CHEMISTRY REPORT</small></span></div><div class="report-page-no"><span class="reportDate">Date and time</span><br/>Page 2 of 4</div></div>
+<div class="report-masthead"><div class="report-brand"><span class="brand-mark">K</span><span class="report-brand-copy"><strong>KalQ</strong><small>CHEMISTRY REPORT</small></span></div><div class="report-page-no"><span class="reportDate">Date and time</span><br/>Page 2 of 4</div></div>
 <div class="report-title"><div class="eyebrow">Current analysis</div><h1 id="reportTitle2">Sodium Periodic Position</h1><p>Periodic location, measured properties, neighboring elements, and key interpretation limits.</p></div>
 <div class="report-section"><h2>Periodic-table position</h2><div class="report-periodic-table" id="reportPeriodicTable" aria-label="Periodic table with the selected element highlighted"></div></div>
 <div class="report-grid-2">
@@ -3486,7 +3207,7 @@
 </section>
 
 <section class="report-page" id="reportPage3">
-<div class="report-masthead"><div class="report-brand"><span class="brand-mark">K</span><span class="report-brand-copy"><strong>KALQ</strong><small>CHEMISTRY REPORT</small></span></div><div class="report-page-no"><span class="reportDate">Date and time</span><br/>Page 3 of 4</div></div>
+<div class="report-masthead"><div class="report-brand"><span class="brand-mark">K</span><span class="report-brand-copy"><strong>KalQ</strong><small>CHEMISTRY REPORT</small></span></div><div class="report-page-no"><span class="reportDate">Date and time</span><br/>Page 3 of 4</div></div>
 <div class="report-title"><div class="eyebrow">Future analysis</div><h1>Charge and Isotope Scenarios</h1><p>Neutral comparisons showing what changes when electron or neutron counts change.</p></div>
 <div class="report-section"><h2>Neutral atom and selected ion</h2><div class="report-atom-comparison"><div class="report-atom-card"><div class="report-atom" id="reportNeutralAtom"></div><div><h3 id="reportNeutralTitle">Neutral sodium</h3><p id="reportNeutralText">11 protons · 12 neutrons · 11 electrons. Charge 0.</p></div></div><div class="report-atom-card"><div class="report-atom" id="reportIonAtom"></div><div><h3 id="reportIonTitle">Selected sodium ion</h3><p id="reportIonText">11 protons · 12 neutrons · 10 electrons. Charge +1.</p></div></div></div></div>
 <div class="report-grid-2">
@@ -3501,7 +3222,7 @@
 </section>
 
 <section class="report-page" id="reportPage4">
-<div class="report-masthead"><div class="report-brand"><span class="brand-mark">K</span><span class="report-brand-copy"><strong>KALQ</strong><small>CHEMISTRY REPORT</small></span></div><div class="report-page-no"><span class="reportDate">Date and time</span><br/>Page 4 of 4</div></div>
+<div class="report-masthead"><div class="report-brand"><span class="brand-mark">K</span><span class="report-brand-copy"><strong>KalQ</strong><small>CHEMISTRY REPORT</small></span></div><div class="report-page-no"><span class="reportDate">Date and time</span><br/>Page 4 of 4</div></div>
 <div class="report-title"><div class="eyebrow">Method and notes</div><h1 id="reportTitle4">Sodium Chemistry Guide</h1><p>Formulas, selected properties, mistakes, FAQs, references, and limitations.</p></div>
 <div class="report-grid-2">
 <div class="report-section"><h2>Particle-count formulas</h2><div class="report-formula">p = Z</div><div class="report-formula">n = A − Z</div><div class="report-formula">e = Z − q</div><p id="reportFormulaExample">For Sodium-23, +1: p = 11, n = 12, e = 10.</p></div>
@@ -3515,7 +3236,7 @@
 <div class="report-section"><h2>References</h2><ol class="report-references"><li>IUPAC. Periodic Table of the Elements and standard atomic weights.</li><li>NIST. Periodic Table and Atomic Properties.</li><li>PubChem. Periodic Table and Element Data.</li><li>Royal Society of Chemistry. Periodic Table.</li><li>IAEA. Isotope and nuclear data resources.</li><li>CRC Handbook of Chemistry and Physics.</li></ol></div>
 <div class="report-section"><h2>Important limitation</h2><p id="reportPUses">Element uses depend on chemical form and context.</p><p id="reportPSafety">Hazards depend on isotope, compound, concentration, and exposure route.</p><p id="reportPEnvironment">Environmental behavior depends on chemical and physical form.</p></div>
 </div>
-<div class="report-callout"><strong>Disclaimer:</strong> This report is for educational and general general reference. Verify isotope, laboratory, safety, medical, industrial, and regulatory decisions against authoritative specialist sources.</div>
+<div class="report-callout"><strong>Disclaimer:</strong> This report is for educational and general professional reference. Verify isotope, laboratory, safety, medical, industrial, and regulatory decisions against authoritative specialist sources.</div>
 </section>
 </div>
 <script>
@@ -3540,7 +3261,7 @@ function lookup(value){const s=String(value||'').trim().toLowerCase();if(!s)retu
 function ionShells(neutral,charge){const shells=[...neutral];let q=Number(charge);if(q>0){let remove=q;for(let i=shells.length-1;i>=0&&remove>0;i--){const n=Math.min(shells[i],remove);shells[i]-=n;remove-=n;}}else if(q<0){let add=-q;const caps=[2,8,18,32,32,18,8,8];let i=Math.max(0,shells.length-1);while(add>0&&i<caps.length){if(shells[i]===undefined)shells[i]=0;const room=Math.max(0,caps[i]-shells[i]);const n=Math.min(room,add);shells[i]+=n;add-=n;if(add>0)i++;}}while(shells.length>1&&shells[shells.length-1]===0)shells.pop();return shells;}
 function valenceText(el){if(el.block==='d')return'Variable for transition-metal bonding';if(el.block==='f')return'Variable for inner-transition bonding';const n=el.shells[el.shells.length-1];return `${n} outer-shell electron${n===1?'':'s'} in the neutral atom`;}
 function typicalUse(el){if(USES[el.symbol])return USES[el.symbol];if(el.synthetic)return`${el.name} is produced atom-by-atom for scientific research; practical bulk uses are not established.`;const c=el.category;if(c==='noble_gas')return`${el.name} is used where a low-reactivity gas or specialized optical, cryogenic, or research property is useful.`;if(c==='halogen')return`${el.name} chemistry is used in synthesis, materials, disinfection, electronics, or specialized industrial processes.`;if(c==='lanthanide')return`${el.name} is associated with specialized magnets, phosphors, catalysts, optics, alloys, or research applications.`;if(c==='actinide')return`${el.name} is primarily relevant to nuclear science, isotope research, or specialized regulated applications.`;if(c==='transition_metal')return`${el.name} is used in alloys, catalysis, electronics, coatings, pigments, or specialized engineering materials.`;if(c.includes('metal'))return`${el.name} is used in materials, alloys, chemical manufacture, electronics, or specialized industrial applications.`;return`${el.name} is important in chemical compounds, materials, biological systems, or specialized scientific applications.`;}
-function safetyText(el){if(el.radioactive)return`${el.name} is radioactive. Isotope-specific controls, shielding, contamination management, and specialist procedures are required.`;if(el.category==='alkali_metal')return`Elemental ${el.name} can be highly reactive, especially with water or air. Hazards depend on form and conditions.`;if(el.category==='halogen')return`Elemental halogens can be reactive, corrosive, or toxic. Compound hazards vary widely.`;if(el.category==='noble_gas')return`Noble gases are generally low-reactivity, but compressed gas, cryogenic exposure, and oxygen displacement can be hazardous.`;if(el.z>=48&&categoryClass(el)==='metal')return`Some compounds of ${el.name} may be toxic or environmentally persistent. Risk depends on oxidation state, solubility, dose, and exposure route.`;return`Hazards depend on the element’s physical form, isotope, compound, concentration, temperature, and exposure route.`;}
+function safetyText(el){if(el.radioactive)return`${el.name} is radioactive. Isotope-specific controls, shielding, contamination management, and professional procedures are required.`;if(el.category==='alkali_metal')return`Elemental ${el.name} can be highly reactive, especially with water or air. Hazards depend on form and conditions.`;if(el.category==='halogen')return`Elemental halogens can be reactive, corrosive, or toxic. Compound hazards vary widely.`;if(el.category==='noble_gas')return`Noble gases are generally low-reactivity, but compressed gas, cryogenic exposure, and oxygen displacement can be hazardous.`;if(el.z>=48&&categoryClass(el)==='metal')return`Some compounds of ${el.name} may be toxic or environmentally persistent. Risk depends on oxidation state, solubility, dose, and exposure route.`;return`Hazards depend on the element’s physical form, isotope, compound, concentration, temperature, and exposure route.`;}
 function commonIon(el){if(el.group===1&&el.z!==1)return'+1';if(el.group===2)return'+2';if(el.group===17)return'−1';if(el.group===16)return'−2';if(el.group===15)return'−3';if(el.group===18)return'0';if(el.group===13)return'+3';const states=String(el.oxidationStates||'').split(',').map(s=>s.trim()).filter(s=>/^\+\d+$/.test(s));return states[0]||'variable';}
 function neighbors(el){const out=[];if(el.z>1)out.push(ELEMENTS[el.z-2]);if(el.z<118)out.push(ELEMENTS[el.z]);if(el.group){const same=ELEMENTS.filter(e=>e.group===el.group);const above=same.filter(e=>e.period<el.period).sort((a,b)=>b.period-a.period)[0];const below=same.filter(e=>e.period>el.period).sort((a,b)=>a.period-b.period)[0];if(above&&!out.some(x=>x.z===above.z))out.push(above);if(below&&!out.some(x=>x.z===below.z))out.push(below);}return out.slice(0,4);}
 function drawAtom(target,el,A,q){
@@ -3646,7 +3367,4 @@ function chooseActiveElement(){const options=[...$('elementMenu').querySelectorA
 function init(){renderTable('periodicTable');renderTable('reportPeriodicTable',true);$('chemForm').addEventListener('submit',calculate);['elementInput','massNumberInput','chargeInput'].forEach(id=>$(id).addEventListener('change',calculate));$('elementInput').addEventListener('focus',()=>openElementMenu(false));$('elementInput').addEventListener('input',()=>{openElementMenu(false);const el=lookup($('elementInput').value);if(el){$('massNumberInput').value=el.representativeMass;$('chargeInput').value=0;calculate();}});$('elementInput').addEventListener('keydown',event=>{if(event.key==='ArrowDown'){event.preventDefault();if($('elementMenu').hidden)openElementMenu(false);moveElementActive(1);}else if(event.key==='ArrowUp'){event.preventDefault();if($('elementMenu').hidden)openElementMenu(false);moveElementActive(-1);}else if(event.key==='Enter'&&!$('elementMenu').hidden&&chooseActiveElement()){event.preventDefault();}else if(event.key==='Escape'){closeElementMenu();}});$('elementPickerToggle').addEventListener('click',()=>{const willOpen=$('elementMenu').hidden;$('elementInput').focus();willOpen?openElementMenu(true):closeElementMenu();});document.addEventListener('pointerdown',event=>{if(!$('elementCombobox').contains(event.target))closeElementMenu();});$('massNumberInput').addEventListener('input',()=>{clearTimeout(window.__chemTimer);window.__chemTimer=setTimeout(calculate,180);});$('chargeInput').addEventListener('input',()=>{clearTimeout(window.__chemTimer);window.__chemTimer=setTimeout(calculate,180);});$('randomElementBtn').addEventListener('click',()=>selectElement(ELEMENTS[Math.floor(Math.random()*ELEMENTS.length)]));$('neutralAtomBtn').addEventListener('click',()=>{$('chargeInput').value=0;calculate();});$('resetBtn').addEventListener('click',()=>selectElement(ELEMENTS[10]));$('previewReportBtn').addEventListener('click',()=>{calculate();openReport();});$('printReportBtn').addEventListener('click',printReport);$('previewPrintBtn').addEventListener('click',printReport);$('closePreviewBtn').addEventListener('click',closeReport);$('copyResultBtn').addEventListener('click',copyResult);document.querySelectorAll('.faq-item button').forEach(b=>b.addEventListener('click',()=>b.parentElement.classList.toggle('is-open')));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('reportRoot').classList.contains('is-preview'))closeElementMenu();else if(e.key==='Escape')closeReport();});$('year').textContent=new Date().getFullYear();calculate();}
 document.addEventListener('DOMContentLoaded',init);
 </script>
-<button class="go-up-button" id="goUpButton" type="button" aria-label="Go to top" data-shared-go-up>
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"></path></svg><span data-i18n="goUp">Top</span>
-</button>
 </body></html>
