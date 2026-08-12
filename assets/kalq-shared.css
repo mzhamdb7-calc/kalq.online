@@ -1,0 +1,6977 @@
+:root {
+  --kalq-ink: #112936;
+  --kalq-navy: #0f2c3d;
+  --kalq-teal: #0aa69a;
+  --kalq-coral: #f06d5f;
+  --kalq-paper: #fbfaf6;
+  --kalq-mist: #edf5f3;
+  --kalq-warm: #fff1e8;
+  --kalq-line: #d6e2df;
+  --kalq-muted: #62757e;
+  --kalq-white: #fff;
+  --kalq-content: 1180px;
+}
+
+/* Six direct collection tabs shared by every page header. */
+.topnav.nav-collections {
+  gap: clamp(10px, 1.25vw, 18px);
+}
+
+.topnav.nav-collections > a,
+.kalq-static-page .topnav.nav-collections > a {
+  padding: 6px 0;
+  font-size: .8rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+@media (max-width: 1040px) and (min-width: 761px) {
+  .topnav.nav-collections {
+    gap: 10px;
+  }
+
+  .topnav.nav-collections > a,
+  .kalq-static-page .topnav.nav-collections > a {
+    font-size: .72rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .topnav.nav-collections {
+    gap: 7px;
+  }
+
+  .topnav.nav-collections > a,
+  .kalq-static-page .topnav.nav-collections > a {
+    width: 100%;
+    padding: 5px 0;
+  }
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.kalq-review-date {
+  width: min(var(--kalq-content), calc(100% - 36px));
+  margin: 24px auto;
+  color: var(--kalq-muted);
+  font-size: .78rem;
+  text-align: right;
+}
+
+.kalq-global-footer {
+  margin-top: 18px;
+  padding: 17px 0 9px !important;
+  color: rgba(255, 255, 255, .82) !important;
+  background: var(--kalq-navy) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: .71rem !important;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.kalq-global-footer,
+.kalq-global-footer *,
+.kalq-global-footer *::before,
+.kalq-global-footer *::after {
+  box-sizing: border-box;
+}
+
+.kalq-footer-inner {
+  width: min(1600px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.kalq-footer-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, .9fr) minmax(500px, 1.55fr) minmax(360px, 1.05fr);
+  align-items: start;
+  gap: 24px;
+  padding-bottom: 10px;
+}
+
+.kalq-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--kalq-white) !important;
+  font-size: 1rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.kalq-footer-brand-mark,
+.kalq-site-brand-mark {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 50% 50% 50% 16%;
+  color: var(--kalq-white);
+  background: linear-gradient(135deg, var(--kalq-teal), var(--kalq-navy));
+  box-shadow: 0 8px 20px rgba(5, 25, 36, .2);
+  font-weight: 900;
+}
+
+.kalq-footer-summary {
+  max-width: 410px;
+  margin: 6px 0 0;
+  line-height: 1.35;
+}
+
+.kalq-footer-column h2 {
+  margin: 1px 0 6px;
+  color: var(--kalq-white);
+  font-size: .64rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.kalq-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+
+.kalq-footer-links a {
+  white-space: nowrap;
+  color: rgba(255, 255, 255, .82) !important;
+  font-size: .71rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.kalq-footer-links a:hover,
+.kalq-footer-links a:focus-visible {
+  color: var(--kalq-white) !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.kalq-footer-bottom {
+  display: grid;
+  grid-template-columns: minmax(250px, .9fr) minmax(500px, 1.55fr) minmax(360px, 1.05fr);
+  align-items: center;
+  gap: 24px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  font-size: .64rem;
+  line-height: 1.25;
+}
+
+.kalq-footer-bottom p {
+  margin: 0;
+}
+
+.kalq-footer-bottom p:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+.kalq-footer-bottom p:last-child {
+  grid-column: 2 / 4;
+  grid-row: 1;
+  justify-self: start;
+  width: auto;
+  max-width: none;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Keep the homepage introduction compact on desktop instead of filling a full viewport. */
+body:not(.kalq-static-page) .hero.snap-page {
+  min-height: auto;
+  padding-block: clamp(26px, 3.2vw, 40px) 26px;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-grid {
+  display: block;
+  max-width: 1220px;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-grid > div {
+  display: block;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .eyebrow {
+  margin-bottom: 10px;
+  font-size: .72rem;
+}
+
+body:not(.kalq-static-page) .hero.snap-page h1 {
+  max-width: 1220px;
+  margin-bottom: 14px;
+  font-size: clamp(2.45rem, 4vw, 3.75rem);
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+body:not(.kalq-static-page) .hero.snap-page h1.homepage-title {
+  width: 100%;
+  max-width: none;
+  white-space: nowrap;
+  font-size: clamp(.68rem, 3.55vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-copy {
+  max-width: 1120px;
+  font-size: clamp(.94rem, 1.3vw, 1.04rem);
+  line-height: 1.55;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-copy:nth-of-type(2) {
+  margin-top: 7px;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .hero-side {
+  display: none;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .search-shell {
+  grid-column: 1 / -1;
+  grid-row: 5;
+  width: 100%;
+  max-width: none;
+  margin-top: 24px;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .quick-links {
+  grid-column: 1 / -1;
+  grid-row: 6;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin-top: 12px;
+  border: 0;
+  background: transparent;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .quick-links a {
+  min-width: 0;
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, .76);
+  box-shadow: 0 8px 24px rgba(15, 44, 61, .045);
+  transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .quick-links a::before {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  flex: 0 0 25px;
+  place-items: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  color: var(--coral);
+  background: rgba(240, 109, 95, .09);
+  font-size: .76rem;
+}
+
+body:not(.kalq-static-page) .hero.snap-page .quick-links a:hover,
+body:not(.kalq-static-page) .hero.snap-page .quick-links a:focus-visible {
+  border-color: rgba(10, 166, 154, .42);
+  color: var(--navy);
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 12px 30px rgba(15, 44, 61, .09);
+  transform: translateY(-2px);
+}
+
+html[data-theme="dark"] body:not(.kalq-static-page) .hero.snap-page .quick-links a {
+  border-color: #294653;
+  background: rgba(16, 44, 58, .94);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body:not(.kalq-static-page) .hero.snap-page .quick-links a:hover,
+html[data-theme="dark"] body:not(.kalq-static-page) .hero.snap-page .quick-links a:focus-visible {
+  border-color: rgba(108, 224, 213, .42);
+  background: #123442;
+}
+
+@media (max-width: 1080px) {
+  body:not(.kalq-static-page) .hero.snap-page .quick-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  body:not(.kalq-static-page) .hero.snap-page .quick-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  body:not(.kalq-static-page) .hero.snap-page .quick-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1180px) {
+  .kalq-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kalq-footer-bottom {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kalq-footer-about {
+    grid-column: 1 / -1;
+  }
+
+  .kalq-footer-bottom p:last-child {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    width: auto;
+    white-space: normal;
+    text-align: left;
+  }
+}
+
+@media (max-width: 900px) {
+  body:not(.kalq-static-page) .hero.snap-page .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  body:not(.kalq-static-page) .hero.snap-page .hero-grid > div {
+    display: block;
+  }
+
+  body:not(.kalq-static-page) .hero.snap-page .hero-side {
+    grid-column: auto;
+    grid-row: auto;
+    max-width: 720px;
+  }
+}
+
+/* Compact calculator output system. Games and report previews are intentionally excluded. */
+body.kalq-compact-output-boxes {
+  --kalq-output-gap: 8px;
+  --kalq-output-radius: 12px;
+  --kalq-output-inset-x: 14px;
+  --kalq-output-inset-y: 11px;
+  --kalq-output-border: #bfd9d6;
+  --kalq-output-surface: rgba(255, 255, 255, .82);
+  --kalq-output-soft: linear-gradient(135deg, rgba(10, 166, 154, .10), rgba(127, 183, 212, .10) 52%, rgba(255, 110, 100, .08));
+  --kalq-output-main: linear-gradient(135deg, rgba(10, 166, 154, .17), rgba(255, 255, 255, .96) 52%, rgba(255, 110, 100, .14));
+}
+
+body.kalq-compact-output-boxes .result-panel,
+body.kalq-compact-output-boxes .chem-result-panel,
+body.kalq-compact-output-boxes .credit-result-panel,
+body.kalq-compact-output-boxes .currency-result-panel,
+body.kalq-compact-output-boxes .date-result-panel,
+body.kalq-compact-output-boxes .age-result-panel {
+  gap: var(--kalq-output-gap) !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .result-content,
+  .child-result-content,
+  #resultContent,
+  #unitResultMain
+) {
+  gap: var(--kalq-output-gap) !important;
+}
+
+/* Keep the highlighted answer and its context together in a compact, balanced header. */
+body.kalq-compact-output-boxes :is(
+  .result-top,
+  .age-result-top,
+  .child-result-top,
+  .currency-result-top,
+  .root-result-top,
+  .due-result-top,
+  .salary-result-top,
+  .payoff-hero,
+  .element-top
+) {
+  display: grid !important;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr) !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: var(--kalq-output-inset-y) 16px !important;
+  margin: 0 0 var(--kalq-output-gap) !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  border: 1px solid var(--kalq-output-border) !important;
+  border-left: 4px solid #0aa69a !important;
+  border-radius: var(--kalq-output-radius) !important;
+  background: var(--kalq-output-main) !important;
+  box-shadow: 0 9px 22px rgba(15, 44, 61, .08), inset 0 1px 0 rgba(255, 255, 255, .82) !important;
+  overflow: visible !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .result-top,
+  .age-result-top,
+  .child-result-top,
+  .currency-result-top,
+  .root-result-top,
+  .due-result-top,
+  .salary-result-top,
+  .payoff-hero,
+  .element-top
+) > :first-child {
+  position: relative;
+  min-width: 0;
+  padding: 0 0 0 3px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .result-top,
+  .age-result-top,
+  .child-result-top,
+  .currency-result-top,
+  .root-result-top,
+  .due-result-top,
+  .salary-result-top,
+  .payoff-hero,
+  .element-top
+) > :not(:first-child) {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 0 0 16px !important;
+  border: 0 !important;
+  border-left: 1px solid rgba(15, 44, 61, .13) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Long-form answers and visual result markers need narrower dedicated columns. */
+body.kalq-compact-output-boxes .age-result-top {
+  grid-template-columns: minmax(0, 1fr) 96px !important;
+}
+
+body.kalq-compact-output-boxes .due-result-top {
+  grid-template-columns: minmax(0, 1fr) 112px !important;
+}
+
+body.kalq-compact-output-boxes .element-top {
+  grid-template-columns: 104px minmax(0, 1fr) !important;
+}
+
+body.kalq-compact-output-boxes :is(.age-result-top, .due-result-top) > :not(:first-child) {
+  padding-left: 0 !important;
+  border-left: 0 !important;
+}
+
+body.kalq-compact-output-boxes .age-result-top .birthday-ring {
+  width: 96px !important;
+  height: 96px !important;
+  min-width: 96px !important;
+  justify-self: end;
+  border: 1px solid rgba(10, 166, 154, .22) !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, .9) !important;
+}
+
+body.kalq-compact-output-boxes .age-result-top .birthday-ring::before {
+  width: 72px !important;
+  height: 72px !important;
+}
+
+body.kalq-compact-output-boxes .age-result-top .birthday-ring-copy strong {
+  font-size: 1.05rem !important;
+}
+
+body.kalq-compact-output-boxes .age-result-top .birthday-ring-copy span {
+  font-size: .56rem !important;
+  line-height: 1.2 !important;
+}
+
+body.kalq-compact-output-boxes .due-result-top .progress-orbit {
+  width: 112px !important;
+  height: 112px !important;
+  min-width: 112px !important;
+  justify-self: end;
+}
+
+body.kalq-compact-output-boxes .due-result-top .progress-orbit svg {
+  width: 112px !important;
+  height: 112px !important;
+}
+
+/* Keep the main result prominent without overpowering the panel controls. */
+body.kalq-compact-output-boxes :is(
+  #exactAge,
+  #bmiValue,
+  #futureValue,
+  #payoffMonths,
+  #convertedValue,
+  #durationValue,
+  #gpaValue,
+  #midpointValue,
+  #primaryValue,
+  #rootCount,
+  #dueDateValue,
+  #projectedSavings,
+  #newSalaryValue,
+  #netPayValue,
+  #tipValue,
+  #resultValue
+) {
+  margin: 0 !important;
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  line-height: .98 !important;
+  letter-spacing: -.04em !important;
+}
+
+body.kalq-compact-output-boxes #exactAge {
+  max-width: none !important;
+  font-size: clamp(1.55rem, 2.65vw, 2.1rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.03em !important;
+  text-wrap: balance;
+}
+
+body.kalq-compact-output-boxes #dueDateValue {
+  font-size: clamp(1.55rem, 2.8vw, 2.25rem) !important;
+  line-height: 1.05 !important;
+}
+
+/* Prevent long values, labels, and explanations from escaping or overlapping a result card. */
+body.kalq-compact-output-boxes :is(
+  .result-panel,
+  .chem-result-panel,
+  .credit-result-panel,
+  .currency-result-panel,
+  .date-result-panel,
+  .age-result-panel
+),
+body.kalq-compact-output-boxes :is(
+  .result-top,
+  .age-result-top,
+  .child-result-top,
+  .currency-result-top,
+  .root-result-top,
+  .due-result-top,
+  .salary-result-top,
+  .payoff-hero,
+  .element-top
+) > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .result-summary,
+  .category-label,
+  .result-label,
+  .date-status-label,
+  .raise-label,
+  .payroll-status,
+  .due-label,
+  .due-basis,
+  .result-status,
+  .as-of-line,
+  .birthday-message,
+  .element-heading,
+  .element-heading h2,
+  .element-heading p,
+  .data-piece,
+  .age-stat,
+  .payoff-stat,
+  .pregnancy-stat,
+  .salary-stat,
+  .particle,
+  .metric,
+  .analysis-item,
+  .snapshot-card
+) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+body.kalq-compact-output-boxes :is(.category-label, .result-label, .result-status) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+body.kalq-compact-output-boxes :is(
+  .bmi-unit,
+  .salary-unit,
+  .root-count-unit,
+  #futureValueUnit,
+  #payoffMonthsUnit,
+  #convertedUnit,
+  #durationUnit,
+  #midpointUnit,
+  #primaryUnit,
+  #netPayUnit,
+  #resultUnit,
+  #futurePeriod,
+  #gpaScaleNote
+) {
+  margin-top: 3px !important;
+  font-size: .7rem !important;
+  line-height: 1.25 !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .result-summary,
+  #resultSummary,
+  #rootSummary,
+  #payoffSummary,
+  #inverseSummary,
+  #birthdayMessage,
+  #asOfLine,
+  #elementSummary
+) {
+  margin: 5px 0 0 !important;
+  max-width: none !important;
+  font-size: .74rem !important;
+  line-height: 1.42 !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .category-label,
+  .result-label,
+  .date-status-label,
+  .raise-label,
+  .payroll-status,
+  .due-label,
+  .result-status
+) {
+  font-size: .67rem !important;
+  line-height: 1.2 !important;
+}
+
+/* Supporting values use consistent compact cards and stay below the highlighted answer. */
+body.kalq-compact-output-boxes :is(
+  .result-data,
+  .result-data-3,
+  .age-stat-strip,
+  .payoff-stat-grid,
+  .pregnancy-stat-strip,
+  .salary-stat-grid,
+  .particle-strip,
+  .metric-line,
+  .analysis-strip,
+  .snapshot-grid,
+  .composition-row,
+  .notation-line,
+  .future-output
+) {
+  gap: var(--kalq-output-gap) !important;
+  margin-top: var(--kalq-output-gap) !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: visible !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .result-data,
+  .result-data-3,
+  .age-stat-strip,
+  .payoff-stat-grid,
+  .pregnancy-stat-strip,
+  .salary-stat-grid,
+  .particle-strip,
+  .metric-line,
+  .analysis-strip,
+  .snapshot-grid,
+  .future-output
+) > :not(button):not(.chip):not([class*="chip"]) {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 11px 13px !important;
+  border: 1px solid var(--kalq-output-border) !important;
+  border-radius: 10px !important;
+  background: var(--kalq-output-surface) !important;
+  box-shadow: 0 5px 14px rgba(15, 44, 61, .045);
+}
+
+body.kalq-compact-output-boxes :is(
+  .data-piece,
+  .age-stat,
+  .payoff-stat,
+  .pregnancy-stat,
+  .salary-stat,
+  .particle,
+  .metric,
+  .analysis-item,
+  .snapshot-card
+) :is(small, .data-label, .result-label) {
+  display: block;
+  margin: 0 0 3px !important;
+  font-size: .63rem !important;
+  line-height: 1.25 !important;
+  letter-spacing: .055em !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .data-piece,
+  .age-stat,
+  .payoff-stat,
+  .pregnancy-stat,
+  .salary-stat,
+  .particle,
+  .metric,
+  .analysis-item,
+  .snapshot-card
+) :is(strong, [id$="Value"], [id$="Analysis"]) {
+  font-size: .88rem !important;
+  line-height: 1.2 !important;
+}
+
+body.kalq-compact-output-boxes :is(.data-note, [id$="Note"]) {
+  margin-top: 3px !important;
+  font-size: .65rem !important;
+  line-height: 1.34 !important;
+}
+
+/* Visuals read as one compact output story instead of disconnected large blocks. */
+body.kalq-compact-output-boxes :is(
+  .gauge-wrap,
+  .growth-chart-wrap,
+  .payoff-chart-panel,
+  .chart-block,
+  .graph-block,
+  .chart-wrap,
+  .comparison-wrap,
+  .timeline-wrap,
+  .baby-phase-band,
+  .gpa-position,
+  .salary-compare,
+  .composition-row,
+  .notation-line,
+  .atom-row
+) {
+  box-sizing: border-box;
+  margin: var(--kalq-output-gap) 0 0 !important;
+  padding: 12px var(--kalq-output-inset-x) !important;
+  border: 1px solid var(--kalq-output-border) !important;
+  border-radius: var(--kalq-output-radius) !important;
+  background: var(--kalq-output-soft) !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .savings-path,
+  .calendar-strip,
+  .root-strip,
+  .scenario-strip,
+  .review-strip
+) {
+  box-sizing: border-box;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: var(--kalq-output-gap) 0 0 !important;
+  padding: 10px 12px !important;
+  gap: var(--kalq-output-gap) !important;
+  border: 1px solid var(--kalq-output-border) !important;
+  border-radius: var(--kalq-output-radius) !important;
+  background: var(--kalq-output-surface) !important;
+  overflow: visible !important;
+}
+
+body.kalq-compact-output-boxes :is(
+  .gauge-title-row,
+  .growth-chart-head,
+  .chart-head,
+  .graph-head,
+  .timeline-head,
+  .salary-compare-head,
+  .position-head
+) {
+  margin-bottom: 6px !important;
+  font-size: .7rem !important;
+  line-height: 1.25 !important;
+}
+
+/* Plotted calculator graphs retain their data logic and expose exact hover points. */
+body.kalq-compact-output-boxes :is(
+  .growth-chart,
+  .chart-svg,
+  .rate-chart,
+  .savings-chart,
+  .polynomial-graph
+) {
+  display: block;
+  max-width: 100%;
+  border-radius: 8px;
+  cursor: crosshair !important;
+  pointer-events: auto !important;
+  touch-action: none;
+}
+
+body.kalq-compact-output-boxes :is(
+  .growth-chart,
+  .chart-svg,
+  .rate-chart,
+  .savings-chart,
+  .polynomial-graph
+):focus-visible {
+  outline: 3px solid rgba(10, 166, 154, .28);
+  outline-offset: 3px;
+}
+
+body.kalq-compact-output-boxes :is(
+  .growth-chart-tooltip,
+  .chart-tooltip,
+  .rate-chart-tooltip,
+  .savings-chart-tooltip,
+  #mainGrowthTooltip,
+  #chartTooltip
+) {
+  z-index: 5;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 20px rgba(15, 44, 61, .16) !important;
+  font-size: .66rem !important;
+  line-height: 1.3 !important;
+  pointer-events: none !important;
+}
+
+body.kalq-compact-output-boxes .result-actions {
+  gap: var(--kalq-output-gap) !important;
+  margin-top: var(--kalq-output-gap) !important;
+}
+
+/* Maintain a clear inset wherever output content meets an outer or internal divider. */
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-top,
+  .age-result-top,
+  .child-result-top,
+  .currency-result-top,
+  .root-result-top,
+  .due-result-top,
+  .salary-result-top,
+  .payoff-hero,
+  .element-top
+) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: var(--kalq-output-inset-y) 16px !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .gauge-wrap,
+  .growth-chart-wrap,
+  .payoff-chart-panel,
+  .chart-block,
+  .graph-block,
+  .chart-wrap,
+  .comparison-wrap,
+  .timeline-wrap,
+  .baby-phase-band,
+  .gpa-position,
+  .salary-compare,
+  .composition-row,
+  .notation-line,
+  .atom-row
+) {
+  padding-inline: var(--kalq-output-inset-x) !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .savings-path,
+  .calendar-strip,
+  .root-strip,
+  .review-strip
+) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding-inline: 12px !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .savings-path,
+  .calendar-strip,
+  .root-strip,
+  .review-strip
+) > :not(.path-arrow) {
+  min-width: 0 !important;
+  padding-inline: 5px !important;
+}
+
+@media (max-width: 700px) {
+  body.kalq-compact-output-boxes {
+    --kalq-output-gap: 7px;
+  }
+
+  body.kalq-compact-output-boxes :is(
+    .result-top,
+    .age-result-top,
+    .child-result-top,
+    .currency-result-top,
+    .root-result-top,
+    .due-result-top,
+    .salary-result-top,
+    .payoff-hero,
+    .element-top
+  ) {
+    grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr) !important;
+    align-items: center !important;
+    gap: 9px !important;
+  }
+
+  body.kalq-compact-output-boxes :is(
+    .result-top,
+    .age-result-top,
+    .child-result-top,
+    .currency-result-top,
+    .root-result-top,
+    .due-result-top,
+    .salary-result-top,
+    .payoff-hero,
+    .element-top
+  ) > :not(:first-child) {
+    width: auto !important;
+    padding: 0 0 0 11px !important;
+    border-top: 0 !important;
+    border-left: 1px solid rgba(15, 44, 61, .13) !important;
+  }
+
+  body.kalq-compact-output-boxes .age-result-top {
+    grid-template-columns: minmax(0, 1fr) 82px !important;
+  }
+
+  body.kalq-compact-output-boxes .due-result-top {
+    grid-template-columns: minmax(0, 1fr) 84px !important;
+  }
+
+  body.kalq-compact-output-boxes .element-top {
+    grid-template-columns: 78px minmax(0, 1fr) !important;
+  }
+
+  body.kalq-compact-output-boxes :is(.age-result-top, .due-result-top) > :not(:first-child) {
+    padding-left: 0 !important;
+    border-left: 0 !important;
+  }
+
+  body.kalq-compact-output-boxes .age-result-top .birthday-ring,
+  body.kalq-compact-output-boxes .due-result-top .progress-orbit {
+    width: 82px !important;
+    height: 82px !important;
+    min-width: 82px !important;
+    justify-self: end;
+  }
+
+  body.kalq-compact-output-boxes .due-result-top .progress-orbit svg {
+    width: 82px !important;
+    height: 82px !important;
+  }
+
+  body.kalq-compact-output-boxes #exactAge {
+    font-size: clamp(1.35rem, 5.6vw, 1.8rem) !important;
+  }
+
+  body.kalq-compact-output-boxes :is(
+    .result-data,
+    .result-data-3,
+    .age-stat-strip,
+    .payoff-stat-grid,
+    .pregnancy-stat-strip,
+    .salary-stat-grid,
+    .particle-strip,
+    .metric-line,
+    .analysis-strip,
+    .snapshot-grid,
+    .future-output
+  ) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Input text remains inside its control, even for long localized labels and values. */
+body.kalq-compact-input-boxes form:not(.header-search),
+body.kalq-compact-input-boxes form:not(.header-search) :is(
+  .field,
+  .dark-field,
+  .field-row,
+  .scale-row,
+  .settings-grid,
+  .savings-input-grid,
+  .payroll-input-grid,
+  .converter-picker-grid,
+  .converter-unit-row,
+  .assumptions-grid,
+  .atomic-settings,
+  .input-row-compact,
+  .course-row,
+  .input-wrap,
+  .input-line
+) > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(
+  label,
+  .picker-label,
+  .field-help,
+  .input-help,
+  .compact-note,
+  .converter-picker-intro,
+  .error
+) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(button, .picker-trigger) {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(input, select, textarea) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(.input-unit, .input-suffix) {
+  max-width: 44%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Compact input boxes; calculator structure and game pages remain untouched. */
+body.kalq-compact-input-boxes form:not(.header-search) {
+  --kalq-input-height: 34px;
+  --kalq-input-gap: 9px;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .field,
+body.kalq-compact-input-boxes form:not(.header-search) .dark-field {
+  margin-bottom: var(--kalq-input-gap) !important;
+  padding-bottom: 3px;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .field-row,
+body.kalq-compact-input-boxes form:not(.header-search) .scale-row,
+body.kalq-compact-input-boxes form:not(.header-search) .settings-grid,
+body.kalq-compact-input-boxes form:not(.header-search) .savings-input-grid,
+body.kalq-compact-input-boxes form:not(.header-search) .payroll-input-grid,
+body.kalq-compact-input-boxes form:not(.header-search) .converter-picker-grid,
+body.kalq-compact-input-boxes form:not(.header-search) .converter-unit-row,
+body.kalq-compact-input-boxes form:not(.header-search) .assumptions-grid,
+body.kalq-compact-input-boxes form:not(.header-search) .atomic-settings,
+body.kalq-compact-input-boxes form:not(.header-search) .input-row-compact,
+body.kalq-compact-input-boxes form:not(.header-search) .course-row {
+  gap: var(--kalq-input-gap) !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .course-row {
+  margin-bottom: 4px !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) label,
+body.kalq-compact-input-boxes form:not(.header-search) .picker-label {
+  padding-inline: 2px;
+  font-size: .78rem !important;
+  line-height: 1.25 !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) label > span,
+body.kalq-compact-input-boxes form:not(.header-search) .field-help,
+body.kalq-compact-input-boxes form:not(.header-search) .input-help,
+body.kalq-compact-input-boxes form:not(.header-search) .compact-note,
+body.kalq-compact-input-boxes form:not(.header-search) .converter-picker-intro > span {
+  font-size: .66rem !important;
+  line-height: 1.3 !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .input-wrap,
+body.kalq-compact-input-boxes form:not(.header-search) .input-line {
+  min-height: var(--kalq-input-height) !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+body.kalq-compact-input-boxes form:not(.header-search) select,
+body.kalq-compact-input-boxes form:not(.header-search) .picker-trigger {
+  box-sizing: border-box !important;
+  width: 100%;
+  height: var(--kalq-input-height) !important;
+  min-height: var(--kalq-input-height) !important;
+  padding: 0 12px !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: color-mix(in srgb, currentColor 26%, transparent) !important;
+  border-radius: 8px !important;
+  font-size: .78rem !important;
+  line-height: 1.2 !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .input-wrap input,
+body.kalq-compact-input-boxes form:not(.header-search) .input-wrap select,
+body.kalq-compact-input-boxes form:not(.header-search) .input-line input,
+body.kalq-compact-input-boxes form:not(.header-search) .input-line select {
+  padding-right: 48px !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .input-unit,
+body.kalq-compact-input-boxes form:not(.header-search) .input-suffix,
+body.kalq-compact-input-boxes form:not(.header-search) .select-arrow {
+  inset-inline-end: 10px;
+  font-size: .66rem !important;
+  line-height: 1 !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) textarea {
+  box-sizing: border-box !important;
+  width: 100%;
+  min-height: 68px !important;
+  padding: 9px 12px !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: color-mix(in srgb, currentColor 26%, transparent) !important;
+  border-radius: 8px !important;
+  font-size: .78rem !important;
+  line-height: 1.35 !important;
+}
+
+/* One input typography hierarchy, derived from the standard .78rem button label. */
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) {
+  --kalq-input-heading-text: 1.12rem;
+  --kalq-input-subheading-text: .86rem;
+  --kalq-input-control-text: .78rem;
+  --kalq-input-choice-text: .72rem;
+  --kalq-input-meta-text: .66rem;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  h2,
+  .input-title,
+  .panel-title,
+  .form-title
+) {
+  font-size: var(--kalq-input-heading-text) !important;
+  line-height: 1.18 !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  h3,
+  legend,
+  .section-title,
+  .group-title
+) {
+  font-size: var(--kalq-input-subheading-text) !important;
+  line-height: 1.22 !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  label,
+  .picker-label,
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  select,
+  textarea,
+  .picker-trigger
+) {
+  font-size: var(--kalq-input-control-text) !important;
+  line-height: 1.25 !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .btn,
+  .calculate-btn,
+  .dark-action,
+  .start-btn,
+  .btn-start-session,
+  button[type="submit"]
+) {
+  font-size: var(--kalq-input-control-text) !important;
+  line-height: 1.1 !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .input-tab,
+  .input-mode-tab,
+  .period-btn,
+  .currency-button,
+  .example-chip,
+  .picker-option,
+  .grade-picker-button,
+  .today-shortcut,
+  .kalq-today-shortcut
+) {
+  font-size: var(--kalq-input-choice-text) !important;
+  line-height: 1.15 !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  label > span,
+  small,
+  .field-help,
+  .input-help,
+  .compact-note,
+  .input-unit,
+  .input-suffix,
+  .select-arrow,
+  .error,
+  .privacy-note,
+  .converter-picker-intro > span
+) {
+  font-size: var(--kalq-input-meta-text) !important;
+  line-height: 1.35 !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > p,
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .input-intro,
+  .panel-intro,
+  .form-intro
+) {
+  font-size: var(--kalq-input-choice-text) !important;
+  line-height: 1.45 !important;
+}
+
+/* The same reference hierarchy for the two game setup/input panels. */
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) {
+  --kalq-input-heading-text: 1.12rem;
+  --kalq-input-subheading-text: .86rem;
+  --kalq-input-control-text: .78rem;
+  --kalq-input-choice-text: .72rem;
+  --kalq-input-meta-text: .66rem;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(h2, .panel-title) {
+  font-size: var(--kalq-input-heading-text) !important;
+  line-height: 1.18 !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(h3, legend, .section-title) {
+  font-size: var(--kalq-input-subheading-text) !important;
+  line-height: 1.22 !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(
+  label,
+  .setting-label,
+  select,
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"])
+) {
+  font-size: var(--kalq-input-control-text) !important;
+  line-height: 1.25 !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(
+  .pill-group button,
+  .sound-toggle,
+  .input-mode-tab
+) {
+  font-size: var(--kalq-input-choice-text) !important;
+  line-height: 1.1 !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(
+  .btn,
+  .start-btn,
+  .btn-start-session,
+  button[type="submit"]
+) {
+  font-size: var(--kalq-input-control-text) !important;
+  line-height: 1.1 !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(
+  small,
+  label > span,
+  .setting-label > span,
+  .setup-note,
+  .control-note
+) {
+  font-size: var(--kalq-input-meta-text) !important;
+  line-height: 1.4 !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) > p {
+  font-size: var(--kalq-input-choice-text) !important;
+  line-height: 1.45 !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) input:focus,
+body.kalq-compact-input-boxes form:not(.header-search) select:focus,
+body.kalq-compact-input-boxes form:not(.header-search) textarea:focus,
+body.kalq-compact-input-boxes form:not(.header-search) .picker-trigger:focus-visible {
+  border-color: var(--teal, #0aa69a) !important;
+  outline: 2px solid color-mix(in srgb, var(--teal, #0aa69a) 24%, transparent) !important;
+  outline-offset: 1px !important;
+}
+
+/* Shared native date-field treatment across calculator input forms. */
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"] {
+  box-sizing: border-box;
+  width: 100% !important;
+  min-width: 0;
+  height: 34px !important;
+  padding: 0 9px 0 11px !important;
+  border: 1px solid rgba(167, 205, 214, .38) !important;
+  border-radius: 10px !important;
+  background: #123447 !important;
+  color: #f7fbfc !important;
+  color-scheme: dark;
+  font-family: inherit;
+  font-size: .78rem !important;
+  font-weight: 800;
+  letter-spacing: .01em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035);
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"]::-webkit-datetime-edit,
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"]::-webkit-datetime-edit-text,
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"]::-webkit-datetime-edit-day-field,
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"]::-webkit-datetime-edit-month-field,
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"]::-webkit-datetime-edit-year-field {
+  color: #f7fbfc;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .kalq-date-control {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .kalq-date-control input[type="date"] {
+  padding-inline: 38px !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .kalq-date-picker-button {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  right: 4px;
+  display: grid;
+  place-items: center;
+  width: 27px;
+  min-width: 27px;
+  height: 27px !important;
+  min-height: 27px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 7px !important;
+  background: transparent !important;
+  color: #f3fbfc !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  transform: translateY(-50%) !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .kalq-date-picker-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .kalq-date-picker-button:hover {
+  background: rgba(255, 255, 255, .08) !important;
+  color: #ffffff !important;
+  transform: translateY(-50%) !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .kalq-date-picker-button:focus-visible {
+  outline: 2px solid #6ce0d5 !important;
+  outline-offset: 1px !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .kalq-date-control:has(input:disabled) .kalq-date-picker-button {
+  opacity: .42;
+  cursor: not-allowed;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"]:hover {
+  border-color: rgba(108, 224, 213, .58) !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) input[type="date"]:focus {
+  border-color: #6ce0d5 !important;
+  outline: 2px solid rgba(108, 224, 213, .22) !important;
+  outline-offset: 1px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04) !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(
+  .input-wrap:has(input[type="date"]):has(.today-shortcut),
+  .input-wrap:has(input[type="date"]):has(.kalq-today-shortcut),
+  .kalq-date-row
+) {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+
+/* Use the browser's real calendar control so the visible icon is always clickable. */
+body.kalq-compact-input-boxes form:not(.header-search) :is(
+  .input-wrap:has(input[type="date"]):has(.today-shortcut),
+  .input-wrap:has(input[type="date"]):has(.kalq-today-shortcut),
+  .kalq-date-row
+)::after {
+  content: none;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(.today-shortcut, .kalq-today-shortcut) {
+  box-sizing: border-box;
+  min-width: 70px;
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 14px !important;
+  border: 1px solid rgba(255, 255, 255, .74) !important;
+  border-radius: 999px !important;
+  background: #f1f4f5 !important;
+  color: #0d3040 !important;
+  font-size: .72rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .08);
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(.today-shortcut, .kalq-today-shortcut):hover {
+  border-color: #6ce0d5 !important;
+  background: #ffffff !important;
+  transform: none !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(.today-shortcut, .kalq-today-shortcut):focus-visible {
+  outline: 2px solid #6ce0d5 !important;
+  outline-offset: 2px !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(.field, .holiday-mini-field):has(input[type="date"]) > label {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) :is(.field, .holiday-mini-field):has(input[type="date"]) > label span {
+  color: #9bbbc9 !important;
+  font-size: .65rem !important;
+  font-weight: 750 !important;
+  white-space: nowrap;
+}
+
+/* Compact custom number-stepper rows used by calculator input forms. */
+body.kalq-compact-input-boxes form:not(.header-search) .cycle-stepper {
+  display: grid !important;
+  grid-template-columns: 34px minmax(0, 1fr) 34px !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, .17) !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .cycle-stepper input {
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 9px !important;
+  border: 1px solid rgba(167, 205, 214, .34) !important;
+  border-radius: 9px !important;
+  background: rgba(8, 43, 59, .44) !important;
+  color: #ffffff !important;
+  font-size: .78rem !important;
+  font-weight: 850 !important;
+  text-align: center;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .cycle-stepper button {
+  box-sizing: border-box;
+  width: 34px !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 !important;
+  border: 1px solid rgba(167, 205, 214, .22) !important;
+  border-radius: 9px !important;
+  background: rgba(255, 255, 255, .035) !important;
+  color: rgba(255, 255, 255, .90) !important;
+  font-size: .86rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) .cycle-stepper button:hover,
+body.kalq-compact-input-boxes form:not(.header-search) .cycle-stepper button:focus-visible {
+  border-color: rgba(108, 224, 213, .64) !important;
+  background: rgba(108, 224, 213, .11) !important;
+  outline: none;
+}
+
+/* Game setup controls: same hierarchy and 34px control rhythm, without changing live play controls. */
+body.kalq-compact-game-inputs .setup-panel .field {
+  margin-bottom: 9px !important;
+  padding-bottom: 4px;
+}
+
+body.kalq-compact-game-inputs .setup-panel .field label {
+  margin-bottom: 5px !important;
+  font-size: .78rem !important;
+  line-height: 1.25 !important;
+}
+
+body.kalq-compact-game-inputs .setup-panel .field label > span {
+  font-size: .66rem !important;
+  font-weight: 650 !important;
+}
+
+body.kalq-compact-game-inputs .setup-panel .input-wrap {
+  min-height: 34px !important;
+}
+
+body.kalq-compact-game-inputs .setup-panel select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 34px 0 12px !important;
+  border: 1px solid rgba(167, 205, 214, .34) !important;
+  border-radius: 9px !important;
+  background: rgba(8, 43, 59, .44) !important;
+  color: #ffffff !important;
+  font-size: .78rem !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  box-shadow: none !important;
+}
+
+body.kalq-compact-game-inputs .setup-panel select:focus {
+  border-color: #6ce0d5 !important;
+  outline: 2px solid rgba(108, 224, 213, .20) !important;
+  outline-offset: 1px;
+}
+
+body.kalq-compact-game-inputs .setup-panel .select-wrap::after {
+  right: 10px !important;
+}
+
+body.kalq-compact-game-inputs .setup-panel .sound-toggle {
+  box-sizing: border-box;
+  height: 34px !important;
+  min-height: 34px !important;
+  margin-top: 9px !important;
+  padding: 0 12px !important;
+  border: 1px solid rgba(167, 205, 214, .26) !important;
+  border-radius: 9px !important;
+  background: rgba(255, 255, 255, .035) !important;
+  color: rgba(255, 255, 255, .86) !important;
+  font-size: .72rem !important;
+  line-height: 1 !important;
+}
+
+body.kalq-compact-game-inputs .setup-panel .setup-note {
+  margin-top: 9px !important;
+}
+
+body.kalq-compact-game-inputs .setup-panel .setup-note small {
+  font-size: .62rem !important;
+}
+
+body.kalq-compact-game-inputs .setup-panel .setup-note strong {
+  font-size: .72rem !important;
+}
+
+body.kalq-compact-game-inputs .control-panel .setting {
+  margin-bottom: 10px !important;
+  padding-bottom: 4px;
+}
+
+body.kalq-compact-game-inputs .control-panel .setting-label {
+  align-items: baseline;
+  margin-bottom: 5px !important;
+  font-size: .78rem !important;
+  line-height: 1.25 !important;
+}
+
+body.kalq-compact-game-inputs .control-panel .setting-label span {
+  font-size: .66rem !important;
+  font-weight: 650 !important;
+}
+
+body.kalq-compact-game-inputs .control-panel .pill-group {
+  gap: 7px !important;
+}
+
+body.kalq-compact-game-inputs .control-panel .pill-group button {
+  box-sizing: border-box;
+  width: 100% !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  padding: 0 11px !important;
+  border-radius: 999px;
+  font-size: .72rem !important;
+  font-weight: 820 !important;
+  line-height: 1 !important;
+}
+
+body.kalq-compact-game-inputs .control-panel .control-divider {
+  margin: 10px 0 !important;
+}
+
+body.kalq-compact-game-inputs .control-panel .control-note {
+  margin-top: 8px !important;
+  font-size: .62rem !important;
+}
+
+@supports not (color: color-mix(in srgb, black, white)) {
+  body.kalq-compact-input-boxes form:not(.header-search) input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  body.kalq-compact-input-boxes form:not(.header-search) select,
+  body.kalq-compact-input-boxes form:not(.header-search) textarea,
+  body.kalq-compact-input-boxes form:not(.header-search) .picker-trigger {
+    border-color: rgba(127, 148, 156, .42) !important;
+  }
+}
+
+/* Compact disclosure panels used only inside calculator input forms. */
+body.kalq-compact-input-boxes form:not(.header-search) details:is(
+  .report-options,
+  .conversion-options,
+  .holiday-coverage-details,
+  .report-details,
+  .calculator-settings,
+  .settings-disclosure
+) {
+  box-sizing: border-box;
+  margin: 9px 0 !important;
+  padding: 0 12px;
+  overflow: hidden;
+  border: 1px solid rgba(108, 224, 213, .30) !important;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .075), rgba(10, 166, 154, .095));
+  box-shadow: inset 3px 0 0 rgba(108, 224, 213, .68);
+  color: rgba(255, 255, 255, .78);
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) details:is(
+  .report-options,
+  .conversion-options,
+  .holiday-coverage-details,
+  .report-details,
+  .calculator-settings,
+  .settings-disclosure
+):not([open]) {
+  padding-bottom: 0;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) details:is(
+  .report-options,
+  .conversion-options,
+  .holiday-coverage-details,
+  .report-details,
+  .calculator-settings,
+  .settings-disclosure
+)[open] {
+  padding-bottom: 10px;
+  border-color: rgba(108, 224, 213, .52) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .09), rgba(10, 166, 154, .15));
+  box-shadow: inset 3px 0 0 #6ce0d5, 0 5px 14px rgba(0, 0, 0, .10);
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) details:is(
+  .report-options,
+  .conversion-options,
+  .holiday-coverage-details,
+  .report-details,
+  .calculator-settings,
+  .settings-disclosure
+) > summary {
+  box-sizing: border-box;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 34px;
+  margin: 0 -12px !important;
+  padding: 7px 12px !important;
+  border: 0 !important;
+  color: rgba(255, 255, 255, .92) !important;
+  font-size: .78rem !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  cursor: pointer;
+  list-style: none;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) details:is(
+  .report-options,
+  .conversion-options,
+  .holiday-coverage-details,
+  .report-details,
+  .calculator-settings,
+  .settings-disclosure
+) > summary::-webkit-details-marker {
+  display: none;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) details:is(
+  .report-options,
+  .conversion-options,
+  .holiday-coverage-details,
+  .report-details,
+  .calculator-settings,
+  .settings-disclosure
+) > summary::after {
+  content: "+" !important;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(108, 224, 213, .42);
+  border-radius: 50%;
+  background: rgba(108, 224, 213, .12);
+  color: #8ef0e7 !important;
+  font-size: .82rem !important;
+  font-weight: 900;
+  line-height: 1;
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) details:is(
+  .report-options,
+  .conversion-options,
+  .holiday-coverage-details,
+  .report-details,
+  .calculator-settings,
+  .settings-disclosure
+)[open] > summary {
+  margin-bottom: 9px !important;
+  border-bottom: 1px solid rgba(108, 224, 213, .22) !important;
+  background: rgba(10, 166, 154, .08);
+}
+
+body.kalq-compact-input-boxes form:not(.header-search) details:is(
+  .report-options,
+  .conversion-options,
+  .holiday-coverage-details,
+  .report-details,
+  .calculator-settings,
+  .settings-disclosure
+)[open] > summary::after {
+  content: "−" !important;
+  border-color: rgba(108, 224, 213, .72);
+  background: #6ce0d5;
+  color: #0d3040 !important;
+}
+
+/* Compact input rhythm: small visible gaps without fixed blank field/error space. */
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) {
+  --kalq-input-gap: 11px;
+  align-content: start !important;
+  justify-content: flex-start !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > :is(h2, .input-title, .panel-title, .form-title) {
+  margin-bottom: 4px !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > p,
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(.input-intro, .panel-intro, .form-intro) {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(.field, .dark-field) > :is(label, .picker-label) {
+  margin-bottom: 5px !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(.field, .dark-field) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin-bottom: var(--kalq-input-gap) !important;
+  padding-bottom: 0 !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field-row,
+  .scale-row,
+  .settings-grid,
+  .savings-input-grid,
+  .payroll-input-grid,
+  .converter-picker-grid,
+  .converter-unit-row,
+  .assumptions-grid,
+  .atomic-settings,
+  .input-row-compact,
+  .course-row
+) {
+  row-gap: var(--kalq-input-gap) !important;
+  column-gap: 12px !important;
+  align-content: start !important;
+  justify-content: stretch !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field-row,
+  .scale-row,
+  .settings-grid,
+  .savings-input-grid,
+  .payroll-input-grid,
+  .converter-picker-grid,
+  .converter-unit-row,
+  .assumptions-grid,
+  .atomic-settings,
+  .input-row-compact,
+  .course-row
+) > :is(.field, .dark-field) {
+  margin-bottom: 0 !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .error:empty {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .error:not(:empty) {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 4px 0 0 !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) {
+  align-content: start !important;
+  justify-content: flex-start !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(.field, .setting) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin-bottom: 11px !important;
+  padding-bottom: 0 !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(.field, .setting) > :is(label, .setting-label) {
+  margin-bottom: 5px !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page .control-panel .pill-group {
+  gap: 9px !important;
+}
+
+/* Centered input content with balanced insets and collision protection. */
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  h2,
+  h3,
+  legend,
+  .input-title,
+  .panel-title,
+  .form-title,
+  .section-title,
+  .group-title,
+  .input-intro,
+  .panel-intro,
+  .form-intro,
+  .field-help,
+  .input-help,
+  .compact-note,
+  .privacy-note,
+  .converter-picker-intro,
+  .error
+) {
+  text-align: center !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(label, .picker-label) {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 2px 8px !important;
+  padding-inline: 5px !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(label, .picker-label) > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  select,
+  textarea
+) {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding-inline: 12px !important;
+  text-align: center !important;
+  text-align-last: center !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) select:not([multiple]):not([size]):not([data-native-arrow]):not([aria-multiselectable]) {
+  padding-inline-start: 12px !important;
+  padding-inline-end: 58px !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath fill='%23F4FBFA' d='M0 0h10L5 7z'/%3E%3C/svg%3E"),
+    linear-gradient(to right, rgba(244, 251, 250, .22) 0 1px, transparent 1px) !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: right 18px center, right center !important;
+  background-size: 10px 7px, 46px 100% !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(.input-wrap, .input-line):has(:is(.input-unit, .input-suffix)) input {
+  padding-inline: 48px !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) input[type="date"] {
+  padding-inline: 38px !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) input[type="date"]::-webkit-datetime-edit {
+  width: 100%;
+  text-align: center;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) input[type="number"] {
+  appearance: textfield !important;
+  -moz-appearance: textfield !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) input[type="number"]::-webkit-inner-spin-button,
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) input[type="number"]::-webkit-outer-spin-button {
+  margin: 0 !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(.input-unit, .input-suffix, .select-arrow) {
+  inset-inline-end: 12px !important;
+  max-width: 34% !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  pointer-events: none;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  button,
+  .input-tab,
+  .input-mode-tab,
+  .period-btn,
+  .currency-button,
+  .example-chip,
+  .picker-option,
+  .grade-picker-button,
+  .today-shortcut,
+  .kalq-today-shortcut
+) {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding-inline: 12px !important;
+  justify-content: center !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(
+  h2,
+  h3,
+  legend,
+  p,
+  label,
+  small,
+  .panel-title,
+  .section-title,
+  .setting-label,
+  .setup-note,
+  .control-note
+) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(label, .setting-label) {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 2px 8px !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  select,
+  textarea,
+  button
+) {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding-inline: 12px !important;
+  justify-content: center !important;
+  text-align: center !important;
+  text-align-last: center !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) select:not([multiple]):not([size]):not([data-native-arrow]):not([aria-multiselectable]) {
+  padding-inline-start: 12px !important;
+  padding-inline-end: 58px !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath fill='%23F4FBFA' d='M0 0h10L5 7z'/%3E%3C/svg%3E"),
+    linear-gradient(to right, rgba(244, 251, 250, .22) 0 1px, transparent 1px) !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: right 18px center, right center !important;
+  background-size: 10px 7px, 46px 100% !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) input[type="number"] {
+  appearance: textfield !important;
+  -moz-appearance: textfield !important;
+}
+
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) input[type="number"]::-webkit-inner-spin-button,
+body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) input[type="number"]::-webkit-outer-spin-button {
+  margin: 0 !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+/* Complete calculator rendering: expanded content must never be cut by legacy fixed heights. */
+body.kalq-compact-output-boxes #calculator-page .calculator-shell {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  align-items: stretch !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-panel,
+  .chem-result-panel,
+  .credit-result-panel,
+  .currency-result-panel,
+  .date-result-panel,
+  .age-result-panel,
+  .input-panel
+) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-content,
+  .child-result-content,
+  .result-main,
+  #resultContent,
+  #unitResultMain,
+  form:not(.header-search)
+) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .gauge-wrap,
+  .growth-chart-wrap,
+  .payoff-chart-panel,
+  .chart-block,
+  .graph-block,
+  .chart-wrap,
+  .comparison-wrap,
+  .timeline-wrap,
+  .baby-phase-band,
+  .gpa-position,
+  .salary-compare,
+  .composition-row,
+  .notation-line,
+  .atom-row,
+  .chart-foot,
+  .chart-legend,
+  .legend,
+  .result-actions
+) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .chart-foot,
+  .chart-legend,
+  .legend,
+  .result-actions
+) {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  flex: 0 0 auto !important;
+  flex-wrap: wrap !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field-row,
+  .scale-row,
+  .settings-grid,
+  .savings-input-grid,
+  .payroll-input-grid,
+  .converter-picker-grid,
+  .converter-unit-row,
+  .assumptions-grid,
+  .atomic-settings,
+  .input-row-compact,
+  .course-row
+) {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* One visible medium gap between complete calculator input/output blocks. */
+body.kalq-compact-output-boxes {
+  --kalq-output-gap: 10px;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-content,
+  .child-result-content,
+  .result-main,
+  #resultContent,
+  #unitResultMain
+) {
+  gap: 0 !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-top,
+  .age-result-top,
+  .child-result-top,
+  .currency-result-top,
+  .root-result-top,
+  .due-result-top,
+  .salary-result-top,
+  .payoff-hero,
+  .element-top
+) {
+  margin: 0 !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-data,
+  .result-data-3,
+  .age-stat-strip,
+  .payoff-stat-grid,
+  .pregnancy-stat-strip,
+  .salary-stat-grid,
+  .particle-strip,
+  .metric-line,
+  .analysis-strip,
+  .snapshot-grid,
+  .future-output,
+  .gauge-wrap,
+  .growth-chart-wrap,
+  .payoff-chart-panel,
+  .chart-block,
+  .graph-block,
+  .chart-wrap,
+  .comparison-wrap,
+  .timeline-wrap,
+  .baby-phase-band,
+  .gpa-position,
+  .salary-compare,
+  .composition-row,
+  .notation-line,
+  .atom-row,
+  .savings-path,
+  .calendar-strip,
+  .root-strip,
+  .scenario-strip,
+  .review-strip,
+  .result-actions
+) {
+  margin-block: var(--kalq-output-gap) 0 !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-data,
+  .result-data-3,
+  .age-stat-strip,
+  .payoff-stat-grid,
+  .pregnancy-stat-strip,
+  .salary-stat-grid,
+  .particle-strip,
+  .metric-line,
+  .analysis-strip,
+  .snapshot-grid,
+  .future-output,
+  .savings-path,
+  .calendar-strip,
+  .root-strip,
+  .scenario-strip,
+  .review-strip,
+  .result-actions
+) {
+  gap: var(--kalq-output-gap) !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-content,
+  .child-result-content,
+  .result-main,
+  #resultContent,
+  #unitResultMain
+) > *,
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > * {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  flex-shrink: 0 !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-data,
+  .result-data-3,
+  .age-stat-strip,
+  .payoff-stat-grid,
+  .pregnancy-stat-strip,
+  .salary-stat-grid,
+  .particle-strip,
+  .metric-line,
+  .analysis-strip,
+  .snapshot-grid,
+  .future-output
+) > *,
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field-row,
+  .scale-row,
+  .settings-grid,
+  .savings-input-grid,
+  .payroll-input-grid,
+  .converter-picker-grid,
+  .converter-unit-row,
+  .assumptions-grid,
+  .atomic-settings,
+  .input-row-compact,
+  .course-row
+) > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Keep every GPA course-row control on the same visual baseline and height. */
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .course-row > :is(
+  input:not([type="hidden"]),
+  select
+),
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .course-row .grade-picker .picker-trigger {
+  box-sizing: border-box !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  padding-block: 0 !important;
+  align-self: center !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .course-row .remove-course {
+  box-sizing: border-box !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
+  align-self: center !important;
+}
+
+/* Keep the live GPA marker value as one centered horizontal badge. */
+#calculator-page #positionMarker::after {
+  display: block !important;
+  width: max-content !important;
+  min-width: 34px !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: keep-all !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  color: #fff !important;
+  background: #0f2c3d !important;
+  box-shadow: 0 5px 14px rgba(4, 20, 29, .22) !important;
+}
+
+/* Restore the standard action-button box after the full-content height reset. */
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .calculate-btn,
+  button[type="submit"]
+) {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  padding-block: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1.1 !important;
+  overflow: hidden !important;
+}
+
+/* Keep left prefixes and right units inside the same input box. */
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(.input-wrap, .input-line) {
+  position: relative !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(.input-wrap, .input-line) .input-prefix {
+  position: absolute !important;
+  inset-inline-start: 12px !important;
+  inset-inline-end: auto !important;
+  top: 50% !important;
+  z-index: 2 !important;
+  max-width: 34% !important;
+  transform: translateY(-50%) !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  pointer-events: none !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(.input-wrap, .input-line):has(.input-prefix) input {
+  padding-inline: 48px !important;
+}
+
+/* Text boundary guard for every calculator input and on-screen output. */
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  h2,
+  h3,
+  h4,
+  legend,
+  label,
+  p,
+  small,
+  strong,
+  button,
+  .picker-trigger,
+  .field-help,
+  .input-help,
+  .compact-note,
+  .privacy-note,
+  .error
+),
+body.kalq-compact-output-boxes #calculator-page :is(
+  .result-panel,
+  .chem-result-panel,
+  .credit-result-panel,
+  .currency-result-panel,
+  .date-result-panel,
+  .age-result-panel
+) :is(h2, h3, h4, p, small, strong, span, em, li, dt, dd) {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .input-prefix,
+  .input-unit,
+  .input-suffix,
+  .select-arrow
+) {
+  line-height: 1 !important;
+}
+
+/* Small separation between the final input group and its calculation action. */
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > :is(
+  .calculate-btn,
+  .input-actions,
+  .form-actions,
+  .button-row,
+  .calculator-actions,
+  .action-row
+) {
+  margin-top: 8px !important;
+}
+
+body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > :is(
+  .input-actions,
+  .form-actions,
+  .button-row,
+  .calculator-actions,
+  .action-row
+) .calculate-btn {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 700px) {
+  body.kalq-compact-output-boxes {
+    --kalq-output-gap: 8px;
+  }
+}
+
+/* Final footer palette: cool sea-glass tones that complement the warm content sections. */
+html body .kalq-global-footer.site-footer {
+  color: #35555f !important;
+  border-top-color: #b8d5d0 !important;
+  background-color: #edeef7 !important;
+  background-image: linear-gradient(135deg, #ddecf5 0%, #edeef7 52%, #f8eef2 100%) !important;
+}
+
+html body .kalq-global-footer .kalq-footer-brand,
+html body .kalq-global-footer .kalq-footer-column h2 {
+  color: #0f2c3d !important;
+}
+
+html body .kalq-global-footer .kalq-footer-summary,
+html body .kalq-global-footer .kalq-footer-links a,
+html body .kalq-global-footer .kalq-footer-bottom {
+  color: #35555f !important;
+}
+
+html body .kalq-global-footer .kalq-footer-links a:hover,
+html body .kalq-global-footer .kalq-footer-links a:focus-visible {
+  color: #087f78 !important;
+}
+
+html body .kalq-global-footer .kalq-footer-about,
+html body .kalq-global-footer .kalq-footer-column,
+html body .kalq-global-footer .kalq-footer-bottom {
+  border-color: rgba(15, 44, 61, .16) !important;
+}
+
+/* Light footer theme shared by every page. */
+.kalq-global-footer {
+  color: #405963 !important;
+  border-top-color: #c8d5e2 !important;
+  background: linear-gradient(135deg, #ddecf5 0%, #edeef7 52%, #f8eef2 100%) !important;
+}
+
+.kalq-footer-brand {
+  color: #0f2c3d !important;
+}
+
+.kalq-footer-summary {
+  color: #526a73 !important;
+}
+
+.kalq-footer-column h2 {
+  color: #0f2c3d !important;
+}
+
+.kalq-footer-links a {
+  color: #405963 !important;
+}
+
+.kalq-footer-links a:hover,
+.kalq-footer-links a:focus-visible {
+  color: #087f78 !important;
+}
+
+.kalq-footer-about,
+.kalq-footer-column,
+.kalq-footer-column:nth-child(2),
+.kalq-footer-column:nth-child(3),
+.kalq-footer-bottom {
+  border-color: rgba(15, 44, 61, .14) !important;
+}
+
+.kalq-static-page {
+  margin: 0;
+  color: var(--kalq-ink);
+  background:
+    radial-gradient(circle at 4% 2%, rgba(10, 166, 154, .1), transparent 29%),
+    radial-gradient(circle at 96% 0%, rgba(240, 109, 95, .1), transparent 28%),
+    var(--kalq-paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+.kalq-static-page *,
+.kalq-static-page *::before,
+.kalq-static-page *::after {
+  box-sizing: border-box;
+}
+
+.kalq-static-page a {
+  color: #087d76;
+}
+
+.kalq-static-page a:focus-visible,
+.kalq-static-page button:focus-visible,
+.kalq-static-page input:focus-visible {
+  outline: 3px solid var(--kalq-coral);
+  outline-offset: 3px;
+}
+
+.kalq-static-page .visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.kalq-skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 10px;
+  left: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: var(--kalq-white) !important;
+  background: var(--kalq-navy);
+  transform: translateY(-160%);
+}
+
+.kalq-skip-link:focus {
+  transform: translateY(0);
+}
+
+.kalq-site-header {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  border-bottom: 1px solid var(--kalq-line);
+  background: rgba(251, 250, 246, .96);
+  backdrop-filter: blur(12px);
+}
+
+.kalq-site-header-inner {
+  width: min(var(--kalq-content), calc(100% - 36px));
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+}
+
+.kalq-site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--kalq-navy) !important;
+  font-size: 1.08rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.kalq-site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px 22px;
+}
+
+.kalq-site-nav a {
+  color: var(--kalq-navy);
+  font-size: .84rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.kalq-site-nav a:hover {
+  color: var(--kalq-teal);
+}
+
+/* Match the index header on informational and category pages. */
+.kalq-static-page {
+  --navy: var(--kalq-navy);
+  --teal: var(--kalq-teal);
+  --coral: var(--kalq-coral);
+  --paper: var(--kalq-paper);
+  --mist: var(--kalq-mist);
+  --line: var(--kalq-line);
+  --muted: var(--kalq-muted);
+  --white: var(--kalq-white);
+  --content: 1320px;
+  --topbar-height: 64px;
+  --soft-shadow: 0 12px 34px rgba(16, 43, 57, .09);
+  --shadow: 0 24px 70px rgba(16, 43, 57, .16);
+}
+
+.kalq-static-page .topbar {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  border-bottom: 1px solid rgba(17, 41, 54, .08);
+  background: rgba(251, 250, 246, .88);
+  backdrop-filter: blur(16px);
+}
+
+.kalq-static-page .topbar-inner {
+  position: relative;
+  max-width: var(--content);
+  min-height: var(--topbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.kalq-static-page .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--navy);
+  font-weight: 900;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+
+.kalq-static-page .brand-mark {
+  width: 34px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50% 50% 50% 16%;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--teal), var(--navy));
+  box-shadow: var(--soft-shadow);
+}
+
+.kalq-static-page .topnav,
+.kalq-static-page .header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.kalq-static-page .topnav {
+  gap: 22px;
+}
+
+.kalq-static-page .topnav a {
+  color: var(--muted);
+  font-size: .91rem;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.kalq-static-page .topnav a:hover,
+.kalq-static-page .topnav a:focus-visible {
+  color: var(--navy);
+}
+
+.kalq-static-page .header-actions {
+  gap: 7px;
+}
+
+.kalq-static-page .icon-button,
+.kalq-static-page .header-search-close,
+.kalq-static-page .menu-button,
+.kalq-static-page .language-menu button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.kalq-static-page .icon-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--navy);
+  background: transparent;
+  display: inline-grid;
+  place-items: center;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.kalq-static-page .icon-button:hover,
+.kalq-static-page .icon-button:focus-visible {
+  border-color: var(--line);
+  background: var(--mist);
+  transform: translateY(-1px);
+}
+
+.kalq-static-page .icon-button svg,
+.kalq-static-page .header-search svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kalq-static-page .sun-icon {
+  display: none;
+}
+
+.kalq-static-page .header-popover-wrap {
+  position: relative;
+}
+
+.kalq-static-page .language-menu {
+  position: absolute;
+  z-index: 80;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 190px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.kalq-static-page .language-menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 11px;
+  border: 0;
+  border-radius: 11px;
+  color: var(--muted);
+  background: transparent;
+  text-align: left;
+}
+
+.kalq-static-page .language-menu button:hover,
+.kalq-static-page .language-menu button.is-active {
+  color: var(--navy);
+  background: var(--mist);
+}
+
+.kalq-static-page .language-menu button span {
+  width: 32px;
+  color: var(--teal);
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.kalq-static-page .header-search-wrap {
+  position: absolute;
+  z-index: 75;
+  top: 50%;
+  right: 190px;
+  left: clamp(220px, 27vw, 410px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scaleX(.84);
+  transform-origin: right center;
+  transition: opacity .2s ease, transform .24s ease;
+}
+
+.kalq-static-page .header-search-wrap.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scaleX(1);
+}
+
+.kalq-static-page .topbar-inner.search-open .topnav {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.kalq-static-page .header-search {
+  height: 44px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 0 7px 0 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  box-shadow: var(--soft-shadow);
+}
+
+.kalq-static-page .header-search svg {
+  width: 18px;
+  height: 18px;
+  color: var(--muted);
+}
+
+.kalq-static-page .header-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--navy);
+  background: transparent;
+  font-size: .91rem;
+}
+
+.kalq-static-page .header-search-close {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.kalq-static-page .header-search-results {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+  left: 0;
+  max-height: min(330px, calc(100dvh - var(--topbar-height) - 34px));
+  overflow-y: auto;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.kalq-static-page .header-search-result {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+  align-items: center;
+  padding: 11px 5px;
+  border-bottom: 1px solid var(--line);
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.kalq-static-page .header-search-result:last-child {
+  border-bottom: 0;
+}
+
+.kalq-static-page .header-search-result strong,
+.kalq-static-page .header-search-result span {
+  display: block;
+}
+
+.kalq-static-page .header-search-result strong {
+  font-size: .9rem;
+}
+
+.kalq-static-page .header-search-result span {
+  color: var(--muted);
+  font-size: .74rem;
+}
+
+.kalq-static-page .header-search-result b {
+  color: var(--coral);
+}
+
+.kalq-static-page .header-search-empty {
+  padding: 17px 5px;
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+.kalq-static-page .menu-button {
+  display: none;
+  border: 0;
+  color: var(--navy);
+  background: transparent;
+  font-weight: 850;
+}
+
+html[data-theme="dark"] .kalq-static-page .topbar {
+  --navy: #f5fbfa;
+  --muted: #a9bec6;
+  --mist: #123442;
+  --line: #294653;
+  --white: #102c3a;
+  color-scheme: dark;
+  background: rgba(11, 32, 44, .9);
+}
+
+html[data-theme="dark"] .kalq-static-page .sun-icon {
+  display: block;
+}
+
+html[data-theme="dark"] .kalq-static-page .moon-icon {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .kalq-static-page .topnav {
+    gap: 13px;
+  }
+
+  .kalq-static-page .topnav a {
+    font-size: .82rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .kalq-static-page {
+    --topbar-height: 58px;
+  }
+
+  .kalq-static-page .topbar-inner {
+    min-height: var(--topbar-height);
+    padding-inline: 18px;
+  }
+
+  .kalq-static-page .header-actions {
+    margin-left: auto;
+    gap: 1px;
+  }
+
+  .kalq-static-page .icon-button {
+    width: 37px;
+    height: 37px;
+  }
+
+  .kalq-static-page .menu-button {
+    display: block;
+    margin-left: 4px;
+  }
+
+  .kalq-static-page .topnav {
+    position: absolute;
+    top: var(--topbar-height);
+    right: 0;
+    left: 0;
+    display: none;
+    padding: 16px 22px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(251, 250, 246, .98);
+  }
+
+  .kalq-static-page .topnav.is-open {
+    display: flex;
+  }
+
+  .kalq-static-page .header-search-wrap {
+    top: calc(100% + 7px);
+    right: 12px;
+    left: 12px;
+    transform: translateY(-8px) scaleX(.92);
+  }
+
+  .kalq-static-page .header-search-wrap.is-open {
+    transform: translateY(0) scaleX(1);
+  }
+
+  .kalq-static-page .header-search {
+    height: 42px;
+  }
+
+  .kalq-static-page .topbar-inner.search-open .brand,
+  .kalq-static-page .topbar-inner.search-open .topnav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  html[data-theme="dark"] .kalq-static-page .topnav {
+    background: rgba(11, 32, 44, .98);
+  }
+}
+
+.kalq-page-shell {
+  width: min(920px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 42px 0 70px;
+}
+
+.kalq-page-shell-wide {
+  width: min(var(--kalq-content), calc(100% - 36px));
+}
+
+.kalq-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 26px;
+  color: var(--kalq-muted);
+  font-size: .78rem;
+}
+
+.kalq-breadcrumbs a {
+  color: var(--kalq-navy);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.kalq-page-hero {
+  padding: 34px;
+  border: 1px solid var(--kalq-line);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, .82);
+  box-shadow: 0 18px 50px rgba(15, 44, 61, .08);
+}
+
+.kalq-eyebrow {
+  margin: 0 0 8px;
+  color: var(--kalq-teal);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.kalq-page-hero h1 {
+  margin: 0;
+  color: var(--kalq-navy);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+}
+
+.kalq-page-hero p:last-child {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--kalq-muted);
+  font-size: 1rem;
+}
+
+.kalq-content-section {
+  padding: 34px 0 0;
+}
+
+.kalq-content-section h2 {
+  margin: 0 0 12px;
+  color: var(--kalq-navy);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: -.03em;
+}
+
+.kalq-content-section h3 {
+  margin: 26px 0 8px;
+  color: var(--kalq-navy);
+  font-size: 1.05rem;
+}
+
+.kalq-content-section p,
+.kalq-content-section li {
+  color: #405761;
+}
+
+.kalq-content-section ul {
+  padding-left: 22px;
+}
+
+.kalq-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.kalq-tool-card,
+.kalq-info-card {
+  display: block;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--kalq-line);
+  border-radius: 18px;
+  color: inherit !important;
+  background: rgba(255, 255, 255, .86);
+  text-decoration: none;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.kalq-tool-card:hover,
+.kalq-info-card:hover {
+  border-color: rgba(10, 166, 154, .55);
+  box-shadow: 0 12px 30px rgba(15, 44, 61, .08);
+  transform: translateY(-2px);
+}
+
+.kalq-tool-card strong,
+.kalq-info-card strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--kalq-navy);
+}
+
+.kalq-tool-card span,
+.kalq-info-card span {
+  display: block;
+  color: var(--kalq-muted);
+  font-size: .84rem;
+  line-height: 1.5;
+}
+
+.kalq-note {
+  margin: 24px 0 0;
+  padding: 18px 20px;
+  border-left: 4px solid var(--kalq-teal);
+  border-radius: 0 14px 14px 0;
+  background: var(--kalq-mist);
+}
+
+.kalq-meta {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--kalq-line);
+  color: var(--kalq-muted);
+  font-size: .78rem;
+}
+
+.kalq-search {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.kalq-search input {
+  min-width: 0;
+  flex: 1;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--kalq-line);
+  border-radius: 12px;
+  background: var(--kalq-white);
+  font: inherit;
+}
+
+.kalq-search button {
+  min-height: 46px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 12px;
+  color: var(--kalq-white);
+  background: var(--kalq-teal);
+  font: inherit;
+  font-weight: 850;
+}
+
+@media (max-width: 860px) {
+  .kalq-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kalq-footer-about {
+    grid-column: 1 / -1;
+  }
+
+  .kalq-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .kalq-site-header {
+    position: static;
+  }
+
+  .kalq-site-header-inner {
+    min-height: auto;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 14px 0;
+  }
+
+  .kalq-site-nav {
+    justify-content: flex-start;
+  }
+
+  .kalq-page-shell {
+    padding-top: 26px;
+  }
+
+  .kalq-page-hero {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .kalq-card-grid,
+  .kalq-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kalq-footer-about {
+    grid-column: auto;
+  }
+
+  .kalq-footer-links {
+    gap: 8px 16px;
+  }
+
+  .kalq-footer-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .kalq-footer-bottom p:last-child {
+    grid-column: auto;
+    grid-row: 2;
+    justify-self: start;
+    width: auto;
+    text-align: left;
+  }
+
+  .kalq-search {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar-inner {
+    gap: 6px !important;
+    padding-inline: 10px !important;
+  }
+
+  .topbar-inner > .brand > span:last-child {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 0 !important;
+  }
+
+  .menu-button {
+    margin-left: 0 !important;
+    padding-inline: 3px;
+  }
+}
+
+/* Match every breadcrumb row to the BMI Calculator proportions. */
+.crumbs,
+.kalq-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  color: var(--muted, var(--kalq-muted));
+  font-size: .72rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.crumbs a,
+.kalq-breadcrumbs a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.crumbs > a:not(:first-child),
+.kalq-breadcrumbs > a:not(:first-child) {
+  color: var(--teal, var(--kalq-teal));
+}
+
+.crumbs > [aria-current="page"],
+.kalq-breadcrumbs > [aria-current="page"] {
+  color: var(--navy, var(--kalq-navy));
+}
+
+.crumbs > span:not([aria-current="page"]),
+.kalq-breadcrumbs > span:not([aria-current="page"]) {
+  color: var(--muted, var(--kalq-muted));
+  font-size: 0;
+}
+
+.crumbs > span:not([aria-current="page"])::before,
+.kalq-breadcrumbs > span:not([aria-current="page"])::before {
+  content: "›";
+  font-size: .72rem;
+}
+
+.crumbs a:hover,
+.crumbs a:focus-visible,
+.kalq-breadcrumbs a:hover,
+.kalq-breadcrumbs a:focus-visible {
+  color: var(--teal, var(--kalq-teal));
+}
+
+@media (max-width: 720px) {
+  .crumbs,
+  .kalq-breadcrumbs {
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: .72rem;
+  }
+
+  .crumbs > span:not([aria-current="page"])::before,
+  .kalq-breadcrumbs > span:not([aria-current="page"])::before {
+    font-size: .72rem;
+  }
+}
+
+.kalq-quick-calc-backdrop {
+  position: fixed;
+  z-index: 89;
+  inset: 0;
+  background: rgba(8, 28, 40, .38);
+  backdrop-filter: blur(4px);
+}
+
+.kalq-quick-calc-panel {
+  position: fixed;
+  z-index: 90;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  width: min(410px, calc(100% - 20px));
+  display: flex;
+  flex-direction: column;
+  padding: clamp(15px, 2.4vh, 21px);
+  overflow: hidden;
+  border-radius: 24px;
+  color: #eef7f5;
+  background: #102f40;
+  box-shadow: -20px 0 70px rgba(0, 0, 0, .22);
+  transform: translateX(calc(100% + 28px));
+  transition: transform .3s ease;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.kalq-quick-calc-panel.is-open {
+  transform: translateX(0);
+}
+
+.kalq-quick-calc-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kalq-quick-calc-head span {
+  display: block;
+  margin-bottom: 5px;
+  color: #79ddd5;
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.kalq-quick-calc-head h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.05rem, 2.4vh, 1.3rem);
+  line-height: 1.15;
+}
+
+.kalq-quick-calc-close {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, .08);
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+
+.kalq-quick-calc-close:hover,
+.kalq-quick-calc-close:focus-visible {
+  background: rgba(255, 255, 255, .16);
+}
+
+.kalq-quick-calc-tabs {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: clamp(10px, 1.6vh, 14px);
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, .13);
+  border-radius: 999px;
+  background: rgba(4, 24, 34, .3);
+}
+
+.kalq-quick-calc-tabs button {
+  min-height: 34px;
+  border: 0;
+  border-radius: 999px;
+  color: #b8ccd2;
+  background: transparent;
+  font: inherit;
+  font-size: .76rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.kalq-quick-calc-tabs button[aria-selected="true"] {
+  color: #102f40;
+  background: linear-gradient(135deg, #73ddd5, #ecfaf8);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, .16);
+}
+
+.kalq-quick-calc-tabs button:hover:not([aria-selected="true"]),
+.kalq-quick-calc-tabs button:focus-visible:not([aria-selected="true"]) {
+  color: #fff;
+  background: rgba(255, 255, 255, .1);
+}
+
+.kalq-quick-calc-display {
+  min-height: clamp(80px, 15vh, 112px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 14px 3px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+
+.kalq-quick-calc-display small,
+.kalq-quick-calc-display strong {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kalq-quick-calc-display small {
+  color: #9eb5be;
+  font-size: .78rem;
+}
+
+.kalq-quick-calc-display strong {
+  color: #fff;
+  font-size: clamp(2.2rem, 7vh, 3.5rem);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.kalq-quick-calc-keys {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, minmax(42px, 1fr));
+  gap: clamp(5px, .9vh, 8px);
+  margin-top: clamp(9px, 1.3vh, 13px);
+}
+
+.kalq-quick-calc-keys[hidden] {
+  display: none !important;
+}
+
+.kalq-quick-calc-keys.is-scientific {
+  grid-template-rows: repeat(8, minmax(32px, 1fr));
+}
+
+.kalq-quick-calc-keys button {
+  min-height: 0;
+  border: 0;
+  border-radius: clamp(10px, 1.7vh, 14px);
+  color: #fff;
+  background: rgba(255, 255, 255, .12);
+  font: inherit;
+  font-size: clamp(.88rem, 2vh, 1.05rem);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.kalq-quick-calc-keys button:hover,
+.kalq-quick-calc-keys button:focus-visible {
+  background: rgba(255, 255, 255, .2);
+}
+
+.kalq-quick-calc-keys .is-operator {
+  color: #84e2da;
+  background: rgba(255, 255, 255, .07);
+}
+
+.kalq-quick-calc-keys .is-action {
+  color: #ff9a8f;
+}
+
+.kalq-quick-calc-keys .is-function {
+  color: #b9eee9;
+  background: rgba(108, 224, 213, .1);
+  font-size: clamp(.76rem, 1.7vh, .92rem);
+}
+
+.kalq-quick-calc-keys .is-equals {
+  color: #102f40;
+  background: linear-gradient(135deg, #73ddd5, #ecfaf8);
+}
+
+.kalq-quick-calc-panel > p {
+  flex: 0 0 auto;
+  margin: 9px 0 0;
+  color: #97afb8;
+  font-size: .67rem;
+  text-align: center;
+}
+
+@media (max-height: 600px) {
+  .kalq-quick-calc-panel {
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    width: min(390px, calc(100% - 10px));
+    padding: 11px;
+    border-radius: 18px;
+  }
+
+  .kalq-quick-calc-head span,
+  .kalq-quick-calc-panel > p {
+    display: none;
+  }
+
+  .kalq-quick-calc-display {
+    min-height: 64px;
+    padding-block: 8px;
+  }
+
+  .kalq-quick-calc-tabs {
+    margin-top: 7px;
+  }
+
+  .kalq-quick-calc-tabs button {
+    min-height: 30px;
+  }
+}
+
+@media (max-width: 520px) {
+  .kalq-quick-calc-panel {
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    width: calc(100% - 10px);
+    border-radius: 18px;
+  }
+}
+
+/* Give every information and collection destination the same visual language
+   as the calculator pages without changing its header, footer, or content. */
+.kalq-static-page:not(.kalq-collection-page) main {
+  overflow: clip;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-page-shell,
+.kalq-static-page:not(.kalq-collection-page) .kalq-page-shell-wide {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 66px 24px 70px;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 22px;
+  color: var(--kalq-muted);
+  font-size: .84rem;
+  line-height: 1.35;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-breadcrumbs a {
+  color: inherit;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-breadcrumbs a:hover,
+.kalq-static-page:not(.kalq-collection-page) .kalq-breadcrumbs a:focus-visible {
+  color: var(--kalq-navy);
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-page-hero {
+  padding: 0 0 48px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  color: var(--kalq-teal);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-eyebrow::before {
+  width: 32px;
+  height: 2px;
+  background: currentColor;
+  content: "";
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-page-hero h1 {
+  max-width: 860px;
+  margin: 0 0 16px;
+  color: var(--kalq-navy);
+  font-size: clamp(2rem, 3.4vw, 3.15rem);
+  letter-spacing: -.045em;
+  line-height: 1.02;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-page-hero p:last-child {
+  max-width: 790px;
+  margin: 0;
+  color: var(--kalq-muted);
+  font-size: clamp(.9rem, 1.1vw, .98rem);
+  line-height: 1.58;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section {
+  padding: 44px 0;
+  border-top: 1px solid var(--kalq-line);
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section:not(:has(.kalq-card-grid)) {
+  display: grid;
+  grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: 50px;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section:not(:has(.kalq-card-grid)) > h2 {
+  grid-column: 1;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section:not(:has(.kalq-card-grid)) > :not(h2) {
+  grid-column: 2;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section:has(.kalq-card-grid) {
+  padding: 52px 0 0;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section h2 {
+  margin: 0;
+  color: var(--kalq-navy);
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  letter-spacing: -.035em;
+  line-height: 1.1;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section p,
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section li {
+  max-width: 780px;
+  margin-top: 4px;
+  color: #405761;
+  font-size: .9rem;
+  line-height: 1.65;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section p:last-child,
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section ul:last-child,
+.kalq-static-page:not(.kalq-collection-page) .kalq-content-section ol:last-child {
+  margin-bottom: 0;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 26px;
+  border-block: 1px solid var(--kalq-line);
+  background: var(--kalq-line);
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-tool-card,
+.kalq-static-page:not(.kalq-collection-page) .kalq-info-card {
+  position: relative;
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 21px 52px 21px 22px;
+  border: 0;
+  border-radius: 0;
+  color: inherit !important;
+  background: rgba(255, 255, 255, .84);
+  box-shadow: none;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-tool-card::after,
+.kalq-static-page:not(.kalq-collection-page) .kalq-info-card::after {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  color: var(--kalq-coral);
+  font-size: 1.08rem;
+  content: "\2192";
+  transform: translateY(-50%);
+  transition: transform .2s ease;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-tool-card:hover,
+.kalq-static-page:not(.kalq-collection-page) .kalq-tool-card:focus-visible,
+.kalq-static-page:not(.kalq-collection-page) .kalq-info-card:hover,
+.kalq-static-page:not(.kalq-collection-page) .kalq-info-card:focus-visible {
+  border-color: transparent;
+  background: rgba(10, 166, 154, .07);
+  box-shadow: none;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-tool-card:hover::after,
+.kalq-static-page:not(.kalq-collection-page) .kalq-tool-card:focus-visible::after,
+.kalq-static-page:not(.kalq-collection-page) .kalq-info-card:hover::after,
+.kalq-static-page:not(.kalq-collection-page) .kalq-info-card:focus-visible::after {
+  transform: translate(3px, -50%);
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-tool-card strong,
+.kalq-static-page:not(.kalq-collection-page) .kalq-info-card strong {
+  margin: 0 0 5px;
+  color: var(--kalq-navy);
+  font-size: .96rem;
+  line-height: 1.25;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-tool-card span,
+.kalq-static-page:not(.kalq-collection-page) .kalq-info-card span {
+  color: var(--kalq-muted);
+  font-size: .73rem;
+  line-height: 1.45;
+}
+
+.kalq-static-page:not(.kalq-collection-page) .kalq-meta {
+  margin: 42px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--kalq-line);
+  color: var(--kalq-muted);
+  font-size: .76rem;
+}
+
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) {
+  color: #edf8f7;
+  background:
+    radial-gradient(circle at 4% 2%, rgba(10, 166, 154, .11), transparent 29%),
+    radial-gradient(circle at 96% 0%, rgba(240, 109, 95, .09), transparent 28%),
+    #0b202c;
+}
+
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-breadcrumbs,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-page-hero p:last-child,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-content-section p,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-content-section li,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-tool-card span,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-info-card span,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-meta {
+  color: #a9bec6;
+}
+
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-page-hero h1,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-content-section h2,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-tool-card strong,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-info-card strong {
+  color: #f5fbfa;
+}
+
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-content-section,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-card-grid,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-meta {
+  border-color: #294653;
+}
+
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-card-grid {
+  background: #294653;
+}
+
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-tool-card,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-info-card {
+  background: #102c3a;
+}
+
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-tool-card:hover,
+html[data-theme="dark"] .kalq-static-page:not(.kalq-collection-page) .kalq-info-card:hover {
+  background: #123442;
+}
+
+@media (max-width: 900px) {
+  .kalq-static-page:not(.kalq-collection-page) .kalq-content-section:not(:has(.kalq-card-grid)) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .kalq-static-page:not(.kalq-collection-page) .kalq-content-section:not(:has(.kalq-card-grid)) > h2,
+  .kalq-static-page:not(.kalq-collection-page) .kalq-content-section:not(:has(.kalq-card-grid)) > :not(h2) {
+    grid-column: 1;
+  }
+
+  .kalq-static-page:not(.kalq-collection-page) .kalq-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .kalq-static-page:not(.kalq-collection-page) .kalq-page-shell,
+  .kalq-static-page:not(.kalq-collection-page) .kalq-page-shell-wide {
+    padding: 42px 18px 58px;
+  }
+
+  .kalq-static-page:not(.kalq-collection-page) .kalq-page-hero {
+    padding-bottom: 34px;
+  }
+
+  .kalq-static-page:not(.kalq-collection-page) .kalq-eyebrow {
+    font-size: .7rem;
+  }
+
+  .kalq-static-page:not(.kalq-collection-page) .kalq-content-section {
+    padding: 34px 0;
+  }
+
+  .kalq-static-page:not(.kalq-collection-page) .kalq-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Currency is selected once in the shared site header. Keep the calculators'
+   original controls in the DOM so their existing formatting/report code remains
+   the single source of truth, but remove the duplicate controls from view. */
+#calculator > .scope-switchbar:has(#usdBtn),
+#calculator > .scope-switchbar:has(#usdToggle),
+#calculator > .scope-switchbar.utility-strip:has(#currencySelect),
+#calculator .field:has(#currency) {
+  display: none !important;
+}
+
+#calculator .input-row-compact:has(#currency),
+#calculator .payroll-final-grid:has(#currency) {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+/* Unified compact footer aligned with the site's main content width. */
+.kalq-global-footer {
+  margin-top: 0;
+  padding: 22px 0 12px !important;
+  border-top: 1px solid #c8d5e2;
+  background: linear-gradient(135deg, #ddecf5 0%, #edeef7 52%, #f8eef2 100%) !important;
+}
+
+.kalq-footer-inner {
+  width: min(1420px, calc(100% - 48px));
+}
+
+.kalq-footer-grid {
+  grid-template-columns: minmax(260px, .82fr) minmax(0, 1.42fr) minmax(0, 1fr);
+  gap: 0;
+  padding-bottom: 16px;
+}
+
+.kalq-footer-about {
+  padding-right: 30px;
+}
+
+.kalq-footer-column {
+  min-width: 0;
+  padding-left: 30px;
+  border-left: 1px solid rgba(255, 255, 255, .12);
+}
+
+.kalq-footer-brand {
+  font-size: .96rem;
+}
+
+.kalq-footer-summary {
+  max-width: 330px;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, .7);
+  font-size: .7rem;
+  line-height: 1.5;
+}
+
+.kalq-footer-column h2 {
+  margin: 2px 0 9px;
+  font-size: .65rem;
+}
+
+.kalq-footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 6px 24px;
+  align-items: start;
+}
+
+.kalq-footer-links a {
+  font-size: .71rem;
+  line-height: 1.35;
+}
+
+.kalq-footer-bottom {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 32px;
+  padding-top: 10px;
+  font-size: .63rem;
+  line-height: 1.35;
+}
+
+.kalq-footer-bottom p:first-child {
+  grid-column: 1;
+}
+
+.kalq-footer-bottom p:last-child {
+  grid-column: 2;
+  justify-self: center;
+  width: 100%;
+  max-width: 880px;
+  white-space: normal;
+  text-align: center;
+}
+
+@media (max-width: 1180px) {
+  .kalq-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 0;
+  }
+
+  .kalq-footer-about {
+    grid-column: 1 / -1;
+    padding: 0 0 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+  }
+
+  .kalq-footer-summary {
+    max-width: 560px;
+  }
+
+  .kalq-footer-column:nth-child(2) {
+    padding-left: 0;
+    padding-right: 26px;
+    border-left: 0;
+  }
+
+  .kalq-footer-column:nth-child(3) {
+    padding-left: 26px;
+  }
+}
+
+@media (max-width: 700px) {
+  .kalq-global-footer {
+    padding-top: 19px !important;
+  }
+
+  .kalq-footer-inner {
+    width: min(100% - 36px, 1420px);
+  }
+
+  .kalq-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .kalq-footer-about,
+  .kalq-footer-column:nth-child(2),
+  .kalq-footer-column:nth-child(3) {
+    grid-column: auto;
+    padding: 14px 0;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+  }
+
+  .kalq-footer-about {
+    padding-top: 0;
+  }
+
+  .kalq-footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px 18px;
+  }
+
+  .kalq-footer-links a {
+    white-space: normal;
+  }
+
+  .kalq-footer-bottom {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .kalq-footer-bottom p:first-child,
+  .kalq-footer-bottom p:last-child {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    max-width: none;
+    text-align: left;
+  }
+}
+
+/* Structured footer rows: brand, information, collections, then legal copy. */
+.kalq-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding-bottom: 0;
+}
+
+.kalq-footer-about {
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  padding: 0 0 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.kalq-footer-summary {
+  max-width: 720px;
+  margin: 0;
+}
+
+.kalq-footer-column,
+.kalq-footer-column:nth-child(2),
+.kalq-footer-column:nth-child(3) {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.kalq-footer-column h2 {
+  margin: 1px 0 0;
+}
+
+.kalq-footer-links {
+  display: grid;
+  gap: 7px 20px;
+}
+
+.kalq-footer-column:nth-child(2) .kalq-footer-links {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.kalq-footer-column:nth-child(3) .kalq-footer-links {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.kalq-footer-links a {
+  min-width: 0;
+  white-space: normal;
+}
+
+.kalq-footer-bottom {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 30px;
+  padding-top: 10px;
+}
+
+.kalq-footer-bottom p:first-child {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.kalq-footer-bottom p:last-child {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  width: 100%;
+  max-width: 900px;
+  white-space: normal;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .kalq-footer-column:nth-child(2) .kalq-footer-links,
+  .kalq-footer-column:nth-child(3) .kalq-footer-links {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .kalq-footer-about {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .kalq-footer-column,
+  .kalq-footer-column:nth-child(2),
+  .kalq-footer-column:nth-child(3) {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    padding: 14px 0;
+  }
+
+  .kalq-footer-column:nth-child(2) .kalq-footer-links,
+  .kalq-footer-column:nth-child(3) .kalq-footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kalq-footer-bottom {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .kalq-footer-bottom p:first-child,
+  .kalq-footer-bottom p:last-child {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    max-width: none;
+    text-align: left;
+  }
+}
+
+/* Final proportional footer layout: compact centered columns with controlled widths. */
+.kalq-footer-inner {
+  width: min(1180px, calc(100% - 40px));
+}
+
+.kalq-footer-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, .78fr) minmax(390px, 1.35fr) minmax(290px, 1fr);
+  align-items: start;
+  gap: 42px;
+  padding-bottom: 14px;
+}
+
+.kalq-footer-about {
+  grid-column: auto;
+  display: block;
+  padding: 0;
+  border: 0;
+}
+
+.kalq-footer-summary {
+  max-width: 270px;
+  margin: 8px 0 0;
+  line-height: 1.45;
+}
+
+.kalq-footer-column,
+.kalq-footer-column:nth-child(2),
+.kalq-footer-column:nth-child(3) {
+  display: block;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.kalq-footer-column h2 {
+  margin: 2px 0 10px;
+}
+
+.kalq-footer-links,
+.kalq-footer-column:nth-child(2) .kalq-footer-links,
+.kalq-footer-column:nth-child(3) .kalq-footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px 22px;
+}
+
+.kalq-footer-bottom {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 30px;
+  padding-top: 10px;
+}
+
+.kalq-footer-bottom p:first-child {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.kalq-footer-bottom p:last-child {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  width: auto;
+  max-width: 760px;
+  text-align: right;
+}
+
+@media (max-width: 1000px) {
+  .kalq-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 30px;
+  }
+
+  .kalq-footer-about {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+  }
+
+  .kalq-footer-summary {
+    max-width: 620px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .kalq-footer-inner {
+    width: min(100% - 36px, 1180px);
+  }
+
+  .kalq-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .kalq-footer-about {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .kalq-footer-summary {
+    margin: 0;
+  }
+
+  .kalq-footer-column,
+  .kalq-footer-column:nth-child(2),
+  .kalq-footer-column:nth-child(3) {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+  }
+
+  .kalq-footer-bottom {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .kalq-footer-bottom p:first-child,
+  .kalq-footer-bottom p:last-child {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    max-width: none;
+    text-align: left;
+  }
+}
+
+/* Compact typography for collection landing pages only. */
+.kalq-category-page main {
+  font-size: .94rem;
+}
+
+.kalq-category-page:not(.kalq-collection-page) .kalq-page-hero h1 {
+  max-width: 820px;
+  font-size: clamp(2rem, 3.4vw, 3.15rem);
+  letter-spacing: -.045em;
+  line-height: 1.02;
+}
+
+.kalq-category-page:not(.kalq-collection-page) .kalq-page-hero p:last-child {
+  max-width: 760px;
+  font-size: clamp(.9rem, 1.1vw, .98rem);
+  line-height: 1.58;
+}
+
+.kalq-category-page:not(.kalq-collection-page) .kalq-content-section h2 {
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  letter-spacing: -.035em;
+  line-height: 1.1;
+}
+
+.kalq-category-page:not(.kalq-collection-page) .kalq-content-section p,
+.kalq-category-page:not(.kalq-collection-page) .kalq-content-section li {
+  font-size: .9rem;
+  line-height: 1.65;
+}
+
+.kalq-category-page:not(.kalq-collection-page) .kalq-tool-card strong,
+.kalq-category-page:not(.kalq-collection-page) .kalq-info-card strong {
+  font-size: .9rem;
+}
+
+.kalq-category-page:not(.kalq-collection-page) .kalq-tool-card span,
+.kalq-category-page:not(.kalq-collection-page) .kalq-info-card span {
+  font-size: .7rem;
+}
+
+@media print {
+  .kalq-quick-calc-panel,
+  .kalq-quick-calc-backdrop,
+  .kalq-site-header,
+  .kalq-global-footer,
+  .kalq-review-date {
+    display: none !important;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  body,
+  #reportRoot,
+  #reportRoot * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .site-shell,
+  #reportRoot .preview-toolbar,
+  #reportRoot .preview-close {
+    display: none !important;
+  }
+
+  #reportRoot,
+  #reportRoot.is-preview {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+    backdrop-filter: none !important;
+  }
+
+  #reportRoot > .report-page,
+  #reportRoot > .certificate-page {
+    margin: 0 !important;
+    transform: none !important;
+    transform-origin: initial !important;
+    box-shadow: none !important;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  #reportRoot > .report-page {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  #reportRoot > .report-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  #reportRoot > .hidden-report-page,
+  #reportRoot > [hidden] {
+    display: none !important;
+  }
+}
+
+/* Canonical index-page go-up control. */
+.go-up-button {
+  position: fixed;
+  z-index: 55;
+  right: 22px;
+  bottom: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px 10px 11px;
+  border: 1px solid #adc8d0 !important;
+  border-radius: 999px;
+  color: #0f2c3d !important;
+  background: linear-gradient(135deg, #eef4fb 0%, #e7eafa 100%) !important;
+  box-shadow: 0 9px 24px rgba(15, 44, 61, .14);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity .22s ease, transform .22s ease, background .2s ease;
+}
+
+.go-up-button.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.go-up-button:hover {
+  border-color: #86bbb5 !important;
+  background: #d6ebe7 !important;
+}
+.go-up-button:focus-visible { outline: 3px solid rgba(10, 166, 154, .35); outline-offset: 3px; }
+.go-up-button svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.go-up-button span { font-size: .78rem; font-weight: 850; }
+
+@media (max-width: 720px) {
+  .go-up-button {
+    right: 14px;
+    bottom: 14px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+  .go-up-button span { display: none; }
+}
+
+/* Keep every page shell aligned when an off-canvas calculator drawer is closed. */
+html {
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Report preview owns the only scrollbar while it is open. */
+@media screen {
+  html.kalq-report-open,
+  body.kalq-report-open {
+    height: 100% !important;
+    overflow: hidden !important;
+    overscroll-behavior: none;
+    scrollbar-gutter: auto !important;
+  }
+
+  body.kalq-report-open #reportRoot[data-kalq-report-scroll] {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Keep calculator heroes on the same left/right column lines as the BMI page. */
+body:not(.kalq-static-page) .hero:not(.snap-page) > .wrap {
+  width: 100% !important;
+  max-width: var(--content, 1180px) !important;
+  margin-inline: auto !important;
+  padding-inline: 20px !important;
+}
+
+@media (min-width: 901px) {
+  body:not(.kalq-static-page) .hero:not(.snap-page) .hero-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 320px !important;
+    align-items: center !important;
+    column-gap: 22px !important;
+  }
+
+  body:not(.kalq-static-page) .hero:not(.snap-page) .hero-grid > :first-child {
+    min-width: 0;
+  }
+
+  body:not(.kalq-static-page) .hero:not(.snap-page) .hero-grid > :last-child {
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin-inline: 0 !important;
+    justify-self: end !important;
+  }
+}
+
+@media (max-width: 900px) {
+  body:not(.kalq-static-page) .hero:not(.snap-page) > .wrap {
+    padding-inline: 16px !important;
+  }
+
+  body:not(.kalq-static-page) .hero:not(.snap-page) .hero-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 10px !important;
+  }
+
+  body:not(.kalq-static-page) .hero:not(.snap-page) .hero-grid > :last-child {
+    width: 100% !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+    justify-self: stretch !important;
+  }
+}
+/* International currency menu: keep the existing header footprint while the list scrolls inside its popover. */
+.header-currency-wrap .currency-menu {
+  box-sizing: border-box;
+  width: min(320px, calc(100vw - 24px));
+  max-height: min(64vh, 430px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.header-currency-wrap .currency-menu [data-site-currency] {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  min-height: 54px;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.header-currency-wrap .currency-menu [data-site-currency] > span:first-child {
+  font-weight: 800;
+  color: var(--teal, #0aa79d);
+}
+
+.header-currency-wrap .currency-menu [data-site-currency] > span:last-child {
+  display: grid;
+  width: auto;
+  min-width: 0;
+  gap: 1px;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: normal;
+}
+
+.header-currency-wrap .currency-menu [data-site-currency] strong,
+.header-currency-wrap .currency-menu [data-site-currency] small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-currency-wrap .currency-menu [data-site-currency] strong {
+  font: inherit;
+  font-weight: 800;
+}
+
+.header-currency-wrap .currency-menu [data-site-currency] small {
+  font-size: .78em;
+  font-weight: 500;
+  opacity: .76;
+}
+
+/* Complete dark-theme palette shared by the home, calculator, game,
+   collection, information, header, and footer surfaces. Report previews are
+   deliberately excluded so their screen and printed appearance stays exact. */
+html .sun-icon {
+  display: none;
+}
+
+html[data-theme="dark"] .sun-icon {
+  display: block;
+}
+
+html[data-theme="dark"] .moon-icon {
+  display: none;
+}
+
+html[data-theme="dark"] body {
+  color-scheme: dark;
+  color: #edf8f7;
+  background:
+    radial-gradient(circle at 3% 1%, rgba(10, 166, 154, .12), transparent 29%),
+    radial-gradient(circle at 97% 0%, rgba(240, 109, 95, .09), transparent 27%),
+    #0b202c !important;
+}
+
+html[data-theme="dark"] body:is(
+  .kalq-compact-input-boxes,
+  .kalq-compact-output-boxes,
+  .kalq-compact-game-inputs
+) {
+  --ink: #edf8f7;
+  --paper: #0b202c;
+  --mist: #102c3a;
+  --warm: #172a33;
+  --line: #35515e;
+  --muted: #afc2c9;
+  --shadow: 0 22px 60px rgba(0, 0, 0, .3);
+  --soft-shadow: 0 10px 30px rgba(0, 0, 0, .22);
+}
+
+html[data-theme="dark"] body.kalq-compact-output-boxes {
+  --kalq-output-border: #3c5b67;
+  --kalq-output-surface: #102c3a;
+  --kalq-output-soft: linear-gradient(135deg, rgba(10, 166, 154, .14), #102c3a 52%, rgba(240, 109, 95, .09));
+  --kalq-output-main: linear-gradient(135deg, rgba(10, 166, 154, .2), #102c3a 52%, rgba(240, 109, 95, .13));
+}
+
+html[data-theme="dark"] body main,
+html[data-theme="dark"] body #calculator-page,
+html[data-theme="dark"] body .snap-page {
+  color: #edf8f7;
+  background-color: transparent;
+}
+
+html[data-theme="dark"] body:not(.kalq-static-page) .topbar,
+html[data-theme="dark"] body .kalq-site-header.topbar {
+  color: #edf8f7;
+  border-bottom-color: #35515e !important;
+  background: rgba(11, 32, 44, .94) !important;
+  box-shadow: 0 9px 28px rgba(0, 0, 0, .18) !important;
+}
+
+html[data-theme="dark"] body .topbar :is(.brand, .topnav a, .icon-button, .currency-button, .menu-button),
+html[data-theme="dark"] body .topbar :is(.icon-button, .currency-button, .menu-button) svg {
+  color: #edf8f7 !important;
+  stroke: currentColor;
+}
+
+html[data-theme="dark"] body .topbar :is(.icon-button, .currency-button, .menu-button) {
+  border-color: #35515e !important;
+  background: #102c3a !important;
+}
+
+html[data-theme="dark"] body .topbar :is(.icon-button, .currency-button, .menu-button):hover,
+html[data-theme="dark"] body .topbar :is(.icon-button, .currency-button, .menu-button):focus-visible {
+  border-color: #6ce0d5 !important;
+  background: #173b49 !important;
+}
+
+html[data-theme="dark"] body .topbar :is(
+  .header-search,
+  .header-search-results,
+  .currency-menu,
+  .language-menu,
+  .topnav.is-open
+) {
+  color: #edf8f7 !important;
+  border-color: #35515e !important;
+  background: #102c3a !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .32) !important;
+}
+
+html[data-theme="dark"] body .topbar :is(input, select) {
+  color: #edf8f7 !important;
+  border-color: #466571 !important;
+  background: #0f2835 !important;
+}
+
+html[data-theme="dark"] body #calculator-page :is(h1, h2, h3, h4, h5, h6),
+html[data-theme="dark"] body #calculator-page :is(
+  .bmi-number,
+  .bmi-unit,
+  .future-value,
+  .future-period,
+  .data-value,
+  .result-value,
+  .formula-display,
+  .chart-title-row,
+  .result-status,
+  .result-principle
+) {
+  color: #f5fbfa !important;
+}
+
+html[data-theme="dark"] body #calculator-page :is(
+  p,
+  li,
+  small,
+  .crumbs,
+  .lead,
+  .scope-note,
+  .data-label,
+  .data-note,
+  .chart-axis-label,
+  .section-heading p,
+  .related-note,
+  .faq-answer,
+  .disclaimer-copy,
+  .disclaimer-text
+) {
+  color: #afc2c9;
+}
+
+html[data-theme="dark"] body #calculator-page a:not(.btn):not(.related-link) {
+  color: #8fe5dc;
+}
+
+html[data-theme="dark"] body #calculator-page :is(
+  .hero,
+  .result-panel,
+  .analysis-panel,
+  .annual-interest-panel,
+  .growth-chart-section,
+  .chart-wrap,
+  .review-item,
+  .check-item,
+  .data-piece,
+  .path-node,
+  .formula-display,
+  .worked-example,
+  .result-principle,
+  .meaning-principle,
+  .related-link,
+  .faq-item,
+  .disclaimer-detail,
+  .practical-visuals
+) {
+  color: #edf8f7 !important;
+  border-color: #3c5b67 !important;
+  background: #102c3a !important;
+  box-shadow: 0 9px 24px rgba(0, 0, 0, .18) !important;
+}
+
+html[data-theme="dark"] body #calculator-page :is(
+  [class*="-card"],
+  [class*="-panel"],
+  [class*="-strip"],
+  [class*="-block"]
+) {
+  border-color: #3c5b67 !important;
+}
+
+html[data-theme="dark"] body #calculator-page .input-panel {
+  color: #f5fbfa !important;
+  border-color: #466571 !important;
+  background: #0f2c3d !important;
+}
+
+html[data-theme="dark"] body #calculator-page :is(.section-band, .section, .review-section, .references) {
+  border-color: #35515e !important;
+  background: #102c3a !important;
+}
+
+html[data-theme="dark"] body #calculator-page :is(.section-warm, .tips-mistakes, .related-grid) {
+  border-color: #3c5059 !important;
+  background: #172a33 !important;
+}
+
+html[data-theme="dark"] body #calculator-page :is(
+  .section-heading,
+  .faq-item,
+  .related-link,
+  .review-strip,
+  .formula-row,
+  .line-list > *,
+  hr,
+  table,
+  th,
+  td
+) {
+  border-color: #35515e !important;
+}
+
+html[data-theme="dark"] body #calculator-page :is(input, select, textarea) {
+  color: #f5fbfa;
+  border-color: #466571 !important;
+  background-color: #102f3e;
+}
+
+html[data-theme="dark"] body #calculator-page :is(input, textarea)::placeholder {
+  color: #8fa8b1;
+  opacity: 1;
+}
+
+html[data-theme="dark"] body #calculator-page :is(.chart-grid line, .grid-line, .axis-line) {
+  stroke: #466571 !important;
+}
+
+html[data-theme="dark"] body #calculator-page :is(.chart-axis-label, .chart-tooltip-text) {
+  fill: #c8d8dc !important;
+}
+
+html[data-theme="dark"] body.kalq-static-page {
+  color: #edf8f7;
+  background:
+    radial-gradient(circle at 4% 2%, rgba(10, 166, 154, .11), transparent 29%),
+    radial-gradient(circle at 96% 0%, rgba(240, 109, 95, .09), transparent 28%),
+    #0b202c !important;
+}
+
+html[data-theme="dark"] body.kalq-collection-page {
+  --collection-ink: #edf8f7;
+  --collection-navy: #f5fbfa;
+  --collection-teal: #6ce0d5;
+  --collection-teal-dark: #6ce0d5;
+  --collection-coral: #ff9185;
+  --collection-paper: #0b202c;
+  --collection-surface: #102c3a;
+  --collection-mist: #123442;
+  --collection-warm: #2e292b;
+  --collection-line: #35515e;
+  --collection-muted: #afc2c9;
+}
+
+html[data-theme="dark"] body .collection-scope-note,
+html[data-theme="dark"] body .collection-tool-link,
+html[data-theme="dark"] body .collection-category-link {
+  color: #edf8f7 !important;
+  border-color: #35515e !important;
+  background: #102c3a !important;
+}
+
+html[data-theme="dark"] body .collection-tool-link:hover,
+html[data-theme="dark"] body .collection-category-link:hover {
+  background: #173b49 !important;
+}
+
+html[data-theme="dark"] body .kalq-global-footer.site-footer {
+  color: #afc2c9 !important;
+  border-top-color: #35515e !important;
+  background:
+    linear-gradient(120deg, rgba(10, 166, 154, .09), rgba(240, 109, 95, .04)),
+    #102c3a !important;
+}
+
+html[data-theme="dark"] body .kalq-global-footer :is(.kalq-footer-brand, .kalq-footer-column h2) {
+  color: #f5fbfa !important;
+}
+
+html[data-theme="dark"] body .kalq-global-footer :is(
+  .kalq-footer-summary,
+  .kalq-footer-links a,
+  .kalq-footer-bottom
+) {
+  color: #afc2c9 !important;
+}
+
+html[data-theme="dark"] body .kalq-global-footer :is(
+  .kalq-footer-about,
+  .kalq-footer-column,
+  .kalq-footer-bottom
+) {
+  border-color: #35515e !important;
+}
+
+html[data-theme="dark"] body .kalq-global-footer .kalq-footer-links a:hover,
+html[data-theme="dark"] body .kalq-global-footer .kalq-footer-links a:focus-visible {
+  color: #8fe5dc !important;
+}
+
+html[data-theme="dark"] body .go-up-button {
+  color: #0f2c3d !important;
+  border-color: #8fe5dc !important;
+  background: #8fe5dc !important;
+}
+
+html[data-theme="dark"] body .go-up-button:hover,
+html[data-theme="dark"] body .go-up-button:focus-visible {
+  background: #b6f1eb !important;
+}
+
+/* Reports retain their authored light palette in dark site mode. */
+html[data-theme="dark"] body :is(#reportRoot, .report-root, .report-page, .report-preview) {
+  color-scheme: light;
+}
+
+/* Softer calculator highlights: still prominent, but no longer oversized or
+   excessively heavy. Games and report previews remain untouched. */
+body.kalq-compact-output-boxes #calculator-page :is(
+  #exactAge,
+  #bmiValue,
+  #futureValue,
+  #payoffMonths,
+  #payoffDate,
+  #convertedValue,
+  #durationValue,
+  #gpaValue,
+  #midpointValue,
+  #primaryValue,
+  #rootCount,
+  #dueDateValue,
+  #projectedSavings,
+  #newSalaryValue,
+  #netPayValue,
+  #tipValue,
+  #resultValue,
+  .bmi-number,
+  .future-value,
+  .duration-number,
+  .payoff-date-label
+) {
+  font-size: clamp(1.65rem, 3.15vw, 2.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.028em !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page #exactAge,
+body.kalq-compact-output-boxes #calculator-page #dueDateValue {
+  font-size: clamp(1.45rem, 2.6vw, 2rem) !important;
+  font-weight: 680 !important;
+  line-height: 1.09 !important;
+}
+
+/* Credit-card payoff: use the same compact result hierarchy as the other
+   calculator summaries. The duration remains the highlighted answer while
+   the payoff date and explanation form a restrained context column. */
+body.kalq-compact-output-boxes #calculator-page .payoff-hero {
+  grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr) !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 13px 16px !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page #payoffMonths {
+  font-size: clamp(1.9rem, 2.8vw, 2.35rem) !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: -.035em !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page #payoffDate.payoff-date-label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  margin: 0 0 5px !important;
+  font-size: clamp(.98rem, 1.4vw, 1.15rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -.012em !important;
+}
+
+body.kalq-compact-output-boxes #calculator-page #payoffDate.payoff-date-label::before {
+  flex: 0 0 9px;
+}
+
+body.kalq-compact-output-boxes #calculator-page .payoff-summary {
+  margin: 0 !important;
+  font-size: .78rem !important;
+  line-height: 1.42 !important;
+}
+
+/* Accordion titles remain visible with a lighter, consistent hierarchy. */
+body :is(.section-dropdown-title, .kalq-accordion-header h2) {
+  font-weight: 700 !important;
+  letter-spacing: -.02em !important;
+}
+
+body .section-dropdown > summary .section-dropdown-title {
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem) !important;
+  font-weight: 700 !important;
+}
+
+/* Final dark-mode cohesion layer.
+   Keep every authored report light, while allowing the site and calculator
+   surfaces to share one naturally blended dark palette with readable type and
+   dividers. These variables also correct page-level styles that still refer to
+   the light theme's navy, paper, mist, warm, muted, and line tokens. */
+html[data-theme="dark"] body {
+  --navy: #f6fbfb;
+  --ink: #edf7f7;
+  --muted: #bfd1d7;
+  --line: #58747f;
+  --paper: #0b2532;
+  --mist: #102d3a;
+  --warm: #17313b;
+  --teal: #6de0d5;
+  --teal-dark: #94ebe3;
+  color: #edf7f7 !important;
+  background:
+    radial-gradient(circle at 6% 2%, rgba(45, 181, 170, .1), transparent 32%),
+    radial-gradient(circle at 96% 0%, rgba(240, 109, 95, .06), transparent 28%),
+    linear-gradient(180deg, #0c2936 0%, #0b2532 46%, #0a222e 100%) fixed !important;
+}
+
+html[data-theme="dark"] body main,
+html[data-theme="dark"] body #calculator-page,
+html[data-theme="dark"] body .snap-page {
+  color: #edf7f7 !important;
+  background-color: transparent !important;
+}
+
+html[data-theme="dark"] body main :is(h1, h2, h3, h4, h5, h6, strong, legend),
+html[data-theme="dark"] body main :is(
+  .section-dropdown-title,
+  .section-title,
+  .result-title,
+  .result-value,
+  .future-value,
+  .bmi-number,
+  .duration-number,
+  .payoff-date-label,
+  .data-value,
+  .metric-value,
+  .stat-value,
+  .formula-display
+) {
+  color: #f7fcfc !important;
+}
+
+html[data-theme="dark"] body main :is(
+  p,
+  li,
+  small,
+  dt,
+  dd,
+  figcaption,
+  .lead,
+  .muted,
+  .scope-note,
+  .section-dropdown-copy,
+  .section-heading p,
+  .related-note,
+  .result-summary,
+  .data-label,
+  .data-note,
+  .chart-axis-label,
+  .disclaimer-copy,
+  .disclaimer-text
+) {
+  color: #bfd1d7 !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .section,
+  .section-band,
+  .section-warm,
+  .review-section,
+  .references,
+  .hero,
+  .game-panel,
+  .result-panel,
+  .analysis-panel,
+  .growth-chart-section,
+  .chart-wrap,
+  .related-grid
+) {
+  border-color: #58747f !important;
+  background:
+    linear-gradient(115deg, rgba(18, 50, 63, .94), rgba(13, 40, 52, .96)) !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .section-dropdown > summary,
+  .section-heading,
+  .section-dropdown-body,
+  .faq-item,
+  .related-link,
+  .review-strip,
+  .formula-row,
+  .line-list > *,
+  .data-piece,
+  .metric-card,
+  .stat-card,
+  .game-card,
+  .game-panel,
+  .game-stage,
+  .input-panel,
+  .result-panel,
+  .chart-wrap,
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td,
+  hr
+) {
+  border-color: #58747f !important;
+}
+
+html[data-theme="dark"] body main .section-dropdown > summary::after {
+  color: #f7fcfc !important;
+  border-color: #78919a !important;
+  background: #173846 !important;
+}
+
+html[data-theme="dark"] body main :is(input, select, textarea) {
+  color: #f7fcfc !important;
+  border-color: #6a8690 !important;
+  background-color: #102f3e !important;
+}
+
+html[data-theme="dark"] body main :is(input, textarea)::placeholder {
+  color: #a9bec5 !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] body main button:disabled {
+  color: #b8cbd0 !important;
+  border-color: #4f6d78 !important;
+  background: #193846 !important;
+  opacity: .78 !important;
+}
+
+html[data-theme="dark"] body main .keyboard-shortcuts kbd {
+  color: #0f2c3d !important;
+  border-color: #d9e7e8 !important;
+  background: #f6fbfb !important;
+}
+
+html[data-theme="dark"] body main :is(.chart-grid line, .grid-line, .axis-line) {
+  stroke: #6d8790 !important;
+}
+
+html[data-theme="dark"] body main :is(.chart-axis-label, .chart-tooltip-text) {
+  color: #d5e3e6 !important;
+  fill: #d5e3e6 !important;
+}
+
+/* Preserve active light controls: their labels need dark ink for contrast. */
+html[data-theme="dark"] body main :is(
+  button[aria-pressed="true"],
+  .chip.active,
+  .chip.is-active,
+  .segmented button.active,
+  .segmented-control button.active,
+  .toggle-button.active,
+  .calculate-btn,
+  .btn-start-session,
+  .primary-btn,
+  .btn-primary,
+  .action-primary,
+  .start-btn
+) {
+  color: #0f2c3d !important;
+}
+
+/* Reports must keep their exact authored light preview and print palette. */
+html[data-theme="dark"] body :is(#reportRoot, .report-root, .report-page, .report-preview),
+html[data-theme="dark"] body :is(#reportRoot, .report-root, .report-page, .report-preview) * {
+  color-scheme: light;
+}
+
+/* Keep every interactive graph/gauge hover label inside its own box. */
+body :is(
+  #adultGaugeTooltip,
+  #tipGaugeTooltip,
+  .chart-tooltip,
+  .gpa-track-tooltip,
+  .weight-gauge-tooltip,
+  .atom-tooltip,
+  .timeline-hover-tooltip,
+  .retirement-gauge-hover-tooltip,
+  .report-chart-tooltip
+) {
+  box-sizing: border-box !important;
+  max-width: min(260px, calc(100vw - 24px)) !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+body :is(
+  #adultGaugeTooltip,
+  #tipGaugeTooltip,
+  .chart-tooltip,
+  .gpa-track-tooltip,
+  .weight-gauge-tooltip,
+  .atom-tooltip,
+  .timeline-hover-tooltip,
+  .retirement-gauge-hover-tooltip,
+  .report-chart-tooltip
+) :is(strong, span, small, b, dt, dd) {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+body .retirement-gauge-hover-tooltip dd {
+  white-space: normal !important;
+}
+
+/* Dark theme refinement --------------------------------------------------
+   Keep the brand navy as an actual dark accent.  The earlier dark layer
+   reused that token as a text colour, which turned authored navy buttons,
+   graph strokes and tooltip fills white and flattened the whole interface.
+   Text, page surfaces and accents now use separate roles. */
+html[data-theme="dark"] body {
+  --navy: #0f2c3d;
+  --ink: #eef8f7;
+  --muted: #b8cbd1;
+  --line: #3f606b;
+  --paper: #0a202b;
+  --mist: #12333f;
+  --warm: #243139;
+  --teal: #6bdad1;
+  --teal-dark: #92e6df;
+  color: #dcebea !important;
+  background:
+    radial-gradient(circle at 7% 0%, rgba(65, 197, 185, .11), transparent 31rem),
+    radial-gradient(circle at 96% 2%, rgba(240, 109, 95, .07), transparent 28rem),
+    linear-gradient(180deg, #0b2632 0%, #091f2a 52%, #081c26 100%) fixed !important;
+}
+
+html[data-theme="dark"] body .topbar,
+html[data-theme="dark"] body .kalq-global-header {
+  color: #eaf5f4 !important;
+  border-color: #34545f !important;
+  background: rgba(8, 29, 39, .96) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .14) !important;
+}
+
+html[data-theme="dark"] body :is(.topbar, .kalq-global-header) :is(a, button, .brand-name) {
+  color: #e7f2f1 !important;
+}
+
+html[data-theme="dark"] body :is(.topbar, .kalq-global-header) :is(.icon-button, .header-action, .currency-button) {
+  border-color: #3b5d68 !important;
+  background: #102f3c !important;
+}
+
+html[data-theme="dark"] body main :is(h1, h2, h3, h4, h5, h6, strong, legend),
+html[data-theme="dark"] body main :is(.section-dropdown-title, .kalq-accordion-header h2) {
+  color: #f3faf9 !important;
+}
+
+html[data-theme="dark"] body main :is(p, li, small, dt, dd, figcaption),
+html[data-theme="dark"] body main :is(
+  .lead,
+  .muted,
+  .scope-note,
+  .section-dropdown-copy,
+  .related-note,
+  .result-summary,
+  .data-note,
+  .chart-axis-label
+) {
+  color: #b8cbd1 !important;
+}
+
+/* Home page: a restrained hero, clear search action and distinct cards. */
+html[data-theme="dark"] body #home.hero {
+  border-color: #355660 !important;
+  background:
+    radial-gradient(circle at 10% 25%, rgba(65, 197, 185, .10), transparent 30rem),
+    linear-gradient(112deg, rgba(13, 43, 55, .94), rgba(10, 32, 43, .97)) !important;
+}
+
+html[data-theme="dark"] body #home .search-shell {
+  border-color: #486873 !important;
+  background: #102f3c !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .22) !important;
+}
+
+html[data-theme="dark"] body #home .search-shell input {
+  color: #f3faf9 !important;
+}
+
+html[data-theme="dark"] body #home .search-shell input::placeholder {
+  color: #9fb7bf !important;
+}
+
+html[data-theme="dark"] body #home .search-button {
+  color: #0b2937 !important;
+  background: linear-gradient(100deg, #6bdad1, #b7ece8) !important;
+  box-shadow: 0 7px 18px rgba(50, 178, 167, .16) !important;
+}
+
+html[data-theme="dark"] body #home .hero-search-suggestions {
+  color: #eaf5f4 !important;
+  border-color: #496a74 !important;
+  background: #102f3c !important;
+}
+
+html[data-theme="dark"] body #home :is(.hero-search-suggestion, .hero-search-suggestion strong) {
+  color: #edf7f6 !important;
+}
+
+html[data-theme="dark"] body #home .quick-links {
+  background: transparent !important;
+}
+
+html[data-theme="dark"] body #home .quick-links a {
+  color: #eaf4f3 !important;
+  border-color: #3e606b !important;
+  background: #123440 !important;
+}
+
+html[data-theme="dark"] body #home .quick-links a:hover,
+html[data-theme="dark"] body #home .quick-links a:focus-visible {
+  border-color: #64cfc6 !important;
+  background: #173e49 !important;
+}
+
+html[data-theme="dark"] body :is(.directory-section, #about.section-mist) {
+  border-color: #365761 !important;
+  background: linear-gradient(118deg, rgba(15, 47, 59, .96), rgba(10, 32, 43, .97)) !important;
+}
+
+html[data-theme="dark"] body :is(.directory-item, .directory-group, .directory-mini-link) {
+  color: #edf7f6 !important;
+  border-color: #3b5d67 !important;
+  background: #12333f !important;
+}
+
+html[data-theme="dark"] body :is(.directory-item, .directory-mini-link):hover {
+  border-color: #67d3c9 !important;
+  background: #183f4a !important;
+}
+
+/* Calculator and game surfaces: different depths without abrupt colour
+   changes.  The input panel stays focused and the result surface is one
+   step lighter so the answer is immediately discoverable. */
+html[data-theme="dark"] body #calculator-page,
+html[data-theme="dark"] body main {
+  color: #dcebea !important;
+  background-color: transparent !important;
+}
+
+html[data-theme="dark"] body main :is(.hero, .calculator-hero, .collection-hero, .kalq-page-hero) {
+  border-color: #365762 !important;
+  background: linear-gradient(112deg, rgba(13, 44, 56, .95), rgba(10, 32, 43, .97)) !important;
+}
+
+html[data-theme="dark"] body main :is(.result-panel, .analysis-panel, .growth-chart-section) {
+  color: #e8f4f3 !important;
+  border-color: #4a6b75 !important;
+  background: linear-gradient(125deg, #153946, #102f3c) !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .16) !important;
+}
+
+html[data-theme="dark"] body main :is(.input-panel, .game-panel, .game-stage) {
+  color: #e8f4f3 !important;
+  border-color: #42636e !important;
+  background: linear-gradient(145deg, #0e2d3a, #123542) !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .data-piece,
+  .metric-card,
+  .stat-card,
+  .path-node,
+  .formula-row,
+  .review-strip,
+  .faq-item,
+  .related-link,
+  .game-card,
+  .chart-wrap,
+  .chart-block,
+  table
+) {
+  color: #e8f4f3 !important;
+  border-color: #486974 !important;
+  background: #153744 !important;
+}
+
+html[data-theme="dark"] body main :is(.related-link, .game-card, .data-piece, .metric-card):hover {
+  border-color: #69d5cb !important;
+  background: #1a404b !important;
+}
+
+html[data-theme="dark"] body main :is(.section, .review-section, .references) {
+  border-color: #355661 !important;
+  background: #0c2834 !important;
+}
+
+html[data-theme="dark"] body main :is(.section-band, .section-mist) {
+  border-color: #3b5c67 !important;
+  background: #10313d !important;
+}
+
+html[data-theme="dark"] body main :is(.section-warm, .collection-section-warm) {
+  border-color: #56615f !important;
+  background: linear-gradient(120deg, #26343b, #183039) !important;
+}
+
+html[data-theme="dark"] body main .section-dropdown > summary {
+  color: #edf7f6 !important;
+  border-color: #446570 !important;
+  background: rgba(18, 51, 63, .82) !important;
+}
+
+html[data-theme="dark"] body main .section-dropdown[open] > summary {
+  background: #173b46 !important;
+}
+
+html[data-theme="dark"] body main .section-dropdown-body {
+  color: #d5e5e5 !important;
+  border-color: #3d5e69 !important;
+  background: rgba(10, 35, 46, .66) !important;
+}
+
+html[data-theme="dark"] body main .section-dropdown > summary::after {
+  color: #eaf5f4 !important;
+  border-color: #5c7a84 !important;
+  background: #1a3e49 !important;
+}
+
+/* Form controls use a consistent recessed surface. */
+html[data-theme="dark"] body main :is(input, select, textarea) {
+  color: #f1f8f7 !important;
+  border-color: #547580 !important;
+  background-color: #0b2937 !important;
+}
+
+html[data-theme="dark"] body main :is(input, select, textarea):focus {
+  border-color: #72ddd4 !important;
+  box-shadow: 0 0 0 2px rgba(107, 218, 209, .16) !important;
+}
+
+html[data-theme="dark"] body main :is(input, textarea)::placeholder {
+  color: #9eb5bd !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .segmented,
+  .segmented-control,
+  .unit-toggle,
+  .choice-row,
+  .input-wrap
+) {
+  border-color: #456671 !important;
+}
+
+html[data-theme="dark"] body main :is(
+  button[aria-pressed="true"],
+  .chip.active,
+  .chip.is-active,
+  .segmented button.active,
+  .segmented-control button.active,
+  .toggle-button.active,
+  .calculate-btn,
+  .btn-start-session,
+  .primary-btn,
+  .btn-primary,
+  .action-primary,
+  .start-btn
+) {
+  color: #0b2937 !important;
+  border-color: transparent !important;
+  background: linear-gradient(100deg, #6bdad1, #c5efec) !important;
+}
+
+html[data-theme="dark"] body main :is(.btn-secondary, .secondary-btn, .btn-ghost, .ghost-btn, .action-secondary) {
+  color: #e8f4f3 !important;
+  border-color: #547580 !important;
+  background: #153744 !important;
+}
+
+html[data-theme="dark"] body main button:disabled {
+  color: #89a1aa !important;
+  border-color: #3b5b66 !important;
+  background: #14313d !important;
+  opacity: .72 !important;
+}
+
+/* Collection and information pages retain the same dark rhythm. */
+html[data-theme="dark"] body main :is(.collection-section, .kalq-content-section) {
+  color: #dcebea !important;
+  border-color: #3b5c67 !important;
+  background: #0d2b37 !important;
+}
+
+html[data-theme="dark"] body main :is(.collection-section-mist, .collection-tool-link, .collection-category-link) {
+  color: #eaf5f4 !important;
+  border-color: #466772 !important;
+  background: #143642 !important;
+}
+
+html[data-theme="dark"] body main :is(.collection-tool-link, .collection-category-link):hover {
+  border-color: #68d5cb !important;
+  background: #1a404b !important;
+}
+
+/* Graphs and hover labels need their own dark contrast, independent of the
+   brand navy used by the authored SVG paths. */
+html[data-theme="dark"] body main :is(.chart-grid, .chart-grid line, .grid-line, .axis-line) {
+  stroke: #496a74 !important;
+}
+
+html[data-theme="dark"] body main :is(.chart-total-line, .chart-contribution-line, .main-line) {
+  stroke: #d9eeec !important;
+}
+
+html[data-theme="dark"] body main :is(.chart-tooltip-box) {
+  fill: #071d28 !important;
+}
+
+html[data-theme="dark"] body main :is(
+  #adultGaugeTooltip,
+  #tipGaugeTooltip,
+  .chart-tooltip,
+  .gpa-track-tooltip,
+  .weight-gauge-tooltip,
+  .atom-tooltip,
+  .timeline-hover-tooltip,
+  .retirement-gauge-hover-tooltip
+) {
+  color: #f4fbfa !important;
+  border-color: #5d7b85 !important;
+  background: #071d28 !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .28) !important;
+}
+
+html[data-theme="dark"] body main :is(.chart-tooltip, .chart-tooltip *) {
+  color: #f4fbfa !important;
+}
+
+html[data-theme="dark"] body main :is(.chart-axis-label, .chart-label, .chart-value-label, .chart-tooltip-text) {
+  color: #c7d9dd !important;
+  fill: #c7d9dd !important;
+}
+
+/* A lighter footer closes the page without returning to the old near-black
+   slab, while remaining clearly separate from page content. */
+html[data-theme="dark"] body .kalq-global-footer.site-footer,
+html[data-theme="dark"] body .site-footer {
+  color: #d8e9e8 !important;
+  border-color: #4b6b75 !important;
+  background: linear-gradient(105deg, #173d47, #1b414a) !important;
+}
+
+html[data-theme="dark"] body :is(.kalq-global-footer, .site-footer) :is(a, p, span, small, strong, h2, h3) {
+  color: #d8e9e8 !important;
+}
+
+html[data-theme="dark"] body .go-up-button {
+  color: #0b2937 !important;
+  border-color: #a7e6e0 !important;
+  background: #8cded7 !important;
+}
+
+/* Keep report previews and print views on their authored light palette. */
+html[data-theme="dark"] body :is(#reportRoot, .report-root, .report-page, .report-preview) {
+  color-scheme: light !important;
+}
+
+/* One dropdown indicator across every calculator and game input. The arrow is
+   drawn by the select itself so it stays centered and cannot overlap the
+   selected value or render twice beside older page-specific markers. */
+body select {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  padding-inline-end: 58px !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath fill='%23F4FBFA' d='M0 0h10L5 7z'/%3E%3C/svg%3E"),
+    linear-gradient(to right, rgba(244, 251, 250, .22) 0 1px, transparent 1px) !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: right 18px center, right center !important;
+  background-size: 10px 7px, 46px 100% !important;
+}
+
+html body #calculator-page select {
+  padding-right: 58px !important;
+  padding-inline-end: 58px !important;
+}
+
+html body.kalq-compact-input-boxes form:not(.header-search) select,
+html body.kalq-compact-game-inputs :is(.setup-panel, .control-panel) select {
+  padding: 0 58px 0 12px !important;
+  padding-right: 58px !important;
+  padding-inline-end: 58px !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) select,
+html body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) select {
+  padding: 0 58px 0 12px !important;
+  padding-right: 58px !important;
+  padding-inline-end: 58px !important;
+}
+
+body select::-ms-expand {
+  display: none;
+}
+
+body :is(
+  .select-wrap,
+  .type-select-wrap,
+  .setting-select-wrap
+)::after,
+body :is(
+  .select-arrow,
+  .select-chevron,
+  .select-caret,
+  .profile-select-arrow
+) {
+  display: none !important;
+}
+
+body .picker-trigger {
+  position: relative !important;
+  padding-inline-end: 58px !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .picker-trigger {
+  padding-inline: 12px 58px !important;
+  padding-right: 58px !important;
+  padding-inline-end: 58px !important;
+}
+
+body .picker-chevron {
+  position: absolute !important;
+  inset-block: 0 !important;
+  inset-inline-end: 0 !important;
+  width: 46px !important;
+  height: 100% !important;
+  display: grid !important;
+  place-items: center !important;
+  flex: 0 0 46px !important;
+  border: 0 !important;
+  border-inline-start: 1px solid rgba(244, 251, 250, .22) !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+body .picker-chevron::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-inline: 5px solid transparent;
+  border-top: 7px solid #f4fbfa;
+  transition: transform .18s ease;
+}
+
+body .picker.is-open .picker-chevron {
+  transform: none !important;
+}
+
+body .picker.is-open .picker-chevron::after {
+  transform: rotate(180deg) !important;
+}
+
+/* Shared non-game calculator actions: one compact vertical flow matching the
+   current input chips. Page scripts still own submit, reset and calculation. */
+html body #calculator-page form[data-kalq-standard-actions] .kalq-input-action-stack {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  align-items: stretch !important;
+  gap: 6px !important;
+  width: 100% !important;
+  margin-top: 8px !important;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] .kalq-input-action-stack > button {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  margin: 0 !important;
+  padding: 0 14px !important;
+  border-radius: 999px !important;
+  font-size: var(--kalq-input-choice-text, .78rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  box-shadow: none !important;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] .kalq-sample-btn,
+html body #calculator-page form[data-kalq-standard-actions] .kalq-auxiliary-input-action {
+  order: 1;
+  border: 1px solid rgba(128, 222, 214, .42) !important;
+  color: #f4fbfa !important;
+  background: rgba(255, 255, 255, .055) !important;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] .kalq-sample-btn {
+  order: 0;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] :is(.kalq-primary-input-action, .kalq-secondary-calculate-action) {
+  order: 2;
+  border: 0 !important;
+  color: #082b3b !important;
+  background: linear-gradient(90deg, #72ddd4 0%, #f7fbfa 100%) !important;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] .kalq-secondary-calculate-action {
+  order: 3;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] .kalq-auxiliary-input-action {
+  order: 4;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] .kalq-reset-input-action {
+  order: 5;
+  height: 28px !important;
+  min-height: 28px !important;
+  border: 0 !important;
+  color: rgba(244, 251, 250, .72) !important;
+  background: transparent !important;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] [data-kalq-replaced-example][hidden] {
+  display: none !important;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] .kalq-input-action-stack > button:is(:hover, :focus-visible) {
+  border-color: #80ded6 !important;
+  filter: brightness(1.035);
+  outline: none;
+}
+
+html body #calculator-page form[data-kalq-standard-actions] .kalq-sample-btn:disabled {
+  cursor: wait;
+  opacity: .62;
+}
+
+/* Keep the calendar glyph at its authored size. The general compact-button
+   padding rule otherwise compresses an 18px SVG into a narrow dash. */
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .kalq-date-picker-button {
+  padding: 0 !important;
+  padding-inline: 0 !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .kalq-date-picker-button svg {
+  display: block !important;
+  width: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  height: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  flex: 0 0 18px !important;
+}
+
+/* Final control-height normalization.
+   The existing compact chip is 34px high, so every standard calculator and
+   game input box, picker, segmented choice and action uses that same rhythm.
+   Purpose-built canvas/fullscreen controls and the calendar glyph inside a
+   date input keep their authored dimensions. */
+html body {
+  --kalq-chip-height: 34px;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  select,
+  .picker-trigger,
+  button:not(.kalq-date-picker-button)
+),
+html body.kalq-compact-game-inputs #game-page :is(
+  .setup-select,
+  .setup-panel select,
+  .control-panel select,
+  .setup-panel input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  .control-panel input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  .setup-panel button:not(.fullscreen-toggle),
+  .control-panel button:not(.fullscreen-toggle),
+  .game-controls button
+),
+html body #calculator-page#calculator-page :is(
+  .result-actions button,
+  .report-actions button,
+  .action-row button
+) {
+  box-sizing: border-box !important;
+  height: var(--kalq-chip-height) !important;
+  min-height: var(--kalq-chip-height) !important;
+  max-height: var(--kalq-chip-height) !important;
+  padding-block: 0 !important;
+  line-height: 1.1 !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .input-mode-tab,
+  .input-tab
+) {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  gap: 6px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .input-mode-tab,
+  .input-tab
+) > * {
+  min-width: 0 !important;
+  margin: 0 !important;
+  line-height: 1.1 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .input-mode-tab > span {
+  display: none !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .kalq-date-picker-button {
+  height: 27px !important;
+  min-height: 27px !important;
+  max-height: 27px !important;
+}
+
+/* Every two-or-more choice switch uses the same chip height and divides the
+   available row evenly. This includes the Months/Years controls added to new
+   calculator modes. */
+html body #calculator-page#calculator-page :is(
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .unit-toggle
+) {
+  display: flex !important;
+  align-items: stretch !important;
+  min-height: var(--kalq-chip-height) !important;
+  gap: 0 !important;
+}
+
+html body #calculator-page :is(
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .unit-toggle
+) > :is(button, label) {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  height: var(--kalq-chip-height) !important;
+  min-height: var(--kalq-chip-height) !important;
+  max-height: var(--kalq-chip-height) !important;
+  margin: 0 !important;
+}
+
+/* Final shared spacing rhythm.
+   Individual controls use a clearly visible 12px gap, related labels stay 6px
+   from their control, and larger section changes use 16px. This applies after
+   page-authored styles so every calculator and both games remain consistent. */
+html body {
+  --kalq-control-gap: 12px;
+  --kalq-section-gap: 16px;
+  --kalq-label-control-gap: 6px;
+  --kalq-output-gap: 12px;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field,
+  .dark-field
+) {
+  margin-bottom: var(--kalq-control-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field,
+  .dark-field
+) > :is(label, .picker-label) {
+  margin-bottom: var(--kalq-label-control-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field-row,
+  .scale-row,
+  .settings-grid,
+  .savings-input-grid,
+  .payroll-input-grid,
+  .converter-picker-grid,
+  .converter-unit-row,
+  .assumptions-grid,
+  .atomic-settings,
+  .input-row-compact,
+  .course-row,
+  .metric-grid,
+  .form-grid,
+  .input-grid
+) {
+  gap: var(--kalq-control-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > :is(
+  .field,
+  .dark-field,
+  .field-row,
+  .scale-row,
+  .settings-grid,
+  .savings-input-grid,
+  .payroll-input-grid,
+  .converter-picker-grid,
+  .converter-unit-row,
+  .assumptions-grid,
+  .atomic-settings,
+  .input-row-compact,
+  .course-row,
+  .metric-fields,
+  .imperial-fields,
+  .unit-toggle,
+  .input-tabs,
+  .input-mode-tabs,
+  .segmented-control,
+  .segment-control
+) {
+  margin-top: 0 !important;
+  margin-bottom: var(--kalq-control-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > :is(
+  h3,
+  legend,
+  .section-title,
+  .group-title,
+  details
+) {
+  margin-top: var(--kalq-section-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .kalq-input-action-stack {
+  gap: 8px !important;
+  margin-top: var(--kalq-section-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .privacy-note,
+  .input-note,
+  .form-note
+) {
+  margin-top: var(--kalq-control-gap) !important;
+}
+
+/* Game inputs use the same spacing even though their panels do not share the
+   calculator-page wrapper used by the regular calculators. */
+html body.kalq-compact-game-inputs :is(.setup-panel, .control-panel) :is(.field, .setting) {
+  margin-bottom: var(--kalq-control-gap) !important;
+}
+
+html body.kalq-compact-game-inputs :is(.setup-panel, .control-panel) :is(.field, .setting) > :is(
+  label,
+  .setting-label
+) {
+  margin-bottom: var(--kalq-label-control-gap) !important;
+}
+
+html body.kalq-compact-game-inputs :is(.setup-panel, .control-panel) :is(
+  .pill-group,
+  .button-group,
+  .game-control-grid,
+  .setup-grid
+) {
+  gap: 8px !important;
+}
+
+html body.kalq-compact-game-inputs :is(.setup-panel, .control-panel) > :is(
+  .sound-toggle,
+  .setup-note,
+  .control-note,
+  .privacy-note
+) {
+  margin-top: var(--kalq-control-gap) !important;
+}
+
+/* Output blocks follow the same 12px item rhythm. Direct children are reset
+   first so legacy margins cannot combine into oversized or missing gaps. */
+html body.kalq-compact-output-boxes #calculator-page :is(
+  .result-content,
+  .child-result-content,
+  .result-main,
+  #resultContent,
+  #unitResultMain
+) > * {
+  margin-block: 0 !important;
+}
+
+html body.kalq-compact-output-boxes #calculator-page :is(
+  .result-content,
+  .child-result-content,
+  .result-main,
+  #resultContent,
+  #unitResultMain
+) > * + * {
+  margin-top: var(--kalq-output-gap) !important;
+}
+
+html body.kalq-compact-output-boxes #calculator-page :is(
+  .result-data,
+  .result-data-3,
+  .metric-grid,
+  .stat-grid,
+  .summary-grid,
+  .output-grid,
+  .result-grid,
+  .data-grid,
+  .detail-grid,
+  .snapshot-grid,
+  .analysis-strip,
+  .scenario-strip,
+  .review-strip,
+  .result-actions,
+  .report-actions,
+  .action-row
+) {
+  gap: var(--kalq-output-gap) !important;
+}
+
+html body.kalq-compact-output-boxes #calculator-page :is(
+  .data-piece,
+  .metric-card,
+  .stat-card,
+  .summary-card,
+  .output-card,
+  .result-card
+) {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  padding: 12px !important;
+}
+
+/* Matching rhythm for the live game dashboards and their result summaries. */
+html body.kalq-compact-game-inputs :is(
+  .live-performance,
+  .performance-grid,
+  .game-stats,
+  .game-result,
+  .round-result,
+  .game-actions,
+  .game-controls
+) {
+  gap: var(--kalq-control-gap) !important;
+}
+
+@media (max-width: 700px) {
+  html body {
+    --kalq-control-gap: 10px;
+    --kalq-section-gap: 14px;
+    --kalq-output-gap: 10px;
+  }
+}
+
+/* GPA scale controls: the course action sits beside the scale, while the
+   editor toggle is centered directly beneath the scale control. */
+html body.kalq-compact-input-boxes #calculator-page #gpaForm .scale-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 104px !important;
+  grid-template-areas:
+    "scale add"
+    "edit  ." !important;
+  gap: 6px 10px !important;
+  align-items: end !important;
+  margin-bottom: var(--kalq-control-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #gpaForm .scale-row > .dark-field {
+  grid-area: scale;
+  margin: 0 !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #gpaForm #addCourseBtn {
+  grid-area: add;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-inline: 10px !important;
+  border: 1px solid rgba(128, 222, 214, .42) !important;
+  border-radius: 999px !important;
+  color: #f4fbfa !important;
+  background: rgba(255, 255, 255, .055) !important;
+  font-size: var(--kalq-input-choice-text, .78rem) !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #gpaForm #toggleCustomBtn {
+  grid-area: edit;
+  justify-self: stretch !important;
+  width: 100% !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #7ee0d7 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: .72rem !important;
+  font-weight: 760 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #gpaForm #toggleCustomBtn:is(:hover, :focus-visible) {
+  color: #f4fbfa !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* BMI child/teen mode mirrors the Adult input-panel width and one-column
+   rhythm. Only the fields needed for BMI-for-age remain different. */
+html body.kalq-compact-input-boxes #calculator-page #childCalculatorView .child-native-shell {
+  grid-template-columns: minmax(0, 1.55fr) minmax(320px, .85fr) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #childBmiForm {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #childBmiForm :is(
+  .field-row,
+  .child-age-row,
+  #childMetricFields > .field-row,
+  #childImperialFields > .field-row
+) {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #childBmiForm :is(
+  .field,
+  .input-wrap,
+  .unit-toggle,
+  .metric-fields,
+  .imperial-fields,
+  .calculate-btn,
+  .reset-btn,
+  .kalq-sample-btn,
+  .privacy-note
+) {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #childBmiForm .field {
+  margin-bottom: 12px !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #childBmiForm .unit-toggle {
+  margin-bottom: 14px !important;
+}
+
+@media (max-width: 900px) {
+  html body.kalq-compact-input-boxes #calculator-page #childCalculatorView .child-native-shell {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Reset remains a working action but uses the quiet text-only treatment. */
+html body.kalq-compact-input-boxes #calculator-page #gpaForm .kalq-input-action-stack #resetBtn {
+  height: 26px !important;
+  min-height: 26px !important;
+  max-height: 26px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: rgba(244, 251, 250, .72) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page #gpaForm .kalq-input-action-stack #resetBtn:is(:hover, :focus-visible) {
+  color: #fff !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  html body.kalq-compact-input-boxes #calculator-page #gpaForm .scale-row {
+    grid-template-columns: minmax(0, 1fr) 94px !important;
+    column-gap: 8px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Authoritative dark theme
+   --------------------------------------------------------------------------
+   Older pages contain several generations of local colour rules.  Keep this
+   block last so the whole site resolves to one calm, related palette:
+   page -> section -> raised control/card.  Reports deliberately retain their
+   authored light preview and print appearance. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  background: #081e29;
+}
+
+html[data-theme="dark"] body {
+  --navy: #0b2a38;
+  --ink: #f1f8f7;
+  --muted: #bfd2d6;
+  --line: #4a6974;
+  --paper: #0b2633;
+  --mist: #102f3c;
+  --warm: #193640;
+  --teal: #72dcd3;
+  --teal-dark: #8ce5de;
+  color: #e5f0ef !important;
+  background: #081e29 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body :is(main, #calculator-page, .snap-page, .site-shell) {
+  color: #e5f0ef !important;
+  background: #0b2633 !important;
+  background-image: none !important;
+}
+
+/* Header, menus and search share the page colour instead of floating as a
+   separate black strip. */
+html[data-theme="dark"] body :is(.topbar, .kalq-site-header, .kalq-global-header) {
+  color: #f4fbfa !important;
+  border-color: #3d5d68 !important;
+  background: #0b2633 !important;
+  background-image: none !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .14) !important;
+}
+
+html[data-theme="dark"] body :is(.topbar, .kalq-site-header, .kalq-global-header)
+  :is(a, button, span, strong, .brand, .brand-name) {
+  color: #f4fbfa !important;
+}
+
+html[data-theme="dark"] body :is(
+  .header-search-wrap,
+  .header-search,
+  .header-search-results,
+  .header-search-result,
+  .language-menu,
+  .currency-menu,
+  .calculator-panel
+) {
+  color: #eef8f7 !important;
+  border-color: #4a6974 !important;
+  background: #123441 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body :is(.header-search-result, .language-menu button, .currency-menu button):hover,
+html[data-theme="dark"] body :is(.header-search-result, .language-menu button, .currency-menu button):focus-visible {
+  color: #f7fcfb !important;
+  background: #1a4350 !important;
+}
+
+html[data-theme="dark"] body :is(.icon-button, .currency-button, .menu-button) {
+  color: #eff8f7 !important;
+  border-color: #4a6974 !important;
+  background: #123441 !important;
+}
+
+html[data-theme="dark"] body :is(.icon-button, .currency-button, .menu-button) svg {
+  color: inherit !important;
+  fill: none;
+  stroke: currentColor !important;
+}
+
+/* Main typography.  Muted copy is still comfortably readable; headings and
+   result values remain clearly brighter. */
+html[data-theme="dark"] body main :is(h1, h2, h3, h4, h5, h6, legend, strong, b),
+html[data-theme="dark"] body main :is(.section-dropdown-title, .section-title, .result-title) {
+  color: #f5fbfa !important;
+}
+
+html[data-theme="dark"] body main :is(
+  p, li, small, dt, dd, figcaption, label, th, td,
+  .lead, .muted, .scope-note, .section-dropdown-copy, .related-note,
+  .result-summary, .data-label, .data-note, .chart-axis-label,
+  .disclaimer-copy, .disclaimer-text, .privacy-note
+) {
+  color: #bfd2d6 !important;
+}
+
+html[data-theme="dark"] body main :is(a, .eyebrow, .panel-kicker, .collection-eyebrow) {
+  color: #7fe2da !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .result-value, .future-value, .bmi-number, .duration-number,
+  .payoff-date-label, .data-value, .metric-value, .stat-value,
+  .value-number, .formula-display, output, .num
+) {
+  color: #f7fcfb !important;
+}
+
+/* Large page regions use only adjacent shades, removing the abrupt pale,
+   peach and near-black bands that made dark mode look disconnected. */
+html[data-theme="dark"] body main :is(
+  .hero, .calculator-hero, .collection-hero, .kalq-page-hero,
+  .section, .review-section, .references, .kalq-content-section,
+  .collection-section, .directory-section, .tips-mistakes
+) {
+  color: #e5f0ef !important;
+  border-color: #3f606b !important;
+  background: #0e2c38 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .section-band, .section-mist, .collection-section-mist,
+  #about.section-mist
+) {
+  color: #e7f2f1 !important;
+  border-color: #456570 !important;
+  background: #123441 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body main :is(.section-warm, .collection-section-warm) {
+  color: #e8f1f0 !important;
+  border-color: #526b72 !important;
+  background: #193640 !important;
+  background-image: none !important;
+}
+
+/* Calculator, game and directory surfaces. */
+html[data-theme="dark"] body main :is(.input-panel, .game-panel, .game-stage, .setup-panel, .control-panel) {
+  color: #edf7f6 !important;
+  border-color: #4a6974 !important;
+  background: #102f3c !important;
+  background-image: none !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .14) !important;
+}
+
+html[data-theme="dark"] body main :is(.result-panel, .analysis-panel, .growth-chart-section, .chart-box) {
+  color: #eef8f7 !important;
+  border-color: #55747e !important;
+  background: #143845 !important;
+  background-image: none !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .16) !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .data-piece, .metric-card, .stat-card, .summary-card, .output-card,
+  .result-card, .path-node, .formula-row, .review-strip, .faq-item,
+  .related-link, .game-card, .chart-wrap, .chart-block, .worked-example,
+  .directory-item, .directory-group, .directory-mini-link,
+  .collection-tool-link, .collection-category-link, .kalq-tool-card,
+  .kalq-info-card, table
+) {
+  color: #e9f4f3 !important;
+  border-color: #4a6974 !important;
+  background: #143845 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .related-link, .game-card, .directory-item, .directory-mini-link,
+  .collection-tool-link, .collection-category-link, .kalq-tool-card,
+  .kalq-info-card
+):hover {
+  border-color: #72dcd3 !important;
+  background: #1a4350 !important;
+}
+
+/* Accordions keep a clear but gentle change of depth. */
+html[data-theme="dark"] body main .section-dropdown > summary,
+html[data-theme="dark"] body main .kalq-accordion-header {
+  color: #f3faf9 !important;
+  border-color: #496a75 !important;
+  background: #123441 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body main .section-dropdown[open] > summary {
+  background: #173d49 !important;
+}
+
+html[data-theme="dark"] body main :is(.section-dropdown-body, .faq-answer) {
+  color: #dceae9 !important;
+  border-color: #456570 !important;
+  background: #0e2c38 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body main .section-dropdown > summary::after {
+  color: #f4fbfa !important;
+  border-color: #65818a !important;
+  background: #1a4350 !important;
+}
+
+/* Controls and chips. */
+html[data-theme="dark"] body main :is(input, select, textarea) {
+  color: #f4fbfa !important;
+  caret-color: #7fe2da !important;
+  border-color: #5a7882 !important;
+  background-color: #0b2936 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] body main :is(input, select, textarea):focus {
+  border-color: #7fe2da !important;
+  box-shadow: 0 0 0 2px rgba(127, 226, 218, .16) !important;
+}
+
+html[data-theme="dark"] body main :is(input, textarea)::placeholder {
+  color: #a9c0c6 !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .segmented, .segmented-control, .segment-control, .unit-toggle,
+  .choice-row, .input-wrap, .select-wrap, .setting-select-wrap
+) {
+  color: #e5f0ef !important;
+  border-color: #4d6d77 !important;
+  background-color: #123441 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body main :is(
+  button, .btn, .chip, .toggle-button, .game-control-btn
+) {
+  border-color: #577680 !important;
+}
+
+html[data-theme="dark"] body main :is(
+  button[aria-pressed="true"], .chip.active, .chip.is-active,
+  .segmented button.active, .segmented-control button.active,
+  .segment-control button.active, .toggle-button.active,
+  .calculate-btn, .btn-start-session, .primary-btn, .btn-primary,
+  .action-primary, .start-btn
+) {
+  color: #0a2936 !important;
+  border-color: transparent !important;
+  background: #8de3dc !important;
+  background-image: none !important;
+}
+
+/* Keep every segmented/chip selector inside its track. Page-specific styles
+   previously allowed long labels to wrap, which made a 34px chip look as if
+   its text was spilling into the surrounding controls. */
+html body #calculator-page :is(
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .unit-toggle,
+  .deposit-timing-toggle,
+  .savings-period-toggle,
+  .frequency-toggle,
+  .period-toggle,
+  .input-tabs,
+  .input-mode-tabs,
+  .angle-toggle
+) {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+html body #calculator-page :is(
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .unit-toggle,
+  .deposit-timing-toggle,
+  .savings-period-toggle,
+  .frequency-toggle,
+  .period-toggle,
+  .input-tabs,
+  .input-mode-tabs,
+  .angle-toggle
+) > :is(button, label) {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding-inline: 7px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: clamp(.64rem, 2.1vw, .7rem) !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  text-overflow: ellipsis !important;
+}
+
+html body #calculator-page :is(
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .unit-toggle,
+  .deposit-timing-toggle,
+  .savings-period-toggle,
+  .frequency-toggle,
+  .period-toggle,
+  .input-tabs,
+  .input-mode-tabs,
+  .angle-toggle
+) > :is(button, label) > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  text-overflow: ellipsis !important;
+}
+
+/* This deliberately outranks the older generic compact-button rule, which
+   permits wrapping for ordinary action buttons. Selector chips must remain a
+   single line. */
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .unit-toggle,
+  .deposit-timing-toggle,
+  .savings-period-toggle,
+  .frequency-toggle,
+  .period-toggle,
+  .input-tabs,
+  .input-mode-tabs,
+  .angle-toggle
+) > :is(button, label),
+html body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .unit-toggle,
+  .frequency-toggle,
+  .period-toggle,
+  .input-tabs,
+  .input-mode-tabs
+) > :is(button, label) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding-inline: 7px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: clamp(.64rem, 2.1vw, .7rem) !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  text-overflow: ellipsis !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .deposit-timing-toggle > button {
+  padding-inline: 5px !important;
+  font-size: clamp(.66rem, 1.8vw, .7rem) !important;
+}
+
+/* Segmented controls need room for both the outer track and the selected
+   chip. Older page styles gave each one the same 34px height, so the chip
+   was clipped by the track's 3px padding even though its text did not
+   technically overflow. Keep the option chips at the shared 34px control
+   height and reserve a true padded track around them. */
+html body #calculator-page#calculator-page :is(
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .unit-toggle,
+  .deposit-timing-toggle,
+  .savings-period-toggle,
+  .frequency-toggle,
+  .period-toggle,
+  .input-tabs,
+  .input-mode-tabs,
+  .angle-toggle
+) {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 3px !important;
+  height: auto !important;
+  min-height: 40px !important;
+  padding: 3px !important;
+  overflow: hidden !important;
+}
+
+html body #calculator-page#calculator-page :is(
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .unit-toggle,
+  .deposit-timing-toggle,
+  .savings-period-toggle,
+  .frequency-toggle,
+  .period-toggle,
+  .input-tabs,
+  .input-mode-tabs,
+  .angle-toggle
+) > :is(button, label) {
+  flex: 1 1 0 !important;
+  width: auto !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  margin: 0 !important;
+  border-radius: 999px !important;
+  transform: none !important;
+}
+
+html[data-theme="dark"] body main :is(
+  .btn-secondary, .secondary-btn, .btn-ghost, .ghost-btn,
+  .action-secondary, .sample-btn
+) {
+  color: #edf7f6 !important;
+  border-color: #5a7882 !important;
+  background: #173d49 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body main button:disabled {
+  color: #9db3b9 !important;
+  border-color: #405f69 !important;
+  background: #12313d !important;
+  opacity: .72 !important;
+}
+
+/* Tables, dividers, graphics and tooltip contrast. */
+html[data-theme="dark"] body main :is(hr, table, thead, tbody, tr, th, td, .line-list > *) {
+  border-color: #4a6974 !important;
+}
+
+html[data-theme="dark"] body main :is(.chart-grid line, .grid-line, .axis-line) {
+  stroke: #587680 !important;
+}
+
+html[data-theme="dark"] body main :is(.chart-axis-label, .chart-label, .chart-value-label, .chart-tooltip-text) {
+  color: #c8dadc !important;
+  fill: #c8dadc !important;
+}
+
+html[data-theme="dark"] body main :is(.chart-tooltip-box) {
+  fill: #071b25 !important;
+}
+
+html[data-theme="dark"] body main :is(
+  #adultGaugeTooltip, #tipGaugeTooltip, .chart-tooltip,
+  .gpa-track-tooltip, .weight-gauge-tooltip, .atom-tooltip,
+  .timeline-hover-tooltip, .retirement-gauge-hover-tooltip
+) {
+  color: #f7fcfb !important;
+  border-color: #66828b !important;
+  background: #071b25 !important;
+}
+
+html[data-theme="dark"] body main :is(
+  #adultGaugeTooltip, #tipGaugeTooltip, .chart-tooltip,
+  .gpa-track-tooltip, .weight-gauge-tooltip, .atom-tooltip,
+  .timeline-hover-tooltip, .retirement-gauge-hover-tooltip
+) * {
+  color: #f7fcfb !important;
+}
+
+/* Footer remains lighter than the page, but still belongs to the same colour
+   family. */
+html[data-theme="dark"] body :is(.site-footer, .kalq-global-footer.site-footer) {
+  color: #dcebea !important;
+  border-color: #55747e !important;
+  background: #173d49 !important;
+  background-image: none !important;
+}
+
+html[data-theme="dark"] body :is(.site-footer, .kalq-global-footer) :is(a, p, span, small, strong, h2, h3) {
+  color: #dcebea !important;
+}
+
+html[data-theme="dark"] body .go-up-button {
+  color: #0a2936 !important;
+  border-color: #a9e9e4 !important;
+  background: #8de3dc !important;
+  background-image: none !important;
+}
+
+/* Report previews and printed reports must remain exactly as authored. */
+html[data-theme="dark"] body :is(#reportRoot, .report-root, .report-page, .report-preview),
+html[data-theme="dark"] body :is(#reportRoot, .report-root, .report-page, .report-preview) * {
+  color-scheme: light !important;
+}
+
+/* Final compact footer note. It remains one line on desktop and wraps only
+   when the viewport genuinely cannot contain it. */
+html body .kalq-footer-bottom p:last-child {
+  max-width: none !important;
+  font-size: clamp(.62rem, .72vw, .7rem) !important;
+  line-height: 1.25 !important;
+  white-space: nowrap !important;
+}
+
+/* APR uses the same restrained highlighted-result hierarchy as every other
+   calculator instead of its original oversized display treatment. */
+html body.kalq-compact-output-boxes #calculator-page :is(.apr-number, #aprValue) {
+  font-size: clamp(1.65rem, 3.15vw, 2.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.028em !important;
+}
+
+@media (max-width: 760px) {
+  html body .kalq-footer-bottom p:last-child {
+    white-space: normal !important;
+  }
+}
+
+/* Final input spacing contract.
+   A field has one 12px separation from the next field. Fields inside a grid
+   do not also add their own bottom margin, which previously doubled some
+   rows to 24px while other rows remained almost touching. Section changes
+   stay slightly wider at 16px, and labels remain 6px from their controls. */
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search),
+html body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) {
+  --kalq-input-item-gap: 12px;
+  --kalq-input-section-gap: 16px;
+  --kalq-input-label-gap: 6px;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field-row,
+  .scale-row,
+  .settings-grid,
+  .savings-input-grid,
+  .payroll-input-grid,
+  .converter-picker-grid,
+  .converter-unit-row,
+  .assumptions-grid,
+  .atomic-settings,
+  .input-row-compact,
+  .course-row,
+  .metric-grid,
+  .form-grid,
+  .input-grid,
+  .field-grid,
+  .control-grid,
+  .option-grid
+) {
+  row-gap: var(--kalq-input-item-gap) !important;
+  column-gap: var(--kalq-input-item-gap) !important;
+  margin-bottom: var(--kalq-input-item-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field-row,
+  .scale-row,
+  .settings-grid,
+  .savings-input-grid,
+  .payroll-input-grid,
+  .converter-picker-grid,
+  .converter-unit-row,
+  .assumptions-grid,
+  .atomic-settings,
+  .input-row-compact,
+  .course-row,
+  .metric-grid,
+  .form-grid,
+  .input-grid,
+  .field-grid,
+  .control-grid,
+  .option-grid
+) > :is(.field, .dark-field, .form-group, .input-group) {
+  margin-block: 0 !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field,
+  .dark-field,
+  .form-group,
+  .input-group
+) {
+  margin-top: 0 !important;
+  margin-bottom: var(--kalq-input-item-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) :is(
+  .field,
+  .dark-field,
+  .form-group,
+  .input-group
+) > :is(label, .picker-label, .field-label, .input-label) {
+  margin-bottom: var(--kalq-input-label-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > :is(
+  .unit-toggle,
+  .deposit-timing-toggle,
+  .savings-period-toggle,
+  .frequency-toggle,
+  .period-toggle,
+  .input-tabs,
+  .input-mode-tabs,
+  .segmented,
+  .segmented-control,
+  .segment-control,
+  .angle-toggle
+) {
+  margin-top: 0 !important;
+  margin-bottom: var(--kalq-input-item-gap) !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > :is(
+  .input-section,
+  .form-section,
+  .control-section,
+  .option-section,
+  fieldset,
+  details
+) {
+  margin-top: var(--kalq-input-section-gap) !important;
+  margin-bottom: 0 !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .kalq-input-action-stack {
+  gap: 8px !important;
+  margin-top: var(--kalq-input-section-gap) !important;
+}
+
+html body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(.field, .setting) {
+  margin-top: 0 !important;
+  margin-bottom: var(--kalq-input-item-gap) !important;
+}
+
+html body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(.field, .setting) > :is(
+  label,
+  .setting-label
+) {
+  margin-bottom: var(--kalq-input-label-gap) !important;
+}
+
+html body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) :is(
+  .pill-group,
+  .button-group,
+  .game-control-grid,
+  .setup-grid
+) {
+  gap: var(--kalq-input-item-gap) !important;
+}
+
+@media (max-width: 700px) {
+  html body.kalq-compact-input-boxes #calculator-page form:not(.header-search),
+  html body.kalq-compact-game-inputs #calculator-page :is(.setup-panel, .control-panel) {
+    --kalq-input-item-gap: 10px;
+    --kalq-input-section-gap: 14px;
+  }
+}
+
+/* Final action-spacing contract.
+   Use one visible gap between the final input block and Sample. Some authored
+   forms supplied a bottom margin on that final block as well as the shared
+   action-stack top margin, which doubled the space on Savings and similar
+   grid-based calculators. Remove only that adjacent margin and let the shared
+   12px action gap own the separation on every non-game calculator. */
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) > :has(+ .kalq-input-action-stack) {
+  margin-bottom: 0 !important;
+}
+
+html body.kalq-compact-input-boxes #calculator-page form:not(.header-search) .kalq-input-action-stack {
+  gap: 8px !important;
+  margin-top: var(--kalq-input-item-gap, 12px) !important;
+}
+
+/* KALQ uses one light presentation. This also protects pages that still carry
+   dormant legacy theme markup in an older cached copy. */
+html {
+  color-scheme: light !important;
+}
+
+#themeButton,
+.moon-icon,
+.sun-icon {
+  display: none !important;
+}
+
+/* Shared text containment: keep labels and copy inside their authored panels
+   without shrinking or changing component placement. */
+body :is(
+  .calculator-shell,
+  .calculator-panel,
+  .input-panel,
+  .result-panel,
+  .output-panel,
+  .collection-card,
+  .tool-card,
+  .accordion-item,
+  details
+) {
+  min-width: 0 !important;
+}
+
+body :is(
+  .calculator-shell,
+  .calculator-panel,
+  .input-panel,
+  .result-panel,
+  .output-panel,
+  .collection-card,
+  .tool-card,
+  .accordion-item,
+  details
+) :is(h1, h2, h3, h4, p, label, legend, li, td, th, small, strong, span) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}

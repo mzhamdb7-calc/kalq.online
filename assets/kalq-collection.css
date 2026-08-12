@@ -1,0 +1,610 @@
+.kalq-collection-page {
+  --collection-ink: #112936;
+  --collection-navy: #0f2c3d;
+  --collection-teal: #0aa69a;
+  --collection-teal-dark: #087d76;
+  --collection-coral: #f06d5f;
+  --collection-paper: #fbfaf6;
+  --collection-surface: #ffffff;
+  --collection-mist: #edf5f3;
+  --collection-warm: #fff1e8;
+  --collection-line: #d6e2df;
+  --collection-muted: #62757e;
+  --collection-content: 1320px;
+}
+
+.kalq-collection-page main {
+  overflow: clip;
+}
+
+.collection-wrap {
+  width: 100%;
+  max-width: var(--collection-content);
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+.collection-hero {
+  padding: 66px 0 46px;
+}
+
+.collection-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  color: var(--collection-muted);
+  font-size: .84rem;
+  line-height: 1.35;
+}
+
+.collection-crumbs a {
+  color: inherit !important;
+  text-decoration: none;
+}
+
+.collection-crumbs a:hover,
+.collection-crumbs a:focus-visible {
+  color: var(--collection-navy) !important;
+}
+
+.collection-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+  align-items: end;
+  gap: 44px;
+}
+
+.collection-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  color: var(--collection-teal);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.collection-eyebrow::before {
+  width: 32px;
+  height: 2px;
+  background: currentColor;
+  content: "";
+}
+
+.collection-hero h1 {
+  max-width: 780px;
+  margin: 0 0 16px;
+  color: var(--collection-navy);
+  font-size: clamp(2rem, 3.4vw, 3.15rem);
+  letter-spacing: -.045em;
+  line-height: 1.02;
+}
+
+.collection-lead {
+  max-width: 790px;
+  margin: 0;
+  color: var(--collection-muted);
+  font-size: clamp(.9rem, 1.1vw, .98rem);
+  line-height: 1.58;
+}
+
+.collection-scope-note {
+  max-width: 300px;
+  padding: 20px 0 4px 24px;
+  border-left: 3px solid var(--collection-coral);
+  color: var(--collection-muted);
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.collection-scope-note strong {
+  color: var(--collection-ink);
+}
+
+.collection-section {
+  padding: 76px 0;
+}
+
+.collection-section-mist {
+  background: var(--collection-mist);
+}
+
+.collection-section-warm {
+  background: var(--collection-warm);
+}
+
+.collection-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: 50px;
+  margin-bottom: 42px;
+}
+
+.collection-section-heading h2 {
+  margin: 0;
+  color: var(--collection-navy);
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  letter-spacing: -.035em;
+  line-height: 1.1;
+}
+
+.collection-section-heading p {
+  max-width: 700px;
+  margin: 4px 0 0;
+  color: var(--collection-muted);
+  font-size: .9rem;
+  line-height: 1.65;
+}
+
+.collection-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border-block: 1px solid var(--collection-line);
+  background: var(--collection-line);
+}
+
+.collection-tool-link {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+  min-height: 126px;
+  padding: 20px;
+  color: inherit !important;
+  background: var(--collection-surface);
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.collection-tool-link:hover,
+.collection-tool-link:focus-visible {
+  background: rgba(10, 166, 154, .07);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.collection-tool-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--collection-teal-dark);
+  background: var(--collection-mist);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: -.02em;
+}
+
+.collection-tool-copy,
+.collection-tool-copy strong,
+.collection-tool-copy span,
+.collection-tool-copy small {
+  display: block;
+  min-width: 0;
+}
+
+.collection-tool-copy small {
+  margin-bottom: 5px;
+  color: var(--collection-coral);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.collection-tool-copy strong {
+  margin-bottom: 5px;
+  color: var(--collection-navy);
+  font-size: .9rem;
+  line-height: 1.22;
+}
+
+.collection-tool-copy span {
+  color: var(--collection-muted);
+  font-size: .7rem;
+  line-height: 1.42;
+}
+
+.collection-arrow {
+  color: var(--collection-coral);
+  font-size: 1.15rem;
+  transition: transform .2s ease;
+}
+
+.collection-tool-link:hover .collection-arrow,
+.collection-tool-link:focus-visible .collection-arrow {
+  transform: translateX(3px);
+}
+
+.collection-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.collection-category-link {
+  position: relative;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  border-top: 2px solid var(--collection-line);
+  color: inherit !important;
+  text-decoration: none;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.collection-category-link::before {
+  color: var(--collection-coral);
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  content: attr(data-number);
+}
+
+.collection-category-link:hover,
+.collection-category-link:focus-visible {
+  border-color: var(--collection-teal);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.collection-category-link strong {
+  display: block;
+  margin: 18px 0 6px;
+  color: var(--collection-navy);
+  font-size: 1rem;
+}
+
+.collection-category-link span {
+  color: var(--collection-muted);
+  font-size: .78rem;
+  line-height: 1.5;
+}
+
+.collection-meta {
+  margin: 26px 0 0;
+  color: var(--collection-muted);
+  font-size: .76rem;
+}
+
+html[data-theme="dark"] .kalq-collection-page {
+  --collection-ink: #edf8f7;
+  --collection-navy: #f5fbfa;
+  --collection-teal: #6ce0d5;
+  --collection-teal-dark: #6ce0d5;
+  --collection-coral: #ff9185;
+  --collection-paper: #0b202c;
+  --collection-surface: #102c3a;
+  --collection-mist: #123442;
+  --collection-warm: #2e292b;
+  --collection-line: #294653;
+  --collection-muted: #a9bec6;
+  background: var(--collection-paper);
+}
+
+@media (max-width: 980px) {
+  .collection-tool-grid,
+  .collection-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .collection-wrap {
+    padding-inline: 20px;
+  }
+
+  .collection-hero {
+    padding: 42px 0 30px;
+  }
+
+  .collection-hero-grid,
+  .collection-section-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-hero-grid {
+    gap: 24px;
+  }
+
+  .collection-scope-note {
+    max-width: 620px;
+  }
+
+  .collection-section {
+    padding: 56px 0;
+  }
+
+  .collection-section-heading {
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 560px) {
+  .collection-wrap {
+    padding-inline: 18px;
+  }
+
+  .collection-eyebrow {
+    font-size: .7rem;
+  }
+
+  .collection-tool-grid,
+  .collection-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-tool-link {
+    min-height: 112px;
+    padding: 18px 15px;
+  }
+
+  .collection-category-link {
+    min-height: 128px;
+    padding-inline: 4px;
+  }
+}
+
+/* Compact directory presentation shared by All Calculators and each collection page. */
+.kalq-directory-page .collection-wrap {
+  max-width: 1180px;
+}
+
+.kalq-directory-page .collection-hero {
+  padding: 32px 0 28px;
+}
+
+.kalq-directory-page .collection-crumbs {
+  margin-bottom: 16px;
+}
+
+.kalq-directory-page .collection-hero-grid {
+  display: block;
+}
+
+.kalq-directory-page .collection-hero h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2rem, 3.5vw, 2.7rem);
+}
+
+.kalq-directory-page .collection-lead {
+  max-width: 860px;
+  font-size: .94rem;
+}
+
+.kalq-directory-page .collection-scope-note {
+  display: inline-block;
+  max-width: none;
+  margin-top: 18px;
+  padding: 9px 13px;
+  border: 1px solid var(--collection-line);
+  border-left: 3px solid var(--collection-coral);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .5);
+  font-size: .72rem;
+  line-height: 1.4;
+}
+
+.kalq-directory-page .collection-scope-note br {
+  display: none;
+}
+
+.kalq-directory-page .collection-scope-note strong {
+  margin-right: 5px;
+}
+
+.kalq-directory-page .collection-section {
+  padding: 42px 0;
+}
+
+.kalq-directory-page .collection-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 20px;
+}
+
+.kalq-directory-page .collection-section-heading h2 {
+  flex: 0 0 auto;
+  font-size: 1.28rem;
+}
+
+.kalq-directory-page .collection-section-heading p {
+  max-width: 650px;
+  margin: 0;
+  font-size: .8rem;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.kalq-directory-page .collection-tool-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  border: 0;
+  background: transparent;
+}
+
+/* Short collections should use the available width instead of leaving blank
+   third and fourth columns. */
+.kalq-directory-page .collection-tool-grid:has(> :nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.kalq-directory-page .collection-tool-grid:has(> :nth-child(3):last-child) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.kalq-directory-page .collection-tool-link {
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  gap: 11px;
+  min-height: 116px;
+  padding: 16px;
+  border: 1px solid var(--collection-line);
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(15, 44, 61, .03);
+}
+
+.kalq-directory-page .collection-tool-link:hover,
+.kalq-directory-page .collection-tool-link:focus-visible {
+  border-color: rgba(10, 166, 154, .55);
+  box-shadow: 0 10px 24px rgba(15, 44, 61, .07);
+}
+
+.kalq-directory-page .collection-tool-icon {
+  width: 38px;
+  height: 38px;
+  font-size: .61rem;
+}
+
+.kalq-directory-page .collection-tool-copy small {
+  margin-bottom: 4px;
+  font-size: .57rem;
+}
+
+.kalq-directory-page .collection-tool-copy strong {
+  margin-bottom: 4px;
+  font-size: .82rem;
+  line-height: 1.25;
+}
+
+.kalq-directory-page .collection-tool-copy span {
+  font-size: .65rem;
+  line-height: 1.42;
+}
+
+.kalq-directory-page .collection-arrow {
+  font-size: .95rem;
+}
+
+.kalq-directory-page .collection-category-grid {
+  gap: 10px;
+}
+
+.kalq-directory-page .collection-category-link {
+  min-height: 94px;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid var(--collection-line);
+  border-radius: 10px;
+  background: var(--collection-surface);
+  box-shadow: 0 8px 22px rgba(15, 44, 61, .03);
+}
+
+.kalq-directory-page .collection-category-link::before {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--collection-coral);
+  background: var(--collection-mist);
+  font-size: .58rem;
+  letter-spacing: .04em;
+}
+
+.kalq-directory-page .collection-category-link > span {
+  min-width: 0;
+}
+
+.kalq-directory-page .collection-category-link strong {
+  margin: 0 0 4px;
+  font-size: .82rem;
+  line-height: 1.25;
+}
+
+.kalq-directory-page .collection-category-link > span > span {
+  font-size: .64rem;
+  line-height: 1.4;
+}
+
+.kalq-directory-page .collection-category-link:hover,
+.kalq-directory-page .collection-category-link:focus-visible {
+  border-color: rgba(10, 166, 154, .55);
+  box-shadow: 0 10px 24px rgba(15, 44, 61, .07);
+}
+
+.kalq-directory-page .collection-section-warm {
+  border-top: 1px solid var(--collection-line);
+  background: var(--collection-paper);
+}
+
+.kalq-directory-page .collection-section-warm .collection-section-heading {
+  margin-bottom: 16px;
+}
+
+.kalq-directory-page .collection-section-warm .collection-section-heading h2 {
+  font-size: 1.12rem;
+}
+
+.kalq-directory-page .collection-section-warm .collection-section-heading p {
+  font-size: .74rem;
+}
+
+.kalq-directory-page .collection-meta {
+  margin-top: 16px;
+  font-size: .68rem;
+}
+
+html[data-theme="dark"] .kalq-directory-page .collection-scope-note,
+html[data-theme="dark"] .kalq-directory-page .collection-category-link {
+  background: var(--collection-surface);
+}
+
+@media (max-width: 1100px) {
+  .kalq-directory-page .collection-tool-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .kalq-directory-page .collection-section-heading {
+    display: block;
+  }
+
+  .kalq-directory-page .collection-section-heading p {
+    max-width: 680px;
+    margin-top: 8px;
+    text-align: left;
+  }
+
+  .kalq-directory-page .collection-tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .kalq-directory-page .collection-hero {
+    padding: 26px 0 24px;
+  }
+
+  .kalq-directory-page .collection-section {
+    padding: 34px 0;
+  }
+
+  .kalq-directory-page .collection-tool-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .kalq-directory-page .collection-tool-link {
+    min-height: 104px;
+    padding: 15px;
+  }
+}

@@ -1,0 +1,264 @@
+/* Guidance pagination only.
+   Output pages deliberately keep every calculator's original report CSS.
+   No shared cards, borders, coloured fills, padding or column conversions are
+   applied to report output or guidance content. */
+
+.kalq-report-group-page {
+  --kalq-report-block-gap: 4mm;
+  width: 210mm !important;
+  height: 297mm !important;
+  min-height: 297mm !important;
+  max-height: 297mm !important;
+  overflow: hidden !important;
+}
+
+.kalq-report-group-page .report-title {
+  height: auto !important;
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 3.5mm !important;
+  padding-bottom: 2.5mm !important;
+}
+
+.kalq-report-group-page .report-title h1 {
+  margin: 1.5mm 0 1mm !important;
+  font-size: 23pt !important;
+  line-height: 1.08 !important;
+}
+
+.kalq-report-group-page .report-title p {
+  max-width: 165mm !important;
+  margin: 0 !important;
+  font-size: 8.6pt !important;
+  line-height: 1.35 !important;
+}
+
+.kalq-report-group-page .kalq-report-group-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  margin: 2mm 0 0 !important;
+  padding: 0 !important;
+  gap: 3mm !important;
+}
+
+/* Retain each report's authored one-, two-, three- or four-column layout.
+   The wrapper moves as one block; its internal grid is never flattened. */
+.kalq-report-group-page .kalq-report-group-content > * {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 !important;
+}
+
+.kalq-report-group-page .kalq-report-group-content > :is(
+  .report-grid-2,
+  .report-grid-3,
+  .report-grid-4,
+  .analysis-grid
+) {
+  grid-column: 1 / -1 !important;
+}
+
+/* Remove only the shared card treatment. Original page-authored rules remain
+   responsible for typography and any intentional report component styling. */
+.kalq-report-group-page .kalq-report-group-content > :is(
+  .report-section,
+  .analysis-panel,
+  .report-callout
+) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.kalq-report-group-page .kalq-report-group-content :is(p, li, td, th, small, strong, span) {
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+
+.kalq-report-group-page .kalq-report-group-content :is(table, svg, canvas, img, picture, pre) {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.kalq-report-group-page[data-kalq-oversized="true"] .kalq-report-group-content {
+  gap: 3mm !important;
+}
+
+#reportRoot.kalq-report-measuring {
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: -320mm !important;
+  z-index: -9999 !important;
+  width: 210mm !important;
+  height: auto !important;
+  overflow: visible !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+#reportRoot.kalq-report-measuring .report-page {
+  margin: 0 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+#reportRoot .report-page.kalq-report-last-page {
+  break-after: auto !important;
+  page-break-after: auto !important;
+}
+
+/* Preserve every report's authored columns while making paired blocks occupy
+   the same row height. A final table/list may grow into otherwise empty space,
+   but no block is moved, flattened or converted to a different format. */
+#reportRoot .report-page :is(
+  .report-grid-2,
+  .report-grid-3,
+  .report-grid-4,
+  .analysis-grid
+) {
+  align-items: stretch !important;
+}
+
+#reportRoot .report-page :is(
+  .report-grid-2,
+  .report-grid-3,
+  .report-grid-4,
+  .analysis-grid
+) > * {
+  min-width: 0 !important;
+  align-self: stretch !important;
+  box-sizing: border-box !important;
+}
+
+#reportRoot .report-page :is(
+  .report-grid-2,
+  .report-grid-3,
+  .report-grid-4,
+  .analysis-grid
+) > :is(.report-section, .analysis-panel) {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#reportRoot .report-page :is(
+  .report-grid-2,
+  .report-grid-3,
+  .report-grid-4,
+  .analysis-grid
+) > :is(.report-section, .analysis-panel) > :is(
+  .report-table,
+  table,
+  ul,
+  ol,
+  .report-related,
+  .report-findings
+):last-child {
+  flex-grow: 1 !important;
+}
+
+/* Text safety for both original output pages and generated guidance pages. */
+#reportRoot .report-page :is(h1, h2, h3, h4, p, li, td, th, small, strong, span, div) {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+
+#reportRoot .report-page :is(table, svg, canvas, img, picture, pre) {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* The Age calendar pair combines a table with a three-part milestone stack.
+   Give both authored columns the same visible bottom edge while retaining the
+   existing two-column structure and every original report item. */
+#reportPage2 .report-grid-2:first-of-type > .report-section {
+  border-bottom: 1px solid #dce6e3 !important;
+  padding-bottom: 3.5mm !important;
+}
+
+/* These two long output pages exceeded the A4 content area by only a few
+   pixels. Compact their existing inter-section rhythm; no output is removed,
+   moved, resized into another column or clipped. */
+#reportRoot #reportPage2 > .report-section + .report-section {
+  margin-top: 4mm !important;
+}
+
+#reportRoot #reportPage2 .report-callout {
+  margin-top: 2mm !important;
+}
+
+#reportRoot #reportPage2 > .report-section[style*="margin-top:6mm"] {
+  margin-top: 4mm !important;
+}
+
+#reportRoot #reportPage2 > .report-section[style*="margin-top:5mm"] {
+  margin-top: 3.5mm !important;
+}
+
+#reportRoot .report-page:has(#reportBalanceChart) .report-title {
+  padding-bottom: 3mm !important;
+}
+
+#reportRoot .report-page:has(#reportBalanceChart) > .report-section {
+  padding-top: 2.5mm !important;
+}
+
+#reportRoot .report-page:has(#reportBalanceChart) .payment-composition-section {
+  margin-top: 3mm !important;
+}
+
+/* Unit Converter guidance can contain a long, mode-specific references block.
+   Keep it readable on its generated page while avoiding a blank spill page. */
+#reportRoot .kalq-report-group-page[data-kalq-oversized="true"] .kalq-report-group-content {
+  margin-top: 1.5mm !important;
+  gap: 2mm !important;
+}
+
+#reportRoot .kalq-report-group-page[data-kalq-oversized="true"] .report-section :is(p, li, td, th) {
+  line-height: 1.3 !important;
+}
+
+#reportRoot .kalq-report-group-page[data-kalq-oversized="true"] .report-title {
+  padding-top: 2.5mm !important;
+  padding-bottom: 2mm !important;
+}
+
+/* Guidance pages retain the original report header and footer. Use their
+   available A4 body height consistently so long method pages do not clip. */
+#reportRoot .kalq-report-group-page {
+  padding-top: 10mm !important;
+  padding-bottom: 9mm !important;
+}
+
+#reportRoot .kalq-report-group-page .report-masthead {
+  padding-top: 2mm !important;
+  padding-bottom: 2.5mm !important;
+}
+
+@media print {
+  .kalq-report-group-page {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .kalq-report-group-page .kalq-report-group-content > * {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #reportRoot .report-page.kalq-report-last-page {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+}
